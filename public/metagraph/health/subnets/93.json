@@ -6,11 +6,11 @@
   "schema_version": 1,
   "slug": "sn-93",
   "summary": {
-    "avg_latency_ms": 390,
+    "avg_latency_ms": 388,
     "degraded_count": 0,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:58:04.074Z",
-    "last_ok": "2026-06-06T08:58:04.074Z",
+    "last_checked": "2026-06-06T09:20:28.871Z",
+    "last_ok": "2026-06-06T09:20:28.871Z",
     "name": "Bitcast",
     "netuid": 93,
     "ok_count": 4,
@@ -27,9 +27,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:58:03.765Z",
-      "last_ok": "2026-06-06T08:58:03.765Z",
-      "latency_ms": 264,
+      "last_checked": "2026-06-06T09:20:28.372Z",
+      "last_ok": "2026-06-06T09:20:28.372Z",
+      "latency_ms": 200,
       "method_tested": "HEAD",
       "netuid": 93,
       "private_redirect_blocked": false,
@@ -43,7 +43,7 @@
       "surface_id": "sn-93-taomarketcap-dashboard",
       "uptime_sample_ratio": 1,
       "url": "https://taomarketcap.com/subnets/93",
-      "verified_at": "2026-06-06T08:58:03.765Z"
+      "verified_at": "2026-06-06T09:20:28.372Z"
     },
     {
       "auth_required": false,
@@ -52,9 +52,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:58:04.011Z",
-      "last_ok": "2026-06-06T08:58:04.011Z",
-      "latency_ms": 495,
+      "last_checked": "2026-06-06T09:20:28.871Z",
+      "last_ok": "2026-06-06T09:20:28.871Z",
+      "latency_ms": 630,
       "method_tested": "HEAD",
       "netuid": 93,
       "private_redirect_blocked": false,
@@ -66,9 +66,9 @@
       "subnet_name": "Bitcast",
       "subnet_slug": "sn-93",
       "surface_id": "sn-93-taomarketcap-source-repo",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/bitcast-network/bitcast",
-      "verified_at": "2026-06-06T08:58:04.011Z"
+      "verified_at": "2026-06-06T09:20:28.871Z"
     },
     {
       "auth_required": false,
@@ -77,9 +77,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:58:03.842Z",
-      "last_ok": "2026-06-06T08:58:03.842Z",
-      "latency_ms": 308,
+      "last_checked": "2026-06-06T09:20:28.560Z",
+      "last_ok": "2026-06-06T09:20:28.560Z",
+      "latency_ms": 295,
       "method_tested": "HEAD",
       "netuid": 93,
       "private_redirect_blocked": false,
@@ -93,7 +93,7 @@
       "surface_id": "sn-93-taomarketcap-website",
       "uptime_sample_ratio": 1,
       "url": "https://stats.bitcast.network/",
-      "verified_at": "2026-06-06T08:58:03.842Z"
+      "verified_at": "2026-06-06T09:20:28.560Z"
     },
     {
       "auth_required": false,
@@ -102,9 +102,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:58:04.074Z",
-      "last_ok": "2026-06-06T08:58:04.074Z",
-      "latency_ms": 491,
+      "last_checked": "2026-06-06T09:20:28.721Z",
+      "last_ok": "2026-06-06T09:20:28.721Z",
+      "latency_ms": 427,
       "method_tested": "HEAD",
       "netuid": 93,
       "private_redirect_blocked": false,
@@ -116,9 +116,9 @@
       "subnet_name": "Bitcast",
       "subnet_slug": "sn-93",
       "surface_id": "sn-93-tensorplex-docs",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/tensorplex-labs/subnet-docs/tree/main/data/93",
-      "verified_at": "2026-06-06T08:58:04.074Z"
+      "verified_at": "2026-06-06T09:20:28.721Z"
     }
   ]
 }

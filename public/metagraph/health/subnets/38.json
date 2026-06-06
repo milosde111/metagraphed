@@ -6,11 +6,11 @@
   "schema_version": 1,
   "slug": "sn-38",
   "summary": {
-    "avg_latency_ms": 319,
+    "avg_latency_ms": 292,
     "degraded_count": 0,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:57:58.359Z",
-    "last_ok": "2026-06-06T08:57:58.359Z",
+    "last_checked": "2026-06-06T09:20:22.143Z",
+    "last_ok": "2026-06-06T09:20:22.143Z",
     "name": "colosseum",
     "netuid": 38,
     "ok_count": 4,
@@ -27,9 +27,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:57:57.966Z",
-      "last_ok": "2026-06-06T08:57:57.966Z",
-      "latency_ms": 146,
+      "last_checked": "2026-06-06T09:20:21.710Z",
+      "last_ok": "2026-06-06T09:20:21.710Z",
+      "latency_ms": 144,
       "method_tested": "HEAD",
       "netuid": 38,
       "private_redirect_blocked": false,
@@ -43,7 +43,7 @@
       "surface_id": "sn-38-taomarketcap-dashboard",
       "uptime_sample_ratio": 1,
       "url": "https://taomarketcap.com/subnets/38",
-      "verified_at": "2026-06-06T08:57:57.966Z"
+      "verified_at": "2026-06-06T09:20:21.710Z"
     },
     {
       "auth_required": false,
@@ -52,9 +52,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:57:58.359Z",
-      "last_ok": "2026-06-06T08:57:58.359Z",
-      "latency_ms": 524,
+      "last_checked": "2026-06-06T09:20:22.143Z",
+      "last_ok": "2026-06-06T09:20:22.143Z",
+      "latency_ms": 544,
       "method_tested": "HEAD",
       "netuid": 38,
       "private_redirect_blocked": false,
@@ -68,7 +68,7 @@
       "surface_id": "sn-38-taomarketcap-source-repo",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/TAO-Colosseum/tao-colosseum-subnet",
-      "verified_at": "2026-06-06T08:57:58.359Z"
+      "verified_at": "2026-06-06T09:20:22.143Z"
     },
     {
       "auth_required": false,
@@ -77,9 +77,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:57:58.101Z",
-      "last_ok": "2026-06-06T08:57:58.101Z",
-      "latency_ms": 259,
+      "last_checked": "2026-06-06T09:20:21.817Z",
+      "last_ok": "2026-06-06T09:20:21.817Z",
+      "latency_ms": 207,
       "method_tested": "HEAD",
       "netuid": 38,
       "private_redirect_blocked": false,
@@ -93,7 +93,7 @@
       "surface_id": "sn-38-taomarketcap-website",
       "uptime_sample_ratio": 1,
       "url": "https://www.taocolosseum.com/",
-      "verified_at": "2026-06-06T08:57:58.101Z"
+      "verified_at": "2026-06-06T09:20:21.817Z"
     },
     {
       "auth_required": false,
@@ -102,9 +102,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:57:58.235Z",
-      "last_ok": "2026-06-06T08:57:58.235Z",
-      "latency_ms": 347,
+      "last_checked": "2026-06-06T09:20:21.922Z",
+      "last_ok": "2026-06-06T09:20:21.922Z",
+      "latency_ms": 273,
       "method_tested": "HEAD",
       "netuid": 38,
       "private_redirect_blocked": false,
@@ -118,7 +118,7 @@
       "surface_id": "sn-38-tensorplex-docs",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/tensorplex-labs/subnet-docs/tree/main/data/38",
-      "verified_at": "2026-06-06T08:57:58.235Z"
+      "verified_at": "2026-06-06T09:20:21.922Z"
     }
   ]
 }

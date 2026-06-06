@@ -6,11 +6,11 @@
   "schema_version": 1,
   "slug": "sn-10",
   "summary": {
-    "avg_latency_ms": 335,
+    "avg_latency_ms": 333,
     "degraded_count": 0,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:57:55.600Z",
-    "last_ok": "2026-06-06T08:57:55.600Z",
+    "last_checked": "2026-06-06T09:20:19.513Z",
+    "last_ok": "2026-06-06T09:20:19.513Z",
     "name": "Swap",
     "netuid": 10,
     "ok_count": 4,
@@ -27,9 +27,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:57:55.251Z",
-      "last_ok": "2026-06-06T08:57:55.251Z",
-      "latency_ms": 153,
+      "last_checked": "2026-06-06T09:20:19.269Z",
+      "last_ok": "2026-06-06T09:20:19.269Z",
+      "latency_ms": 287,
       "method_tested": "HEAD",
       "netuid": 10,
       "private_redirect_blocked": false,
@@ -43,7 +43,7 @@
       "surface_id": "sn-10-taomarketcap-dashboard",
       "uptime_sample_ratio": 1,
       "url": "https://taomarketcap.com/subnets/10",
-      "verified_at": "2026-06-06T08:57:55.251Z"
+      "verified_at": "2026-06-06T09:20:19.269Z"
     },
     {
       "auth_required": false,
@@ -52,9 +52,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:57:55.477Z",
-      "last_ok": "2026-06-06T08:57:55.477Z",
-      "latency_ms": 336,
+      "last_checked": "2026-06-06T09:20:19.513Z",
+      "last_ok": "2026-06-06T09:20:19.513Z",
+      "latency_ms": 523,
       "method_tested": "HEAD",
       "netuid": 10,
       "private_redirect_blocked": false,
@@ -68,7 +68,7 @@
       "surface_id": "sn-10-taomarketcap-source-repo",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/Swap-Subnet/swap-subnet",
-      "verified_at": "2026-06-06T08:57:55.477Z"
+      "verified_at": "2026-06-06T09:20:19.513Z"
     },
     {
       "auth_required": false,
@@ -77,9 +77,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:57:55.561Z",
-      "last_ok": "2026-06-06T08:57:55.561Z",
-      "latency_ms": 412,
+      "last_checked": "2026-06-06T09:20:19.168Z",
+      "last_ok": "2026-06-06T09:20:19.168Z",
+      "latency_ms": 178,
       "method_tested": "HEAD",
       "netuid": 10,
       "private_redirect_blocked": false,
@@ -93,7 +93,7 @@
       "surface_id": "sn-10-taomarketcap-website",
       "uptime_sample_ratio": 1,
       "url": "https://www.taofi.com/pool",
-      "verified_at": "2026-06-06T08:57:55.561Z"
+      "verified_at": "2026-06-06T09:20:19.168Z"
     },
     {
       "auth_required": false,
@@ -102,9 +102,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:57:55.600Z",
-      "last_ok": "2026-06-06T08:57:55.600Z",
-      "latency_ms": 438,
+      "last_checked": "2026-06-06T09:20:19.342Z",
+      "last_ok": "2026-06-06T09:20:19.342Z",
+      "latency_ms": 343,
       "method_tested": "HEAD",
       "netuid": 10,
       "private_redirect_blocked": false,
@@ -118,7 +118,7 @@
       "surface_id": "sn-10-tensorplex-docs",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/tensorplex-labs/subnet-docs/tree/main/data/10",
-      "verified_at": "2026-06-06T08:57:55.600Z"
+      "verified_at": "2026-06-06T09:20:19.342Z"
     }
   ]
 }

@@ -6,11 +6,11 @@
   "schema_version": 1,
   "slug": "sn-34",
   "summary": {
-    "avg_latency_ms": 344,
+    "avg_latency_ms": 349,
     "degraded_count": 0,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:57:57.903Z",
-    "last_ok": "2026-06-06T08:57:57.903Z",
+    "last_checked": "2026-06-06T09:20:21.705Z",
+    "last_ok": "2026-06-06T09:20:21.705Z",
     "name": "BitMind",
     "netuid": 34,
     "ok_count": 3,
@@ -27,9 +27,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:57:57.530Z",
-      "last_ok": "2026-06-06T08:57:57.530Z",
-      "latency_ms": 142,
+      "last_checked": "2026-06-06T09:20:21.395Z",
+      "last_ok": "2026-06-06T09:20:21.395Z",
+      "latency_ms": 177,
       "method_tested": "HEAD",
       "netuid": 34,
       "private_redirect_blocked": false,
@@ -43,7 +43,7 @@
       "surface_id": "sn-34-taomarketcap-dashboard",
       "uptime_sample_ratio": 1,
       "url": "https://taomarketcap.com/subnets/34",
-      "verified_at": "2026-06-06T08:57:57.530Z"
+      "verified_at": "2026-06-06T09:20:21.395Z"
     },
     {
       "auth_required": false,
@@ -52,9 +52,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:57:57.903Z",
-      "last_ok": "2026-06-06T08:57:57.903Z",
-      "latency_ms": 512,
+      "last_checked": "2026-06-06T09:20:21.705Z",
+      "last_ok": "2026-06-06T09:20:21.705Z",
+      "latency_ms": 487,
       "method_tested": "HEAD",
       "netuid": 34,
       "private_redirect_blocked": false,
@@ -68,7 +68,7 @@
       "surface_id": "sn-34-taomarketcap-source-repo",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/BitMind-AI/bitmind-subnet",
-      "verified_at": "2026-06-06T08:57:57.903Z"
+      "verified_at": "2026-06-06T09:20:21.705Z"
     },
     {
       "auth_required": false,
@@ -77,9 +77,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:57:57.771Z",
-      "last_ok": "2026-06-06T08:57:57.771Z",
-      "latency_ms": 378,
+      "last_checked": "2026-06-06T09:20:21.610Z",
+      "last_ok": "2026-06-06T09:20:21.610Z",
+      "latency_ms": 384,
       "method_tested": "HEAD",
       "netuid": 34,
       "private_redirect_blocked": false,
@@ -93,7 +93,7 @@
       "surface_id": "sn-34-tensorplex-docs",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/tensorplex-labs/subnet-docs/tree/main/data/34",
-      "verified_at": "2026-06-06T08:57:57.771Z"
+      "verified_at": "2026-06-06T09:20:21.610Z"
     }
   ]
 }

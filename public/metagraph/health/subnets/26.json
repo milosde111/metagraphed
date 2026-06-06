@@ -6,11 +6,11 @@
   "schema_version": 1,
   "slug": "sn-26",
   "summary": {
-    "avg_latency_ms": 316,
+    "avg_latency_ms": 347,
     "degraded_count": 0,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:57:57.387Z",
-    "last_ok": "2026-06-06T08:57:57.387Z",
+    "last_checked": "2026-06-06T09:20:21.417Z",
+    "last_ok": "2026-06-06T09:20:21.417Z",
     "name": "Perturb",
     "netuid": 26,
     "ok_count": 4,
@@ -27,9 +27,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:57:57.069Z",
-      "last_ok": "2026-06-06T08:57:57.069Z",
-      "latency_ms": 195,
+      "last_checked": "2026-06-06T09:20:20.852Z",
+      "last_ok": "2026-06-06T09:20:20.852Z",
+      "latency_ms": 143,
       "method_tested": "HEAD",
       "netuid": 26,
       "private_redirect_blocked": false,
@@ -43,7 +43,7 @@
       "surface_id": "sn-26-taomarketcap-dashboard",
       "uptime_sample_ratio": 1,
       "url": "https://taomarketcap.com/subnets/26",
-      "verified_at": "2026-06-06T08:57:57.069Z"
+      "verified_at": "2026-06-06T09:20:20.852Z"
     },
     {
       "auth_required": false,
@@ -52,9 +52,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:57:57.387Z",
-      "last_ok": "2026-06-06T08:57:57.387Z",
-      "latency_ms": 513,
+      "last_checked": "2026-06-06T09:20:21.417Z",
+      "last_ok": "2026-06-06T09:20:21.417Z",
+      "latency_ms": 707,
       "method_tested": "HEAD",
       "netuid": 26,
       "private_redirect_blocked": false,
@@ -68,7 +68,7 @@
       "surface_id": "sn-26-taomarketcap-source-repo",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/0xsigurd/Perturb",
-      "verified_at": "2026-06-06T08:57:57.387Z"
+      "verified_at": "2026-06-06T09:20:21.417Z"
     },
     {
       "auth_required": false,
@@ -77,9 +77,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:57:57.166Z",
-      "last_ok": "2026-06-06T08:57:57.166Z",
-      "latency_ms": 197,
+      "last_checked": "2026-06-06T09:20:20.879Z",
+      "last_ok": "2026-06-06T09:20:20.879Z",
+      "latency_ms": 168,
       "method_tested": "HEAD",
       "netuid": 26,
       "private_redirect_blocked": false,
@@ -93,7 +93,7 @@
       "surface_id": "sn-26-taomarketcap-website",
       "uptime_sample_ratio": 1,
       "url": "https://www.perturbai.io/",
-      "verified_at": "2026-06-06T08:57:57.166Z"
+      "verified_at": "2026-06-06T09:20:20.879Z"
     },
     {
       "auth_required": false,
@@ -102,9 +102,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:57:57.328Z",
-      "last_ok": "2026-06-06T08:57:57.328Z",
-      "latency_ms": 359,
+      "last_checked": "2026-06-06T09:20:21.133Z",
+      "last_ok": "2026-06-06T09:20:21.133Z",
+      "latency_ms": 369,
       "method_tested": "HEAD",
       "netuid": 26,
       "private_redirect_blocked": false,
@@ -118,7 +118,7 @@
       "surface_id": "sn-26-tensorplex-docs",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/tensorplex-labs/subnet-docs/tree/main/data/26",
-      "verified_at": "2026-06-06T08:57:57.328Z"
+      "verified_at": "2026-06-06T09:20:21.133Z"
     }
   ]
 }

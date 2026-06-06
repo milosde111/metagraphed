@@ -6,16 +6,16 @@
   "schema_version": 1,
   "slug": "sn-81",
   "summary": {
-    "avg_latency_ms": 271,
-    "degraded_count": 0,
+    "avg_latency_ms": 298,
+    "degraded_count": 1,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:58:02.791Z",
-    "last_ok": "2026-06-06T08:58:02.791Z",
+    "last_checked": "2026-06-06T09:20:27.450Z",
+    "last_ok": "2026-06-06T09:20:27.450Z",
     "name": "deprecated",
     "netuid": 81,
-    "ok_count": 7,
+    "ok_count": 6,
     "slug": "sn-81",
-    "status": "ok",
+    "status": "degraded",
     "surface_count": 7,
     "unknown_count": 0
   },
@@ -27,8 +27,8 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:58:02.319Z",
-      "last_ok": "2026-06-06T08:58:02.319Z",
+      "last_checked": "2026-06-06T09:20:26.826Z",
+      "last_ok": "2026-06-06T09:20:26.826Z",
       "latency_ms": 28,
       "method_tested": "HEAD",
       "netuid": 81,
@@ -43,32 +43,32 @@
       "surface_id": "sn-81-github-readme-tplr-ai-grail-dashboard-2",
       "uptime_sample_ratio": 1,
       "url": "https://img.shields.io/badge/W%26B-Public%20Dashboard-FFBE00?logo=weightsandbiases",
-      "verified_at": "2026-06-06T08:58:02.319Z"
+      "verified_at": "2026-06-06T09:20:26.826Z"
     },
     {
       "auth_required": false,
-      "classification": "live",
-      "content_type": "text/html; charset=utf-8",
+      "classification": "rate-limited",
+      "content_type": "text/html",
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:58:02.791Z",
-      "last_ok": "2026-06-06T08:58:02.791Z",
-      "latency_ms": 472,
+      "last_checked": "2026-06-06T09:20:27.026Z",
+      "last_ok": "2026-06-06T09:17:34.682Z",
+      "latency_ms": 215,
       "method_tested": "HEAD",
       "netuid": 81,
       "private_redirect_blocked": false,
       "provider": "tensorplex-subnet-docs",
       "public_safe": true,
       "redirect_target": null,
-      "status": "ok",
-      "status_code": 200,
+      "status": "degraded",
+      "status_code": 429,
       "subnet_name": "deprecated",
       "subnet_slug": "sn-81",
       "surface_id": "sn-81-github-readme-tplr-ai-grail-website-3",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/one-covenant/grail/commits/main",
-      "verified_at": "2026-06-06T08:58:02.791Z"
+      "verified_at": "2026-06-06T09:20:27.026Z"
     },
     {
       "auth_required": false,
@@ -77,9 +77,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:58:02.738Z",
-      "last_ok": "2026-06-06T08:58:02.738Z",
-      "latency_ms": 415,
+      "last_checked": "2026-06-06T09:20:27.370Z",
+      "last_ok": "2026-06-06T09:20:27.370Z",
+      "latency_ms": 544,
       "method_tested": "HEAD",
       "netuid": 81,
       "private_redirect_blocked": false,
@@ -93,7 +93,7 @@
       "surface_id": "sn-81-github-readme-tplr-ai-grail-website-4",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/one-covenant/grail",
-      "verified_at": "2026-06-06T08:58:02.738Z"
+      "verified_at": "2026-06-06T09:20:27.370Z"
     },
     {
       "auth_required": false,
@@ -102,9 +102,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:58:02.549Z",
-      "last_ok": "2026-06-06T08:58:02.549Z",
-      "latency_ms": 181,
+      "last_checked": "2026-06-06T09:20:27.178Z",
+      "last_ok": "2026-06-06T09:20:27.178Z",
+      "latency_ms": 282,
       "method_tested": "HEAD",
       "netuid": 81,
       "private_redirect_blocked": false,
@@ -118,7 +118,7 @@
       "surface_id": "sn-81-taomarketcap-dashboard",
       "uptime_sample_ratio": 1,
       "url": "https://taomarketcap.com/subnets/81",
-      "verified_at": "2026-06-06T08:58:02.549Z"
+      "verified_at": "2026-06-06T09:20:27.178Z"
     },
     {
       "auth_required": false,
@@ -127,9 +127,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:58:02.760Z",
-      "last_ok": "2026-06-06T08:58:02.760Z",
-      "latency_ms": 380,
+      "last_checked": "2026-06-06T09:20:27.450Z",
+      "last_ok": "2026-06-06T09:20:27.450Z",
+      "latency_ms": 545,
       "method_tested": "HEAD",
       "netuid": 81,
       "private_redirect_blocked": false,
@@ -141,9 +141,9 @@
       "subnet_name": "deprecated",
       "subnet_slug": "sn-81",
       "surface_id": "sn-81-tensorplex-docs",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/tensorplex-labs/subnet-docs/tree/main/data/81",
-      "verified_at": "2026-06-06T08:58:02.760Z"
+      "verified_at": "2026-06-06T09:20:27.450Z"
     },
     {
       "auth_required": false,
@@ -152,9 +152,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:58:02.736Z",
-      "last_ok": "2026-06-06T08:58:02.736Z",
-      "latency_ms": 348,
+      "last_checked": "2026-06-06T09:20:27.361Z",
+      "last_ok": "2026-06-06T09:20:27.361Z",
+      "latency_ms": 397,
       "method_tested": "HEAD",
       "netuid": 81,
       "private_redirect_blocked": false,
@@ -166,9 +166,9 @@
       "subnet_name": "deprecated",
       "subnet_slug": "sn-81",
       "surface_id": "sn-81-tensorplex-source-repo-1",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/tplr-ai/grail",
-      "verified_at": "2026-06-06T08:58:02.736Z"
+      "verified_at": "2026-06-06T09:20:27.361Z"
     },
     {
       "auth_required": false,
@@ -177,8 +177,8 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:58:02.466Z",
-      "last_ok": "2026-06-06T08:58:02.466Z",
+      "last_checked": "2026-06-06T09:20:27.068Z",
+      "last_ok": "2026-06-06T09:20:27.068Z",
       "latency_ms": 76,
       "method_tested": "HEAD",
       "netuid": 81,
@@ -191,9 +191,9 @@
       "subnet_name": "deprecated",
       "subnet_slug": "sn-81",
       "surface_id": "sn-81-website-common-docs",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/docs",
-      "verified_at": "2026-06-06T08:58:02.466Z"
+      "verified_at": "2026-06-06T09:20:27.068Z"
     }
   ]
 }

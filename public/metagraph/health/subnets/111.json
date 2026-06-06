@@ -6,11 +6,11 @@
   "schema_version": 1,
   "slug": "sn-111",
   "summary": {
-    "avg_latency_ms": 559,
+    "avg_latency_ms": 401,
     "degraded_count": 0,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:58:06.502Z",
-    "last_ok": "2026-06-06T08:58:06.502Z",
+    "last_checked": "2026-06-06T09:20:30.893Z",
+    "last_ok": "2026-06-06T09:20:30.893Z",
     "name": "oneoneone",
     "netuid": 111,
     "ok_count": 3,
@@ -27,9 +27,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:58:05.573Z",
-      "last_ok": "2026-06-06T08:58:05.573Z",
-      "latency_ms": 132,
+      "last_checked": "2026-06-06T09:20:30.844Z",
+      "last_ok": "2026-06-06T09:20:30.844Z",
+      "latency_ms": 390,
       "method_tested": "HEAD",
       "netuid": 111,
       "private_redirect_blocked": false,
@@ -43,7 +43,7 @@
       "surface_id": "sn-111-taomarketcap-dashboard",
       "uptime_sample_ratio": 1,
       "url": "https://taomarketcap.com/subnets/111",
-      "verified_at": "2026-06-06T08:58:05.573Z"
+      "verified_at": "2026-06-06T09:20:30.844Z"
     },
     {
       "auth_required": false,
@@ -52,9 +52,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:58:06.019Z",
-      "last_ok": "2026-06-06T08:58:06.019Z",
-      "latency_ms": 533,
+      "last_checked": "2026-06-06T09:20:30.893Z",
+      "last_ok": "2026-06-06T09:20:30.893Z",
+      "latency_ms": 410,
       "method_tested": "HEAD",
       "netuid": 111,
       "private_redirect_blocked": false,
@@ -66,9 +66,9 @@
       "subnet_name": "oneoneone",
       "subnet_slug": "sn-111",
       "surface_id": "sn-111-taomarketcap-source-repo",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/oneoneone-io/subnet-111",
-      "verified_at": "2026-06-06T08:58:06.019Z"
+      "verified_at": "2026-06-06T09:20:30.893Z"
     },
     {
       "auth_required": false,
@@ -77,9 +77,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:58:06.502Z",
-      "last_ok": "2026-06-06T08:58:06.502Z",
-      "latency_ms": 1011,
+      "last_checked": "2026-06-06T09:20:30.886Z",
+      "last_ok": "2026-06-06T09:20:30.886Z",
+      "latency_ms": 403,
       "method_tested": "HEAD",
       "netuid": 111,
       "private_redirect_blocked": false,
@@ -91,9 +91,9 @@
       "subnet_name": "oneoneone",
       "subnet_slug": "sn-111",
       "surface_id": "sn-111-tensorplex-docs",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/tensorplex-labs/subnet-docs/tree/main/data/111",
-      "verified_at": "2026-06-06T08:58:06.502Z"
+      "verified_at": "2026-06-06T09:20:30.886Z"
     }
   ]
 }

@@ -6,11 +6,11 @@
   "schema_version": 1,
   "slug": "allways",
   "summary": {
-    "avg_latency_ms": 214,
+    "avg_latency_ms": 197,
     "degraded_count": 0,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:57:55.349Z",
-    "last_ok": "2026-06-06T08:57:55.349Z",
+    "last_checked": "2026-06-06T09:20:19.250Z",
+    "last_ok": "2026-06-06T09:20:19.250Z",
     "name": "Allways",
     "netuid": 7,
     "ok_count": 14,
@@ -27,9 +27,9 @@
       "error": null,
       "error_class": null,
       "kind": "subnet-api",
-      "last_checked": "2026-06-06T08:57:54.856Z",
-      "last_ok": "2026-06-06T08:57:54.856Z",
-      "latency_ms": 158,
+      "last_checked": "2026-06-06T09:20:18.774Z",
+      "last_ok": "2026-06-06T09:20:18.774Z",
+      "latency_ms": 152,
       "method_tested": "GET",
       "netuid": 7,
       "private_redirect_blocked": false,
@@ -43,7 +43,7 @@
       "surface_id": "allways-api-health",
       "uptime_sample_ratio": 1,
       "url": "https://api.all-ways.io/health",
-      "verified_at": "2026-06-06T08:57:54.856Z"
+      "verified_at": "2026-06-06T09:20:18.774Z"
     },
     {
       "auth_required": false,
@@ -52,9 +52,9 @@
       "error": null,
       "error_class": null,
       "kind": "subnet-api",
-      "last_checked": "2026-06-06T08:57:54.878Z",
-      "last_ok": "2026-06-06T08:57:54.878Z",
-      "latency_ms": 176,
+      "last_checked": "2026-06-06T09:20:18.774Z",
+      "last_ok": "2026-06-06T09:20:18.774Z",
+      "latency_ms": 152,
       "method_tested": "GET",
       "netuid": 7,
       "private_redirect_blocked": false,
@@ -68,7 +68,7 @@
       "surface_id": "allways-crown",
       "uptime_sample_ratio": 1,
       "url": "https://api.all-ways.io/crown",
-      "verified_at": "2026-06-06T08:57:54.878Z"
+      "verified_at": "2026-06-06T09:20:18.774Z"
     },
     {
       "auth_required": false,
@@ -77,9 +77,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:57:55.050Z",
-      "last_ok": "2026-06-06T08:57:55.050Z",
-      "latency_ms": 320,
+      "last_checked": "2026-06-06T09:20:18.845Z",
+      "last_ok": "2026-06-06T09:20:18.845Z",
+      "latency_ms": 221,
       "method_tested": "GET",
       "netuid": 7,
       "private_redirect_blocked": false,
@@ -93,7 +93,7 @@
       "surface_id": "allways-docs",
       "uptime_sample_ratio": 1,
       "url": "https://docs.all-ways.io/how-it-works.html",
-      "verified_at": "2026-06-06T08:57:55.050Z"
+      "verified_at": "2026-06-06T09:20:18.845Z"
     },
     {
       "auth_required": false,
@@ -102,9 +102,9 @@
       "error": null,
       "error_class": null,
       "kind": "subnet-api",
-      "last_checked": "2026-06-06T08:57:54.894Z",
-      "last_ok": "2026-06-06T08:57:54.894Z",
-      "latency_ms": 153,
+      "last_checked": "2026-06-06T09:20:18.773Z",
+      "last_ok": "2026-06-06T09:20:18.773Z",
+      "latency_ms": 136,
       "method_tested": "GET",
       "netuid": 7,
       "private_redirect_blocked": false,
@@ -118,7 +118,7 @@
       "surface_id": "allways-events-latest",
       "uptime_sample_ratio": 1,
       "url": "https://api.all-ways.io/events/latest",
-      "verified_at": "2026-06-06T08:57:54.894Z"
+      "verified_at": "2026-06-06T09:20:18.773Z"
     },
     {
       "auth_required": false,
@@ -127,9 +127,9 @@
       "error": null,
       "error_class": null,
       "kind": "subnet-api",
-      "last_checked": "2026-06-06T08:57:54.933Z",
-      "last_ok": "2026-06-06T08:57:54.933Z",
-      "latency_ms": 144,
+      "last_checked": "2026-06-06T09:20:18.769Z",
+      "last_ok": "2026-06-06T09:20:18.769Z",
+      "latency_ms": 131,
       "method_tested": "GET",
       "netuid": 7,
       "private_redirect_blocked": false,
@@ -143,7 +143,7 @@
       "surface_id": "allways-miners",
       "uptime_sample_ratio": 1,
       "url": "https://api.all-ways.io/miners",
-      "verified_at": "2026-06-06T08:57:54.933Z"
+      "verified_at": "2026-06-06T09:20:18.769Z"
     },
     {
       "auth_required": false,
@@ -152,9 +152,9 @@
       "error": null,
       "error_class": null,
       "kind": "subnet-api",
-      "last_checked": "2026-06-06T08:57:55.349Z",
-      "last_ok": "2026-06-06T08:57:55.349Z",
-      "latency_ms": 551,
+      "last_checked": "2026-06-06T09:20:19.194Z",
+      "last_ok": "2026-06-06T09:20:19.194Z",
+      "latency_ms": 549,
       "method_tested": "GET",
       "netuid": 7,
       "private_redirect_blocked": false,
@@ -168,7 +168,7 @@
       "surface_id": "allways-miners-leaderboard",
       "uptime_sample_ratio": 1,
       "url": "https://api.all-ways.io/miners/leaderboard",
-      "verified_at": "2026-06-06T08:57:55.349Z"
+      "verified_at": "2026-06-06T09:20:19.194Z"
     },
     {
       "auth_required": false,
@@ -177,9 +177,9 @@
       "error": null,
       "error_class": null,
       "kind": "subnet-api",
-      "last_checked": "2026-06-06T08:57:54.955Z",
-      "last_ok": "2026-06-06T08:57:54.955Z",
-      "latency_ms": 145,
+      "last_checked": "2026-06-06T09:20:18.826Z",
+      "last_ok": "2026-06-06T09:20:18.826Z",
+      "latency_ms": 172,
       "method_tested": "GET",
       "netuid": 7,
       "private_redirect_blocked": false,
@@ -193,7 +193,7 @@
       "surface_id": "allways-miners-reliability",
       "uptime_sample_ratio": 1,
       "url": "https://api.all-ways.io/miners/reliability",
-      "verified_at": "2026-06-06T08:57:54.955Z"
+      "verified_at": "2026-06-06T09:20:18.826Z"
     },
     {
       "auth_required": false,
@@ -202,9 +202,9 @@
       "error": null,
       "error_class": null,
       "kind": "subnet-api",
-      "last_checked": "2026-06-06T08:57:55.072Z",
-      "last_ok": "2026-06-06T08:57:55.072Z",
-      "latency_ms": 240,
+      "last_checked": "2026-06-06T09:20:18.845Z",
+      "last_ok": "2026-06-06T09:20:18.845Z",
+      "latency_ms": 181,
       "method_tested": "GET",
       "netuid": 7,
       "private_redirect_blocked": false,
@@ -218,7 +218,7 @@
       "surface_id": "allways-network-overview",
       "uptime_sample_ratio": 1,
       "url": "https://api.all-ways.io/network/overview",
-      "verified_at": "2026-06-06T08:57:55.072Z"
+      "verified_at": "2026-06-06T09:20:18.845Z"
     },
     {
       "auth_required": false,
@@ -227,9 +227,9 @@
       "error": null,
       "error_class": null,
       "kind": "subnet-api",
-      "last_checked": "2026-06-06T08:57:55.002Z",
-      "last_ok": "2026-06-06T08:57:55.002Z",
-      "latency_ms": 159,
+      "last_checked": "2026-06-06T09:20:18.905Z",
+      "last_ok": "2026-06-06T09:20:18.905Z",
+      "latency_ms": 152,
       "method_tested": "GET",
       "netuid": 7,
       "private_redirect_blocked": false,
@@ -243,7 +243,7 @@
       "surface_id": "allways-protocol-chain-state",
       "uptime_sample_ratio": 1,
       "url": "https://api.all-ways.io/protocol/chain-state",
-      "verified_at": "2026-06-06T08:57:55.002Z"
+      "verified_at": "2026-06-06T09:20:18.905Z"
     },
     {
       "auth_required": false,
@@ -252,9 +252,9 @@
       "error": null,
       "error_class": null,
       "kind": "subnet-api",
-      "last_checked": "2026-06-06T08:57:55.001Z",
-      "last_ok": "2026-06-06T08:57:55.001Z",
-      "latency_ms": 144,
+      "last_checked": "2026-06-06T09:20:18.896Z",
+      "last_ok": "2026-06-06T09:20:18.896Z",
+      "latency_ms": 127,
       "method_tested": "GET",
       "netuid": 7,
       "private_redirect_blocked": false,
@@ -268,7 +268,7 @@
       "surface_id": "allways-protocol-constants",
       "uptime_sample_ratio": 1,
       "url": "https://api.all-ways.io/protocol/constants",
-      "verified_at": "2026-06-06T08:57:55.001Z"
+      "verified_at": "2026-06-06T09:20:18.896Z"
     },
     {
       "auth_required": false,
@@ -277,9 +277,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:57:55.317Z",
-      "last_ok": "2026-06-06T08:57:55.317Z",
-      "latency_ms": 439,
+      "last_checked": "2026-06-06T09:20:19.250Z",
+      "last_ok": "2026-06-06T09:20:19.250Z",
+      "latency_ms": 477,
       "method_tested": "HEAD",
       "netuid": 7,
       "private_redirect_blocked": false,
@@ -293,7 +293,7 @@
       "surface_id": "allways-source-repo",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/entrius/allways",
-      "verified_at": "2026-06-06T08:57:55.317Z"
+      "verified_at": "2026-06-06T09:20:19.250Z"
     },
     {
       "auth_required": false,
@@ -302,9 +302,9 @@
       "error": null,
       "error_class": null,
       "kind": "sse",
-      "last_checked": "2026-06-06T08:57:54.955Z",
-      "last_ok": "2026-06-06T08:57:54.955Z",
-      "latency_ms": 60,
+      "last_checked": "2026-06-06T09:20:18.835Z",
+      "last_ok": "2026-06-06T09:20:18.835Z",
+      "latency_ms": 61,
       "method_tested": "GET",
       "netuid": 7,
       "private_redirect_blocked": false,
@@ -318,7 +318,7 @@
       "surface_id": "allways-sse",
       "uptime_sample_ratio": 1,
       "url": "https://api.all-ways.io/sse",
-      "verified_at": "2026-06-06T08:57:54.955Z"
+      "verified_at": "2026-06-06T09:20:18.835Z"
     },
     {
       "auth_required": false,
@@ -327,9 +327,9 @@
       "error": null,
       "error_class": null,
       "kind": "openapi",
-      "last_checked": "2026-06-06T08:57:54.976Z",
-      "last_ok": "2026-06-06T08:57:54.976Z",
-      "latency_ms": 62,
+      "last_checked": "2026-06-06T09:20:18.841Z",
+      "last_ok": "2026-06-06T09:20:18.841Z",
+      "latency_ms": 67,
       "method_tested": "GET",
       "netuid": 7,
       "private_redirect_blocked": false,
@@ -343,7 +343,7 @@
       "surface_id": "allways-swagger",
       "uptime_sample_ratio": 1,
       "url": "https://api.all-ways.io/swagger",
-      "verified_at": "2026-06-06T08:57:54.976Z"
+      "verified_at": "2026-06-06T09:20:18.841Z"
     },
     {
       "auth_required": false,
@@ -352,9 +352,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:57:55.162Z",
-      "last_ok": "2026-06-06T08:57:55.162Z",
-      "latency_ms": 240,
+      "last_checked": "2026-06-06T09:20:18.955Z",
+      "last_ok": "2026-06-06T09:20:18.955Z",
+      "latency_ms": 175,
       "method_tested": "HEAD",
       "netuid": 7,
       "private_redirect_blocked": false,
@@ -368,7 +368,7 @@
       "surface_id": "allways-website",
       "uptime_sample_ratio": 1,
       "url": "https://all-ways.io/",
-      "verified_at": "2026-06-06T08:57:55.162Z"
+      "verified_at": "2026-06-06T09:20:18.955Z"
     }
   ]
 }

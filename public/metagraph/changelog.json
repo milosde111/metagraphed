@@ -1,0 +1,72 @@
+{
+  "artifacts": {
+    "added": [],
+    "modified": [
+      {
+        "hash": "732ce7a19f05b59680bbcd9324b20ca0dc402370fb79072e1922ec89a109c6bc",
+        "path": "freshness.json"
+      },
+      {
+        "hash": "fd9c274b5b269dedb1744138e8c5fd2bd401a595a1f6c0ad1abe46a4c2031c5c",
+        "path": "health/badges/7.json"
+      },
+      {
+        "hash": "dc30f8693935e4dd699837f50985ced1c93537a07a3a03f111043dce3639c83e",
+        "path": "health/latest.json"
+      },
+      {
+        "hash": "f5079e76d25780e4868802947eb5ae223115cfacdf964b9e50d6421615c1f2ee",
+        "path": "health/subnets/7.json"
+      },
+      {
+        "hash": "bbb7c433a5076503f1dbcbac46d872084014f41121f546b4c9b8c26d52d97276",
+        "path": "health/summary.json"
+      }
+    ],
+    "removed": []
+  },
+  "contract_version": "2026-06-06.1",
+  "generated_at": "1970-01-01T00:00:00.000Z",
+  "notes": [
+    "This changelog compares the latest generated artifacts against the previous checked-in public artifact state before the build.",
+    "Long-term historical runs are expected to live in R2 under versioned prefixes."
+  ],
+  "schema_version": 1,
+  "source": "generated-artifact-diff",
+  "subnets": {
+    "added": [],
+    "removed": [],
+    "renamed": []
+  },
+  "summary": {
+    "artifact_added_count": 0,
+    "artifact_modified_count": 5,
+    "artifact_removed_count": 0,
+    "coverage_delta": {
+      "candidate_count": {
+        "after": 845,
+        "before": 845,
+        "delta": 0
+      },
+      "curated_overlay_count": {
+        "after": 129,
+        "before": 129,
+        "delta": 0
+      },
+      "native_only_count": {
+        "after": 0,
+        "before": 0,
+        "delta": 0
+      },
+      "provider_count": null,
+      "surface_count": {
+        "after": 589,
+        "before": 589,
+        "delta": 0
+      }
+    },
+    "netuid_added_count": 0,
+    "netuid_removed_count": 0,
+    "netuid_renamed_count": 0
+  }
+}

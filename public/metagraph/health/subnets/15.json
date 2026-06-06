@@ -6,11 +6,11 @@
   "schema_version": 1,
   "slug": "sn-15",
   "summary": {
-    "avg_latency_ms": 357,
+    "avg_latency_ms": 292,
     "degraded_count": 0,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:57:56.207Z",
-    "last_ok": "2026-06-06T08:57:56.207Z",
+    "last_checked": "2026-06-06T09:20:19.974Z",
+    "last_ok": "2026-06-06T09:20:19.974Z",
     "name": "ORO",
     "netuid": 15,
     "ok_count": 4,
@@ -27,9 +27,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:57:55.861Z",
-      "last_ok": "2026-06-06T08:57:55.861Z",
-      "latency_ms": 187,
+      "last_checked": "2026-06-06T09:20:19.695Z",
+      "last_ok": "2026-06-06T09:20:19.695Z",
+      "latency_ms": 182,
       "method_tested": "HEAD",
       "netuid": 15,
       "private_redirect_blocked": false,
@@ -43,7 +43,7 @@
       "surface_id": "sn-15-taomarketcap-dashboard",
       "uptime_sample_ratio": 1,
       "url": "https://taomarketcap.com/subnets/15",
-      "verified_at": "2026-06-06T08:57:55.861Z"
+      "verified_at": "2026-06-06T09:20:19.695Z"
     },
     {
       "auth_required": false,
@@ -52,9 +52,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:57:56.207Z",
-      "last_ok": "2026-06-06T08:57:56.207Z",
-      "latency_ms": 528,
+      "last_checked": "2026-06-06T09:20:19.974Z",
+      "last_ok": "2026-06-06T09:20:19.974Z",
+      "latency_ms": 458,
       "method_tested": "HEAD",
       "netuid": 15,
       "private_redirect_blocked": false,
@@ -68,7 +68,7 @@
       "surface_id": "sn-15-taomarketcap-source-repo",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/ORO-AI/oro",
-      "verified_at": "2026-06-06T08:57:56.207Z"
+      "verified_at": "2026-06-06T09:20:19.974Z"
     },
     {
       "auth_required": false,
@@ -77,9 +77,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:57:56.009Z",
-      "last_ok": "2026-06-06T08:57:56.009Z",
-      "latency_ms": 330,
+      "last_checked": "2026-06-06T09:20:19.743Z",
+      "last_ok": "2026-06-06T09:20:19.743Z",
+      "latency_ms": 226,
       "method_tested": "HEAD",
       "netuid": 15,
       "private_redirect_blocked": false,
@@ -93,7 +93,7 @@
       "surface_id": "sn-15-taomarketcap-website",
       "uptime_sample_ratio": 1,
       "url": "https://oroagents.com/",
-      "verified_at": "2026-06-06T08:57:56.009Z"
+      "verified_at": "2026-06-06T09:20:19.743Z"
     },
     {
       "auth_required": false,
@@ -102,9 +102,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:57:56.063Z",
-      "last_ok": "2026-06-06T08:57:56.063Z",
-      "latency_ms": 383,
+      "last_checked": "2026-06-06T09:20:19.852Z",
+      "last_ok": "2026-06-06T09:20:19.852Z",
+      "latency_ms": 301,
       "method_tested": "HEAD",
       "netuid": 15,
       "private_redirect_blocked": false,
@@ -118,7 +118,7 @@
       "surface_id": "sn-15-tensorplex-docs",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/tensorplex-labs/subnet-docs/tree/main/data/15",
-      "verified_at": "2026-06-06T08:57:56.063Z"
+      "verified_at": "2026-06-06T09:20:19.852Z"
     }
   ]
 }

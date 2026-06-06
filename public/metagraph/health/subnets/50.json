@@ -6,11 +6,11 @@
   "schema_version": 1,
   "slug": "sn-50",
   "summary": {
-    "avg_latency_ms": 365,
+    "avg_latency_ms": 379,
     "degraded_count": 0,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:57:59.590Z",
-    "last_ok": "2026-06-06T08:57:59.590Z",
+    "last_checked": "2026-06-06T09:20:23.349Z",
+    "last_ok": "2026-06-06T09:20:23.349Z",
     "name": "Synth",
     "netuid": 50,
     "ok_count": 4,
@@ -27,9 +27,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:57:58.990Z",
-      "last_ok": "2026-06-06T08:57:58.990Z",
-      "latency_ms": 147,
+      "last_checked": "2026-06-06T09:20:22.888Z",
+      "last_ok": "2026-06-06T09:20:22.888Z",
+      "latency_ms": 170,
       "method_tested": "HEAD",
       "netuid": 50,
       "private_redirect_blocked": false,
@@ -43,7 +43,7 @@
       "surface_id": "sn-50-taomarketcap-dashboard",
       "uptime_sample_ratio": 1,
       "url": "https://taomarketcap.com/subnets/50",
-      "verified_at": "2026-06-06T08:57:58.990Z"
+      "verified_at": "2026-06-06T09:20:22.888Z"
     },
     {
       "auth_required": false,
@@ -52,9 +52,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:57:59.590Z",
-      "last_ok": "2026-06-06T08:57:59.590Z",
-      "latency_ms": 732,
+      "last_checked": "2026-06-06T09:20:23.305Z",
+      "last_ok": "2026-06-06T09:20:23.305Z",
+      "latency_ms": 546,
       "method_tested": "HEAD",
       "netuid": 50,
       "private_redirect_blocked": false,
@@ -68,7 +68,7 @@
       "surface_id": "sn-50-taomarketcap-source-repo",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/mode-network/synth-subnet",
-      "verified_at": "2026-06-06T08:57:59.590Z"
+      "verified_at": "2026-06-06T09:20:23.305Z"
     },
     {
       "auth_required": false,
@@ -77,9 +77,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:57:59.144Z",
-      "last_ok": "2026-06-06T08:57:59.144Z",
-      "latency_ms": 228,
+      "last_checked": "2026-06-06T09:20:23.121Z",
+      "last_ok": "2026-06-06T09:20:23.121Z",
+      "latency_ms": 327,
       "method_tested": "HEAD",
       "netuid": 50,
       "private_redirect_blocked": false,
@@ -93,7 +93,7 @@
       "surface_id": "sn-50-taomarketcap-website",
       "uptime_sample_ratio": 1,
       "url": "https://synthdata.co/",
-      "verified_at": "2026-06-06T08:57:59.144Z"
+      "verified_at": "2026-06-06T09:20:23.121Z"
     },
     {
       "auth_required": false,
@@ -102,9 +102,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:57:59.269Z",
-      "last_ok": "2026-06-06T08:57:59.269Z",
-      "latency_ms": 351,
+      "last_checked": "2026-06-06T09:20:23.349Z",
+      "last_ok": "2026-06-06T09:20:23.349Z",
+      "latency_ms": 472,
       "method_tested": "HEAD",
       "netuid": 50,
       "private_redirect_blocked": false,
@@ -118,7 +118,7 @@
       "surface_id": "sn-50-tensorplex-docs",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/tensorplex-labs/subnet-docs/tree/main/data/50",
-      "verified_at": "2026-06-06T08:57:59.269Z"
+      "verified_at": "2026-06-06T09:20:23.349Z"
     }
   ]
 }

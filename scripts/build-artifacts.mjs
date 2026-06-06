@@ -1,6 +1,7 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import {
+  buildEndpointPoolArtifact,
   buildTimestamp,
   buildRpcEndpointArtifact,
   flattenSurfaces,
@@ -37,6 +38,9 @@ const surfaces = flattenSurfaces(activeOverlays);
 const outputRoot = path.join(repoRoot, "public/metagraph");
 const generatedAt = buildTimestamp();
 const contractVersion = "2026-06-06.1";
+const previousArtifactDigests = await collectArtifactDigests(outputRoot);
+const previousSubnetsArtifact = await readOptionalJson(path.join(outputRoot, "subnets.json"));
+const previousCoverageArtifact = await readOptionalJson(path.join(outputRoot, "coverage.json"));
 
 const subnetIndex = mergedSubnets.map((subnet) => ({
   block: subnet.block,
@@ -75,25 +79,27 @@ const metagraphLatest = {
 };
 
 const healthArtifacts = buildHealthArtifacts(
-  surfaces.map((surface) => ({
-    auth_required: surface.auth_required,
-    classification: "unknown",
-    kind: surface.kind,
-    last_checked: null,
-    last_ok: null,
-    latency_ms: null,
-    method_tested: surface.probe?.method || "not-configured",
-    netuid: surface.netuid,
-    provider: surface.provider,
-    public_safe: surface.public_safe,
-    status: "unknown",
-    subnet_name: surface.subnet_name,
-    subnet_slug: surface.subnet_slug,
-    surface_id: surface.id,
-    url: surface.url,
-    uptime_sample_ratio: null,
-    verified_at: null
-  })),
+  surfaces
+    .filter((surface) => surface.probe?.enabled && surface.public_safe)
+    .map((surface) => ({
+      auth_required: surface.auth_required,
+      classification: "unknown",
+      kind: surface.kind,
+      last_checked: null,
+      last_ok: null,
+      latency_ms: null,
+      method_tested: surface.probe?.method || "not-configured",
+      netuid: surface.netuid,
+      provider: surface.provider,
+      public_safe: surface.public_safe,
+      status: "unknown",
+      subnet_name: surface.subnet_name,
+      subnet_slug: surface.subnet_slug,
+      surface_id: surface.id,
+      url: surface.url,
+      uptime_sample_ratio: null,
+      verified_at: null
+    })),
   mergedSubnets,
   {
     generatedAt,
@@ -299,7 +305,21 @@ await writeJson(path.join(outputRoot, "evidence-ledger.json"), buildEvidenceLedg
   subnets: mergedSubnets,
   surfaces
 }));
-await writeJson(path.join(outputRoot, "rpc/pools.json"), buildEndpointPools(rpcEndpoints));
+await writeJson(path.join(outputRoot, "rpc/pools.json"), buildEndpointPoolArtifact({
+  generatedAt,
+  contractVersion,
+  rpcArtifact: rpcEndpoints
+}));
+await writeJson(path.join(outputRoot, "source-snapshots.json"), await buildSourceSnapshots({
+  adapterSnapshots,
+  candidates,
+  generatedAt,
+  nativeSnapshot,
+  overlays: activeOverlays,
+  providers,
+  reviewDecisions,
+  verification
+}));
 await writeJson(path.join(outputRoot, "schema-drift.json"), schemaDriftPlaceholder);
 await writeJson(path.join(outputRoot, "schemas/index.json"), {
   schema_version: 1,
@@ -333,6 +353,17 @@ await writeJson(path.join(outputRoot, "review/maintainer-decisions.json"), {
 for (const [slug, artifact] of Object.entries(adapterArtifacts)) {
   await writeJson(path.join(outputRoot, `adapters/${slug}.json`), artifact);
 }
+
+const currentArtifactDigests = await collectArtifactDigests(outputRoot);
+await writeJson(path.join(outputRoot, "changelog.json"), buildChangelog({
+  currentArtifacts: currentArtifactDigests,
+  currentCoverage: coverage,
+  currentSubnets: { subnets: subnetIndex },
+  generatedAt,
+  previousArtifacts: previousArtifactDigests,
+  previousCoverage: previousCoverageArtifact,
+  previousSubnets: previousSubnetsArtifact
+}));
 
 const artifactSizesBeforeR2 = await collectArtifactSizes(outputRoot);
 await writeJson(path.join(outputRoot, "r2-manifest.json"), buildR2Manifest({
@@ -656,6 +687,7 @@ function buildContracts() {
     artifacts: [
       artifactContract("providers", "/metagraph/providers.json", "Provider/source registry."),
       artifactContract("api-index", "/metagraph/api-index.json", "Clean API route index for metagraph.sh consumers."),
+      artifactContract("changelog", "/metagraph/changelog.json", "Reviewable generated artifact and subnet-change summary."),
       artifactContract("subnets", "/metagraph/subnets.json", "All active Finney subnets with compact registry metadata."),
       artifactContract("subnet-detail", "/metagraph/subnets/{netuid}.json", "Per-subnet detail payload."),
       artifactContract("surfaces", "/metagraph/surfaces.json", "Curated public interface surfaces only."),
@@ -667,6 +699,7 @@ function buildContracts() {
       artifactContract("verification", "/metagraph/verification/latest.json", "Latest candidate verification snapshot."),
       artifactContract("freshness", "/metagraph/freshness.json", "Freshness and staleness summary for generated backend data."),
       artifactContract("source-health", "/metagraph/source-health.json", "Upstream source and provider health summary."),
+      artifactContract("source-snapshots", "/metagraph/source-snapshots.json", "Compact hashes and counts for canonical source inputs."),
       artifactContract("evidence-ledger", "/metagraph/evidence-ledger.json", "Public evidence ledger for subnet and surface claims."),
       artifactContract("health-latest", "/metagraph/health/latest.json", "Latest surface health snapshot."),
       artifactContract("health-summary", "/metagraph/health/summary.json", "Global and per-subnet health rollup."),
@@ -698,13 +731,24 @@ function buildApiIndex(contractsArtifact) {
     apiRoute("GET", "/api/v1/subnets", "/metagraph/subnets.json", "List active Finney subnets."),
     apiRoute("GET", "/api/v1/subnets/{netuid}", "/metagraph/subnets/{netuid}.json", "Fetch per-subnet detail."),
     apiRoute("GET", "/api/v1/surfaces", "/metagraph/surfaces.json", "List curated public surfaces."),
+    apiRoute("GET", "/api/v1/candidates", "/metagraph/candidates.json", "List unpromoted candidate surfaces."),
     apiRoute("GET", "/api/v1/providers", "/metagraph/providers.json", "List providers and sources."),
+    apiRoute("GET", "/api/v1/coverage", "/metagraph/coverage.json", "Fetch registry coverage summary."),
+    apiRoute("GET", "/api/v1/curation", "/metagraph/curation.json", "Fetch curation states by subnet."),
+    apiRoute("GET", "/api/v1/gaps", "/metagraph/gaps.json", "Fetch interface gap report."),
     apiRoute("GET", "/api/v1/health", "/metagraph/health/summary.json", "Fetch global health summary."),
+    apiRoute("GET", "/api/v1/freshness", "/metagraph/freshness.json", "Fetch freshness and staleness state."),
+    apiRoute("GET", "/api/v1/source-health", "/metagraph/source-health.json", "Fetch upstream source health."),
+    apiRoute("GET", "/api/v1/evidence", "/metagraph/evidence-ledger.json", "Fetch public evidence ledger."),
+    apiRoute("GET", "/api/v1/changelog", "/metagraph/changelog.json", "Fetch latest generated change summary."),
+    apiRoute("GET", "/api/v1/source-snapshots", "/metagraph/source-snapshots.json", "Fetch source input hashes and counts."),
     apiRoute("GET", "/api/v1/rpc/endpoints", "/metagraph/rpc-endpoints.json", "Fetch Bittensor RPC endpoint status."),
     apiRoute("GET", "/api/v1/rpc/pools", "/metagraph/rpc/pools.json", "Fetch endpoint pool scores."),
     apiRoute("GET", "/api/v1/schemas", "/metagraph/schemas/index.json", "Fetch captured schema index."),
     apiRoute("GET", "/api/v1/adapters/{slug}", "/metagraph/adapters/{slug}.json", "Fetch adapter-backed public metrics."),
-    apiRoute("GET", "/api/v1/search", "/metagraph/search.json", "Fetch compact search index.")
+    apiRoute("GET", "/api/v1/search", "/metagraph/search.json", "Fetch compact search index."),
+    apiRoute("GET", "/api/v1/contracts", "/metagraph/contracts.json", "Fetch artifact contract metadata."),
+    apiRoute("GET", "/api/v1/build", "/metagraph/build-summary.json", "Fetch generated build summary.")
   ];
 
   return {
@@ -937,76 +981,6 @@ function buildEvidenceLedger({ candidates: candidateRows, generatedAt: timestamp
   };
 }
 
-function buildEndpointPools(rpcArtifact) {
-  const endpoints = (rpcArtifact.endpoints || []).map((endpoint) => {
-    const score = endpointScore(endpoint);
-    return {
-      ...endpoint,
-      score,
-      pool_eligible: endpoint.status === "ok" && endpoint.auth_required === false && endpoint.public_safe === true,
-      unsafe_methods_blocked: true
-    };
-  });
-
-  return {
-    schema_version: 1,
-    contract_version: contractVersion,
-    generated_at: generatedAt,
-    source: "rpc-endpoint-probes",
-    notes: [
-      "Endpoint pools are advisory only in v1.",
-      "Future proxy/load-balancer routes must block write and unsafe RPC methods by default."
-    ],
-    disabled_proxy_contract: {
-      enabled: false,
-      allowed_methods: ["chain_getHeader", "chain_getBlockHash", "system_health", "rpc_methods"],
-      denied_method_patterns: ["author_", "state_call", "system_", "sudo_", "payment_", "contracts_"]
-    },
-    pools: [
-      endpointPool("finney-rpc", "subtensor-rpc", endpoints),
-      endpointPool("finney-wss", "subtensor-wss", endpoints),
-      endpointPool("finney-archive", "archive", endpoints.filter((endpoint) => endpoint.archive_support === true))
-    ]
-  };
-}
-
-function endpointPool(id, kind, endpoints) {
-  const poolEndpoints = endpoints
-    .filter((endpoint) => kind === "archive" || endpoint.kind === kind)
-    .sort((a, b) => b.score - a.score || (a.latency_ms ?? 999999) - (b.latency_ms ?? 999999) || a.id.localeCompare(b.id));
-  return {
-    id,
-    kind,
-    endpoint_count: poolEndpoints.length,
-    eligible_count: poolEndpoints.filter((endpoint) => endpoint.pool_eligible).length,
-    best_endpoint_id: poolEndpoints.find((endpoint) => endpoint.pool_eligible)?.id || null,
-    endpoints: poolEndpoints.map((endpoint) => ({
-      archive_support: endpoint.archive_support,
-      id: endpoint.id,
-      latency_ms: endpoint.latency_ms,
-      latest_block: endpoint.latest_block,
-      pool_eligible: endpoint.pool_eligible,
-      provider: endpoint.provider,
-      score: endpoint.score,
-      status: endpoint.status,
-      url: endpoint.url
-    }))
-  };
-}
-
-function endpointScore(endpoint) {
-  let score = 0;
-  if (endpoint.status === "ok") score += 50;
-  if (endpoint.archive_support === true) score += 15;
-  if (endpoint.latest_block) score += 10;
-  if (Array.isArray(endpoint.methods_supported)) score += Math.min(endpoint.methods_supported.length, 20);
-  if (Number.isFinite(endpoint.latency_ms)) score += Math.max(0, 20 - Math.round(endpoint.latency_ms / 100));
-  if (endpoint.auth_required) score -= 25;
-  if (endpoint.status === "degraded") score -= 10;
-  if (endpoint.status === "failed") score -= 50;
-  return Math.max(0, score);
-}
-
 function buildR2Manifest({ artifactSizes, generatedAt: timestamp }) {
   const version = timestamp.replace(/[:.]/g, "-");
   const artifacts = artifactSizes.map((artifact) => ({
@@ -1022,12 +996,174 @@ function buildR2Manifest({ artifactSizes, generatedAt: timestamp }) {
     generated_at: timestamp,
     bucket_binding: "METAGRAPH_ARCHIVE",
     bucket_name: "metagraphed-artifacts",
+    history_policy: {
+      canonical_latest_in_repo: true,
+      large_history_in_r2: true,
+      source_of_truth: "github-reviewed-artifacts",
+      versioned_run_prefix: `runs/${version}/`
+    },
     latest_prefix: "latest/",
     run_prefix: `runs/${version}/`,
     artifact_count: artifacts.length,
     artifact_size_bytes: artifacts.reduce((sum, artifact) => sum + artifact.size_bytes, 0),
     artifacts
   };
+}
+
+async function buildSourceSnapshots({ adapterSnapshots: snapshots, candidates: candidateRows, generatedAt: timestamp, nativeSnapshot: native, overlays: subnetOverlays, providers: providerRows, reviewDecisions: decisions, verification: verificationArtifact }) {
+  const sourceRows = [
+    sourceSnapshot("native-subnets", "native-chain", "registry/native/finney-subnets.json", native, native.subnets?.length || 0, native.captured_at),
+    sourceSnapshot("providers", "registry-manifest", "registry/providers", providerRows, providerRows.length, timestamp),
+    sourceSnapshot("subnet-overlays", "registry-manifest", "registry/subnets", subnetOverlays, subnetOverlays.length, timestamp),
+    sourceSnapshot("candidate-surfaces", "candidate-discovery", "registry/candidates", candidateRows, candidateRows.length, timestamp),
+    sourceSnapshot("candidate-verification", "probe-results", "registry/verification/latest.json", verificationArtifact, verificationArtifact.results?.length || 0, verificationArtifact.generated_at || timestamp),
+    sourceSnapshot("maintainer-decisions", "review-ledger", "registry/reviews/maintainer-reviewed.json", decisions, decisions.decisions?.length || 0, decisions.generated_at || timestamp),
+    ...[...snapshots.entries()].map(([slug, snapshot]) =>
+      sourceSnapshot(`adapter:${slug}`, "adapter-snapshot", `registry/adapters/latest/${slug}.json`, snapshot, Object.keys(snapshot.dimensions || {}).length, snapshot.generated_at || timestamp)
+    )
+  ].sort((a, b) => a.id.localeCompare(b.id));
+
+  return {
+    schema_version: 1,
+    contract_version: contractVersion,
+    generated_at: timestamp,
+    notes: "Compact source-input hashes for public artifact reproducibility. These are not raw private snapshots and contain no secrets or credentialed data.",
+    summary: {
+      source_count: sourceRows.length,
+      provider_count: providerRows.length,
+      overlay_count: subnetOverlays.length,
+      candidate_count: candidateRows.length,
+      verification_result_count: verificationArtifact.results?.length || 0,
+      adapter_snapshot_count: snapshots.size
+    },
+    sources: sourceRows
+  };
+}
+
+function sourceSnapshot(id, kind, sourcePath, value, recordCount, capturedAt) {
+  return {
+    id,
+    kind,
+    path: sourcePath,
+    captured_at: capturedAt || null,
+    record_count: recordCount,
+    hash: hashJson(value)
+  };
+}
+
+function buildChangelog({ currentArtifacts, currentCoverage, currentSubnets, generatedAt: timestamp, previousArtifacts, previousCoverage, previousSubnets }) {
+  const previousMap = new Map(previousArtifacts.map((artifact) => [artifact.path, artifact]));
+  const currentMap = new Map(currentArtifacts.map((artifact) => [artifact.path, artifact]));
+  const addedArtifacts = currentArtifacts.filter((artifact) => !previousMap.has(artifact.path));
+  const removedArtifacts = previousArtifacts.filter((artifact) => !currentMap.has(artifact.path));
+  const modifiedArtifacts = currentArtifacts.filter((artifact) => {
+    const previous = previousMap.get(artifact.path);
+    return previous && previous.hash !== artifact.hash;
+  });
+
+  const subnetChanges = diffSubnets(previousSubnets?.subnets || [], currentSubnets.subnets || []);
+  const coverageDelta = previousCoverage
+    ? {
+        candidate_count: delta(previousCoverage.candidate_count, currentCoverage.candidate_count),
+        curated_overlay_count: delta(previousCoverage.curated_overlay_count, currentCoverage.curated_overlay_count),
+        native_only_count: delta(previousCoverage.native_only_count, currentCoverage.native_only_count),
+        provider_count: null,
+        surface_count: delta(previousCoverage.surface_count, currentCoverage.surface_count)
+      }
+    : null;
+
+  return {
+    schema_version: 1,
+    contract_version: contractVersion,
+    generated_at: timestamp,
+    source: "generated-artifact-diff",
+    notes: [
+      "This changelog compares the latest generated artifacts against the previous checked-in public artifact state before the build.",
+      "Long-term historical runs are expected to live in R2 under versioned prefixes."
+    ],
+    summary: {
+      artifact_added_count: addedArtifacts.length,
+      artifact_modified_count: modifiedArtifacts.length,
+      artifact_removed_count: removedArtifacts.length,
+      netuid_added_count: subnetChanges.added.length,
+      netuid_removed_count: subnetChanges.removed.length,
+      netuid_renamed_count: subnetChanges.renamed.length,
+      coverage_delta: coverageDelta
+    },
+    artifacts: {
+      added: addedArtifacts.slice(0, 250),
+      modified: modifiedArtifacts.slice(0, 250),
+      removed: removedArtifacts.slice(0, 250)
+    },
+    subnets: subnetChanges
+  };
+}
+
+function diffSubnets(previousSubnets, currentSubnets) {
+  const previousByNetuid = new Map(previousSubnets.map((subnet) => [subnet.netuid, subnet]));
+  const currentByNetuid = new Map(currentSubnets.map((subnet) => [subnet.netuid, subnet]));
+  const added = currentSubnets
+    .filter((subnet) => !previousByNetuid.has(subnet.netuid))
+    .map((subnet) => ({ netuid: subnet.netuid, name: subnet.name, slug: subnet.slug }));
+  const removed = previousSubnets
+    .filter((subnet) => !currentByNetuid.has(subnet.netuid))
+    .map((subnet) => ({ netuid: subnet.netuid, name: subnet.name, slug: subnet.slug }));
+  const renamed = currentSubnets
+    .filter((subnet) => previousByNetuid.has(subnet.netuid) && previousByNetuid.get(subnet.netuid).name !== subnet.name)
+    .map((subnet) => ({
+      netuid: subnet.netuid,
+      before: previousByNetuid.get(subnet.netuid).name,
+      after: subnet.name
+    }));
+
+  return { added, removed, renamed };
+}
+
+function delta(before, after) {
+  if (!Number.isFinite(before) || !Number.isFinite(after)) {
+    return null;
+  }
+  return {
+    before,
+    after,
+    delta: after - before
+  };
+}
+
+async function collectArtifactDigests(root) {
+  const files = [];
+  try {
+    await walk(root, async (filePath) => {
+      if (!filePath.endsWith(".json")) {
+        return;
+      }
+      const relativePath = path.relative(root, filePath).replace(/\\/g, "/");
+      if (["build-summary.json", "changelog.json", "r2-manifest.json"].includes(relativePath)) {
+        return;
+      }
+      const value = await readJson(filePath);
+      files.push({
+        path: relativePath,
+        hash: hashJson(value)
+      });
+    });
+  } catch (error) {
+    if (error.code !== "ENOENT") {
+      throw error;
+    }
+  }
+  return files.sort((a, b) => a.path.localeCompare(b.path));
+}
+
+async function readOptionalJson(filePath) {
+  try {
+    return await readJson(filePath);
+  } catch (error) {
+    if (error.code === "ENOENT") {
+      return null;
+    }
+    throw error;
+  }
 }
 
 async function collectArtifactSizes(root) {

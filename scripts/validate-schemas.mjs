@@ -48,6 +48,7 @@ for (const candidate of await loadCandidates()) {
 validate(validators.artifacts, {
   api_index: await readJson(path.join(repoRoot, "public/metagraph/api-index.json")),
   candidates: await readJson(path.join(repoRoot, "public/metagraph/candidates.json")),
+  changelog: await readJson(path.join(repoRoot, "public/metagraph/changelog.json")),
   contracts: await readJson(path.join(repoRoot, "public/metagraph/contracts.json")),
   coverage: await readJson(path.join(repoRoot, "public/metagraph/coverage.json")),
   curation: await readJson(path.join(repoRoot, "public/metagraph/curation.json")),
@@ -63,6 +64,7 @@ validate(validators.artifacts, {
   schema_drift: await readJson(path.join(repoRoot, "public/metagraph/schema-drift.json")),
   search: await readJson(path.join(repoRoot, "public/metagraph/search.json")),
   source_health: await readJson(path.join(repoRoot, "public/metagraph/source-health.json")),
+  source_snapshots: await readJson(path.join(repoRoot, "public/metagraph/source-snapshots.json")),
   subnets: await readJson(path.join(repoRoot, "public/metagraph/subnets.json")),
   surfaces: await readJson(path.join(repoRoot, "public/metagraph/surfaces.json")),
   verification: await readJson(path.join(repoRoot, "public/metagraph/verification/latest.json"))

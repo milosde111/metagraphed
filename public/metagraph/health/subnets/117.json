@@ -6,11 +6,11 @@
   "schema_version": 1,
   "slug": "sn-117",
   "summary": {
-    "avg_latency_ms": 397,
+    "avg_latency_ms": 389,
     "degraded_count": 0,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:58:06.735Z",
-    "last_ok": "2026-06-06T08:58:06.735Z",
+    "last_checked": "2026-06-06T09:20:31.852Z",
+    "last_ok": "2026-06-06T09:20:31.852Z",
     "name": "Unknown",
     "netuid": 117,
     "ok_count": 6,
@@ -27,9 +27,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:58:06.603Z",
-      "last_ok": "2026-06-06T08:58:06.603Z",
-      "latency_ms": 627,
+      "last_checked": "2026-06-06T09:20:31.666Z",
+      "last_ok": "2026-06-06T09:20:31.666Z",
+      "latency_ms": 551,
       "method_tested": "HEAD",
       "netuid": 117,
       "private_redirect_blocked": false,
@@ -41,9 +41,9 @@
       "subnet_name": "Unknown",
       "subnet_slug": "sn-117",
       "surface_id": "sn-117-github-readme-shiftlayer-llc-brainplay-subnet-website-1",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/shiftlayer-llc/brainplay-subnet.git",
-      "verified_at": "2026-06-06T08:58:06.603Z"
+      "verified_at": "2026-06-06T09:20:31.666Z"
     },
     {
       "auth_required": false,
@@ -52,9 +52,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:58:06.155Z",
-      "last_ok": "2026-06-06T08:58:06.155Z",
-      "latency_ms": 136,
+      "last_checked": "2026-06-06T09:20:31.270Z",
+      "last_ok": "2026-06-06T09:20:31.270Z",
+      "latency_ms": 155,
       "method_tested": "HEAD",
       "netuid": 117,
       "private_redirect_blocked": false,
@@ -68,7 +68,7 @@
       "surface_id": "sn-117-taomarketcap-dashboard",
       "uptime_sample_ratio": 1,
       "url": "https://taomarketcap.com/subnets/117",
-      "verified_at": "2026-06-06T08:58:06.155Z"
+      "verified_at": "2026-06-06T09:20:31.270Z"
     },
     {
       "auth_required": false,
@@ -77,9 +77,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:58:06.735Z",
-      "last_ok": "2026-06-06T08:58:06.735Z",
-      "latency_ms": 699,
+      "last_checked": "2026-06-06T09:20:31.852Z",
+      "last_ok": "2026-06-06T09:20:31.852Z",
+      "latency_ms": 711,
       "method_tested": "HEAD",
       "netuid": 117,
       "private_redirect_blocked": false,
@@ -91,9 +91,9 @@
       "subnet_name": "Unknown",
       "subnet_slug": "sn-117",
       "surface_id": "sn-117-taomarketcap-source-repo",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/helionlink/Chi",
-      "verified_at": "2026-06-06T08:58:06.735Z"
+      "verified_at": "2026-06-06T09:20:31.852Z"
     },
     {
       "auth_required": false,
@@ -102,9 +102,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:58:06.355Z",
-      "last_ok": "2026-06-06T08:58:06.355Z",
-      "latency_ms": 309,
+      "last_checked": "2026-06-06T09:20:31.489Z",
+      "last_ok": "2026-06-06T09:20:31.489Z",
+      "latency_ms": 341,
       "method_tested": "HEAD",
       "netuid": 117,
       "private_redirect_blocked": false,
@@ -116,9 +116,9 @@
       "subnet_name": "Unknown",
       "subnet_slug": "sn-117",
       "surface_id": "sn-117-tensorplex-docs",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/tensorplex-labs/subnet-docs/tree/main/data/117",
-      "verified_at": "2026-06-06T08:58:06.355Z"
+      "verified_at": "2026-06-06T09:20:31.489Z"
     },
     {
       "auth_required": false,
@@ -127,9 +127,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:58:06.603Z",
-      "last_ok": "2026-06-06T08:58:06.603Z",
-      "latency_ms": 523,
+      "last_checked": "2026-06-06T09:20:31.665Z",
+      "last_ok": "2026-06-06T09:20:31.665Z",
+      "latency_ms": 493,
       "method_tested": "HEAD",
       "netuid": 117,
       "private_redirect_blocked": false,
@@ -141,9 +141,9 @@
       "subnet_name": "Unknown",
       "subnet_slug": "sn-117",
       "surface_id": "sn-117-tensorplex-source-repo-1",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/shiftlayer-llc/brainplay-subnet",
-      "verified_at": "2026-06-06T08:58:06.603Z"
+      "verified_at": "2026-06-06T09:20:31.665Z"
     },
     {
       "auth_required": false,
@@ -152,9 +152,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:58:06.171Z",
-      "last_ok": "2026-06-06T08:58:06.171Z",
-      "latency_ms": 88,
+      "last_checked": "2026-06-06T09:20:31.318Z",
+      "last_ok": "2026-06-06T09:20:31.318Z",
+      "latency_ms": 80,
       "method_tested": "HEAD",
       "netuid": 117,
       "private_redirect_blocked": false,
@@ -168,7 +168,7 @@
       "surface_id": "sn-117-website-common-docs",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/docs",
-      "verified_at": "2026-06-06T08:58:06.171Z"
+      "verified_at": "2026-06-06T09:20:31.318Z"
     }
   ]
 }

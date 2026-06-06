@@ -6,11 +6,11 @@
   "schema_version": 1,
   "slug": "sn-92",
   "summary": {
-    "avg_latency_ms": 470,
+    "avg_latency_ms": 571,
     "degraded_count": 0,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:58:04.094Z",
-    "last_ok": "2026-06-06T08:58:04.094Z",
+    "last_checked": "2026-06-06T09:20:28.790Z",
+    "last_ok": "2026-06-06T09:20:28.790Z",
     "name": "TensorClaw",
     "netuid": 92,
     "ok_count": 4,
@@ -27,9 +27,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:58:03.746Z",
-      "last_ok": "2026-06-06T08:58:03.746Z",
-      "latency_ms": 335,
+      "last_checked": "2026-06-06T09:20:28.294Z",
+      "last_ok": "2026-06-06T09:20:28.294Z",
+      "latency_ms": 294,
       "method_tested": "HEAD",
       "netuid": 92,
       "private_redirect_blocked": false,
@@ -43,7 +43,7 @@
       "surface_id": "sn-92-taomarketcap-dashboard",
       "uptime_sample_ratio": 1,
       "url": "https://taomarketcap.com/subnets/92",
-      "verified_at": "2026-06-06T08:58:03.746Z"
+      "verified_at": "2026-06-06T09:20:28.294Z"
     },
     {
       "auth_required": false,
@@ -52,9 +52,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:58:03.976Z",
-      "last_ok": "2026-06-06T08:58:03.976Z",
-      "latency_ms": 520,
+      "last_checked": "2026-06-06T09:20:28.790Z",
+      "last_ok": "2026-06-06T09:20:28.790Z",
+      "latency_ms": 768,
       "method_tested": "HEAD",
       "netuid": 92,
       "private_redirect_blocked": false,
@@ -66,9 +66,9 @@
       "subnet_name": "TensorClaw",
       "subnet_slug": "sn-92",
       "surface_id": "sn-92-taomarketcap-source-repo",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/tensorclaw/tensorclaw",
-      "verified_at": "2026-06-06T08:58:03.976Z"
+      "verified_at": "2026-06-06T09:20:28.790Z"
     },
     {
       "auth_required": false,
@@ -77,9 +77,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:58:04.094Z",
-      "last_ok": "2026-06-06T08:58:04.094Z",
-      "latency_ms": 624,
+      "last_checked": "2026-06-06T09:20:28.741Z",
+      "last_ok": "2026-06-06T09:20:28.741Z",
+      "latency_ms": 681,
       "method_tested": "HEAD",
       "netuid": 92,
       "private_redirect_blocked": false,
@@ -93,7 +93,7 @@
       "surface_id": "sn-92-taomarketcap-website",
       "uptime_sample_ratio": 1,
       "url": "https://www.tensorclaw.ai/",
-      "verified_at": "2026-06-06T08:58:04.094Z"
+      "verified_at": "2026-06-06T09:20:28.741Z"
     },
     {
       "auth_required": false,
@@ -102,9 +102,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:58:03.887Z",
-      "last_ok": "2026-06-06T08:58:03.887Z",
-      "latency_ms": 400,
+      "last_checked": "2026-06-06T09:20:28.642Z",
+      "last_ok": "2026-06-06T09:20:28.642Z",
+      "latency_ms": 539,
       "method_tested": "HEAD",
       "netuid": 92,
       "private_redirect_blocked": false,
@@ -116,9 +116,9 @@
       "subnet_name": "TensorClaw",
       "subnet_slug": "sn-92",
       "surface_id": "sn-92-tensorplex-docs",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/tensorplex-labs/subnet-docs/tree/main/data/92",
-      "verified_at": "2026-06-06T08:58:03.887Z"
+      "verified_at": "2026-06-06T09:20:28.642Z"
     }
   ]
 }

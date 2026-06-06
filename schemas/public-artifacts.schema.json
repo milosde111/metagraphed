@@ -12,6 +12,9 @@
     "api_index": {
       "$ref": "#/$defs/genericArtifact"
     },
+    "changelog": {
+      "$ref": "#/$defs/genericArtifact"
+    },
     "subnets": {
       "$ref": "#/$defs/subnetsArtifact"
     },
@@ -43,6 +46,9 @@
       "$ref": "#/$defs/genericArtifact"
     },
     "source_health": {
+      "$ref": "#/$defs/genericArtifact"
+    },
+    "source_snapshots": {
       "$ref": "#/$defs/genericArtifact"
     },
     "evidence_ledger": {

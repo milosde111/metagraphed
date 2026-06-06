@@ -6,11 +6,11 @@
   "schema_version": 1,
   "slug": "sn-115",
   "summary": {
-    "avg_latency_ms": 329,
+    "avg_latency_ms": 433,
     "degraded_count": 0,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:58:06.307Z",
-    "last_ok": "2026-06-06T08:58:06.307Z",
+    "last_checked": "2026-06-06T09:20:31.608Z",
+    "last_ok": "2026-06-06T09:20:31.608Z",
     "name": "HashiChain",
     "netuid": 115,
     "ok_count": 3,
@@ -27,9 +27,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:58:05.937Z",
-      "last_ok": "2026-06-06T08:58:05.937Z",
-      "latency_ms": 145,
+      "last_checked": "2026-06-06T09:20:31.114Z",
+      "last_ok": "2026-06-06T09:20:31.114Z",
+      "latency_ms": 222,
       "method_tested": "HEAD",
       "netuid": 115,
       "private_redirect_blocked": false,
@@ -43,7 +43,7 @@
       "surface_id": "sn-115-taomarketcap-dashboard",
       "uptime_sample_ratio": 1,
       "url": "https://taomarketcap.com/subnets/115",
-      "verified_at": "2026-06-06T08:58:05.937Z"
+      "verified_at": "2026-06-06T09:20:31.114Z"
     },
     {
       "auth_required": false,
@@ -52,9 +52,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:58:06.307Z",
-      "last_ok": "2026-06-06T08:58:06.307Z",
-      "latency_ms": 500,
+      "last_checked": "2026-06-06T09:20:31.608Z",
+      "last_ok": "2026-06-06T09:20:31.608Z",
+      "latency_ms": 714,
       "method_tested": "HEAD",
       "netuid": 115,
       "private_redirect_blocked": false,
@@ -66,9 +66,9 @@
       "subnet_name": "HashiChain",
       "subnet_slug": "sn-115",
       "surface_id": "sn-115-taomarketcap-source-repo",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/hashi115/hashichain",
-      "verified_at": "2026-06-06T08:58:06.307Z"
+      "verified_at": "2026-06-06T09:20:31.608Z"
     },
     {
       "auth_required": false,
@@ -77,9 +77,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:58:06.179Z",
-      "last_ok": "2026-06-06T08:58:06.179Z",
-      "latency_ms": 341,
+      "last_checked": "2026-06-06T09:20:31.318Z",
+      "last_ok": "2026-06-06T09:20:31.318Z",
+      "latency_ms": 364,
       "method_tested": "HEAD",
       "netuid": 115,
       "private_redirect_blocked": false,
@@ -91,9 +91,9 @@
       "subnet_name": "HashiChain",
       "subnet_slug": "sn-115",
       "surface_id": "sn-115-tensorplex-docs",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/tensorplex-labs/subnet-docs/tree/main/data/115",
-      "verified_at": "2026-06-06T08:58:06.179Z"
+      "verified_at": "2026-06-06T09:20:31.318Z"
     }
   ]
 }

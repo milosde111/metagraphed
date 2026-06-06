@@ -10,14 +10,20 @@ Expected backend routes:
 
 - `/metagraph/contracts.json`
 - `/metagraph/api-index.json`
+- `/metagraph/changelog.json`
 - `/metagraph/subnets.json`
 - `/metagraph/subnets/{netuid}.json`
 - `/metagraph/surfaces.json`
+- `/metagraph/candidates.json`
+- `/metagraph/coverage.json`
+- `/metagraph/curation.json`
+- `/metagraph/gaps.json`
 - `/metagraph/rpc-endpoints.json`
 - `/metagraph/rpc/pools.json`
 - `/metagraph/search.json`
 - `/metagraph/freshness.json`
 - `/metagraph/source-health.json`
+- `/metagraph/source-snapshots.json`
 - `/metagraph/evidence-ledger.json`
 - `/metagraph/r2-manifest.json`
 - `/metagraph/health/latest.json`
@@ -36,13 +42,24 @@ Expected Worker API routes:
 - `/api/v1/subnets`
 - `/api/v1/subnets/{netuid}`
 - `/api/v1/surfaces`
+- `/api/v1/candidates`
 - `/api/v1/providers`
+- `/api/v1/coverage`
+- `/api/v1/curation`
+- `/api/v1/gaps`
 - `/api/v1/health`
+- `/api/v1/freshness`
+- `/api/v1/source-health`
+- `/api/v1/evidence`
+- `/api/v1/changelog`
+- `/api/v1/source-snapshots`
 - `/api/v1/rpc/endpoints`
 - `/api/v1/rpc/pools`
 - `/api/v1/schemas`
 - `/api/v1/adapters/{slug}`
 - `/api/v1/search`
+- `/api/v1/contracts`
+- `/api/v1/build`
 
 ## Reserved Domains
 

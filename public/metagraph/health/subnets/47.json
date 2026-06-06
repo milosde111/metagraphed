@@ -6,11 +6,11 @@
   "schema_version": 1,
   "slug": "sn-47",
   "summary": {
-    "avg_latency_ms": 419,
+    "avg_latency_ms": 522,
     "degraded_count": 0,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:57:59.268Z",
-    "last_ok": "2026-06-06T08:57:59.268Z",
+    "last_checked": "2026-06-06T09:20:23.266Z",
+    "last_ok": "2026-06-06T09:20:23.266Z",
     "name": "EvolAI",
     "netuid": 47,
     "ok_count": 6,
@@ -27,9 +27,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:57:58.857Z",
-      "last_ok": "2026-06-06T08:57:58.857Z",
-      "latency_ms": 330,
+      "last_checked": "2026-06-06T09:20:22.718Z",
+      "last_ok": "2026-06-06T09:20:22.718Z",
+      "latency_ms": 332,
       "method_tested": "HEAD",
       "netuid": 47,
       "private_redirect_blocked": false,
@@ -43,7 +43,7 @@
       "surface_id": "sn-47-github-readme-reboot-org-reboot-subnet-dashboard-2",
       "uptime_sample_ratio": 1,
       "url": "https://taostats.io/subnets/47/chart",
-      "verified_at": "2026-06-06T08:57:58.857Z"
+      "verified_at": "2026-06-06T09:20:22.718Z"
     },
     {
       "auth_required": false,
@@ -52,9 +52,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:57:59.206Z",
-      "last_ok": "2026-06-06T08:57:59.206Z",
-      "latency_ms": 671,
+      "last_checked": "2026-06-06T09:20:23.217Z",
+      "last_ok": "2026-06-06T09:20:23.217Z",
+      "latency_ms": 780,
       "method_tested": "HEAD",
       "netuid": 47,
       "private_redirect_blocked": false,
@@ -68,7 +68,7 @@
       "surface_id": "sn-47-github-readme-reboot-org-reboot-subnet-website-1",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/opentensor/bittensor",
-      "verified_at": "2026-06-06T08:57:59.206Z"
+      "verified_at": "2026-06-06T09:20:23.217Z"
     },
     {
       "auth_required": false,
@@ -77,9 +77,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:57:58.722Z",
-      "last_ok": "2026-06-06T08:57:58.722Z",
-      "latency_ms": 119,
+      "last_checked": "2026-06-06T09:20:22.677Z",
+      "last_ok": "2026-06-06T09:20:22.677Z",
+      "latency_ms": 207,
       "method_tested": "HEAD",
       "netuid": 47,
       "private_redirect_blocked": false,
@@ -93,7 +93,7 @@
       "surface_id": "sn-47-taomarketcap-dashboard",
       "uptime_sample_ratio": 1,
       "url": "https://taomarketcap.com/subnets/47",
-      "verified_at": "2026-06-06T08:57:58.722Z"
+      "verified_at": "2026-06-06T09:20:22.677Z"
     },
     {
       "auth_required": false,
@@ -102,9 +102,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:57:59.268Z",
-      "last_ok": "2026-06-06T08:57:59.268Z",
-      "latency_ms": 653,
+      "last_checked": "2026-06-06T09:20:23.266Z",
+      "last_ok": "2026-06-06T09:20:23.266Z",
+      "latency_ms": 792,
       "method_tested": "HEAD",
       "netuid": 47,
       "private_redirect_blocked": false,
@@ -118,7 +118,7 @@
       "surface_id": "sn-47-taomarketcap-source-repo",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/openevolai/evolai.git",
-      "verified_at": "2026-06-06T08:57:59.268Z"
+      "verified_at": "2026-06-06T09:20:23.266Z"
     },
     {
       "auth_required": false,
@@ -127,9 +127,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:57:58.918Z",
-      "last_ok": "2026-06-06T08:57:58.918Z",
-      "latency_ms": 303,
+      "last_checked": "2026-06-06T09:20:22.933Z",
+      "last_ok": "2026-06-06T09:20:22.933Z",
+      "latency_ms": 411,
       "method_tested": "HEAD",
       "netuid": 47,
       "private_redirect_blocked": false,
@@ -143,7 +143,7 @@
       "surface_id": "sn-47-tensorplex-docs",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/tensorplex-labs/subnet-docs/tree/main/data/47",
-      "verified_at": "2026-06-06T08:57:58.918Z"
+      "verified_at": "2026-06-06T09:20:22.933Z"
     },
     {
       "auth_required": false,
@@ -152,9 +152,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:57:59.112Z",
-      "last_ok": "2026-06-06T08:57:59.112Z",
-      "latency_ms": 440,
+      "last_checked": "2026-06-06T09:20:23.182Z",
+      "last_ok": "2026-06-06T09:20:23.182Z",
+      "latency_ms": 612,
       "method_tested": "HEAD",
       "netuid": 47,
       "private_redirect_blocked": false,
@@ -168,7 +168,7 @@
       "surface_id": "sn-47-tensorplex-source-repo-1",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/reboot-org/reboot-subnet",
-      "verified_at": "2026-06-06T08:57:59.112Z"
+      "verified_at": "2026-06-06T09:20:23.182Z"
     }
   ]
 }

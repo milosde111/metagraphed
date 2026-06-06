@@ -6,11 +6,11 @@
   "schema_version": 1,
   "slug": "sn-21",
   "summary": {
-    "avg_latency_ms": 353,
+    "avg_latency_ms": 345,
     "degraded_count": 0,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:57:56.969Z",
-    "last_ok": "2026-06-06T08:57:56.969Z",
+    "last_checked": "2026-06-06T09:20:20.711Z",
+    "last_ok": "2026-06-06T09:20:20.711Z",
     "name": "AdTAO",
     "netuid": 21,
     "ok_count": 3,
@@ -27,9 +27,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:57:56.499Z",
-      "last_ok": "2026-06-06T08:57:56.499Z",
-      "latency_ms": 178,
+      "last_checked": "2026-06-06T09:20:20.319Z",
+      "last_ok": "2026-06-06T09:20:20.319Z",
+      "latency_ms": 157,
       "method_tested": "HEAD",
       "netuid": 21,
       "private_redirect_blocked": false,
@@ -43,7 +43,7 @@
       "surface_id": "sn-21-taomarketcap-dashboard",
       "uptime_sample_ratio": 1,
       "url": "https://taomarketcap.com/subnets/21",
-      "verified_at": "2026-06-06T08:57:56.499Z"
+      "verified_at": "2026-06-06T09:20:20.319Z"
     },
     {
       "auth_required": false,
@@ -52,9 +52,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:57:56.969Z",
-      "last_ok": "2026-06-06T08:57:56.969Z",
-      "latency_ms": 587,
+      "last_checked": "2026-06-06T09:20:20.711Z",
+      "last_ok": "2026-06-06T09:20:20.711Z",
+      "latency_ms": 513,
       "method_tested": "HEAD",
       "netuid": 21,
       "private_redirect_blocked": false,
@@ -68,7 +68,7 @@
       "surface_id": "sn-21-taomarketcap-website",
       "uptime_sample_ratio": 1,
       "url": "https://ppcrebel.com/",
-      "verified_at": "2026-06-06T08:57:56.969Z"
+      "verified_at": "2026-06-06T09:20:20.711Z"
     },
     {
       "auth_required": false,
@@ -77,9 +77,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:57:56.691Z",
-      "last_ok": "2026-06-06T08:57:56.691Z",
-      "latency_ms": 293,
+      "last_checked": "2026-06-06T09:20:20.565Z",
+      "last_ok": "2026-06-06T09:20:20.565Z",
+      "latency_ms": 364,
       "method_tested": "HEAD",
       "netuid": 21,
       "private_redirect_blocked": false,
@@ -93,7 +93,7 @@
       "surface_id": "sn-21-tensorplex-docs",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/tensorplex-labs/subnet-docs/tree/main/data/21",
-      "verified_at": "2026-06-06T08:57:56.691Z"
+      "verified_at": "2026-06-06T09:20:20.565Z"
     }
   ]
 }

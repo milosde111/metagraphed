@@ -6,11 +6,11 @@
   "schema_version": 1,
   "slug": "sn-78",
   "summary": {
-    "avg_latency_ms": 372,
+    "avg_latency_ms": 443,
     "degraded_count": 0,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:58:02.542Z",
-    "last_ok": "2026-06-06T08:58:02.542Z",
+    "last_checked": "2026-06-06T09:20:27.025Z",
+    "last_ok": "2026-06-06T09:20:27.025Z",
     "name": "Vocence",
     "netuid": 78,
     "ok_count": 6,
@@ -27,9 +27,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:58:02.005Z",
-      "last_ok": "2026-06-06T08:58:02.005Z",
-      "latency_ms": 150,
+      "last_checked": "2026-06-06T09:20:26.480Z",
+      "last_ok": "2026-06-06T09:20:26.480Z",
+      "latency_ms": 181,
       "method_tested": "HEAD",
       "netuid": 78,
       "private_redirect_blocked": false,
@@ -43,7 +43,7 @@
       "surface_id": "sn-78-taomarketcap-dashboard",
       "uptime_sample_ratio": 1,
       "url": "https://taomarketcap.com/subnets/78",
-      "verified_at": "2026-06-06T08:58:02.005Z"
+      "verified_at": "2026-06-06T09:20:26.480Z"
     },
     {
       "auth_required": false,
@@ -52,9 +52,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:58:02.390Z",
-      "last_ok": "2026-06-06T08:58:02.390Z",
-      "latency_ms": 523,
+      "last_checked": "2026-06-06T09:20:26.905Z",
+      "last_ok": "2026-06-06T09:20:26.905Z",
+      "latency_ms": 584,
       "method_tested": "HEAD",
       "netuid": 78,
       "private_redirect_blocked": false,
@@ -66,9 +66,9 @@
       "subnet_name": "Vocence",
       "subnet_slug": "sn-78",
       "surface_id": "sn-78-taomarketcap-source-repo",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/vocence-78/vocence",
-      "verified_at": "2026-06-06T08:58:02.390Z"
+      "verified_at": "2026-06-06T09:20:26.905Z"
     },
     {
       "auth_required": false,
@@ -77,9 +77,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:58:02.122Z",
-      "last_ok": "2026-06-06T08:58:02.122Z",
-      "latency_ms": 246,
+      "last_checked": "2026-06-06T09:20:26.584Z",
+      "last_ok": "2026-06-06T09:20:26.584Z",
+      "latency_ms": 240,
       "method_tested": "HEAD",
       "netuid": 78,
       "private_redirect_blocked": false,
@@ -93,7 +93,7 @@
       "surface_id": "sn-78-taomarketcap-website",
       "uptime_sample_ratio": 1,
       "url": "https://www.vocence.ai/",
-      "verified_at": "2026-06-06T08:58:02.122Z"
+      "verified_at": "2026-06-06T09:20:26.584Z"
     },
     {
       "auth_required": false,
@@ -102,9 +102,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:58:02.287Z",
-      "last_ok": "2026-06-06T08:58:02.287Z",
-      "latency_ms": 354,
+      "last_checked": "2026-06-06T09:20:26.896Z",
+      "last_ok": "2026-06-06T09:20:26.896Z",
+      "latency_ms": 508,
       "method_tested": "HEAD",
       "netuid": 78,
       "private_redirect_blocked": false,
@@ -116,9 +116,9 @@
       "subnet_name": "Vocence",
       "subnet_slug": "sn-78",
       "surface_id": "sn-78-tensorplex-docs",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/tensorplex-labs/subnet-docs/tree/main/data/78",
-      "verified_at": "2026-06-06T08:58:02.287Z"
+      "verified_at": "2026-06-06T09:20:26.896Z"
     },
     {
       "auth_required": false,
@@ -127,9 +127,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:58:02.379Z",
-      "last_ok": "2026-06-06T08:58:02.379Z",
-      "latency_ms": 398,
+      "last_checked": "2026-06-06T09:20:27.025Z",
+      "last_ok": "2026-06-06T09:20:27.025Z",
+      "latency_ms": 602,
       "method_tested": "HEAD",
       "netuid": 78,
       "private_redirect_blocked": false,
@@ -141,9 +141,9 @@
       "subnet_name": "Vocence",
       "subnet_slug": "sn-78",
       "surface_id": "sn-78-tensorplex-source-repo-1",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/Loosh-ai",
-      "verified_at": "2026-06-06T08:58:02.379Z"
+      "verified_at": "2026-06-06T09:20:27.025Z"
     },
     {
       "auth_required": false,
@@ -152,9 +152,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:58:02.542Z",
-      "last_ok": "2026-06-06T08:58:02.542Z",
-      "latency_ms": 560,
+      "last_checked": "2026-06-06T09:20:27.025Z",
+      "last_ok": "2026-06-06T09:20:27.025Z",
+      "latency_ms": 545,
       "method_tested": "HEAD",
       "netuid": 78,
       "private_redirect_blocked": false,
@@ -166,9 +166,9 @@
       "subnet_name": "Vocence",
       "subnet_slug": "sn-78",
       "surface_id": "sn-78-tensorplex-source-repo-2",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/Loosh-ai/loosh-public-documentation",
-      "verified_at": "2026-06-06T08:58:02.542Z"
+      "verified_at": "2026-06-06T09:20:27.025Z"
     }
   ]
 }

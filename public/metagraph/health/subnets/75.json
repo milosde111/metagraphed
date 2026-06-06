@@ -6,11 +6,11 @@
   "schema_version": 1,
   "slug": "sn-75",
   "summary": {
-    "avg_latency_ms": 443,
+    "avg_latency_ms": 495,
     "degraded_count": 0,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:58:02.387Z",
-    "last_ok": "2026-06-06T08:58:02.387Z",
+    "last_checked": "2026-06-06T09:20:26.992Z",
+    "last_ok": "2026-06-06T09:20:26.992Z",
     "name": "Hippius",
     "netuid": 75,
     "ok_count": 8,
@@ -27,9 +27,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:58:02.175Z",
-      "last_ok": "2026-06-06T08:58:02.175Z",
-      "latency_ms": 520,
+      "last_checked": "2026-06-06T09:20:26.710Z",
+      "last_ok": "2026-06-06T09:20:26.710Z",
+      "latency_ms": 696,
       "method_tested": "HEAD",
       "netuid": 75,
       "private_redirect_blocked": false,
@@ -41,9 +41,9 @@
       "subnet_name": "Hippius",
       "subnet_slug": "sn-75",
       "surface_id": "sn-75-github-readme-thenervelab-hippius-storage-miner-website-1",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/thenervelab/hippius-storage-miner.git",
-      "verified_at": "2026-06-06T08:58:02.175Z"
+      "verified_at": "2026-06-06T09:20:26.710Z"
     },
     {
       "auth_required": false,
@@ -52,9 +52,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:58:01.867Z",
-      "last_ok": "2026-06-06T08:58:01.867Z",
-      "latency_ms": 196,
+      "last_checked": "2026-06-06T09:20:26.188Z",
+      "last_ok": "2026-06-06T09:20:26.188Z",
+      "latency_ms": 128,
       "method_tested": "HEAD",
       "netuid": 75,
       "private_redirect_blocked": false,
@@ -68,7 +68,7 @@
       "surface_id": "sn-75-taomarketcap-dashboard",
       "uptime_sample_ratio": 1,
       "url": "https://taomarketcap.com/subnets/75",
-      "verified_at": "2026-06-06T08:58:01.867Z"
+      "verified_at": "2026-06-06T09:20:26.188Z"
     },
     {
       "auth_required": false,
@@ -77,9 +77,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:58:02.387Z",
-      "last_ok": "2026-06-06T08:58:02.387Z",
-      "latency_ms": 716,
+      "last_checked": "2026-06-06T09:20:26.686Z",
+      "last_ok": "2026-06-06T09:20:26.686Z",
+      "latency_ms": 612,
       "method_tested": "HEAD",
       "netuid": 75,
       "private_redirect_blocked": false,
@@ -91,9 +91,9 @@
       "subnet_name": "Hippius",
       "subnet_slug": "sn-75",
       "surface_id": "sn-75-taomarketcap-source-repo",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/thenervelab/thebrain",
-      "verified_at": "2026-06-06T08:58:02.387Z"
+      "verified_at": "2026-06-06T09:20:26.686Z"
     },
     {
       "auth_required": false,
@@ -102,9 +102,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:58:02.291Z",
-      "last_ok": "2026-06-06T08:58:02.291Z",
-      "latency_ms": 612,
+      "last_checked": "2026-06-06T09:20:26.992Z",
+      "last_ok": "2026-06-06T09:20:26.992Z",
+      "latency_ms": 887,
       "method_tested": "HEAD",
       "netuid": 75,
       "private_redirect_blocked": false,
@@ -118,7 +118,7 @@
       "surface_id": "sn-75-taomarketcap-website",
       "uptime_sample_ratio": 1,
       "url": "https://hippius.com/",
-      "verified_at": "2026-06-06T08:58:02.291Z"
+      "verified_at": "2026-06-06T09:20:26.992Z"
     },
     {
       "auth_required": false,
@@ -127,9 +127,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:58:02.096Z",
-      "last_ok": "2026-06-06T08:58:02.096Z",
-      "latency_ms": 396,
+      "last_checked": "2026-06-06T09:20:26.544Z",
+      "last_ok": "2026-06-06T09:20:26.544Z",
+      "latency_ms": 427,
       "method_tested": "HEAD",
       "netuid": 75,
       "private_redirect_blocked": false,
@@ -141,9 +141,9 @@
       "subnet_name": "Hippius",
       "subnet_slug": "sn-75",
       "surface_id": "sn-75-tensorplex-docs",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/tensorplex-labs/subnet-docs/tree/main/data/75",
-      "verified_at": "2026-06-06T08:58:02.096Z"
+      "verified_at": "2026-06-06T09:20:26.544Z"
     },
     {
       "auth_required": false,
@@ -152,9 +152,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:58:02.323Z",
-      "last_ok": "2026-06-06T08:58:02.323Z",
-      "latency_ms": 593,
+      "last_checked": "2026-06-06T09:20:26.760Z",
+      "last_ok": "2026-06-06T09:20:26.760Z",
+      "latency_ms": 579,
       "method_tested": "HEAD",
       "netuid": 75,
       "private_redirect_blocked": false,
@@ -166,9 +166,9 @@
       "subnet_name": "Hippius",
       "subnet_slug": "sn-75",
       "surface_id": "sn-75-tensorplex-source-repo-2",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/thenervelab/hippius-validator",
-      "verified_at": "2026-06-06T08:58:02.323Z"
+      "verified_at": "2026-06-06T09:20:26.760Z"
     },
     {
       "auth_required": false,
@@ -177,9 +177,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:58:02.175Z",
-      "last_ok": "2026-06-06T08:58:02.175Z",
-      "latency_ms": 440,
+      "last_checked": "2026-06-06T09:20:26.711Z",
+      "last_ok": "2026-06-06T09:20:26.711Z",
+      "latency_ms": 523,
       "method_tested": "HEAD",
       "netuid": 75,
       "private_redirect_blocked": false,
@@ -191,9 +191,9 @@
       "subnet_name": "Hippius",
       "subnet_slug": "sn-75",
       "surface_id": "sn-75-tensorplex-source-repo-3",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/thenervelab/hippius-storage-miner",
-      "verified_at": "2026-06-06T08:58:02.175Z"
+      "verified_at": "2026-06-06T09:20:26.711Z"
     },
     {
       "auth_required": false,
@@ -202,9 +202,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:58:01.816Z",
-      "last_ok": "2026-06-06T08:58:01.816Z",
-      "latency_ms": 73,
+      "last_checked": "2026-06-06T09:20:26.300Z",
+      "last_ok": "2026-06-06T09:20:26.300Z",
+      "latency_ms": 111,
       "method_tested": "HEAD",
       "netuid": 75,
       "private_redirect_blocked": false,
@@ -216,9 +216,9 @@
       "subnet_name": "Hippius",
       "subnet_slug": "sn-75",
       "surface_id": "sn-75-website-common-docs-o36adh",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/docs",
-      "verified_at": "2026-06-06T08:58:01.816Z"
+      "verified_at": "2026-06-06T09:20:26.300Z"
     }
   ]
 }

@@ -8,8 +8,10 @@ const files = {
   health: "public/metagraph/health/latest.json",
   rpc: "public/metagraph/rpc-endpoints.json",
   rpcPools: "public/metagraph/rpc/pools.json",
+  changelog: "public/metagraph/changelog.json",
   freshness: "public/metagraph/freshness.json",
   sourceHealth: "public/metagraph/source-health.json",
+  sourceSnapshots: "public/metagraph/source-snapshots.json",
   r2Manifest: "public/metagraph/r2-manifest.json",
   schemaDrift: "public/metagraph/schema-drift.json",
   adaptersAllways: "public/metagraph/adapters/allways.json",
@@ -58,8 +60,10 @@ lines.push(`- Allways adapter: ${current.adaptersAllways?.snapshot?.status || "n
 lines.push(`- Gittensor adapter: ${current.adaptersGittensor?.snapshot?.status || "not-captured"}`);
 lines.push("");
 lines.push("## Cloudflare Artifacts");
+lines.push(`- generated changelog: ${current.changelog?.summary ? "available" : "missing"}`);
 lines.push(`- freshness native snapshot: ${current.freshness?.summary?.native_snapshot_captured_at || "unknown"}`);
 lines.push(`- source health: ${formatCounts(current.sourceHealth?.summary?.status_counts)}`);
+lines.push(`- source snapshots: ${current.sourceSnapshots?.summary?.source_count ?? 0}`);
 lines.push(`- R2 manifest artifacts: ${current.r2Manifest?.artifact_count ?? 0}`);
 lines.push("");
 lines.push("## Validation");
@@ -74,6 +78,9 @@ lines.push("- `npm run validate:api`");
 lines.push("- `npm run validate:intake`");
 lines.push("- `npm run validate:workflows`");
 lines.push("- `npm run r2:manifest:dry-run`");
+lines.push("- `npm run r2:download:dry-run`");
+lines.push("- `npm run kv:publish:dry-run`");
+lines.push("- `npm run worker:deploy:dry-run`");
 lines.push("- `npm run scan:public-safety`");
 
 console.log(lines.join("\n"));

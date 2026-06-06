@@ -6,11 +6,11 @@
   "schema_version": 1,
   "slug": "sn-53",
   "summary": {
-    "avg_latency_ms": 237,
+    "avg_latency_ms": 315,
     "degraded_count": 0,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:57:59.587Z",
-    "last_ok": "2026-06-06T08:57:59.587Z",
+    "last_checked": "2026-06-06T09:20:23.761Z",
+    "last_ok": "2026-06-06T09:20:23.761Z",
     "name": "EfficientFrontier",
     "netuid": 53,
     "ok_count": 2,
@@ -27,9 +27,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:57:59.390Z",
-      "last_ok": "2026-06-06T08:57:59.390Z",
-      "latency_ms": 155,
+      "last_checked": "2026-06-06T09:20:23.511Z",
+      "last_ok": "2026-06-06T09:20:23.511Z",
+      "latency_ms": 206,
       "method_tested": "HEAD",
       "netuid": 53,
       "private_redirect_blocked": false,
@@ -43,7 +43,7 @@
       "surface_id": "sn-53-taomarketcap-dashboard",
       "uptime_sample_ratio": 1,
       "url": "https://taomarketcap.com/subnets/53",
-      "verified_at": "2026-06-06T08:57:59.390Z"
+      "verified_at": "2026-06-06T09:20:23.511Z"
     },
     {
       "auth_required": false,
@@ -52,9 +52,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:57:59.587Z",
-      "last_ok": "2026-06-06T08:57:59.587Z",
-      "latency_ms": 319,
+      "last_checked": "2026-06-06T09:20:23.761Z",
+      "last_ok": "2026-06-06T09:20:23.761Z",
+      "latency_ms": 424,
       "method_tested": "HEAD",
       "netuid": 53,
       "private_redirect_blocked": false,
@@ -68,7 +68,7 @@
       "surface_id": "sn-53-tensorplex-docs",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/tensorplex-labs/subnet-docs/tree/main/data/53",
-      "verified_at": "2026-06-06T08:57:59.587Z"
+      "verified_at": "2026-06-06T09:20:23.761Z"
     }
   ]
 }

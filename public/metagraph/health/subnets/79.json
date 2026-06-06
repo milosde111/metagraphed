@@ -6,11 +6,11 @@
   "schema_version": 1,
   "slug": "sn-79",
   "summary": {
-    "avg_latency_ms": 362,
+    "avg_latency_ms": 379,
     "degraded_count": 0,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:58:02.807Z",
-    "last_ok": "2026-06-06T08:58:02.807Z",
+    "last_checked": "2026-06-06T09:20:27.272Z",
+    "last_ok": "2026-06-06T09:20:27.272Z",
     "name": "MVTRX",
     "netuid": 79,
     "ok_count": 9,
@@ -27,9 +27,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:58:02.030Z",
-      "last_ok": "2026-06-06T08:58:02.030Z",
-      "latency_ms": 25,
+      "last_checked": "2026-06-06T09:20:26.511Z",
+      "last_ok": "2026-06-06T09:20:26.511Z",
+      "latency_ms": 30,
       "method_tested": "HEAD",
       "netuid": 79,
       "private_redirect_blocked": false,
@@ -43,7 +43,7 @@
       "surface_id": "sn-79-github-readme-taos-im-sn-79-dashboard-7",
       "uptime_sample_ratio": 1,
       "url": "https://img.shields.io/badge/dashboard-white?logo=grafana",
-      "verified_at": "2026-06-06T08:58:02.030Z"
+      "verified_at": "2026-06-06T09:20:26.511Z"
     },
     {
       "auth_required": false,
@@ -52,9 +52,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:58:02.668Z",
-      "last_ok": "2026-06-06T08:58:02.668Z",
-      "latency_ms": 637,
+      "last_checked": "2026-06-06T09:20:27.247Z",
+      "last_ok": "2026-06-06T09:20:27.247Z",
+      "latency_ms": 736,
       "method_tested": "HEAD",
       "netuid": 79,
       "private_redirect_blocked": false,
@@ -68,7 +68,7 @@
       "surface_id": "sn-79-github-readme-taos-im-sn-79-docs-1",
       "uptime_sample_ratio": 1,
       "url": "https://simulate.trading/taos-im-paper",
-      "verified_at": "2026-06-06T08:58:02.668Z"
+      "verified_at": "2026-06-06T09:20:27.247Z"
     },
     {
       "auth_required": false,
@@ -77,9 +77,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:58:02.195Z",
-      "last_ok": "2026-06-06T08:58:02.195Z",
-      "latency_ms": 99,
+      "last_checked": "2026-06-06T09:20:26.575Z",
+      "last_ok": "2026-06-06T09:20:26.575Z",
+      "latency_ms": 32,
       "method_tested": "HEAD",
       "netuid": 79,
       "private_redirect_blocked": false,
@@ -93,7 +93,7 @@
       "surface_id": "sn-79-github-readme-taos-im-sn-79-docs-6",
       "uptime_sample_ratio": 1,
       "url": "https://img.shields.io/badge/whitepaper-white?logo=proton",
-      "verified_at": "2026-06-06T08:58:02.195Z"
+      "verified_at": "2026-06-06T09:20:26.575Z"
     },
     {
       "auth_required": false,
@@ -102,9 +102,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:58:02.667Z",
-      "last_ok": "2026-06-06T08:58:02.667Z",
-      "latency_ms": 555,
+      "last_checked": "2026-06-06T09:20:27.252Z",
+      "last_ok": "2026-06-06T09:20:27.252Z",
+      "latency_ms": 677,
       "method_tested": "HEAD",
       "netuid": 79,
       "private_redirect_blocked": false,
@@ -116,9 +116,9 @@
       "subnet_name": "MVTRX",
       "subnet_slug": "sn-79",
       "surface_id": "sn-79-github-readme-taos-im-sn-79-website-2",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/maxe-team/maxe",
-      "verified_at": "2026-06-06T08:58:02.667Z"
+      "verified_at": "2026-06-06T09:20:27.252Z"
     },
     {
       "auth_required": false,
@@ -127,9 +127,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:58:02.807Z",
-      "last_ok": "2026-06-06T08:58:02.807Z",
-      "latency_ms": 685,
+      "last_checked": "2026-06-06T09:20:27.272Z",
+      "last_ok": "2026-06-06T09:20:27.272Z",
+      "latency_ms": 687,
       "method_tested": "HEAD",
       "netuid": 79,
       "private_redirect_blocked": false,
@@ -141,9 +141,9 @@
       "subnet_name": "MVTRX",
       "subnet_slug": "sn-79",
       "surface_id": "sn-79-github-readme-taos-im-sn-79-website-4",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/microsoft/MarS",
-      "verified_at": "2026-06-06T08:58:02.807Z"
+      "verified_at": "2026-06-06T09:20:27.272Z"
     },
     {
       "auth_required": false,
@@ -152,9 +152,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:58:02.368Z",
-      "last_ok": "2026-06-06T08:58:02.368Z",
-      "latency_ms": 241,
+      "last_checked": "2026-06-06T09:20:26.810Z",
+      "last_ok": "2026-06-06T09:20:26.810Z",
+      "latency_ms": 192,
       "method_tested": "HEAD",
       "netuid": 79,
       "private_redirect_blocked": false,
@@ -168,7 +168,7 @@
       "surface_id": "sn-79-taomarketcap-dashboard",
       "uptime_sample_ratio": 1,
       "url": "https://taomarketcap.com/subnets/79",
-      "verified_at": "2026-06-06T08:58:02.368Z"
+      "verified_at": "2026-06-06T09:20:26.810Z"
     },
     {
       "auth_required": false,
@@ -177,9 +177,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:58:02.547Z",
-      "last_ok": "2026-06-06T08:58:02.547Z",
-      "latency_ms": 380,
+      "last_checked": "2026-06-06T09:20:27.026Z",
+      "last_ok": "2026-06-06T09:20:27.026Z",
+      "latency_ms": 390,
       "method_tested": "HEAD",
       "netuid": 79,
       "private_redirect_blocked": false,
@@ -191,9 +191,9 @@
       "subnet_name": "MVTRX",
       "subnet_slug": "sn-79",
       "surface_id": "sn-79-tensorplex-docs",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/tensorplex-labs/subnet-docs/tree/main/data/79",
-      "verified_at": "2026-06-06T08:58:02.547Z"
+      "verified_at": "2026-06-06T09:20:27.026Z"
     },
     {
       "auth_required": false,
@@ -202,9 +202,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:58:02.722Z",
-      "last_ok": "2026-06-06T08:58:02.722Z",
-      "latency_ms": 554,
+      "last_checked": "2026-06-06T09:20:27.245Z",
+      "last_ok": "2026-06-06T09:20:27.245Z",
+      "latency_ms": 559,
       "method_tested": "HEAD",
       "netuid": 79,
       "private_redirect_blocked": false,
@@ -218,7 +218,7 @@
       "surface_id": "sn-79-tensorplex-source-repo-1",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/taos-im/sn-79",
-      "verified_at": "2026-06-06T08:58:02.722Z"
+      "verified_at": "2026-06-06T09:20:27.245Z"
     },
     {
       "auth_required": false,
@@ -227,9 +227,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:58:02.257Z",
-      "last_ok": "2026-06-06T08:58:02.257Z",
-      "latency_ms": 82,
+      "last_checked": "2026-06-06T09:20:26.798Z",
+      "last_ok": "2026-06-06T09:20:26.798Z",
+      "latency_ms": 109,
       "method_tested": "HEAD",
       "netuid": 79,
       "private_redirect_blocked": false,
@@ -241,9 +241,9 @@
       "subnet_name": "MVTRX",
       "subnet_slug": "sn-79",
       "surface_id": "sn-79-website-common-docs-o36adh",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/docs",
-      "verified_at": "2026-06-06T08:58:02.257Z"
+      "verified_at": "2026-06-06T09:20:26.798Z"
     }
   ]
 }

@@ -6,11 +6,11 @@
   "schema_version": 1,
   "slug": "sn-32",
   "summary": {
-    "avg_latency_ms": 391,
+    "avg_latency_ms": 431,
     "degraded_count": 0,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:57:57.984Z",
-    "last_ok": "2026-06-06T08:57:57.984Z",
+    "last_checked": "2026-06-06T09:20:21.669Z",
+    "last_ok": "2026-06-06T09:20:21.669Z",
     "name": "ItsAI",
     "netuid": 32,
     "ok_count": 4,
@@ -27,9 +27,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:57:57.393Z",
-      "last_ok": "2026-06-06T08:57:57.393Z",
-      "latency_ms": 124,
+      "last_checked": "2026-06-06T09:20:21.193Z",
+      "last_ok": "2026-06-06T09:20:21.193Z",
+      "latency_ms": 187,
       "method_tested": "HEAD",
       "netuid": 32,
       "private_redirect_blocked": false,
@@ -43,7 +43,7 @@
       "surface_id": "sn-32-taomarketcap-dashboard",
       "uptime_sample_ratio": 1,
       "url": "https://taomarketcap.com/subnets/32",
-      "verified_at": "2026-06-06T08:57:57.393Z"
+      "verified_at": "2026-06-06T09:20:21.193Z"
     },
     {
       "auth_required": false,
@@ -52,9 +52,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:57:57.772Z",
-      "last_ok": "2026-06-06T08:57:57.772Z",
-      "latency_ms": 498,
+      "last_checked": "2026-06-06T09:20:21.561Z",
+      "last_ok": "2026-06-06T09:20:21.561Z",
+      "latency_ms": 554,
       "method_tested": "HEAD",
       "netuid": 32,
       "private_redirect_blocked": false,
@@ -68,7 +68,7 @@
       "surface_id": "sn-32-taomarketcap-source-repo",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/It-s-AI/llm-detection",
-      "verified_at": "2026-06-06T08:57:57.772Z"
+      "verified_at": "2026-06-06T09:20:21.561Z"
     },
     {
       "auth_required": false,
@@ -77,9 +77,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:57:57.984Z",
-      "last_ok": "2026-06-06T08:57:57.984Z",
-      "latency_ms": 656,
+      "last_checked": "2026-06-06T09:20:21.669Z",
+      "last_ok": "2026-06-06T09:20:21.669Z",
+      "latency_ms": 577,
       "method_tested": "HEAD",
       "netuid": 32,
       "private_redirect_blocked": false,
@@ -93,7 +93,7 @@
       "surface_id": "sn-32-taomarketcap-website",
       "uptime_sample_ratio": 1,
       "url": "https://its-ai.org/en",
-      "verified_at": "2026-06-06T08:57:57.984Z"
+      "verified_at": "2026-06-06T09:20:21.669Z"
     },
     {
       "auth_required": false,
@@ -102,9 +102,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:57:57.612Z",
-      "last_ok": "2026-06-06T08:57:57.612Z",
-      "latency_ms": 284,
+      "last_checked": "2026-06-06T09:20:21.534Z",
+      "last_ok": "2026-06-06T09:20:21.534Z",
+      "latency_ms": 406,
       "method_tested": "HEAD",
       "netuid": 32,
       "private_redirect_blocked": false,
@@ -118,7 +118,7 @@
       "surface_id": "sn-32-tensorplex-docs",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/tensorplex-labs/subnet-docs/tree/main/data/32",
-      "verified_at": "2026-06-06T08:57:57.612Z"
+      "verified_at": "2026-06-06T09:20:21.534Z"
     }
   ]
 }

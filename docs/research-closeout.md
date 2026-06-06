@@ -15,11 +15,13 @@ This tracks the original Bittensor public-infra research plan against the curren
 - OpenAPI snapshot/drift support, currently schema-backed for Allways.
 - Allways and Gittensor adapter-backed pilot artifacts.
 - Cloudflare Worker API routes over canonical artifacts.
-- R2 manifest generation for versioned artifact history.
-- Search, freshness, source-health, evidence-ledger, and endpoint-pool artifacts.
+- R2 manifest generation plus dry-run upload/download tooling for versioned artifact history.
+- KV latest pointer, feature-flag, endpoint-pool, and source-freshness publish tooling.
+- Search, changelog, freshness, source-health, source-snapshots, evidence-ledger, and endpoint-pool artifacts.
 - Maintainer review decision ledger and promotion command.
 - Community intake dry-run validation path.
 - Scheduled sync workflow that opens PRs instead of direct-pushing generated changes.
+- Default-disabled read-only RPC proxy prototype with write/unsafe method blocking.
 - Public-safety scan for secrets, wallet/PAT/private URL risks, and unsafe local/private data.
 - `metagraph.sh` as the only v1 domain.
 
@@ -28,7 +30,7 @@ This tracks the original Bittensor public-infra research plan against the curren
 - Base-layer RPC/provider landscape now has root/system provider manifests and public endpoint probes, but more providers should be promoted only when exact public-safe endpoint URLs are verified.
 - Allways adapter captures response shape, hashes, counts, SSE shape, and freshness metadata; deeper protocol analytics such as swap lifecycle rates and crown history rollups are later adapter work.
 - Gittensor adapter captures public repository config, emission/maintainer-cut aggregates, GitHub repo metadata, and docs-only bounty/contribution status; no unauthenticated bounty API has been verified yet.
-- Sync PR summaries now compute artifact diffs, but future summaries can add richer historical health recovery/failure comparisons.
+- Sync PR summaries now compute artifact diffs and include Cloudflare artifact summaries, but future summaries can add richer historical health recovery/failure comparisons.
 
 ## Deferred
 
@@ -37,7 +39,7 @@ This tracks the original Bittensor public-infra research plan against the curren
 - Historical/deregistered/testnet subnet archives.
 - Publishing owner keys, hotkeys, coldkeys, wallet data, PATs, credentialed GitHub flows, validator-local state, or private dashboards.
 - Owned Bittensor lite/archive nodes and other recurring node OPEX services.
-- Live read-only RPC load balancing; endpoint pool artifacts exist, but proxying remains disabled by default.
+- Public read-only RPC load balancing; endpoint pool artifacts and a disabled proxy prototype exist, but public proxying remains off until Cloudflare WAF/rate limits and funding/OPEX constraints are settled.
 - Grant/budget proposal packaging for hosted infrastructure milestones.
 
 ## Current Product Line

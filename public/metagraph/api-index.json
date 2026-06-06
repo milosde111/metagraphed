@@ -12,6 +12,11 @@
     },
     {
       "contract_version": "2026-06-06.1",
+      "id": "changelog",
+      "path": "/metagraph/changelog.json"
+    },
+    {
+      "contract_version": "2026-06-06.1",
       "id": "subnets",
       "path": "/metagraph/subnets.json"
     },
@@ -64,6 +69,11 @@
       "contract_version": "2026-06-06.1",
       "id": "source-health",
       "path": "/metagraph/source-health.json"
+    },
+    {
+      "contract_version": "2026-06-06.1",
+      "id": "source-snapshots",
+      "path": "/metagraph/source-snapshots.json"
     },
     {
       "contract_version": "2026-06-06.1",
@@ -166,6 +176,14 @@
       "public": true
     },
     {
+      "artifact_path": "/metagraph/candidates.json",
+      "cache": "standard",
+      "description": "List unpromoted candidate surfaces.",
+      "method": "GET",
+      "path": "/api/v1/candidates",
+      "public": true
+    },
+    {
       "artifact_path": "/metagraph/providers.json",
       "cache": "standard",
       "description": "List providers and sources.",
@@ -174,11 +192,75 @@
       "public": true
     },
     {
+      "artifact_path": "/metagraph/coverage.json",
+      "cache": "standard",
+      "description": "Fetch registry coverage summary.",
+      "method": "GET",
+      "path": "/api/v1/coverage",
+      "public": true
+    },
+    {
+      "artifact_path": "/metagraph/curation.json",
+      "cache": "standard",
+      "description": "Fetch curation states by subnet.",
+      "method": "GET",
+      "path": "/api/v1/curation",
+      "public": true
+    },
+    {
+      "artifact_path": "/metagraph/gaps.json",
+      "cache": "standard",
+      "description": "Fetch interface gap report.",
+      "method": "GET",
+      "path": "/api/v1/gaps",
+      "public": true
+    },
+    {
       "artifact_path": "/metagraph/health/summary.json",
       "cache": "short",
       "description": "Fetch global health summary.",
       "method": "GET",
       "path": "/api/v1/health",
+      "public": true
+    },
+    {
+      "artifact_path": "/metagraph/freshness.json",
+      "cache": "standard",
+      "description": "Fetch freshness and staleness state.",
+      "method": "GET",
+      "path": "/api/v1/freshness",
+      "public": true
+    },
+    {
+      "artifact_path": "/metagraph/source-health.json",
+      "cache": "standard",
+      "description": "Fetch upstream source health.",
+      "method": "GET",
+      "path": "/api/v1/source-health",
+      "public": true
+    },
+    {
+      "artifact_path": "/metagraph/evidence-ledger.json",
+      "cache": "standard",
+      "description": "Fetch public evidence ledger.",
+      "method": "GET",
+      "path": "/api/v1/evidence",
+      "public": true
+    },
+    {
+      "artifact_path": "/metagraph/changelog.json",
+      "cache": "standard",
+      "description": "Fetch latest generated change summary.",
+      "method": "GET",
+      "path": "/api/v1/changelog",
+      "public": true
+    },
+    {
+      "artifact_path": "/metagraph/source-snapshots.json",
+      "cache": "standard",
+      "description": "Fetch source input hashes and counts.",
+      "method": "GET",
+      "path": "/api/v1/source-snapshots",
       "public": true
     },
     {
@@ -219,6 +301,22 @@
       "description": "Fetch compact search index.",
       "method": "GET",
       "path": "/api/v1/search",
+      "public": true
+    },
+    {
+      "artifact_path": "/metagraph/contracts.json",
+      "cache": "standard",
+      "description": "Fetch artifact contract metadata.",
+      "method": "GET",
+      "path": "/api/v1/contracts",
+      "public": true
+    },
+    {
+      "artifact_path": "/metagraph/build-summary.json",
+      "cache": "standard",
+      "description": "Fetch generated build summary.",
+      "method": "GET",
+      "path": "/api/v1/build",
       "public": true
     }
   ],

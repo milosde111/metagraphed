@@ -6,11 +6,11 @@
   "schema_version": 1,
   "slug": "sn-128",
   "summary": {
-    "avg_latency_ms": 430,
+    "avg_latency_ms": 484,
     "degraded_count": 0,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:58:07.664Z",
-    "last_ok": "2026-06-06T08:58:07.664Z",
+    "last_checked": "2026-06-06T09:20:32.833Z",
+    "last_ok": "2026-06-06T09:20:32.833Z",
     "name": "ByteLeap",
     "netuid": 128,
     "ok_count": 5,
@@ -27,9 +27,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:58:07.176Z",
-      "last_ok": "2026-06-06T08:58:07.176Z",
-      "latency_ms": 221,
+      "last_checked": "2026-06-06T09:20:32.265Z",
+      "last_ok": "2026-06-06T09:20:32.265Z",
+      "latency_ms": 174,
       "method_tested": "HEAD",
       "netuid": 128,
       "private_redirect_blocked": false,
@@ -43,7 +43,7 @@
       "surface_id": "sn-128-taomarketcap-dashboard",
       "uptime_sample_ratio": 1,
       "url": "https://taomarketcap.com/subnets/128",
-      "verified_at": "2026-06-06T08:58:07.176Z"
+      "verified_at": "2026-06-06T09:20:32.265Z"
     },
     {
       "auth_required": false,
@@ -52,9 +52,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:58:07.408Z",
-      "last_ok": "2026-06-06T08:58:07.408Z",
-      "latency_ms": 438,
+      "last_checked": "2026-06-06T09:20:32.550Z",
+      "last_ok": "2026-06-06T09:20:32.550Z",
+      "latency_ms": 447,
       "method_tested": "HEAD",
       "netuid": 128,
       "private_redirect_blocked": false,
@@ -66,9 +66,9 @@
       "subnet_name": "ByteLeap",
       "subnet_slug": "sn-128",
       "surface_id": "sn-128-taomarketcap-source-repo",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/byteleapai/byteleap-Miner",
-      "verified_at": "2026-06-06T08:58:07.408Z"
+      "verified_at": "2026-06-06T09:20:32.550Z"
     },
     {
       "auth_required": false,
@@ -77,9 +77,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:58:07.664Z",
-      "last_ok": "2026-06-06T08:58:07.664Z",
-      "latency_ms": 676,
+      "last_checked": "2026-06-06T09:20:32.833Z",
+      "last_ok": "2026-06-06T09:20:32.833Z",
+      "latency_ms": 720,
       "method_tested": "HEAD",
       "netuid": 128,
       "private_redirect_blocked": false,
@@ -93,7 +93,7 @@
       "surface_id": "sn-128-taomarketcap-website",
       "uptime_sample_ratio": 1,
       "url": "https://byteleap.ai/",
-      "verified_at": "2026-06-06T08:58:07.664Z"
+      "verified_at": "2026-06-06T09:20:32.833Z"
     },
     {
       "auth_required": false,
@@ -102,9 +102,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:58:07.376Z",
-      "last_ok": "2026-06-06T08:58:07.376Z",
-      "latency_ms": 338,
+      "last_checked": "2026-06-06T09:20:32.736Z",
+      "last_ok": "2026-06-06T09:20:32.736Z",
+      "latency_ms": 553,
       "method_tested": "HEAD",
       "netuid": 128,
       "private_redirect_blocked": false,
@@ -116,9 +116,9 @@
       "subnet_name": "ByteLeap",
       "subnet_slug": "sn-128",
       "surface_id": "sn-128-tensorplex-docs",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/tensorplex-labs/subnet-docs/tree/main/data/128",
-      "verified_at": "2026-06-06T08:58:07.376Z"
+      "verified_at": "2026-06-06T09:20:32.736Z"
     },
     {
       "auth_required": false,
@@ -127,9 +127,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:58:07.589Z",
-      "last_ok": "2026-06-06T08:58:07.589Z",
-      "latency_ms": 475,
+      "last_checked": "2026-06-06T09:20:32.774Z",
+      "last_ok": "2026-06-06T09:20:32.774Z",
+      "latency_ms": 528,
       "method_tested": "HEAD",
       "netuid": 128,
       "private_redirect_blocked": false,
@@ -141,9 +141,9 @@
       "subnet_name": "ByteLeap",
       "subnet_slug": "sn-128",
       "surface_id": "sn-128-tensorplex-source-repo-2",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/byteleapai/byteleap-Validator",
-      "verified_at": "2026-06-06T08:58:07.589Z"
+      "verified_at": "2026-06-06T09:20:32.774Z"
     }
   ]
 }

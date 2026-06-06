@@ -6,11 +6,11 @@
   "schema_version": 1,
   "slug": "sn-1",
   "summary": {
-    "avg_latency_ms": 709,
+    "avg_latency_ms": 579,
     "degraded_count": 0,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:57:54.106Z",
-    "last_ok": "2026-06-06T08:57:54.106Z",
+    "last_checked": "2026-06-06T09:20:18.213Z",
+    "last_ok": "2026-06-06T09:20:18.213Z",
     "name": "Apex",
     "netuid": 1,
     "ok_count": 5,
@@ -27,9 +27,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:57:53.881Z",
-      "last_ok": "2026-06-06T08:57:53.881Z",
-      "latency_ms": 619,
+      "last_checked": "2026-06-06T09:20:17.736Z",
+      "last_ok": "2026-06-06T09:20:17.736Z",
+      "latency_ms": 402,
       "method_tested": "HEAD",
       "netuid": 1,
       "private_redirect_blocked": false,
@@ -43,7 +43,7 @@
       "surface_id": "sn-1-taomarketcap-dashboard",
       "uptime_sample_ratio": 1,
       "url": "https://taomarketcap.com/subnets/1",
-      "verified_at": "2026-06-06T08:57:53.881Z"
+      "verified_at": "2026-06-06T09:20:17.736Z"
     },
     {
       "auth_required": false,
@@ -52,9 +52,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:57:54.031Z",
-      "last_ok": "2026-06-06T08:57:54.031Z",
-      "latency_ms": 769,
+      "last_checked": "2026-06-06T09:20:18.213Z",
+      "last_ok": "2026-06-06T09:20:18.213Z",
+      "latency_ms": 879,
       "method_tested": "HEAD",
       "netuid": 1,
       "private_redirect_blocked": false,
@@ -68,7 +68,7 @@
       "surface_id": "sn-1-taomarketcap-source-repo",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/macrocosm-os/apex",
-      "verified_at": "2026-06-06T08:57:54.031Z"
+      "verified_at": "2026-06-06T09:20:18.213Z"
     },
     {
       "auth_required": false,
@@ -77,9 +77,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:57:53.919Z",
-      "last_ok": "2026-06-06T08:57:53.919Z",
-      "latency_ms": 657,
+      "last_checked": "2026-06-06T09:20:17.624Z",
+      "last_ok": "2026-06-06T09:20:17.624Z",
+      "latency_ms": 290,
       "method_tested": "HEAD",
       "netuid": 1,
       "private_redirect_blocked": false,
@@ -93,7 +93,7 @@
       "surface_id": "sn-1-taomarketcap-website",
       "uptime_sample_ratio": 1,
       "url": "https://apex.macrocosmos.ai/",
-      "verified_at": "2026-06-06T08:57:53.919Z"
+      "verified_at": "2026-06-06T09:20:17.624Z"
     },
     {
       "auth_required": false,
@@ -102,9 +102,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:57:54.106Z",
-      "last_ok": "2026-06-06T08:57:54.106Z",
-      "latency_ms": 843,
+      "last_checked": "2026-06-06T09:20:18.077Z",
+      "last_ok": "2026-06-06T09:20:18.077Z",
+      "latency_ms": 742,
       "method_tested": "HEAD",
       "netuid": 1,
       "private_redirect_blocked": false,
@@ -118,7 +118,7 @@
       "surface_id": "sn-1-taopedia-article",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/e35ventura/taopedia-articles/blob/main/content/pages/subnet_1_apex/index.mdx",
-      "verified_at": "2026-06-06T08:57:54.106Z"
+      "verified_at": "2026-06-06T09:20:18.077Z"
     },
     {
       "auth_required": false,
@@ -127,9 +127,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:57:54.101Z",
-      "last_ok": "2026-06-06T08:57:54.101Z",
-      "latency_ms": 657,
+      "last_checked": "2026-06-06T09:20:18.109Z",
+      "last_ok": "2026-06-06T09:20:18.109Z",
+      "latency_ms": 583,
       "method_tested": "HEAD",
       "netuid": 1,
       "private_redirect_blocked": false,
@@ -143,7 +143,7 @@
       "surface_id": "sn-1-tensorplex-docs",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/tensorplex-labs/subnet-docs/tree/main/data/1",
-      "verified_at": "2026-06-06T08:57:54.101Z"
+      "verified_at": "2026-06-06T09:20:18.109Z"
     }
   ]
 }

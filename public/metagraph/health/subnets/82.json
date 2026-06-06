@@ -6,11 +6,11 @@
   "schema_version": 1,
   "slug": "sn-82",
   "summary": {
-    "avg_latency_ms": 400,
+    "avg_latency_ms": 435,
     "degraded_count": 0,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:58:03.319Z",
-    "last_ok": "2026-06-06T08:58:03.319Z",
+    "last_checked": "2026-06-06T09:20:28.000Z",
+    "last_ok": "2026-06-06T09:20:28.000Z",
     "name": "Compelle",
     "netuid": 82,
     "ok_count": 7,
@@ -27,9 +27,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:58:02.674Z",
-      "last_ok": "2026-06-06T08:58:02.674Z",
-      "latency_ms": 208,
+      "last_checked": "2026-06-06T09:20:27.258Z",
+      "last_ok": "2026-06-06T09:20:27.258Z",
+      "latency_ms": 233,
       "method_tested": "HEAD",
       "netuid": 82,
       "private_redirect_blocked": false,
@@ -43,7 +43,7 @@
       "surface_id": "sn-82-github-readme-sn-hermes-hermes-subnet-dashboard-1",
       "uptime_sample_ratio": 1,
       "url": "https://taostats.io/",
-      "verified_at": "2026-06-06T08:58:02.674Z"
+      "verified_at": "2026-06-06T09:20:27.258Z"
     },
     {
       "auth_required": false,
@@ -52,9 +52,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:58:02.626Z",
-      "last_ok": "2026-06-06T08:58:02.626Z",
-      "latency_ms": 85,
+      "last_checked": "2026-06-06T09:20:27.139Z",
+      "last_ok": "2026-06-06T09:20:27.139Z",
+      "latency_ms": 114,
       "method_tested": "HEAD",
       "netuid": 82,
       "private_redirect_blocked": false,
@@ -68,7 +68,7 @@
       "surface_id": "sn-82-github-readme-sn-hermes-hermes-subnet-docs-2",
       "uptime_sample_ratio": 1,
       "url": "https://docs.bittensor.com/",
-      "verified_at": "2026-06-06T08:58:02.626Z"
+      "verified_at": "2026-06-06T09:20:27.139Z"
     },
     {
       "auth_required": false,
@@ -77,9 +77,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:58:02.909Z",
-      "last_ok": "2026-06-06T08:58:02.909Z",
-      "latency_ms": 362,
+      "last_checked": "2026-06-06T09:20:27.190Z",
+      "last_ok": "2026-06-06T09:20:27.190Z",
+      "latency_ms": 165,
       "method_tested": "HEAD",
       "netuid": 82,
       "private_redirect_blocked": false,
@@ -93,7 +93,7 @@
       "surface_id": "sn-82-taomarketcap-dashboard",
       "uptime_sample_ratio": 1,
       "url": "https://taomarketcap.com/subnets/82",
-      "verified_at": "2026-06-06T08:58:02.909Z"
+      "verified_at": "2026-06-06T09:20:27.190Z"
     },
     {
       "auth_required": false,
@@ -102,9 +102,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:58:03.015Z",
-      "last_ok": "2026-06-06T08:58:03.015Z",
-      "latency_ms": 466,
+      "last_checked": "2026-06-06T09:20:27.632Z",
+      "last_ok": "2026-06-06T09:20:27.632Z",
+      "latency_ms": 606,
       "method_tested": "HEAD",
       "netuid": 82,
       "private_redirect_blocked": false,
@@ -116,9 +116,9 @@
       "subnet_name": "Compelle",
       "subnet_slug": "sn-82",
       "surface_id": "sn-82-taomarketcap-source-repo",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/compelle/compelle-validator",
-      "verified_at": "2026-06-06T08:58:03.015Z"
+      "verified_at": "2026-06-06T09:20:27.632Z"
     },
     {
       "auth_required": false,
@@ -127,9 +127,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:58:03.234Z",
-      "last_ok": "2026-06-06T08:58:03.234Z",
-      "latency_ms": 608,
+      "last_checked": "2026-06-06T09:20:27.712Z",
+      "last_ok": "2026-06-06T09:20:27.712Z",
+      "latency_ms": 645,
       "method_tested": "HEAD",
       "netuid": 82,
       "private_redirect_blocked": false,
@@ -143,7 +143,7 @@
       "surface_id": "sn-82-taomarketcap-website",
       "uptime_sample_ratio": 1,
       "url": "https://compelle.com/",
-      "verified_at": "2026-06-06T08:58:03.234Z"
+      "verified_at": "2026-06-06T09:20:27.712Z"
     },
     {
       "auth_required": false,
@@ -152,9 +152,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:58:03.087Z",
-      "last_ok": "2026-06-06T08:58:03.087Z",
-      "latency_ms": 420,
+      "last_checked": "2026-06-06T09:20:27.591Z",
+      "last_ok": "2026-06-06T09:20:27.591Z",
+      "latency_ms": 451,
       "method_tested": "HEAD",
       "netuid": 82,
       "private_redirect_blocked": false,
@@ -166,9 +166,9 @@
       "subnet_name": "Compelle",
       "subnet_slug": "sn-82",
       "surface_id": "sn-82-tensorplex-docs",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/tensorplex-labs/subnet-docs/tree/main/data/82",
-      "verified_at": "2026-06-06T08:58:03.087Z"
+      "verified_at": "2026-06-06T09:20:27.591Z"
     },
     {
       "auth_required": false,
@@ -177,9 +177,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:58:03.319Z",
-      "last_ok": "2026-06-06T08:58:03.319Z",
-      "latency_ms": 651,
+      "last_checked": "2026-06-06T09:20:28.000Z",
+      "last_ok": "2026-06-06T09:20:28.000Z",
+      "latency_ms": 832,
       "method_tested": "HEAD",
       "netuid": 82,
       "private_redirect_blocked": false,
@@ -191,9 +191,9 @@
       "subnet_name": "Compelle",
       "subnet_slug": "sn-82",
       "surface_id": "sn-82-tensorplex-source-repo-1",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/SN-Hermes/hermes-subnet",
-      "verified_at": "2026-06-06T08:58:03.319Z"
+      "verified_at": "2026-06-06T09:20:28.000Z"
     }
   ]
 }

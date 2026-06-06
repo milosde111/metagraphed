@@ -6,11 +6,11 @@
   "schema_version": 1,
   "slug": "sn-29",
   "summary": {
-    "avg_latency_ms": 378,
+    "avg_latency_ms": 322,
     "degraded_count": 0,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:57:57.695Z",
-    "last_ok": "2026-06-06T08:57:57.695Z",
+    "last_checked": "2026-06-06T09:20:21.338Z",
+    "last_ok": "2026-06-06T09:20:21.338Z",
     "name": "Coldint",
     "netuid": 29,
     "ok_count": 5,
@@ -27,9 +27,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:57:57.483Z",
-      "last_ok": "2026-06-06T08:57:57.483Z",
-      "latency_ms": 419,
+      "last_checked": "2026-06-06T09:20:21.218Z",
+      "last_ok": "2026-06-06T09:20:21.218Z",
+      "latency_ms": 366,
       "method_tested": "HEAD",
       "netuid": 29,
       "private_redirect_blocked": false,
@@ -43,7 +43,7 @@
       "surface_id": "sn-29-github-readme-coldint-sn29-website-1",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/coldint/coldint_validator",
-      "verified_at": "2026-06-06T08:57:57.483Z"
+      "verified_at": "2026-06-06T09:20:21.218Z"
     },
     {
       "auth_required": false,
@@ -52,9 +52,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:57:57.261Z",
-      "last_ok": "2026-06-06T08:57:57.261Z",
-      "latency_ms": 192,
+      "last_checked": "2026-06-06T09:20:20.997Z",
+      "last_ok": "2026-06-06T09:20:20.997Z",
+      "latency_ms": 140,
       "method_tested": "HEAD",
       "netuid": 29,
       "private_redirect_blocked": false,
@@ -68,7 +68,7 @@
       "surface_id": "sn-29-taomarketcap-dashboard",
       "uptime_sample_ratio": 1,
       "url": "https://taomarketcap.com/subnets/29",
-      "verified_at": "2026-06-06T08:57:57.261Z"
+      "verified_at": "2026-06-06T09:20:20.997Z"
     },
     {
       "auth_required": false,
@@ -77,9 +77,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:57:57.480Z",
-      "last_ok": "2026-06-06T08:57:57.480Z",
-      "latency_ms": 390,
+      "last_checked": "2026-06-06T09:20:21.217Z",
+      "last_ok": "2026-06-06T09:20:21.217Z",
+      "latency_ms": 340,
       "method_tested": "HEAD",
       "netuid": 29,
       "private_redirect_blocked": false,
@@ -93,7 +93,7 @@
       "surface_id": "sn-29-taomarketcap-source-repo",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/coldint/coldint_validator",
-      "verified_at": "2026-06-06T08:57:57.480Z"
+      "verified_at": "2026-06-06T09:20:21.217Z"
     },
     {
       "auth_required": false,
@@ -102,9 +102,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:57:57.404Z",
-      "last_ok": "2026-06-06T08:57:57.404Z",
-      "latency_ms": 300,
+      "last_checked": "2026-06-06T09:20:21.225Z",
+      "last_ok": "2026-06-06T09:20:21.225Z",
+      "latency_ms": 346,
       "method_tested": "HEAD",
       "netuid": 29,
       "private_redirect_blocked": false,
@@ -118,7 +118,7 @@
       "surface_id": "sn-29-tensorplex-docs",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/tensorplex-labs/subnet-docs/tree/main/data/29",
-      "verified_at": "2026-06-06T08:57:57.404Z"
+      "verified_at": "2026-06-06T09:20:21.225Z"
     },
     {
       "auth_required": false,
@@ -127,9 +127,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:57:57.695Z",
-      "last_ok": "2026-06-06T08:57:57.695Z",
-      "latency_ms": 588,
+      "last_checked": "2026-06-06T09:20:21.338Z",
+      "last_ok": "2026-06-06T09:20:21.338Z",
+      "latency_ms": 417,
       "method_tested": "HEAD",
       "netuid": 29,
       "private_redirect_blocked": false,
@@ -143,7 +143,7 @@
       "surface_id": "sn-29-tensorplex-source-repo-1",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/coldint/sn29",
-      "verified_at": "2026-06-06T08:57:57.695Z"
+      "verified_at": "2026-06-06T09:20:21.338Z"
     }
   ]
 }

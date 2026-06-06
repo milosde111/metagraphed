@@ -31,9 +31,11 @@ test("public artifacts are internally consistent", () => {
   const coverage = JSON.parse(readFileSync("public/metagraph/coverage.json", "utf8"));
   const contracts = JSON.parse(readFileSync("public/metagraph/contracts.json", "utf8"));
   const apiIndex = JSON.parse(readFileSync("public/metagraph/api-index.json", "utf8"));
+  const changelog = JSON.parse(readFileSync("public/metagraph/changelog.json", "utf8"));
   const search = JSON.parse(readFileSync("public/metagraph/search.json", "utf8"));
   const freshness = JSON.parse(readFileSync("public/metagraph/freshness.json", "utf8"));
   const sourceHealth = JSON.parse(readFileSync("public/metagraph/source-health.json", "utf8"));
+  const sourceSnapshots = JSON.parse(readFileSync("public/metagraph/source-snapshots.json", "utf8"));
   const evidenceLedger = JSON.parse(readFileSync("public/metagraph/evidence-ledger.json", "utf8"));
   const endpointPools = JSON.parse(readFileSync("public/metagraph/rpc/pools.json", "utf8"));
   const r2Manifest = JSON.parse(readFileSync("public/metagraph/r2-manifest.json", "utf8"));
@@ -66,9 +68,14 @@ test("public artifacts are internally consistent", () => {
   assert.equal(contracts.status_domain, null);
   assert.equal(new Set(contracts.artifacts.map((artifact) => artifact.id)).size, contracts.artifacts.length);
   assert.equal(apiIndex.routes.some((route) => route.path === "/api/v1/subnets"), true);
+  assert.equal(apiIndex.routes.some((route) => route.path === "/api/v1/changelog"), true);
+  assert.equal(apiIndex.routes.some((route) => route.path === "/api/v1/source-snapshots"), true);
+  assert.equal(changelog.source, "generated-artifact-diff");
   assert.equal(search.document_count, search.documents.length);
   assert.equal(freshness.summary.native_snapshot_captured_at, native.captured_at);
   assert.equal(sourceHealth.summary.provider_count > 0, true);
+  assert.equal(sourceSnapshots.summary.source_count, sourceSnapshots.sources.length);
+  assert.equal(sourceSnapshots.sources.some((source) => source.id === "native-subnets"), true);
   assert.equal(evidenceLedger.summary.claim_count, evidenceLedger.claims.length);
   assert.equal(endpointPools.pools.length >= 3, true);
   assert.equal(r2Manifest.artifact_count, r2Manifest.artifacts.length);

@@ -1,6 +1,7 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import {
+  buildEndpointPoolArtifact,
   buildRpcEndpointArtifact,
   buildTimestamp,
   flattenSurfaces,
@@ -562,18 +563,21 @@ const artifact = buildHealthArtifacts(results, {
 });
 
 if (process.env.METAGRAPH_WRITE_PROBE_RESULTS === "1") {
+  const rpcEndpointArtifact = buildRpcEndpointArtifact({
+    surfaces,
+    healthSurfaces: artifact.latest.surfaces,
+    generatedAt: buildTimestamp(),
+    contractVersion,
+    source: "live-smoke-probe"
+  });
   await writeJson(path.join(outputRoot, "health/latest.json"), artifact.latest);
   await writeJson(path.join(outputRoot, "health/summary.json"), artifact.summary);
-  await writeJson(
-    path.join(outputRoot, "rpc-endpoints.json"),
-    buildRpcEndpointArtifact({
-      surfaces,
-      healthSurfaces: artifact.latest.surfaces,
-      generatedAt: buildTimestamp(),
-      contractVersion,
-      source: "live-smoke-probe"
-    })
-  );
+  await writeJson(path.join(outputRoot, "rpc-endpoints.json"), rpcEndpointArtifact);
+  await writeJson(path.join(outputRoot, "rpc/pools.json"), buildEndpointPoolArtifact({
+    generatedAt: buildTimestamp(),
+    contractVersion,
+    rpcArtifact: rpcEndpointArtifact
+  }));
   const day = artifact.latest.probe_finished_at.slice(0, 10);
   await writeJson(path.join(outputRoot, `health/history/${day}.json`), artifact.latest);
   await fs.rm(path.join(outputRoot, "health/subnets"), { recursive: true, force: true });

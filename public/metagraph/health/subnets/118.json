@@ -6,11 +6,11 @@
   "schema_version": 1,
   "slug": "sn-118",
   "summary": {
-    "avg_latency_ms": 304,
+    "avg_latency_ms": 305,
     "degraded_count": 0,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:58:06.689Z",
-    "last_ok": "2026-06-06T08:58:06.689Z",
+    "last_checked": "2026-06-06T09:20:31.839Z",
+    "last_ok": "2026-06-06T09:20:31.839Z",
     "name": "Ditto",
     "netuid": 118,
     "ok_count": 9,
@@ -27,9 +27,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:58:06.181Z",
-      "last_ok": "2026-06-06T08:58:06.181Z",
-      "latency_ms": 62,
+      "last_checked": "2026-06-06T09:20:31.290Z",
+      "last_ok": "2026-06-06T09:20:31.290Z",
+      "latency_ms": 42,
       "method_tested": "HEAD",
       "netuid": 118,
       "private_redirect_blocked": false,
@@ -43,7 +43,7 @@
       "surface_id": "sn-118-github-readme-mobiusfund-etf-docs-1",
       "uptime_sample_ratio": 1,
       "url": "https://docs.learnbittensor.org/miners",
-      "verified_at": "2026-06-06T08:58:06.181Z"
+      "verified_at": "2026-06-06T09:20:31.290Z"
     },
     {
       "auth_required": false,
@@ -52,9 +52,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:58:06.538Z",
-      "last_ok": "2026-06-06T08:58:06.538Z",
-      "latency_ms": 412,
+      "last_checked": "2026-06-06T09:20:31.450Z",
+      "last_ok": "2026-06-06T09:20:31.450Z",
+      "latency_ms": 191,
       "method_tested": "HEAD",
       "netuid": 118,
       "private_redirect_blocked": false,
@@ -68,7 +68,7 @@
       "surface_id": "sn-118-github-readme-mobiusfund-etf-docs-5",
       "uptime_sample_ratio": 1,
       "url": "https://trustedstake.gitbook.io/trustedstake/basics/editor",
-      "verified_at": "2026-06-06T08:58:06.538Z"
+      "verified_at": "2026-06-06T09:20:31.450Z"
     },
     {
       "auth_required": false,
@@ -77,9 +77,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:58:06.555Z",
-      "last_ok": "2026-06-06T08:58:06.555Z",
-      "latency_ms": 424,
+      "last_checked": "2026-06-06T09:20:31.776Z",
+      "last_ok": "2026-06-06T09:20:31.776Z",
+      "latency_ms": 507,
       "method_tested": "HEAD",
       "netuid": 118,
       "private_redirect_blocked": false,
@@ -91,9 +91,9 @@
       "subnet_name": "Ditto",
       "subnet_slug": "sn-118",
       "surface_id": "sn-118-github-readme-mobiusfund-etf-website-3",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/mobiusfund/etf/tree/main/contrib/miner_cli",
-      "verified_at": "2026-06-06T08:58:06.555Z"
+      "verified_at": "2026-06-06T09:20:31.776Z"
     },
     {
       "auth_required": false,
@@ -102,9 +102,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:58:06.589Z",
-      "last_ok": "2026-06-06T08:58:06.589Z",
-      "latency_ms": 434,
+      "last_checked": "2026-06-06T09:20:31.702Z",
+      "last_ok": "2026-06-06T09:20:31.702Z",
+      "latency_ms": 421,
       "method_tested": "HEAD",
       "netuid": 118,
       "private_redirect_blocked": false,
@@ -116,9 +116,9 @@
       "subnet_name": "Ditto",
       "subnet_slug": "sn-118",
       "surface_id": "sn-118-github-readme-mobiusfund-etf-website-4",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/codomposer",
-      "verified_at": "2026-06-06T08:58:06.589Z"
+      "verified_at": "2026-06-06T09:20:31.702Z"
     },
     {
       "auth_required": false,
@@ -127,9 +127,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:58:06.307Z",
-      "last_ok": "2026-06-06T08:58:06.307Z",
-      "latency_ms": 136,
+      "last_checked": "2026-06-06T09:20:31.430Z",
+      "last_ok": "2026-06-06T09:20:31.430Z",
+      "latency_ms": 140,
       "method_tested": "HEAD",
       "netuid": 118,
       "private_redirect_blocked": false,
@@ -143,7 +143,7 @@
       "surface_id": "sn-118-taomarketcap-dashboard",
       "uptime_sample_ratio": 1,
       "url": "https://taomarketcap.com/subnets/118",
-      "verified_at": "2026-06-06T08:58:06.307Z"
+      "verified_at": "2026-06-06T09:20:31.430Z"
     },
     {
       "auth_required": false,
@@ -152,9 +152,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:58:06.493Z",
-      "last_ok": "2026-06-06T08:58:06.493Z",
-      "latency_ms": 314,
+      "last_checked": "2026-06-06T09:20:31.686Z",
+      "last_ok": "2026-06-06T09:20:31.686Z",
+      "latency_ms": 369,
       "method_tested": "HEAD",
       "netuid": 118,
       "private_redirect_blocked": false,
@@ -166,9 +166,9 @@
       "subnet_name": "Ditto",
       "subnet_slug": "sn-118",
       "surface_id": "sn-118-taomarketcap-source-repo",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/orgs/ditto-assistant/repositories",
-      "verified_at": "2026-06-06T08:58:06.493Z"
+      "verified_at": "2026-06-06T09:20:31.686Z"
     },
     {
       "auth_required": false,
@@ -177,9 +177,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:58:06.555Z",
-      "last_ok": "2026-06-06T08:58:06.555Z",
-      "latency_ms": 374,
+      "last_checked": "2026-06-06T09:20:31.793Z",
+      "last_ok": "2026-06-06T09:20:31.793Z",
+      "latency_ms": 475,
       "method_tested": "HEAD",
       "netuid": 118,
       "private_redirect_blocked": false,
@@ -191,9 +191,9 @@
       "subnet_name": "Ditto",
       "subnet_slug": "sn-118",
       "surface_id": "sn-118-tensorplex-docs",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/tensorplex-labs/subnet-docs/tree/main/data/118",
-      "verified_at": "2026-06-06T08:58:06.555Z"
+      "verified_at": "2026-06-06T09:20:31.793Z"
     },
     {
       "auth_required": false,
@@ -202,9 +202,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:58:06.689Z",
-      "last_ok": "2026-06-06T08:58:06.689Z",
-      "latency_ms": 495,
+      "last_checked": "2026-06-06T09:20:31.839Z",
+      "last_ok": "2026-06-06T09:20:31.839Z",
+      "latency_ms": 513,
       "method_tested": "HEAD",
       "netuid": 118,
       "private_redirect_blocked": false,
@@ -216,9 +216,9 @@
       "subnet_name": "Ditto",
       "subnet_slug": "sn-118",
       "surface_id": "sn-118-tensorplex-source-repo-1",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/mobiusfund/etf",
-      "verified_at": "2026-06-06T08:58:06.689Z"
+      "verified_at": "2026-06-06T09:20:31.839Z"
     },
     {
       "auth_required": false,
@@ -227,9 +227,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:58:06.287Z",
-      "last_ok": "2026-06-06T08:58:06.287Z",
-      "latency_ms": 87,
+      "last_checked": "2026-06-06T09:20:31.490Z",
+      "last_ok": "2026-06-06T09:20:31.490Z",
+      "latency_ms": 86,
       "method_tested": "HEAD",
       "netuid": 118,
       "private_redirect_blocked": false,
@@ -241,9 +241,9 @@
       "subnet_name": "Ditto",
       "subnet_slug": "sn-118",
       "surface_id": "sn-118-website-common-docs-o36adh",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/docs",
-      "verified_at": "2026-06-06T08:58:06.287Z"
+      "verified_at": "2026-06-06T09:20:31.490Z"
     }
   ]
 }

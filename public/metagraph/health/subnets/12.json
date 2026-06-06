@@ -6,11 +6,11 @@
   "schema_version": 1,
   "slug": "sn-12",
   "summary": {
-    "avg_latency_ms": 369,
+    "avg_latency_ms": 322,
     "degraded_count": 0,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:57:55.919Z",
-    "last_ok": "2026-06-06T08:57:55.919Z",
+    "last_checked": "2026-06-06T09:20:19.610Z",
+    "last_ok": "2026-06-06T09:20:19.610Z",
     "name": "Compute Horde",
     "netuid": 12,
     "ok_count": 3,
@@ -27,9 +27,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:57:55.505Z",
-      "last_ok": "2026-06-06T08:57:55.505Z",
-      "latency_ms": 178,
+      "last_checked": "2026-06-06T09:20:19.312Z",
+      "last_ok": "2026-06-06T09:20:19.312Z",
+      "latency_ms": 145,
       "method_tested": "HEAD",
       "netuid": 12,
       "private_redirect_blocked": false,
@@ -43,7 +43,7 @@
       "surface_id": "sn-12-taomarketcap-dashboard",
       "uptime_sample_ratio": 1,
       "url": "https://taomarketcap.com/subnets/12",
-      "verified_at": "2026-06-06T08:57:55.505Z"
+      "verified_at": "2026-06-06T09:20:19.312Z"
     },
     {
       "auth_required": false,
@@ -52,9 +52,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:57:55.919Z",
-      "last_ok": "2026-06-06T08:57:55.919Z",
-      "latency_ms": 592,
+      "last_checked": "2026-06-06T09:20:19.610Z",
+      "last_ok": "2026-06-06T09:20:19.610Z",
+      "latency_ms": 427,
       "method_tested": "HEAD",
       "netuid": 12,
       "private_redirect_blocked": false,
@@ -68,7 +68,7 @@
       "surface_id": "sn-12-taomarketcap-source-repo",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/backend-developers-ltd/ComputeHorde",
-      "verified_at": "2026-06-06T08:57:55.919Z"
+      "verified_at": "2026-06-06T09:20:19.610Z"
     },
     {
       "auth_required": false,
@@ -77,9 +77,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:57:55.679Z",
-      "last_ok": "2026-06-06T08:57:55.679Z",
-      "latency_ms": 338,
+      "last_checked": "2026-06-06T09:20:19.588Z",
+      "last_ok": "2026-06-06T09:20:19.588Z",
+      "latency_ms": 394,
       "method_tested": "HEAD",
       "netuid": 12,
       "private_redirect_blocked": false,
@@ -93,7 +93,7 @@
       "surface_id": "sn-12-tensorplex-docs",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/tensorplex-labs/subnet-docs/tree/main/data/12",
-      "verified_at": "2026-06-06T08:57:55.679Z"
+      "verified_at": "2026-06-06T09:20:19.588Z"
     }
   ]
 }

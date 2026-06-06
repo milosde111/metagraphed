@@ -16,6 +16,16 @@ for (const workflow of workflows) {
   check(!/\$\{\{\s*github\.event\.(issue|comment|pull_request)\.(body|title)/.test(content), workflow, "untrusted GitHub event text is interpolated directly");
   check(!/run:\s*\|[\s\S]*<<EOF/.test(content), workflow, "predictable heredoc delimiter in run block");
   check(/uses:\s+actions\/checkout@/.test(content), workflow, "missing checkout action");
+  for (const match of content.matchAll(/uses:\s+([^\s#]+)/g)) {
+    const actionRef = match[1].replace(/^['"]|['"]$/g, "");
+    if (actionRef.startsWith("./") || actionRef.startsWith("docker://")) {
+      continue;
+    }
+    check(/@[a-f0-9]{40}$/i.test(actionRef), workflow, `action ref must be pinned to a full commit SHA: ${actionRef}`);
+  }
+  if (workflow === "intake-validation.yml") {
+    check(content.includes("contains(github.event.issue.labels.*.name, 'interface-submission')"), workflow, "intake must be exact-label gated");
+  }
 }
 
 if (errors.length > 0) {

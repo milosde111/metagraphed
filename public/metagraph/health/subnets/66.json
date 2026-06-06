@@ -6,11 +6,11 @@
   "schema_version": 1,
   "slug": "sn-66",
   "summary": {
-    "avg_latency_ms": 356,
+    "avg_latency_ms": 287,
     "degraded_count": 0,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:58:01.300Z",
-    "last_ok": "2026-06-06T08:58:01.300Z",
+    "last_checked": "2026-06-06T09:20:25.626Z",
+    "last_ok": "2026-06-06T09:20:25.626Z",
     "name": "ninja",
     "netuid": 66,
     "ok_count": 4,
@@ -27,9 +27,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:58:00.795Z",
-      "last_ok": "2026-06-06T08:58:00.795Z",
-      "latency_ms": 153,
+      "last_checked": "2026-06-06T09:20:25.324Z",
+      "last_ok": "2026-06-06T09:20:25.324Z",
+      "latency_ms": 159,
       "method_tested": "HEAD",
       "netuid": 66,
       "private_redirect_blocked": false,
@@ -43,7 +43,7 @@
       "surface_id": "sn-66-taomarketcap-dashboard",
       "uptime_sample_ratio": 1,
       "url": "https://taomarketcap.com/subnets/66",
-      "verified_at": "2026-06-06T08:58:00.795Z"
+      "verified_at": "2026-06-06T09:20:25.324Z"
     },
     {
       "auth_required": false,
@@ -52,9 +52,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:58:01.300Z",
-      "last_ok": "2026-06-06T08:58:01.300Z",
-      "latency_ms": 561,
+      "last_checked": "2026-06-06T09:20:25.606Z",
+      "last_ok": "2026-06-06T09:20:25.606Z",
+      "latency_ms": 418,
       "method_tested": "HEAD",
       "netuid": 66,
       "private_redirect_blocked": false,
@@ -66,9 +66,9 @@
       "subnet_name": "ninja",
       "subnet_slug": "sn-66",
       "surface_id": "sn-66-taomarketcap-source-repo",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/unarbos/tau",
-      "verified_at": "2026-06-06T08:58:01.300Z"
+      "verified_at": "2026-06-06T09:20:25.606Z"
     },
     {
       "auth_required": false,
@@ -77,9 +77,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:58:01.006Z",
-      "last_ok": "2026-06-06T08:58:01.006Z",
-      "latency_ms": 210,
+      "last_checked": "2026-06-06T09:20:25.404Z",
+      "last_ok": "2026-06-06T09:20:25.404Z",
+      "latency_ms": 202,
       "method_tested": "HEAD",
       "netuid": 66,
       "private_redirect_blocked": false,
@@ -93,7 +93,7 @@
       "surface_id": "sn-66-taomarketcap-website",
       "uptime_sample_ratio": 1,
       "url": "https://ninja.arbos.life/",
-      "verified_at": "2026-06-06T08:58:01.006Z"
+      "verified_at": "2026-06-06T09:20:25.404Z"
     },
     {
       "auth_required": false,
@@ -102,9 +102,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:58:01.299Z",
-      "last_ok": "2026-06-06T08:58:01.299Z",
-      "latency_ms": 500,
+      "last_checked": "2026-06-06T09:20:25.626Z",
+      "last_ok": "2026-06-06T09:20:25.626Z",
+      "latency_ms": 370,
       "method_tested": "HEAD",
       "netuid": 66,
       "private_redirect_blocked": false,
@@ -116,9 +116,9 @@
       "subnet_name": "ninja",
       "subnet_slug": "sn-66",
       "surface_id": "sn-66-tensorplex-docs",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/tensorplex-labs/subnet-docs/tree/main/data/66",
-      "verified_at": "2026-06-06T08:58:01.299Z"
+      "verified_at": "2026-06-06T09:20:25.626Z"
     }
   ]
 }

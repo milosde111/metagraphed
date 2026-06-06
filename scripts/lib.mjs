@@ -281,6 +281,83 @@ export function buildRpcEndpointArtifact({ surfaces, healthSurfaces = [], genera
   };
 }
 
+export function buildEndpointPoolArtifact({ generatedAt, contractVersion, rpcArtifact }) {
+  const endpoints = (rpcArtifact.endpoints || []).map((endpoint) => {
+    const score = endpointScore(endpoint);
+    return {
+      ...endpoint,
+      score,
+      pool_eligible: endpoint.status === "ok" && endpoint.auth_required === false && endpoint.public_safe === true,
+      unsafe_methods_blocked: true
+    };
+  });
+
+  return {
+    schema_version: 1,
+    contract_version: contractVersion,
+    generated_at: generatedAt,
+    source: "rpc-endpoint-probes",
+    notes: [
+      "Endpoint pools are advisory only in v1.",
+      "Future proxy/load-balancer routes must block write and unsafe RPC methods by default."
+    ],
+    disabled_proxy_contract: {
+      enabled: false,
+      allowed_methods: ["chain_getHeader", "chain_getBlockHash", "system_health", "rpc_methods"],
+      denied_method_patterns: ["author_", "state_call", "sudo_", "payment_", "contracts_"],
+      feature_flag: "METAGRAPH_ENABLE_RPC_PROXY",
+      rate_limit_required: true,
+      waf_required: true
+    },
+    pools: [
+      endpointPool("finney-rpc", "subtensor-rpc", endpoints),
+      endpointPool("finney-wss", "subtensor-wss", endpoints),
+      endpointPool("finney-archive", "archive", endpoints.filter((endpoint) => endpoint.archive_support === true))
+    ]
+  };
+}
+
+function endpointPool(id, kind, endpoints) {
+  const poolEndpoints = endpoints
+    .filter((endpoint) => kind === "archive" || endpoint.kind === kind)
+    .sort((a, b) => b.score - a.score || (a.latency_ms ?? 999999) - (b.latency_ms ?? 999999) || a.id.localeCompare(b.id));
+  return {
+    id,
+    kind,
+    endpoint_count: poolEndpoints.length,
+    eligible_count: poolEndpoints.filter((endpoint) => endpoint.pool_eligible).length,
+    best_endpoint_id: poolEndpoints.find((endpoint) => endpoint.pool_eligible)?.id || null,
+    endpoints: poolEndpoints.map((endpoint) => ({
+      archive_support: endpoint.archive_support,
+      id: endpoint.id,
+      latency_ms: endpoint.latency_ms,
+      latest_block: endpoint.latest_block,
+      pool_eligible: endpoint.pool_eligible,
+      provider: endpoint.provider,
+      score: endpoint.score,
+      status: endpoint.status,
+      url: endpoint.url
+    }))
+  };
+}
+
+function endpointScore(endpoint) {
+  let score = 0;
+  if (endpoint.status === "ok") score += 50;
+  if (endpoint.archive_support === true) score += 15;
+  if (endpoint.latest_block) score += 10;
+  if (endpoint.methods_supported && typeof endpoint.methods_supported === "object") {
+    score += Math.min(Object.values(endpoint.methods_supported).filter(Boolean).length * 5, 20);
+  } else if (Array.isArray(endpoint.methods_supported)) {
+    score += Math.min(endpoint.methods_supported.length, 20);
+  }
+  if (Number.isFinite(endpoint.latency_ms)) score += Math.max(0, 20 - Math.round(endpoint.latency_ms / 100));
+  if (endpoint.auth_required) score -= 25;
+  if (endpoint.status === "degraded") score -= 10;
+  if (endpoint.status === "failed") score -= 50;
+  return Math.max(0, score);
+}
+
 function countRecord(items, keyFn) {
   return Object.fromEntries(
     Object.entries(

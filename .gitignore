@@ -111,6 +111,7 @@ dist
 # Serverless directories
 .serverless/
 .wrangler/
+tmp/
 
 # FuseBox cache
 .fusebox/

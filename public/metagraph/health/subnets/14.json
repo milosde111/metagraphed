@@ -6,11 +6,11 @@
   "schema_version": 1,
   "slug": "sn-14",
   "summary": {
-    "avg_latency_ms": 330,
+    "avg_latency_ms": 306,
     "degraded_count": 0,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:57:56.224Z",
-    "last_ok": "2026-06-06T08:57:56.224Z",
+    "last_checked": "2026-06-06T09:20:20.115Z",
+    "last_ok": "2026-06-06T09:20:20.115Z",
     "name": "Cacheon",
     "netuid": 14,
     "ok_count": 11,
@@ -27,9 +27,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:57:55.839Z",
-      "last_ok": "2026-06-06T08:57:55.839Z",
-      "latency_ms": 399,
+      "last_checked": "2026-06-06T09:20:19.607Z",
+      "last_ok": "2026-06-06T09:20:19.607Z",
+      "latency_ms": 305,
       "method_tested": "HEAD",
       "netuid": 14,
       "private_redirect_blocked": false,
@@ -43,7 +43,7 @@
       "surface_id": "sn-14-github-readme-latent-to-taohash-dashboard-5",
       "uptime_sample_ratio": 1,
       "url": "https://taohash.com/leaderboard",
-      "verified_at": "2026-06-06T08:57:55.839Z"
+      "verified_at": "2026-06-06T09:20:19.607Z"
     },
     {
       "auth_required": false,
@@ -52,9 +52,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:57:55.825Z",
-      "last_ok": "2026-06-06T08:57:55.825Z",
-      "latency_ms": 359,
+      "last_checked": "2026-06-06T09:20:19.613Z",
+      "last_ok": "2026-06-06T09:20:19.613Z",
+      "latency_ms": 301,
       "method_tested": "HEAD",
       "netuid": 14,
       "private_redirect_blocked": false,
@@ -68,7 +68,7 @@
       "surface_id": "sn-14-github-readme-latent-to-taohash-dashboard-8",
       "uptime_sample_ratio": 1,
       "url": "https://taohash.com/leaderboard](https://taohash.com/leaderboard",
-      "verified_at": "2026-06-06T08:57:55.825Z"
+      "verified_at": "2026-06-06T09:20:19.613Z"
     },
     {
       "auth_required": false,
@@ -77,9 +77,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:57:55.518Z",
-      "last_ok": "2026-06-06T08:57:55.518Z",
-      "latency_ms": 46,
+      "last_checked": "2026-06-06T09:20:19.352Z",
+      "last_ok": "2026-06-06T09:20:19.352Z",
+      "latency_ms": 38,
       "method_tested": "HEAD",
       "netuid": 14,
       "private_redirect_blocked": false,
@@ -93,7 +93,7 @@
       "surface_id": "sn-14-github-readme-latent-to-taohash-docs-1",
       "uptime_sample_ratio": 1,
       "url": "https://docs.learnbittensor.org/learn/introduction",
-      "verified_at": "2026-06-06T08:57:55.518Z"
+      "verified_at": "2026-06-06T09:20:19.352Z"
     },
     {
       "auth_required": false,
@@ -102,9 +102,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:57:55.514Z",
-      "last_ok": "2026-06-06T08:57:55.514Z",
-      "latency_ms": 38,
+      "last_checked": "2026-06-06T09:20:19.385Z",
+      "last_ok": "2026-06-06T09:20:19.385Z",
+      "latency_ms": 43,
       "method_tested": "HEAD",
       "netuid": 14,
       "private_redirect_blocked": false,
@@ -118,7 +118,7 @@
       "surface_id": "sn-14-github-readme-latent-to-taohash-docs-2",
       "uptime_sample_ratio": 1,
       "url": "https://docs.learnbittensor.org/miners",
-      "verified_at": "2026-06-06T08:57:55.514Z"
+      "verified_at": "2026-06-06T09:20:19.385Z"
     },
     {
       "auth_required": false,
@@ -127,9 +127,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:57:55.722Z",
-      "last_ok": "2026-06-06T08:57:55.722Z",
-      "latency_ms": 218,
+      "last_checked": "2026-06-06T09:20:19.517Z",
+      "last_ok": "2026-06-06T09:20:19.517Z",
+      "latency_ms": 171,
       "method_tested": "HEAD",
       "netuid": 14,
       "private_redirect_blocked": false,
@@ -143,7 +143,7 @@
       "surface_id": "sn-14-github-readme-latent-to-taohash-docs-4",
       "uptime_sample_ratio": 1,
       "url": "https://docs.learnbittensor.org/getting-started/wallets",
-      "verified_at": "2026-06-06T08:57:55.722Z"
+      "verified_at": "2026-06-06T09:20:19.517Z"
     },
     {
       "auth_required": false,
@@ -152,9 +152,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:57:55.838Z",
-      "last_ok": "2026-06-06T08:57:55.838Z",
-      "latency_ms": 334,
+      "last_checked": "2026-06-06T09:20:19.551Z",
+      "last_ok": "2026-06-06T09:20:19.551Z",
+      "latency_ms": 199,
       "method_tested": "HEAD",
       "netuid": 14,
       "private_redirect_blocked": false,
@@ -168,7 +168,7 @@
       "surface_id": "sn-14-github-readme-latent-to-taohash-docs-6",
       "uptime_sample_ratio": 1,
       "url": "https://docs.bittensor.com/",
-      "verified_at": "2026-06-06T08:57:55.838Z"
+      "verified_at": "2026-06-06T09:20:19.551Z"
     },
     {
       "auth_required": false,
@@ -177,9 +177,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:57:56.218Z",
-      "last_ok": "2026-06-06T08:57:56.218Z",
-      "latency_ms": 703,
+      "last_checked": "2026-06-06T09:20:20.093Z",
+      "last_ok": "2026-06-06T09:20:20.093Z",
+      "latency_ms": 722,
       "method_tested": "HEAD",
       "netuid": 14,
       "private_redirect_blocked": false,
@@ -193,7 +193,7 @@
       "surface_id": "sn-14-github-readme-latent-to-taohash-website-7",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/latent-to/taohash.git",
-      "verified_at": "2026-06-06T08:57:56.218Z"
+      "verified_at": "2026-06-06T09:20:20.093Z"
     },
     {
       "auth_required": false,
@@ -202,9 +202,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:57:55.674Z",
-      "last_ok": "2026-06-06T08:57:55.674Z",
-      "latency_ms": 156,
+      "last_checked": "2026-06-06T09:20:19.516Z",
+      "last_ok": "2026-06-06T09:20:19.516Z",
+      "latency_ms": 131,
       "method_tested": "HEAD",
       "netuid": 14,
       "private_redirect_blocked": false,
@@ -218,7 +218,7 @@
       "surface_id": "sn-14-taomarketcap-dashboard",
       "uptime_sample_ratio": 1,
       "url": "https://taomarketcap.com/subnets/14",
-      "verified_at": "2026-06-06T08:57:55.674Z"
+      "verified_at": "2026-06-06T09:20:19.516Z"
     },
     {
       "auth_required": false,
@@ -227,9 +227,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:57:56.051Z",
-      "last_ok": "2026-06-06T08:57:56.051Z",
-      "latency_ms": 490,
+      "last_checked": "2026-06-06T09:20:19.961Z",
+      "last_ok": "2026-06-06T09:20:19.961Z",
+      "latency_ms": 573,
       "method_tested": "HEAD",
       "netuid": 14,
       "private_redirect_blocked": false,
@@ -243,7 +243,7 @@
       "surface_id": "sn-14-taomarketcap-source-repo",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/latent-to/cacheon",
-      "verified_at": "2026-06-06T08:57:56.051Z"
+      "verified_at": "2026-06-06T09:20:19.961Z"
     },
     {
       "auth_required": false,
@@ -252,9 +252,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:57:55.940Z",
-      "last_ok": "2026-06-06T08:57:55.940Z",
-      "latency_ms": 339,
+      "last_checked": "2026-06-06T09:20:19.703Z",
+      "last_ok": "2026-06-06T09:20:19.703Z",
+      "latency_ms": 272,
       "method_tested": "HEAD",
       "netuid": 14,
       "private_redirect_blocked": false,
@@ -268,7 +268,7 @@
       "surface_id": "sn-14-taomarketcap-website",
       "uptime_sample_ratio": 1,
       "url": "https://cacheon.ai/",
-      "verified_at": "2026-06-06T08:57:55.940Z"
+      "verified_at": "2026-06-06T09:20:19.703Z"
     },
     {
       "auth_required": false,
@@ -277,9 +277,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:57:56.224Z",
-      "last_ok": "2026-06-06T08:57:56.224Z",
-      "latency_ms": 550,
+      "last_checked": "2026-06-06T09:20:20.115Z",
+      "last_ok": "2026-06-06T09:20:20.115Z",
+      "latency_ms": 610,
       "method_tested": "HEAD",
       "netuid": 14,
       "private_redirect_blocked": false,
@@ -293,7 +293,7 @@
       "surface_id": "sn-14-tensorplex-source-repo-1",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/latent-to/taohash",
-      "verified_at": "2026-06-06T08:57:56.224Z"
+      "verified_at": "2026-06-06T09:20:20.115Z"
     }
   ]
 }

@@ -6,11 +6,11 @@
   "schema_version": 1,
   "slug": "sn-41",
   "summary": {
-    "avg_latency_ms": 292,
+    "avg_latency_ms": 347,
     "degraded_count": 0,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:57:58.522Z",
-    "last_ok": "2026-06-06T08:57:58.522Z",
+    "last_checked": "2026-06-06T09:20:22.386Z",
+    "last_ok": "2026-06-06T09:20:22.386Z",
     "name": "Almanac",
     "netuid": 41,
     "ok_count": 4,
@@ -27,9 +27,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:57:58.135Z",
-      "last_ok": "2026-06-06T08:57:58.135Z",
-      "latency_ms": 128,
+      "last_checked": "2026-06-06T09:20:22.106Z",
+      "last_ok": "2026-06-06T09:20:22.106Z",
+      "latency_ms": 320,
       "method_tested": "HEAD",
       "netuid": 41,
       "private_redirect_blocked": false,
@@ -43,7 +43,7 @@
       "surface_id": "sn-41-taomarketcap-dashboard",
       "uptime_sample_ratio": 1,
       "url": "https://taomarketcap.com/subnets/41",
-      "verified_at": "2026-06-06T08:57:58.135Z"
+      "verified_at": "2026-06-06T09:20:22.106Z"
     },
     {
       "auth_required": false,
@@ -52,9 +52,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:57:58.522Z",
-      "last_ok": "2026-06-06T08:57:58.522Z",
-      "latency_ms": 509,
+      "last_checked": "2026-06-06T09:20:22.386Z",
+      "last_ok": "2026-06-06T09:20:22.386Z",
+      "latency_ms": 569,
       "method_tested": "HEAD",
       "netuid": 41,
       "private_redirect_blocked": false,
@@ -68,7 +68,7 @@
       "surface_id": "sn-41-taomarketcap-source-repo",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/sportstensor/sn41",
-      "verified_at": "2026-06-06T08:57:58.522Z"
+      "verified_at": "2026-06-06T09:20:22.386Z"
     },
     {
       "auth_required": false,
@@ -77,9 +77,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:57:58.217Z",
-      "last_ok": "2026-06-06T08:57:58.217Z",
-      "latency_ms": 198,
+      "last_checked": "2026-06-06T09:20:22.037Z",
+      "last_ok": "2026-06-06T09:20:22.037Z",
+      "latency_ms": 199,
       "method_tested": "HEAD",
       "netuid": 41,
       "private_redirect_blocked": false,
@@ -93,7 +93,7 @@
       "surface_id": "sn-41-taomarketcap-website",
       "uptime_sample_ratio": 1,
       "url": "https://almanac.market/",
-      "verified_at": "2026-06-06T08:57:58.217Z"
+      "verified_at": "2026-06-06T09:20:22.037Z"
     },
     {
       "auth_required": false,
@@ -102,9 +102,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:57:58.363Z",
-      "last_ok": "2026-06-06T08:57:58.363Z",
-      "latency_ms": 333,
+      "last_checked": "2026-06-06T09:20:22.137Z",
+      "last_ok": "2026-06-06T09:20:22.137Z",
+      "latency_ms": 298,
       "method_tested": "HEAD",
       "netuid": 41,
       "private_redirect_blocked": false,
@@ -118,7 +118,7 @@
       "surface_id": "sn-41-tensorplex-docs",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/tensorplex-labs/subnet-docs/tree/main/data/41",
-      "verified_at": "2026-06-06T08:57:58.363Z"
+      "verified_at": "2026-06-06T09:20:22.137Z"
     }
   ]
 }

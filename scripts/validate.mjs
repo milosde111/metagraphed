@@ -317,9 +317,11 @@ async function validateGeneratedArtifacts(nativeSnapshot, overlays, candidates) 
   const coverageArtifact = await readJson(path.join(repoRoot, "public/metagraph/coverage.json"));
   const contractsArtifact = await readJson(path.join(repoRoot, "public/metagraph/contracts.json"));
   const apiIndexArtifact = await readJson(path.join(repoRoot, "public/metagraph/api-index.json"));
+  const changelogArtifact = await readJson(path.join(repoRoot, "public/metagraph/changelog.json"));
   const searchArtifact = await readJson(path.join(repoRoot, "public/metagraph/search.json"));
   const freshnessArtifact = await readJson(path.join(repoRoot, "public/metagraph/freshness.json"));
   const sourceHealthArtifact = await readJson(path.join(repoRoot, "public/metagraph/source-health.json"));
+  const sourceSnapshotsArtifact = await readJson(path.join(repoRoot, "public/metagraph/source-snapshots.json"));
   const evidenceLedgerArtifact = await readJson(path.join(repoRoot, "public/metagraph/evidence-ledger.json"));
   const healthArtifact = await readJson(path.join(repoRoot, "public/metagraph/health/latest.json"));
   const healthSummaryArtifact = await readJson(path.join(repoRoot, "public/metagraph/health/summary.json"));
@@ -385,18 +387,37 @@ async function validateGeneratedArtifacts(nativeSnapshot, overlays, candidates) 
     new Set(contractsArtifact.artifacts.map((artifact) => artifact.id)).size === contractsArtifact.artifacts.length,
     "contracts artifact: artifact ids must be unique"
   );
+  for (const expectedArtifact of ["changelog", "source-snapshots", "rpc-pools", "r2-manifest"]) {
+    assert(
+      contractsArtifact.artifacts.some((artifact) => artifact.id === expectedArtifact),
+      `contracts artifact: missing ${expectedArtifact}`
+    );
+  }
   assert(apiIndexArtifact.primary_domain === "metagraph.sh", "api index: primary_domain must be metagraph.sh");
   assert(Array.isArray(apiIndexArtifact.routes), "api index: routes must be an array");
   assert(
     apiIndexArtifact.routes.every((route) => String(route.path || "").startsWith("/api/v1/")),
     "api index: routes must stay under /api/v1"
   );
+  for (const expectedRoute of ["/api/v1/changelog", "/api/v1/source-snapshots", "/api/v1/contracts", "/api/v1/build"]) {
+    assert(apiIndexArtifact.routes.some((route) => route.path === expectedRoute), `api index: missing ${expectedRoute}`);
+  }
+  assert(changelogArtifact.summary, "changelog: summary is required");
+  assert(changelogArtifact.subnets, "changelog: subnet diff is required");
   assert(searchArtifact.document_count === searchArtifact.documents.length, "search: document_count mismatch");
   assert(
     freshnessArtifact.summary?.native_snapshot_captured_at === nativeSnapshot.captured_at,
     "freshness: native snapshot timestamp mismatch"
   );
   assert(sourceHealthArtifact.summary?.provider_count === providersArtifact.providers.length, "source health: provider count mismatch");
+  assert(
+    sourceSnapshotsArtifact.summary?.source_count === sourceSnapshotsArtifact.sources.length,
+    "source snapshots: source_count mismatch"
+  );
+  assert(
+    sourceSnapshotsArtifact.sources.some((source) => source.id === "native-subnets" && source.record_count === nativeSnapshot.subnets.length),
+    "source snapshots: missing native subnet source"
+  );
   assert(evidenceLedgerArtifact.summary?.claim_count === evidenceLedgerArtifact.claims.length, "evidence ledger: claim count mismatch");
   assert(
     healthArtifact.surfaces.length === surfacesArtifact.surfaces.filter((surface) => surface.probe?.enabled && surface.public_safe).length,
@@ -422,6 +443,14 @@ async function validateGeneratedArtifacts(nativeSnapshot, overlays, candidates) 
     "R2 manifest: artifact count mismatch"
   );
   assert(r2ManifestArtifact.bucket_binding === "METAGRAPH_ARCHIVE", "R2 manifest: unexpected bucket binding");
+  assert(
+    r2ManifestArtifact.artifacts.some((artifact) => artifact.path === "/metagraph/changelog.json"),
+    "R2 manifest: changelog must be uploaded"
+  );
+  assert(
+    r2ManifestArtifact.artifacts.some((artifact) => artifact.path === "/metagraph/source-snapshots.json"),
+    "R2 manifest: source snapshots must be uploaded"
+  );
   assert(
     (schemaDriftArtifact.openapi_surface_count ?? schemaDriftArtifact.summary?.surface_count) ===
       surfacesArtifact.surfaces.filter((surface) => surface.kind === "openapi").length,

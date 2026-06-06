@@ -17,6 +17,7 @@ Metagraphed v1 is backend-first. The public contract is static JSON under `https
 
 - `/metagraph/contracts.json`: current public artifact contract version and artifact map.
 - `/metagraph/api-index.json`: Worker API route map and response-envelope contract.
+- `/metagraph/changelog.json`: reviewable generated artifact and subnet-change summary.
 - `/metagraph/providers.json`: provider/source registry.
 - `/metagraph/subnets.json`: compact all-subnet index.
 - `/metagraph/subnets/{netuid}.json`: per-subnet detail with native data, curated surfaces, candidates, curation, and gaps.
@@ -27,6 +28,7 @@ Metagraphed v1 is backend-first. The public contract is static JSON under `https
 - `/metagraph/search.json`: compact search index for subnets, surfaces, and providers.
 - `/metagraph/freshness.json`: freshness and staleness metadata for generated backend data.
 - `/metagraph/source-health.json`: source/provider health summary.
+- `/metagraph/source-snapshots.json`: compact hashes and counts for canonical source inputs.
 - `/metagraph/evidence-ledger.json`: public evidence ledger for material registry claims.
 - `/metagraph/r2-manifest.json`: Cloudflare R2 upload manifest for artifact history.
 - `/metagraph/coverage.json`: count parity and coverage levels.
@@ -59,6 +61,8 @@ Metagraphed v1 is backend-first. The public contract is static JSON under `https
 - `npm run adapters:snapshot`: capture safe Allways/Gittensor public adapter summaries.
 - `METAGRAPH_WRITE_PROBE_RESULTS=1 npm run probes:smoke`: run live read-only probes and persist health/RPC history.
 - `npm run r2:manifest`: regenerate the Cloudflare R2 manifest from current public artifacts.
+- `npm run r2:download:dry-run`: summarize an R2 restore/download without writing local files.
+- `npm run kv:publish:dry-run`: summarize KV latest pointer, feature flags, endpoint pool, and freshness control records.
 - `npm run validate:schemas`: run strict JSON Schema validation over registry inputs and public artifacts.
 - `npm run validate:api`: validate Worker API routes over local artifacts.
 - `npm run validate:intake`: validate GitHub issue intake templates.
@@ -68,7 +72,9 @@ Metagraphed v1 is backend-first. The public contract is static JSON under `https
 
 ## Cloudflare Runtime
 
-`workers/api.mjs` serves stable `/api/v1/*` JSON envelopes over the canonical artifact tree. It reads from Workers Static Assets first and can fall back to R2 through `METAGRAPH_ARCHIVE` when configured. The RPC proxy route is intentionally disabled unless `METAGRAPH_ENABLE_RPC_PROXY=true`, and even then the current contract keeps unsafe/write methods out of scope.
+`workers/api.mjs` serves stable `/api/v1/*` JSON envelopes over the canonical artifact tree. It reads from Workers Static Assets first and can fall back to R2 through `METAGRAPH_ARCHIVE` when configured. If the optional `METAGRAPH_CONTROL` KV binding exists, the Worker reads `metagraph:latest` to resolve the current R2 prefix.
+
+The RPC proxy route is intentionally disabled unless `METAGRAPH_ENABLE_RPC_PROXY=true`. When enabled for controlled testing, it only accepts single JSON-RPC POST bodies and blocks write/unsafe methods before any upstream request is made.
 
 ## Current Domain Scope
 

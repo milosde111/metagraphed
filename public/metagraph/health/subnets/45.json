@@ -6,11 +6,11 @@
   "schema_version": 1,
   "slug": "sn-45",
   "summary": {
-    "avg_latency_ms": 354,
+    "avg_latency_ms": 324,
     "degraded_count": 0,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:57:58.916Z",
-    "last_ok": "2026-06-06T08:57:58.916Z",
+    "last_checked": "2026-06-06T09:20:22.717Z",
+    "last_ok": "2026-06-06T09:20:22.717Z",
     "name": "Talisman AI",
     "netuid": 45,
     "ok_count": 4,
@@ -27,9 +27,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:57:58.360Z",
-      "last_ok": "2026-06-06T08:57:58.360Z",
-      "latency_ms": 143,
+      "last_checked": "2026-06-06T09:20:22.273Z",
+      "last_ok": "2026-06-06T09:20:22.273Z",
+      "latency_ms": 148,
       "method_tested": "HEAD",
       "netuid": 45,
       "private_redirect_blocked": false,
@@ -43,7 +43,7 @@
       "surface_id": "sn-45-taomarketcap-dashboard",
       "uptime_sample_ratio": 1,
       "url": "https://taomarketcap.com/subnets/45",
-      "verified_at": "2026-06-06T08:57:58.360Z"
+      "verified_at": "2026-06-06T09:20:22.273Z"
     },
     {
       "auth_required": false,
@@ -52,9 +52,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:57:58.916Z",
-      "last_ok": "2026-06-06T08:57:58.916Z",
-      "latency_ms": 681,
+      "last_checked": "2026-06-06T09:20:22.717Z",
+      "last_ok": "2026-06-06T09:20:22.717Z",
+      "latency_ms": 586,
       "method_tested": "HEAD",
       "netuid": 45,
       "private_redirect_blocked": false,
@@ -68,7 +68,7 @@
       "surface_id": "sn-45-taomarketcap-source-repo",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/Team-Rizzo/talisman-ai",
-      "verified_at": "2026-06-06T08:57:58.916Z"
+      "verified_at": "2026-06-06T09:20:22.717Z"
     },
     {
       "auth_required": false,
@@ -77,9 +77,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:57:58.527Z",
-      "last_ok": "2026-06-06T08:57:58.527Z",
-      "latency_ms": 285,
+      "last_checked": "2026-06-06T09:20:22.272Z",
+      "last_ok": "2026-06-06T09:20:22.272Z",
+      "latency_ms": 135,
       "method_tested": "HEAD",
       "netuid": 45,
       "private_redirect_blocked": false,
@@ -93,7 +93,7 @@
       "surface_id": "sn-45-taomarketcap-website",
       "uptime_sample_ratio": 1,
       "url": "https://ai.talisman.xyz/",
-      "verified_at": "2026-06-06T08:57:58.527Z"
+      "verified_at": "2026-06-06T09:20:22.272Z"
     },
     {
       "auth_required": false,
@@ -102,9 +102,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:57:58.615Z",
-      "last_ok": "2026-06-06T08:57:58.615Z",
-      "latency_ms": 308,
+      "last_checked": "2026-06-06T09:20:22.570Z",
+      "last_ok": "2026-06-06T09:20:22.570Z",
+      "latency_ms": 426,
       "method_tested": "HEAD",
       "netuid": 45,
       "private_redirect_blocked": false,
@@ -118,7 +118,7 @@
       "surface_id": "sn-45-tensorplex-docs",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/tensorplex-labs/subnet-docs/tree/main/data/45",
-      "verified_at": "2026-06-06T08:57:58.615Z"
+      "verified_at": "2026-06-06T09:20:22.570Z"
     }
   ]
 }

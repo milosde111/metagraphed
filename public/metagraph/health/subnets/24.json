@@ -6,11 +6,11 @@
   "schema_version": 1,
   "slug": "sn-24",
   "summary": {
-    "avg_latency_ms": 374,
+    "avg_latency_ms": 376,
     "degraded_count": 0,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:57:57.391Z",
-    "last_ok": "2026-06-06T08:57:57.391Z",
+    "last_checked": "2026-06-06T09:20:21.128Z",
+    "last_ok": "2026-06-06T09:20:21.128Z",
     "name": "Quasar",
     "netuid": 24,
     "ok_count": 4,
@@ -27,9 +27,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:57:56.875Z",
-      "last_ok": "2026-06-06T08:57:56.875Z",
-      "latency_ms": 184,
+      "last_checked": "2026-06-06T09:20:20.533Z",
+      "last_ok": "2026-06-06T09:20:20.533Z",
+      "latency_ms": 151,
       "method_tested": "HEAD",
       "netuid": 24,
       "private_redirect_blocked": false,
@@ -43,7 +43,7 @@
       "surface_id": "sn-24-taomarketcap-dashboard",
       "uptime_sample_ratio": 1,
       "url": "https://taomarketcap.com/subnets/24",
-      "verified_at": "2026-06-06T08:57:56.875Z"
+      "verified_at": "2026-06-06T09:20:20.533Z"
     },
     {
       "auth_required": false,
@@ -52,9 +52,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:57:57.391Z",
-      "last_ok": "2026-06-06T08:57:57.391Z",
-      "latency_ms": 687,
+      "last_checked": "2026-06-06T09:20:21.128Z",
+      "last_ok": "2026-06-06T09:20:21.128Z",
+      "latency_ms": 596,
       "method_tested": "HEAD",
       "netuid": 24,
       "private_redirect_blocked": false,
@@ -68,7 +68,7 @@
       "surface_id": "sn-24-taomarketcap-source-repo",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/SILX-LABS/QUASAR-SUBNET",
-      "verified_at": "2026-06-06T08:57:57.391Z"
+      "verified_at": "2026-06-06T09:20:21.128Z"
     },
     {
       "auth_required": false,
@@ -77,9 +77,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:57:57.064Z",
-      "last_ok": "2026-06-06T08:57:57.064Z",
-      "latency_ms": 356,
+      "last_checked": "2026-06-06T09:20:20.815Z",
+      "last_ok": "2026-06-06T09:20:20.815Z",
+      "latency_ms": 283,
       "method_tested": "HEAD",
       "netuid": 24,
       "private_redirect_blocked": false,
@@ -93,7 +93,7 @@
       "surface_id": "sn-24-taomarketcap-website",
       "uptime_sample_ratio": 1,
       "url": "https://silxinc.com/",
-      "verified_at": "2026-06-06T08:57:57.064Z"
+      "verified_at": "2026-06-06T09:20:20.815Z"
     },
     {
       "auth_required": false,
@@ -102,9 +102,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:57:57.047Z",
-      "last_ok": "2026-06-06T08:57:57.047Z",
-      "latency_ms": 269,
+      "last_checked": "2026-06-06T09:20:21.006Z",
+      "last_ok": "2026-06-06T09:20:21.006Z",
+      "latency_ms": 473,
       "method_tested": "HEAD",
       "netuid": 24,
       "private_redirect_blocked": false,
@@ -118,7 +118,7 @@
       "surface_id": "sn-24-tensorplex-docs",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/tensorplex-labs/subnet-docs/tree/main/data/24",
-      "verified_at": "2026-06-06T08:57:57.047Z"
+      "verified_at": "2026-06-06T09:20:21.006Z"
     }
   ]
 }

@@ -6,11 +6,11 @@
   "schema_version": 1,
   "slug": "sn-77",
   "summary": {
-    "avg_latency_ms": 275,
+    "avg_latency_ms": 289,
     "degraded_count": 0,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:58:02.167Z",
-    "last_ok": "2026-06-06T08:58:02.167Z",
+    "last_checked": "2026-06-06T09:20:26.776Z",
+    "last_ok": "2026-06-06T09:20:26.776Z",
     "name": "Liquidity",
     "netuid": 77,
     "ok_count": 4,
@@ -27,9 +27,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:58:01.981Z",
-      "last_ok": "2026-06-06T08:58:01.981Z",
-      "latency_ms": 222,
+      "last_checked": "2026-06-06T09:20:26.388Z",
+      "last_ok": "2026-06-06T09:20:26.388Z",
+      "latency_ms": 139,
       "method_tested": "HEAD",
       "netuid": 77,
       "private_redirect_blocked": false,
@@ -43,7 +43,7 @@
       "surface_id": "sn-77-taomarketcap-dashboard",
       "uptime_sample_ratio": 1,
       "url": "https://taomarketcap.com/subnets/77",
-      "verified_at": "2026-06-06T08:58:01.981Z"
+      "verified_at": "2026-06-06T09:20:26.388Z"
     },
     {
       "auth_required": false,
@@ -52,9 +52,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:58:02.127Z",
-      "last_ok": "2026-06-06T08:58:02.127Z",
-      "latency_ms": 359,
+      "last_checked": "2026-06-06T09:20:26.776Z",
+      "last_ok": "2026-06-06T09:20:26.776Z",
+      "latency_ms": 503,
       "method_tested": "HEAD",
       "netuid": 77,
       "private_redirect_blocked": false,
@@ -66,9 +66,9 @@
       "subnet_name": "Liquidity",
       "subnet_slug": "sn-77",
       "surface_id": "sn-77-taomarketcap-source-repo",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/creativebuilds/sn77",
-      "verified_at": "2026-06-06T08:58:02.127Z"
+      "verified_at": "2026-06-06T09:20:26.776Z"
     },
     {
       "auth_required": false,
@@ -77,9 +77,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:58:01.982Z",
-      "last_ok": "2026-06-06T08:58:01.982Z",
-      "latency_ms": 166,
+      "last_checked": "2026-06-06T09:20:26.423Z",
+      "last_ok": "2026-06-06T09:20:26.423Z",
+      "latency_ms": 125,
       "method_tested": "HEAD",
       "netuid": 77,
       "private_redirect_blocked": false,
@@ -93,7 +93,7 @@
       "surface_id": "sn-77-taomarketcap-website",
       "uptime_sample_ratio": 1,
       "url": "https://sn77.xyz/",
-      "verified_at": "2026-06-06T08:58:01.982Z"
+      "verified_at": "2026-06-06T09:20:26.423Z"
     },
     {
       "auth_required": false,
@@ -102,9 +102,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:58:02.167Z",
-      "last_ok": "2026-06-06T08:58:02.167Z",
-      "latency_ms": 351,
+      "last_checked": "2026-06-06T09:20:26.689Z",
+      "last_ok": "2026-06-06T09:20:26.689Z",
+      "latency_ms": 390,
       "method_tested": "HEAD",
       "netuid": 77,
       "private_redirect_blocked": false,
@@ -116,9 +116,9 @@
       "subnet_name": "Liquidity",
       "subnet_slug": "sn-77",
       "surface_id": "sn-77-tensorplex-docs",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/tensorplex-labs/subnet-docs/tree/main/data/77",
-      "verified_at": "2026-06-06T08:58:02.167Z"
+      "verified_at": "2026-06-06T09:20:26.689Z"
     }
   ]
 }

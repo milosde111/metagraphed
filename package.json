@@ -42,6 +42,8 @@
     "intake:import": "node scripts/intake-dry-run.mjs --write",
     "r2:manifest": "node scripts/r2-manifest.mjs --write",
     "r2:manifest:dry-run": "node scripts/r2-manifest.mjs",
+    "r2:download:dry-run": "node scripts/r2-download.mjs",
+    "r2:download": "node scripts/r2-download.mjs --write",
     "r2:upload:dry-run": "node scripts/r2-upload.mjs --dry-run",
     "r2:upload": "node scripts/r2-upload.mjs --write",
     "kv:publish:dry-run": "node scripts/kv-publish-pointer.mjs --dry-run",

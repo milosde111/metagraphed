@@ -6,11 +6,11 @@
   "schema_version": 1,
   "slug": "sn-98",
   "summary": {
-    "avg_latency_ms": 333,
+    "avg_latency_ms": 344,
     "degraded_count": 0,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:58:04.733Z",
-    "last_ok": "2026-06-06T08:58:04.733Z",
+    "last_checked": "2026-06-06T09:20:29.703Z",
+    "last_ok": "2026-06-06T09:20:29.703Z",
     "name": "ForeverMoney",
     "netuid": 98,
     "ok_count": 5,
@@ -27,8 +27,8 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:58:04.366Z",
-      "last_ok": "2026-06-06T08:58:04.366Z",
+      "last_checked": "2026-06-06T09:20:29.245Z",
+      "last_ok": "2026-06-06T09:20:29.245Z",
       "latency_ms": 183,
       "method_tested": "HEAD",
       "netuid": 98,
@@ -43,7 +43,7 @@
       "surface_id": "sn-98-taomarketcap-dashboard",
       "uptime_sample_ratio": 1,
       "url": "https://taomarketcap.com/subnets/98",
-      "verified_at": "2026-06-06T08:58:04.366Z"
+      "verified_at": "2026-06-06T09:20:29.245Z"
     },
     {
       "auth_required": false,
@@ -52,9 +52,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:58:04.733Z",
-      "last_ok": "2026-06-06T08:58:04.733Z",
-      "latency_ms": 547,
+      "last_checked": "2026-06-06T09:20:29.703Z",
+      "last_ok": "2026-06-06T09:20:29.703Z",
+      "latency_ms": 620,
       "method_tested": "HEAD",
       "netuid": 98,
       "private_redirect_blocked": false,
@@ -66,9 +66,9 @@
       "subnet_name": "ForeverMoney",
       "subnet_slug": "sn-98",
       "surface_id": "sn-98-taomarketcap-source-repo",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/SN98-ForeverMoney/forever-money",
-      "verified_at": "2026-06-06T08:58:04.733Z"
+      "verified_at": "2026-06-06T09:20:29.703Z"
     },
     {
       "auth_required": false,
@@ -77,9 +77,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:58:04.567Z",
-      "last_ok": "2026-06-06T08:58:04.567Z",
-      "latency_ms": 356,
+      "last_checked": "2026-06-06T09:20:29.361Z",
+      "last_ok": "2026-06-06T09:20:29.361Z",
+      "latency_ms": 278,
       "method_tested": "HEAD",
       "netuid": 98,
       "private_redirect_blocked": false,
@@ -93,7 +93,7 @@
       "surface_id": "sn-98-taomarketcap-website",
       "uptime_sample_ratio": 1,
       "url": "https://forevermoney.ai/",
-      "verified_at": "2026-06-06T08:58:04.567Z"
+      "verified_at": "2026-06-06T09:20:29.361Z"
     },
     {
       "auth_required": false,
@@ -102,9 +102,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:58:04.530Z",
-      "last_ok": "2026-06-06T08:58:04.530Z",
-      "latency_ms": 309,
+      "last_checked": "2026-06-06T09:20:29.441Z",
+      "last_ok": "2026-06-06T09:20:29.441Z",
+      "latency_ms": 354,
       "method_tested": "HEAD",
       "netuid": 98,
       "private_redirect_blocked": false,
@@ -116,9 +116,9 @@
       "subnet_name": "ForeverMoney",
       "subnet_slug": "sn-98",
       "surface_id": "sn-98-tensorplex-docs",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/tensorplex-labs/subnet-docs/tree/main/data/98",
-      "verified_at": "2026-06-06T08:58:04.530Z"
+      "verified_at": "2026-06-06T09:20:29.441Z"
     },
     {
       "auth_required": false,
@@ -127,9 +127,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:58:04.492Z",
-      "last_ok": "2026-06-06T08:58:04.492Z",
-      "latency_ms": 270,
+      "last_checked": "2026-06-06T09:20:29.532Z",
+      "last_ok": "2026-06-06T09:20:29.532Z",
+      "latency_ms": 287,
       "method_tested": "HEAD",
       "netuid": 98,
       "private_redirect_blocked": false,
@@ -141,9 +141,9 @@
       "subnet_name": "ForeverMoney",
       "subnet_slug": "sn-98",
       "surface_id": "sn-98-tensorplex-source-repo-1",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/orgs/SN98-ForeverMoney/repositories",
-      "verified_at": "2026-06-06T08:58:04.492Z"
+      "verified_at": "2026-06-06T09:20:29.532Z"
     }
   ]
 }

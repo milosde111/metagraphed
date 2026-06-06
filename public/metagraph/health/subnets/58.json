@@ -6,11 +6,11 @@
   "schema_version": 1,
   "slug": "sn-58",
   "summary": {
-    "avg_latency_ms": 326,
+    "avg_latency_ms": 298,
     "degraded_count": 0,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:58:00.437Z",
-    "last_ok": "2026-06-06T08:58:00.437Z",
+    "last_checked": "2026-06-06T09:20:24.643Z",
+    "last_ok": "2026-06-06T09:20:24.643Z",
     "name": "Pending",
     "netuid": 58,
     "ok_count": 10,
@@ -27,9 +27,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:57:59.854Z",
-      "last_ok": "2026-06-06T08:57:59.854Z",
-      "latency_ms": 208,
+      "last_checked": "2026-06-06T09:20:24.116Z",
+      "last_ok": "2026-06-06T09:20:24.116Z",
+      "latency_ms": 167,
       "method_tested": "HEAD",
       "netuid": 58,
       "private_redirect_blocked": false,
@@ -43,7 +43,7 @@
       "surface_id": "sn-58-github-readme-handshake58-hs58-docs-2",
       "uptime_sample_ratio": 1,
       "url": "https://handshake58.com/skill.md",
-      "verified_at": "2026-06-06T08:57:59.854Z"
+      "verified_at": "2026-06-06T09:20:24.116Z"
     },
     {
       "auth_required": false,
@@ -52,9 +52,9 @@
       "error": null,
       "error_class": null,
       "kind": "subnet-api",
-      "last_checked": "2026-06-06T08:57:59.875Z",
-      "last_ok": "2026-06-06T08:57:59.875Z",
-      "latency_ms": 208,
+      "last_checked": "2026-06-06T09:20:24.188Z",
+      "last_ok": "2026-06-06T09:20:24.188Z",
+      "latency_ms": 197,
       "method_tested": "GET",
       "netuid": 58,
       "private_redirect_blocked": false,
@@ -68,7 +68,7 @@
       "surface_id": "sn-58-github-readme-handshake58-hs58-subnet-api-3",
       "uptime_sample_ratio": 1,
       "url": "https://handshake58.com/api/drain/signing",
-      "verified_at": "2026-06-06T08:57:59.875Z"
+      "verified_at": "2026-06-06T09:20:24.188Z"
     },
     {
       "auth_required": false,
@@ -77,8 +77,8 @@
       "error": null,
       "error_class": null,
       "kind": "subnet-api",
-      "last_checked": "2026-06-06T08:57:59.919Z",
-      "last_ok": "2026-06-06T08:57:59.919Z",
+      "last_checked": "2026-06-06T09:20:24.198Z",
+      "last_ok": "2026-06-06T09:20:24.198Z",
       "latency_ms": 191,
       "method_tested": "GET",
       "netuid": 58,
@@ -93,7 +93,7 @@
       "surface_id": "sn-58-github-readme-handshake58-hs58-subnet-api-7",
       "uptime_sample_ratio": 1,
       "url": "https://handshake58.com/api/mcp/providers",
-      "verified_at": "2026-06-06T08:57:59.919Z"
+      "verified_at": "2026-06-06T09:20:24.198Z"
     },
     {
       "auth_required": false,
@@ -102,9 +102,9 @@
       "error": null,
       "error_class": null,
       "kind": "subnet-api",
-      "last_checked": "2026-06-06T08:57:59.890Z",
-      "last_ok": "2026-06-06T08:57:59.890Z",
-      "latency_ms": 157,
+      "last_checked": "2026-06-06T09:20:24.199Z",
+      "last_ok": "2026-06-06T09:20:24.199Z",
+      "latency_ms": 174,
       "method_tested": "GET",
       "netuid": 58,
       "private_redirect_blocked": false,
@@ -118,7 +118,7 @@
       "surface_id": "sn-58-github-readme-handshake58-hs58-subnet-api-8",
       "uptime_sample_ratio": 1,
       "url": "https://handshake58.com/api/mcp/providers?model=gpt-4o&category=scraping&limit=3&format=compact",
-      "verified_at": "2026-06-06T08:57:59.890Z"
+      "verified_at": "2026-06-06T09:20:24.199Z"
     },
     {
       "auth_required": false,
@@ -127,9 +127,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:58:00.437Z",
-      "last_ok": "2026-06-06T08:58:00.437Z",
-      "latency_ms": 697,
+      "last_checked": "2026-06-06T09:20:24.625Z",
+      "last_ok": "2026-06-06T09:20:24.625Z",
+      "latency_ms": 544,
       "method_tested": "HEAD",
       "netuid": 58,
       "private_redirect_blocked": false,
@@ -143,7 +143,7 @@
       "surface_id": "sn-58-github-readme-handshake58-hs58-website-1",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/Handshake58/HS58-subnet",
-      "verified_at": "2026-06-06T08:58:00.437Z"
+      "verified_at": "2026-06-06T09:20:24.625Z"
     },
     {
       "auth_required": false,
@@ -152,9 +152,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:58:00.384Z",
-      "last_ok": "2026-06-06T08:58:00.384Z",
-      "latency_ms": 644,
+      "last_checked": "2026-06-06T09:20:24.639Z",
+      "last_ok": "2026-06-06T09:20:24.639Z",
+      "latency_ms": 558,
       "method_tested": "HEAD",
       "netuid": 58,
       "private_redirect_blocked": false,
@@ -168,7 +168,7 @@
       "surface_id": "sn-58-github-readme-handshake58-hs58-website-4",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/Handshake58/HS58",
-      "verified_at": "2026-06-06T08:58:00.384Z"
+      "verified_at": "2026-06-06T09:20:24.639Z"
     },
     {
       "auth_required": false,
@@ -177,9 +177,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:58:00.022Z",
-      "last_ok": "2026-06-06T08:58:00.022Z",
-      "latency_ms": 176,
+      "last_checked": "2026-06-06T09:20:24.268Z",
+      "last_ok": "2026-06-06T09:20:24.268Z",
+      "latency_ms": 152,
       "method_tested": "HEAD",
       "netuid": 58,
       "private_redirect_blocked": false,
@@ -193,7 +193,7 @@
       "surface_id": "sn-58-taomarketcap-dashboard",
       "uptime_sample_ratio": 1,
       "url": "https://taomarketcap.com/subnets/58",
-      "verified_at": "2026-06-06T08:58:00.022Z"
+      "verified_at": "2026-06-06T09:20:24.268Z"
     },
     {
       "auth_required": false,
@@ -202,9 +202,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:58:00.244Z",
-      "last_ok": "2026-06-06T08:58:00.244Z",
-      "latency_ms": 389,
+      "last_checked": "2026-06-06T09:20:24.541Z",
+      "last_ok": "2026-06-06T09:20:24.541Z",
+      "latency_ms": 411,
       "method_tested": "HEAD",
       "netuid": 58,
       "private_redirect_blocked": false,
@@ -218,7 +218,7 @@
       "surface_id": "sn-58-tensorplex-docs",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/tensorplex-labs/subnet-docs/tree/main/data/58",
-      "verified_at": "2026-06-06T08:58:00.244Z"
+      "verified_at": "2026-06-06T09:20:24.541Z"
     },
     {
       "auth_required": false,
@@ -227,9 +227,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:58:00.384Z",
-      "last_ok": "2026-06-06T08:58:00.384Z",
-      "latency_ms": 509,
+      "last_checked": "2026-06-06T09:20:24.643Z",
+      "last_ok": "2026-06-06T09:20:24.643Z",
+      "latency_ms": 498,
       "method_tested": "HEAD",
       "netuid": 58,
       "private_redirect_blocked": false,
@@ -243,7 +243,7 @@
       "surface_id": "sn-58-tensorplex-source-repo-1",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/Handshake58/HS58",
-      "verified_at": "2026-06-06T08:58:00.384Z"
+      "verified_at": "2026-06-06T09:20:24.643Z"
     },
     {
       "auth_required": false,
@@ -252,9 +252,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:57:59.975Z",
-      "last_ok": "2026-06-06T08:57:59.975Z",
-      "latency_ms": 85,
+      "last_checked": "2026-06-06T09:20:24.263Z",
+      "last_ok": "2026-06-06T09:20:24.263Z",
+      "latency_ms": 90,
       "method_tested": "HEAD",
       "netuid": 58,
       "private_redirect_blocked": false,
@@ -268,7 +268,7 @@
       "surface_id": "sn-58-website-common-docs",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/docs",
-      "verified_at": "2026-06-06T08:57:59.975Z"
+      "verified_at": "2026-06-06T09:20:24.263Z"
     }
   ]
 }

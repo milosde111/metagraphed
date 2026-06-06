@@ -110,8 +110,8 @@ Generated artifacts expose review state through:
 
 `public/metagraph/search.json` exposes a compact search index for subnets, surfaces, and providers.
 
-`public/metagraph/freshness.json`, `source-health.json`, and `evidence-ledger.json` expose backend freshness, upstream source health, and public evidence records.
+`public/metagraph/freshness.json`, `source-health.json`, `source-snapshots.json`, `changelog.json`, and `evidence-ledger.json` expose backend freshness, upstream source health, source-input hashes, generated change summaries, and public evidence records.
 
 `public/metagraph/r2-manifest.json` lists artifacts intended for versioned R2 history upload.
 
-Worker API routes under `/api/v1/*` wrap these artifacts without replacing them as canonical truth.
+Worker API routes under `/api/v1/*` wrap these artifacts without replacing them as canonical truth. The Worker reads static assets first, can fall back to R2, and can use an optional KV latest pointer when configured.

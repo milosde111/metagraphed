@@ -6,11 +6,11 @@
   "schema_version": 1,
   "slug": "sn-124",
   "summary": {
-    "avg_latency_ms": 604,
+    "avg_latency_ms": 664,
     "degraded_count": 0,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:58:07.923Z",
-    "last_ok": "2026-06-06T08:58:07.923Z",
+    "last_checked": "2026-06-06T09:20:33.179Z",
+    "last_ok": "2026-06-06T09:20:33.179Z",
     "name": "Swarm",
     "netuid": 124,
     "ok_count": 4,
@@ -27,9 +27,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:58:06.793Z",
-      "last_ok": "2026-06-06T08:58:06.793Z",
-      "latency_ms": 204,
+      "last_checked": "2026-06-06T09:20:31.926Z",
+      "last_ok": "2026-06-06T09:20:31.926Z",
+      "latency_ms": 149,
       "method_tested": "HEAD",
       "netuid": 124,
       "private_redirect_blocked": false,
@@ -43,7 +43,7 @@
       "surface_id": "sn-124-taomarketcap-dashboard",
       "uptime_sample_ratio": 1,
       "url": "https://taomarketcap.com/subnets/124",
-      "verified_at": "2026-06-06T08:58:06.793Z"
+      "verified_at": "2026-06-06T09:20:31.926Z"
     },
     {
       "auth_required": false,
@@ -52,9 +52,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:58:07.176Z",
-      "last_ok": "2026-06-06T08:58:07.176Z",
-      "latency_ms": 573,
+      "last_checked": "2026-06-06T09:20:32.465Z",
+      "last_ok": "2026-06-06T09:20:32.465Z",
+      "latency_ms": 678,
       "method_tested": "HEAD",
       "netuid": 124,
       "private_redirect_blocked": false,
@@ -66,9 +66,9 @@
       "subnet_name": "Swarm",
       "subnet_slug": "sn-124",
       "surface_id": "sn-124-taomarketcap-source-repo",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/swarm-subnet/swarm",
-      "verified_at": "2026-06-06T08:58:07.176Z"
+      "verified_at": "2026-06-06T09:20:32.465Z"
     },
     {
       "auth_required": false,
@@ -77,9 +77,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:58:07.923Z",
-      "last_ok": "2026-06-06T08:58:07.923Z",
-      "latency_ms": 1320,
+      "last_checked": "2026-06-06T09:20:33.179Z",
+      "last_ok": "2026-06-06T09:20:33.179Z",
+      "latency_ms": 1385,
       "method_tested": "HEAD",
       "netuid": 124,
       "private_redirect_blocked": false,
@@ -93,7 +93,7 @@
       "surface_id": "sn-124-taomarketcap-website",
       "uptime_sample_ratio": 1,
       "url": "https://www.swarm124.com/",
-      "verified_at": "2026-06-06T08:58:07.923Z"
+      "verified_at": "2026-06-06T09:20:33.179Z"
     },
     {
       "auth_required": false,
@@ -102,9 +102,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:58:06.955Z",
-      "last_ok": "2026-06-06T08:58:06.955Z",
-      "latency_ms": 317,
+      "last_checked": "2026-06-06T09:20:32.251Z",
+      "last_ok": "2026-06-06T09:20:32.251Z",
+      "latency_ms": 444,
       "method_tested": "HEAD",
       "netuid": 124,
       "private_redirect_blocked": false,
@@ -116,9 +116,9 @@
       "subnet_name": "Swarm",
       "subnet_slug": "sn-124",
       "surface_id": "sn-124-tensorplex-docs",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/tensorplex-labs/subnet-docs/tree/main/data/124",
-      "verified_at": "2026-06-06T08:58:06.955Z"
+      "verified_at": "2026-06-06T09:20:32.251Z"
     }
   ]
 }

@@ -6,11 +6,11 @@
   "schema_version": 1,
   "slug": "sn-88",
   "summary": {
-    "avg_latency_ms": 323,
+    "avg_latency_ms": 599,
     "degraded_count": 0,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:58:03.638Z",
-    "last_ok": "2026-06-06T08:58:03.638Z",
+    "last_checked": "2026-06-06T09:20:29.063Z",
+    "last_ok": "2026-06-06T09:20:29.063Z",
     "name": "Investing",
     "netuid": 88,
     "ok_count": 4,
@@ -27,9 +27,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:58:03.320Z",
-      "last_ok": "2026-06-06T08:58:03.320Z",
-      "latency_ms": 161,
+      "last_checked": "2026-06-06T09:20:27.866Z",
+      "last_ok": "2026-06-06T09:20:27.866Z",
+      "latency_ms": 129,
       "method_tested": "HEAD",
       "netuid": 88,
       "private_redirect_blocked": false,
@@ -43,7 +43,7 @@
       "surface_id": "sn-88-taomarketcap-dashboard",
       "uptime_sample_ratio": 1,
       "url": "https://taomarketcap.com/subnets/88",
-      "verified_at": "2026-06-06T08:58:03.320Z"
+      "verified_at": "2026-06-06T09:20:27.866Z"
     },
     {
       "auth_required": false,
@@ -52,9 +52,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:58:03.638Z",
-      "last_ok": "2026-06-06T08:58:03.638Z",
-      "latency_ms": 448,
+      "last_checked": "2026-06-06T09:20:28.401Z",
+      "last_ok": "2026-06-06T09:20:28.401Z",
+      "latency_ms": 630,
       "method_tested": "HEAD",
       "netuid": 88,
       "private_redirect_blocked": false,
@@ -66,9 +66,9 @@
       "subnet_name": "Investing",
       "subnet_slug": "sn-88",
       "surface_id": "sn-88-taomarketcap-source-repo",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/mobiusfund/investing",
-      "verified_at": "2026-06-06T08:58:03.638Z"
+      "verified_at": "2026-06-06T09:20:28.401Z"
     },
     {
       "auth_required": false,
@@ -77,9 +77,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:58:03.502Z",
-      "last_ok": "2026-06-06T08:58:03.502Z",
-      "latency_ms": 302,
+      "last_checked": "2026-06-06T09:20:29.063Z",
+      "last_ok": "2026-06-06T09:20:29.063Z",
+      "latency_ms": 1231,
       "method_tested": "HEAD",
       "netuid": 88,
       "private_redirect_blocked": false,
@@ -93,7 +93,7 @@
       "surface_id": "sn-88-taomarketcap-website",
       "uptime_sample_ratio": 1,
       "url": "https://investing88.ai/",
-      "verified_at": "2026-06-06T08:58:03.502Z"
+      "verified_at": "2026-06-06T09:20:29.063Z"
     },
     {
       "auth_required": false,
@@ -102,9 +102,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:58:03.583Z",
-      "last_ok": "2026-06-06T08:58:03.583Z",
-      "latency_ms": 382,
+      "last_checked": "2026-06-06T09:20:28.241Z",
+      "last_ok": "2026-06-06T09:20:28.241Z",
+      "latency_ms": 405,
       "method_tested": "HEAD",
       "netuid": 88,
       "private_redirect_blocked": false,
@@ -116,9 +116,9 @@
       "subnet_name": "Investing",
       "subnet_slug": "sn-88",
       "surface_id": "sn-88-tensorplex-docs",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/tensorplex-labs/subnet-docs/tree/main/data/88",
-      "verified_at": "2026-06-06T08:58:03.583Z"
+      "verified_at": "2026-06-06T09:20:28.241Z"
     }
   ]
 }

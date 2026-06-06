@@ -6,11 +6,11 @@
   "schema_version": 1,
   "slug": "sn-83",
   "summary": {
-    "avg_latency_ms": 384,
+    "avg_latency_ms": 462,
     "degraded_count": 0,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:58:03.243Z",
-    "last_ok": "2026-06-06T08:58:03.243Z",
+    "last_checked": "2026-06-06T09:20:27.836Z",
+    "last_ok": "2026-06-06T09:20:27.836Z",
     "name": "CliqueAI",
     "netuid": 83,
     "ok_count": 4,
@@ -27,9 +27,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:58:02.895Z",
-      "last_ok": "2026-06-06T08:58:02.895Z",
-      "latency_ms": 220,
+      "last_checked": "2026-06-06T09:20:27.408Z",
+      "last_ok": "2026-06-06T09:20:27.408Z",
+      "latency_ms": 230,
       "method_tested": "HEAD",
       "netuid": 83,
       "private_redirect_blocked": false,
@@ -43,7 +43,7 @@
       "surface_id": "sn-83-taomarketcap-dashboard",
       "uptime_sample_ratio": 1,
       "url": "https://taomarketcap.com/subnets/83",
-      "verified_at": "2026-06-06T08:58:02.895Z"
+      "verified_at": "2026-06-06T09:20:27.408Z"
     },
     {
       "auth_required": false,
@@ -52,9 +52,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:58:03.243Z",
-      "last_ok": "2026-06-06T08:58:03.243Z",
-      "latency_ms": 527,
+      "last_checked": "2026-06-06T09:20:27.736Z",
+      "last_ok": "2026-06-06T09:20:27.736Z",
+      "latency_ms": 545,
       "method_tested": "HEAD",
       "netuid": 83,
       "private_redirect_blocked": false,
@@ -66,9 +66,9 @@
       "subnet_name": "CliqueAI",
       "subnet_slug": "sn-83",
       "surface_id": "sn-83-taomarketcap-source-repo",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/toptensor/CliqueAI",
-      "verified_at": "2026-06-06T08:58:03.243Z"
+      "verified_at": "2026-06-06T09:20:27.736Z"
     },
     {
       "auth_required": false,
@@ -77,9 +77,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:58:03.200Z",
-      "last_ok": "2026-06-06T08:58:03.200Z",
-      "latency_ms": 478,
+      "last_checked": "2026-06-06T09:20:27.836Z",
+      "last_ok": "2026-06-06T09:20:27.836Z",
+      "latency_ms": 591,
       "method_tested": "HEAD",
       "netuid": 83,
       "private_redirect_blocked": false,
@@ -93,7 +93,7 @@
       "surface_id": "sn-83-taomarketcap-website",
       "uptime_sample_ratio": 1,
       "url": "https://cliqueai.toptensor.ai/",
-      "verified_at": "2026-06-06T08:58:03.200Z"
+      "verified_at": "2026-06-06T09:20:27.836Z"
     },
     {
       "auth_required": false,
@@ -102,9 +102,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:58:03.047Z",
-      "last_ok": "2026-06-06T08:58:03.047Z",
-      "latency_ms": 312,
+      "last_checked": "2026-06-06T09:20:27.730Z",
+      "last_ok": "2026-06-06T09:20:27.730Z",
+      "latency_ms": 483,
       "method_tested": "HEAD",
       "netuid": 83,
       "private_redirect_blocked": false,
@@ -116,9 +116,9 @@
       "subnet_name": "CliqueAI",
       "subnet_slug": "sn-83",
       "surface_id": "sn-83-tensorplex-docs",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/tensorplex-labs/subnet-docs/tree/main/data/83",
-      "verified_at": "2026-06-06T08:58:03.047Z"
+      "verified_at": "2026-06-06T09:20:27.730Z"
     }
   ]
 }

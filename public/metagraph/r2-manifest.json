@@ -1,6 +1,6 @@
 {
-  "artifact_count": 417,
-  "artifact_size_bytes": 12247418,
+  "artifact_count": 419,
+  "artifact_size_bytes": 12258645,
   "artifacts": [
     {
       "content_type": "application/json",
@@ -21,7 +21,7 @@
       "key": "runs/1970-01-01T00-00-00-000Z/api-index.json",
       "latest_key": "latest/api-index.json",
       "path": "/metagraph/api-index.json",
-      "size_bytes": 5904
+      "size_bytes": 8691
     },
     {
       "content_type": "application/json",
@@ -32,10 +32,17 @@
     },
     {
       "content_type": "application/json",
+      "key": "runs/1970-01-01T00-00-00-000Z/changelog.json",
+      "latest_key": "latest/changelog.json",
+      "path": "/metagraph/changelog.json",
+      "size_bytes": 1903
+    },
+    {
+      "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/contracts.json",
       "latest_key": "latest/contracts.json",
       "path": "/metagraph/contracts.json",
-      "size_bytes": 6635
+      "size_bytes": 7137
     },
     {
       "content_type": "application/json",
@@ -840,7 +847,7 @@
       "key": "runs/1970-01-01T00-00-00-000Z/health/badges/81.json",
       "latest_key": "latest/health/badges/81.json",
       "path": "/metagraph/health/badges/81.json",
-      "size_bytes": 291
+      "size_bytes": 298
     },
     {
       "content_type": "application/json",
@@ -980,21 +987,21 @@
       "key": "runs/1970-01-01T00-00-00-000Z/health/history/2026-06-06.json",
       "latest_key": "latest/health/history/2026-06-06.json",
       "path": "/metagraph/health/history/2026-06-06.json",
-      "size_bytes": 485297
+      "size_bytes": 485662
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/latest.json",
       "latest_key": "latest/health/latest.json",
       "path": "/metagraph/health/latest.json",
-      "size_bytes": 485297
+      "size_bytes": 485662
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/0.json",
       "latest_key": "latest/health/subnets/0.json",
       "path": "/metagraph/health/subnets/0.json",
-      "size_bytes": 16876
+      "size_bytes": 16874
     },
     {
       "content_type": "application/json",
@@ -1015,70 +1022,70 @@
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/100.json",
       "latest_key": "latest/health/subnets/100.json",
       "path": "/metagraph/health/subnets/100.json",
-      "size_bytes": 5481
+      "size_bytes": 5489
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/101.json",
       "latest_key": "latest/health/subnets/101.json",
       "path": "/metagraph/health/subnets/101.json",
-      "size_bytes": 2139
+      "size_bytes": 2141
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/102.json",
       "latest_key": "latest/health/subnets/102.json",
       "path": "/metagraph/health/subnets/102.json",
-      "size_bytes": 3755
+      "size_bytes": 3759
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/103.json",
       "latest_key": "latest/health/subnets/103.json",
       "path": "/metagraph/health/subnets/103.json",
-      "size_bytes": 3751
+      "size_bytes": 3753
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/104.json",
       "latest_key": "latest/health/subnets/104.json",
       "path": "/metagraph/health/subnets/104.json",
-      "size_bytes": 2219
+      "size_bytes": 2221
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/105.json",
       "latest_key": "latest/health/subnets/105.json",
       "path": "/metagraph/health/subnets/105.json",
-      "size_bytes": 3733
+      "size_bytes": 3737
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/106.json",
       "latest_key": "latest/health/subnets/106.json",
       "path": "/metagraph/health/subnets/106.json",
-      "size_bytes": 3731
+      "size_bytes": 3735
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/107.json",
       "latest_key": "latest/health/subnets/107.json",
       "path": "/metagraph/health/subnets/107.json",
-      "size_bytes": 6258
+      "size_bytes": 6266
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/108.json",
       "latest_key": "latest/health/subnets/108.json",
       "path": "/metagraph/health/subnets/108.json",
-      "size_bytes": 3762
+      "size_bytes": 3766
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/109.json",
       "latest_key": "latest/health/subnets/109.json",
       "path": "/metagraph/health/subnets/109.json",
-      "size_bytes": 2969
+      "size_bytes": 2973
     },
     {
       "content_type": "application/json",
@@ -1092,63 +1099,63 @@
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/110.json",
       "latest_key": "latest/health/subnets/110.json",
       "path": "/metagraph/health/subnets/110.json",
-      "size_bytes": 3809
+      "size_bytes": 3813
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/111.json",
       "latest_key": "latest/health/subnets/111.json",
       "path": "/metagraph/health/subnets/111.json",
-      "size_bytes": 2978
+      "size_bytes": 2981
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/112.json",
       "latest_key": "latest/health/subnets/112.json",
       "path": "/metagraph/health/subnets/112.json",
-      "size_bytes": 3764
+      "size_bytes": 3768
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/113.json",
       "latest_key": "latest/health/subnets/113.json",
       "path": "/metagraph/health/subnets/113.json",
-      "size_bytes": 3756
+      "size_bytes": 3760
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/114.json",
       "latest_key": "latest/health/subnets/114.json",
       "path": "/metagraph/health/subnets/114.json",
-      "size_bytes": 5433
+      "size_bytes": 5441
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/115.json",
       "latest_key": "latest/health/subnets/115.json",
       "path": "/metagraph/health/subnets/115.json",
-      "size_bytes": 2978
+      "size_bytes": 2982
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/116.json",
       "latest_key": "latest/health/subnets/116.json",
       "path": "/metagraph/health/subnets/116.json",
-      "size_bytes": 2163
+      "size_bytes": 2165
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/117.json",
       "latest_key": "latest/health/subnets/117.json",
       "path": "/metagraph/health/subnets/117.json",
-      "size_bytes": 5535
+      "size_bytes": 5543
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/118.json",
       "latest_key": "latest/health/subnets/118.json",
       "path": "/metagraph/health/subnets/118.json",
-      "size_bytes": 7898
+      "size_bytes": 7910
     },
     {
       "content_type": "application/json",
@@ -1169,63 +1176,63 @@
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/120.json",
       "latest_key": "latest/health/subnets/120.json",
       "path": "/metagraph/health/subnets/120.json",
-      "size_bytes": 3798
+      "size_bytes": 3802
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/121.json",
       "latest_key": "latest/health/subnets/121.json",
       "path": "/metagraph/health/subnets/121.json",
-      "size_bytes": 3776
+      "size_bytes": 3780
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/122.json",
       "latest_key": "latest/health/subnets/122.json",
       "path": "/metagraph/health/subnets/122.json",
-      "size_bytes": 2996
+      "size_bytes": 3000
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/123.json",
       "latest_key": "latest/health/subnets/123.json",
       "path": "/metagraph/health/subnets/123.json",
-      "size_bytes": 2958
+      "size_bytes": 2962
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/124.json",
       "latest_key": "latest/health/subnets/124.json",
       "path": "/metagraph/health/subnets/124.json",
-      "size_bytes": 3763
+      "size_bytes": 3767
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/125.json",
       "latest_key": "latest/health/subnets/125.json",
       "path": "/metagraph/health/subnets/125.json",
-      "size_bytes": 2151
+      "size_bytes": 2153
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/126.json",
       "latest_key": "latest/health/subnets/126.json",
       "path": "/metagraph/health/subnets/126.json",
-      "size_bytes": 3748
+      "size_bytes": 3752
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/127.json",
       "latest_key": "latest/health/subnets/127.json",
       "path": "/metagraph/health/subnets/127.json",
-      "size_bytes": 3777
+      "size_bytes": 3781
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/128.json",
       "latest_key": "latest/health/subnets/128.json",
       "path": "/metagraph/health/subnets/128.json",
-      "size_bytes": 4571
+      "size_bytes": 4577
     },
     {
       "content_type": "application/json",
@@ -1260,7 +1267,7 @@
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/17.json",
       "latest_key": "latest/health/subnets/17.json",
       "path": "/metagraph/health/subnets/17.json",
-      "size_bytes": 8078
+      "size_bytes": 8079
     },
     {
       "content_type": "application/json",
@@ -1358,7 +1365,7 @@
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/3.json",
       "latest_key": "latest/health/subnets/3.json",
       "path": "/metagraph/health/subnets/3.json",
-      "size_bytes": 8036
+      "size_bytes": 8035
     },
     {
       "content_type": "application/json",
@@ -1400,7 +1407,7 @@
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/35.json",
       "latest_key": "latest/health/subnets/35.json",
       "path": "/metagraph/health/subnets/35.json",
-      "size_bytes": 5444
+      "size_bytes": 5446
     },
     {
       "content_type": "application/json",
@@ -1526,7 +1533,7 @@
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/51.json",
       "latest_key": "latest/health/subnets/51.json",
       "path": "/metagraph/health/subnets/51.json",
-      "size_bytes": 3722
+      "size_bytes": 3724
     },
     {
       "content_type": "application/json",
@@ -1603,63 +1610,63 @@
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/61.json",
       "latest_key": "latest/health/subnets/61.json",
       "path": "/metagraph/health/subnets/61.json",
-      "size_bytes": 3735
+      "size_bytes": 3737
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/62.json",
       "latest_key": "latest/health/subnets/62.json",
       "path": "/metagraph/health/subnets/62.json",
-      "size_bytes": 2939
+      "size_bytes": 2941
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/63.json",
       "latest_key": "latest/health/subnets/63.json",
       "path": "/metagraph/health/subnets/63.json",
-      "size_bytes": 3734
+      "size_bytes": 3738
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/64.json",
       "latest_key": "latest/health/subnets/64.json",
       "path": "/metagraph/health/subnets/64.json",
-      "size_bytes": 7186
+      "size_bytes": 7198
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/65.json",
       "latest_key": "latest/health/subnets/65.json",
       "path": "/metagraph/health/subnets/65.json",
-      "size_bytes": 3803
+      "size_bytes": 3807
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/66.json",
       "latest_key": "latest/health/subnets/66.json",
       "path": "/metagraph/health/subnets/66.json",
-      "size_bytes": 3697
+      "size_bytes": 3701
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/67.json",
       "latest_key": "latest/health/subnets/67.json",
       "path": "/metagraph/health/subnets/67.json",
-      "size_bytes": 4534
+      "size_bytes": 4538
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/68.json",
       "latest_key": "latest/health/subnets/68.json",
       "path": "/metagraph/health/subnets/68.json",
-      "size_bytes": 3702
+      "size_bytes": 3706
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/69.json",
       "latest_key": "latest/health/subnets/69.json",
       "path": "/metagraph/health/subnets/69.json",
-      "size_bytes": 2127
+      "size_bytes": 2129
     },
     {
       "content_type": "application/json",
@@ -1673,70 +1680,70 @@
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/70.json",
       "latest_key": "latest/health/subnets/70.json",
       "path": "/metagraph/health/subnets/70.json",
-      "size_bytes": 3764
+      "size_bytes": 3768
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/71.json",
       "latest_key": "latest/health/subnets/71.json",
       "path": "/metagraph/health/subnets/71.json",
-      "size_bytes": 3732
+      "size_bytes": 3736
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/72.json",
       "latest_key": "latest/health/subnets/72.json",
       "path": "/metagraph/health/subnets/72.json",
-      "size_bytes": 3851
+      "size_bytes": 3855
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/73.json",
       "latest_key": "latest/health/subnets/73.json",
       "path": "/metagraph/health/subnets/73.json",
-      "size_bytes": 2139
+      "size_bytes": 2141
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/74.json",
       "latest_key": "latest/health/subnets/74.json",
       "path": "/metagraph/health/subnets/74.json",
-      "size_bytes": 6150
+      "size_bytes": 6152
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/75.json",
       "latest_key": "latest/health/subnets/75.json",
       "path": "/metagraph/health/subnets/75.json",
-      "size_bytes": 7094
+      "size_bytes": 7107
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/76.json",
       "latest_key": "latest/health/subnets/76.json",
       "path": "/metagraph/health/subnets/76.json",
-      "size_bytes": 2151
+      "size_bytes": 2153
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/77.json",
       "latest_key": "latest/health/subnets/77.json",
       "path": "/metagraph/health/subnets/77.json",
-      "size_bytes": 3721
+      "size_bytes": 3725
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/78.json",
       "latest_key": "latest/health/subnets/78.json",
       "path": "/metagraph/health/subnets/78.json",
-      "size_bytes": 5364
+      "size_bytes": 5372
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/79.json",
       "latest_key": "latest/health/subnets/79.json",
       "path": "/metagraph/health/subnets/79.json",
-      "size_bytes": 7924
+      "size_bytes": 7933
     },
     {
       "content_type": "application/json",
@@ -1750,70 +1757,70 @@
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/80.json",
       "latest_key": "latest/health/subnets/80.json",
       "path": "/metagraph/health/subnets/80.json",
-      "size_bytes": 3770
+      "size_bytes": 3775
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/81.json",
       "latest_key": "latest/health/subnets/81.json",
       "path": "/metagraph/health/subnets/81.json",
-      "size_bytes": 6340
+      "size_bytes": 6353
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/82.json",
       "latest_key": "latest/health/subnets/82.json",
       "path": "/metagraph/health/subnets/82.json",
-      "size_bytes": 6236
+      "size_bytes": 6243
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/83.json",
       "latest_key": "latest/health/subnets/83.json",
       "path": "/metagraph/health/subnets/83.json",
-      "size_bytes": 3727
+      "size_bytes": 3731
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/84.json",
       "latest_key": "latest/health/subnets/84.json",
       "path": "/metagraph/health/subnets/84.json",
-      "size_bytes": 7096
+      "size_bytes": 7109
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/85.json",
       "latest_key": "latest/health/subnets/85.json",
       "path": "/metagraph/health/subnets/85.json",
-      "size_bytes": 3727
+      "size_bytes": 3731
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/86.json",
       "latest_key": "latest/health/subnets/86.json",
       "path": "/metagraph/health/subnets/86.json",
-      "size_bytes": 2127
+      "size_bytes": 2129
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/87.json",
       "latest_key": "latest/health/subnets/87.json",
       "path": "/metagraph/health/subnets/87.json",
-      "size_bytes": 2951
+      "size_bytes": 2954
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/88.json",
       "latest_key": "latest/health/subnets/88.json",
       "path": "/metagraph/health/subnets/88.json",
-      "size_bytes": 3743
+      "size_bytes": 3748
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/89.json",
       "latest_key": "latest/health/subnets/89.json",
       "path": "/metagraph/health/subnets/89.json",
-      "size_bytes": 2989
+      "size_bytes": 2993
     },
     {
       "content_type": "application/json",
@@ -1827,77 +1834,77 @@
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/90.json",
       "latest_key": "latest/health/subnets/90.json",
       "path": "/metagraph/health/subnets/90.json",
-      "size_bytes": 2135
+      "size_bytes": 2137
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/91.json",
       "latest_key": "latest/health/subnets/91.json",
       "path": "/metagraph/health/subnets/91.json",
-      "size_bytes": 2985
+      "size_bytes": 2986
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/92.json",
       "latest_key": "latest/health/subnets/92.json",
       "path": "/metagraph/health/subnets/92.json",
-      "size_bytes": 3753
+      "size_bytes": 3757
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/93.json",
       "latest_key": "latest/health/subnets/93.json",
       "path": "/metagraph/health/subnets/93.json",
-      "size_bytes": 3741
+      "size_bytes": 3745
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/94.json",
       "latest_key": "latest/health/subnets/94.json",
       "path": "/metagraph/health/subnets/94.json",
-      "size_bytes": 3730
+      "size_bytes": 3734
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/95.json",
       "latest_key": "latest/health/subnets/95.json",
       "path": "/metagraph/health/subnets/95.json",
-      "size_bytes": 2131
+      "size_bytes": 2133
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/96.json",
       "latest_key": "latest/health/subnets/96.json",
       "path": "/metagraph/health/subnets/96.json",
-      "size_bytes": 5434
+      "size_bytes": 5442
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/97.json",
       "latest_key": "latest/health/subnets/97.json",
       "path": "/metagraph/health/subnets/97.json",
-      "size_bytes": 7148
+      "size_bytes": 7158
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/98.json",
       "latest_key": "latest/health/subnets/98.json",
       "path": "/metagraph/health/subnets/98.json",
-      "size_bytes": 4609
+      "size_bytes": 4615
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/subnets/99.json",
       "latest_key": "latest/health/subnets/99.json",
       "path": "/metagraph/health/subnets/99.json",
-      "size_bytes": 4519
+      "size_bytes": 4525
     },
     {
       "content_type": "application/json",
       "key": "runs/1970-01-01T00-00-00-000Z/health/summary.json",
       "latest_key": "latest/health/summary.json",
       "path": "/metagraph/health/summary.json",
-      "size_bytes": 45765
+      "size_bytes": 45818
     },
     {
       "content_type": "application/json",
@@ -1960,7 +1967,7 @@
       "key": "runs/1970-01-01T00-00-00-000Z/rpc/pools.json",
       "latest_key": "latest/rpc/pools.json",
       "path": "/metagraph/rpc/pools.json",
-      "size_bytes": 3242
+      "size_bytes": 5422
     },
     {
       "content_type": "application/json",
@@ -1996,6 +2003,13 @@
       "latest_key": "latest/source-health.json",
       "path": "/metagraph/source-health.json",
       "size_bytes": 4752
+    },
+    {
+      "content_type": "application/json",
+      "key": "runs/1970-01-01T00-00-00-000Z/source-snapshots.json",
+      "latest_key": "latest/source-snapshots.json",
+      "path": "/metagraph/source-snapshots.json",
+      "size_bytes": 2739
     },
     {
       "content_type": "application/json",

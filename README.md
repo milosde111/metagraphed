@@ -74,6 +74,7 @@ Generated public artifacts live under `public/metagraph`:
 
 - `subnets.json`
 - `api-index.json`
+- `changelog.json`
 - `surfaces.json`
 - `rpc-endpoints.json`
 - `rpc/pools.json`
@@ -85,6 +86,7 @@ Generated public artifacts live under `public/metagraph`:
 - `search.json`
 - `freshness.json`
 - `source-health.json`
+- `source-snapshots.json`
 - `evidence-ledger.json`
 - `r2-manifest.json`
 - `metagraph/latest.json`
@@ -113,13 +115,24 @@ Worker API routes expose stable envelopes over the same canonical artifacts:
 - `/api/v1/subnets`
 - `/api/v1/subnets/{netuid}`
 - `/api/v1/surfaces`
+- `/api/v1/candidates`
 - `/api/v1/providers`
+- `/api/v1/coverage`
+- `/api/v1/curation`
+- `/api/v1/gaps`
 - `/api/v1/health`
+- `/api/v1/freshness`
+- `/api/v1/source-health`
+- `/api/v1/evidence`
+- `/api/v1/changelog`
+- `/api/v1/source-snapshots`
 - `/api/v1/rpc/endpoints`
 - `/api/v1/rpc/pools`
 - `/api/v1/schemas`
 - `/api/v1/adapters/{slug}`
 - `/api/v1/search`
+- `/api/v1/contracts`
+- `/api/v1/build`
 
 ## Local Commands
 
@@ -140,6 +153,8 @@ npm run validate:api
 npm run validate:intake
 npm run validate:workflows
 npm run r2:manifest:dry-run
+npm run r2:download:dry-run
+npm run kv:publish:dry-run
 npm run worker:deploy:dry-run
 npm run probes:smoke
 ```
@@ -160,7 +175,7 @@ npm run probes:smoke
 
 `probes:smoke` performs read-only checks against public surfaces. It does not submit transactions, mutate subnet state, send wallet data, or use credentials.
 
-`r2:manifest` generates the Cloudflare R2 upload manifest for the current artifact tree. `r2:upload` and `kv:publish` require explicit write flags so local validation cannot accidentally publish.
+`r2:manifest` generates the Cloudflare R2 upload manifest for the current artifact tree. `r2:upload`, `r2:download`, and `kv:publish` require explicit write flags so local validation cannot accidentally publish or restore.
 
 ## Repository Layout
 

@@ -6,11 +6,11 @@
   "schema_version": 1,
   "slug": "sn-63",
   "summary": {
-    "avg_latency_ms": 270,
+    "avg_latency_ms": 314,
     "degraded_count": 0,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:58:00.831Z",
-    "last_ok": "2026-06-06T08:58:00.831Z",
+    "last_checked": "2026-06-06T09:20:25.202Z",
+    "last_ok": "2026-06-06T09:20:25.202Z",
     "name": "Enigma",
     "netuid": 63,
     "ok_count": 4,
@@ -27,9 +27,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:58:00.542Z",
-      "last_ok": "2026-06-06T08:58:00.542Z",
-      "latency_ms": 191,
+      "last_checked": "2026-06-06T09:20:24.929Z",
+      "last_ok": "2026-06-06T09:20:24.929Z",
+      "latency_ms": 249,
       "method_tested": "HEAD",
       "netuid": 63,
       "private_redirect_blocked": false,
@@ -43,7 +43,7 @@
       "surface_id": "sn-63-taomarketcap-dashboard",
       "uptime_sample_ratio": 1,
       "url": "https://taomarketcap.com/subnets/63",
-      "verified_at": "2026-06-06T08:58:00.542Z"
+      "verified_at": "2026-06-06T09:20:24.929Z"
     },
     {
       "auth_required": false,
@@ -52,9 +52,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:58:00.831Z",
-      "last_ok": "2026-06-06T08:58:00.831Z",
-      "latency_ms": 447,
+      "last_checked": "2026-06-06T09:20:25.202Z",
+      "last_ok": "2026-06-06T09:20:25.202Z",
+      "latency_ms": 500,
       "method_tested": "HEAD",
       "netuid": 63,
       "private_redirect_blocked": false,
@@ -66,9 +66,9 @@
       "subnet_name": "Enigma",
       "subnet_slug": "sn-63",
       "surface_id": "sn-63-taomarketcap-source-repo",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/qbittensor-labs/enigma",
-      "verified_at": "2026-06-06T08:58:00.831Z"
+      "verified_at": "2026-06-06T09:20:25.202Z"
     },
     {
       "auth_required": false,
@@ -77,8 +77,8 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:58:00.474Z",
-      "last_ok": "2026-06-06T08:58:00.474Z",
+      "last_checked": "2026-06-06T09:20:24.799Z",
+      "last_ok": "2026-06-06T09:20:24.799Z",
       "latency_ms": 90,
       "method_tested": "HEAD",
       "netuid": 63,
@@ -93,7 +93,7 @@
       "surface_id": "sn-63-taomarketcap-website",
       "uptime_sample_ratio": 1,
       "url": "https://www.qbittensorlabs.com/",
-      "verified_at": "2026-06-06T08:58:00.474Z"
+      "verified_at": "2026-06-06T09:20:24.799Z"
     },
     {
       "auth_required": false,
@@ -102,9 +102,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:58:00.740Z",
-      "last_ok": "2026-06-06T08:58:00.740Z",
-      "latency_ms": 352,
+      "last_checked": "2026-06-06T09:20:25.130Z",
+      "last_ok": "2026-06-06T09:20:25.130Z",
+      "latency_ms": 417,
       "method_tested": "HEAD",
       "netuid": 63,
       "private_redirect_blocked": false,
@@ -116,9 +116,9 @@
       "subnet_name": "Enigma",
       "subnet_slug": "sn-63",
       "surface_id": "sn-63-tensorplex-docs",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/tensorplex-labs/subnet-docs/tree/main/data/63",
-      "verified_at": "2026-06-06T08:58:00.740Z"
+      "verified_at": "2026-06-06T09:20:25.130Z"
     }
   ]
 }

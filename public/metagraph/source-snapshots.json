@@ -1,0 +1,80 @@
+{
+  "contract_version": "2026-06-06.1",
+  "generated_at": "1970-01-01T00:00:00.000Z",
+  "notes": "Compact source-input hashes for public artifact reproducibility. These are not raw private snapshots and contain no secrets or credentialed data.",
+  "schema_version": 1,
+  "sources": [
+    {
+      "captured_at": "1970-01-01T00:00:00.000Z",
+      "hash": "2656ff0309858e40c764bdff03b1a5e8ae831897118e073d2177969b0aea9a1f",
+      "id": "adapter:allways",
+      "kind": "adapter-snapshot",
+      "path": "registry/adapters/latest/allways.json",
+      "record_count": 10
+    },
+    {
+      "captured_at": "1970-01-01T00:00:00.000Z",
+      "hash": "08aa44d71bf8329e4a40c0244ab32fa8571be0c64eb5fa84a6547d53d60794ab",
+      "id": "adapter:gittensor",
+      "kind": "adapter-snapshot",
+      "path": "registry/adapters/latest/gittensor.json",
+      "record_count": 5
+    },
+    {
+      "captured_at": "1970-01-01T00:00:00.000Z",
+      "hash": "5a37d5020db8171a9f9be7d28f4c9ca5c59f1863229496048e0ab3cea431abfa",
+      "id": "candidate-surfaces",
+      "kind": "candidate-discovery",
+      "path": "registry/candidates",
+      "record_count": 845
+    },
+    {
+      "captured_at": "1970-01-01T00:00:00.000Z",
+      "hash": "55231d123deb01ff836ba5ddb99857ad249b473a987fadeb70eb68e94001192a",
+      "id": "candidate-verification",
+      "kind": "probe-results",
+      "path": "registry/verification/latest.json",
+      "record_count": 845
+    },
+    {
+      "captured_at": "1970-01-01T00:00:00.000Z",
+      "hash": "2e6b4a1b8694d12f759eee33357ede20324e94e4253f92352fdc7a4c0db5429f",
+      "id": "maintainer-decisions",
+      "kind": "review-ledger",
+      "path": "registry/reviews/maintainer-reviewed.json",
+      "record_count": 3
+    },
+    {
+      "captured_at": "2026-06-06T01:19:40Z",
+      "hash": "8e845acc7933e58f282d55b6b4132036b4924acdd85fd3d1836b7e588736ce56",
+      "id": "native-subnets",
+      "kind": "native-chain",
+      "path": "registry/native/finney-subnets.json",
+      "record_count": 129
+    },
+    {
+      "captured_at": "1970-01-01T00:00:00.000Z",
+      "hash": "67f18e9f9c93de085acbb6fb8fbafc56b99830917c8a485606d533b57b20dc89",
+      "id": "providers",
+      "kind": "registry-manifest",
+      "path": "registry/providers",
+      "record_count": 14
+    },
+    {
+      "captured_at": "1970-01-01T00:00:00.000Z",
+      "hash": "7e167faefe15868b628e39aca3c008644fdaaab22962ef0ff5c935a2275fef85",
+      "id": "subnet-overlays",
+      "kind": "registry-manifest",
+      "path": "registry/subnets",
+      "record_count": 129
+    }
+  ],
+  "summary": {
+    "adapter_snapshot_count": 2,
+    "candidate_count": 845,
+    "overlay_count": 129,
+    "provider_count": 14,
+    "source_count": 8,
+    "verification_result_count": 845
+  }
+}

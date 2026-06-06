@@ -6,11 +6,11 @@
   "schema_version": 1,
   "slug": "sn-114",
   "summary": {
-    "avg_latency_ms": 366,
+    "avg_latency_ms": 457,
     "degraded_count": 0,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:58:06.219Z",
-    "last_ok": "2026-06-06T08:58:06.219Z",
+    "last_checked": "2026-06-06T09:20:31.463Z",
+    "last_ok": "2026-06-06T09:20:31.463Z",
     "name": "SOMA",
     "netuid": 114,
     "ok_count": 6,
@@ -27,9 +27,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:58:06.219Z",
-      "last_ok": "2026-06-06T08:58:06.219Z",
-      "latency_ms": 564,
+      "last_checked": "2026-06-06T09:20:31.463Z",
+      "last_ok": "2026-06-06T09:20:31.463Z",
+      "latency_ms": 690,
       "method_tested": "HEAD",
       "netuid": 114,
       "private_redirect_blocked": false,
@@ -41,9 +41,9 @@
       "subnet_name": "SOMA",
       "subnet_slug": "sn-114",
       "surface_id": "sn-114-github-readme-level114-level114-subnet-website-1",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/level114/level114-subnet.git",
-      "verified_at": "2026-06-06T08:58:06.219Z"
+      "verified_at": "2026-06-06T09:20:31.463Z"
     },
     {
       "auth_required": false,
@@ -52,9 +52,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:58:05.793Z",
-      "last_ok": "2026-06-06T08:58:05.793Z",
-      "latency_ms": 122,
+      "last_checked": "2026-06-06T09:20:30.954Z",
+      "last_ok": "2026-06-06T09:20:30.954Z",
+      "latency_ms": 148,
       "method_tested": "HEAD",
       "netuid": 114,
       "private_redirect_blocked": false,
@@ -68,7 +68,7 @@
       "surface_id": "sn-114-taomarketcap-dashboard",
       "uptime_sample_ratio": 1,
       "url": "https://taomarketcap.com/subnets/114",
-      "verified_at": "2026-06-06T08:58:05.793Z"
+      "verified_at": "2026-06-06T09:20:30.954Z"
     },
     {
       "auth_required": false,
@@ -77,9 +77,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:58:06.079Z",
-      "last_ok": "2026-06-06T08:58:06.079Z",
-      "latency_ms": 373,
+      "last_checked": "2026-06-06T09:20:31.327Z",
+      "last_ok": "2026-06-06T09:20:31.327Z",
+      "latency_ms": 520,
       "method_tested": "HEAD",
       "netuid": 114,
       "private_redirect_blocked": false,
@@ -91,9 +91,9 @@
       "subnet_name": "SOMA",
       "subnet_slug": "sn-114",
       "surface_id": "sn-114-taomarketcap-source-repo",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/DendriteHQ/SOMA",
-      "verified_at": "2026-06-06T08:58:06.079Z"
+      "verified_at": "2026-06-06T09:20:31.327Z"
     },
     {
       "auth_required": false,
@@ -102,9 +102,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:58:06.126Z",
-      "last_ok": "2026-06-06T08:58:06.126Z",
-      "latency_ms": 390,
+      "last_checked": "2026-06-06T09:20:31.237Z",
+      "last_ok": "2026-06-06T09:20:31.237Z",
+      "latency_ms": 393,
       "method_tested": "HEAD",
       "netuid": 114,
       "private_redirect_blocked": false,
@@ -118,7 +118,7 @@
       "surface_id": "sn-114-taomarketcap-website",
       "uptime_sample_ratio": 1,
       "url": "https://thesoma.ai/",
-      "verified_at": "2026-06-06T08:58:06.126Z"
+      "verified_at": "2026-06-06T09:20:31.237Z"
     },
     {
       "auth_required": false,
@@ -127,9 +127,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:58:06.119Z",
-      "last_ok": "2026-06-06T08:58:06.119Z",
-      "latency_ms": 336,
+      "last_checked": "2026-06-06T09:20:31.260Z",
+      "last_ok": "2026-06-06T09:20:31.260Z",
+      "latency_ms": 415,
       "method_tested": "HEAD",
       "netuid": 114,
       "private_redirect_blocked": false,
@@ -141,9 +141,9 @@
       "subnet_name": "SOMA",
       "subnet_slug": "sn-114",
       "surface_id": "sn-114-tensorplex-docs",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/tensorplex-labs/subnet-docs/tree/main/data/114",
-      "verified_at": "2026-06-06T08:58:06.119Z"
+      "verified_at": "2026-06-06T09:20:31.260Z"
     },
     {
       "auth_required": false,
@@ -152,9 +152,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:58:06.199Z",
-      "last_ok": "2026-06-06T08:58:06.199Z",
-      "latency_ms": 408,
+      "last_checked": "2026-06-06T09:20:31.463Z",
+      "last_ok": "2026-06-06T09:20:31.463Z",
+      "latency_ms": 575,
       "method_tested": "HEAD",
       "netuid": 114,
       "private_redirect_blocked": false,
@@ -166,9 +166,9 @@
       "subnet_name": "SOMA",
       "subnet_slug": "sn-114",
       "surface_id": "sn-114-tensorplex-source-repo-1",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/Level114/level114-subnet",
-      "verified_at": "2026-06-06T08:58:06.199Z"
+      "verified_at": "2026-06-06T09:20:31.463Z"
     }
   ]
 }

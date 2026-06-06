@@ -6,11 +6,11 @@
   "schema_version": 1,
   "slug": "sn-23",
   "summary": {
-    "avg_latency_ms": 373,
+    "avg_latency_ms": 381,
     "degraded_count": 0,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:57:57.108Z",
-    "last_ok": "2026-06-06T08:57:57.108Z",
+    "last_checked": "2026-06-06T09:20:20.877Z",
+    "last_ok": "2026-06-06T09:20:20.877Z",
     "name": "Trishool",
     "netuid": 23,
     "ok_count": 7,
@@ -27,9 +27,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:57:56.852Z",
-      "last_ok": "2026-06-06T08:57:56.852Z",
-      "latency_ms": 337,
+      "last_checked": "2026-06-06T09:20:20.382Z",
+      "last_ok": "2026-06-06T09:20:20.382Z",
+      "latency_ms": 133,
       "method_tested": "HEAD",
       "netuid": 23,
       "private_redirect_blocked": false,
@@ -43,7 +43,7 @@
       "surface_id": "sn-23-github-readme-trishoolai-trishool-subnet-docs-1",
       "uptime_sample_ratio": 1,
       "url": "https://pm2.io/docs/runtime/guide/installation",
-      "verified_at": "2026-06-06T08:57:56.852Z"
+      "verified_at": "2026-06-06T09:20:20.382Z"
     },
     {
       "auth_required": false,
@@ -52,9 +52,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:57:57.103Z",
-      "last_ok": "2026-06-06T08:57:57.103Z",
-      "latency_ms": 581,
+      "last_checked": "2026-06-06T09:20:20.765Z",
+      "last_ok": "2026-06-06T09:20:20.765Z",
+      "latency_ms": 500,
       "method_tested": "HEAD",
       "netuid": 23,
       "private_redirect_blocked": false,
@@ -68,7 +68,7 @@
       "surface_id": "sn-23-github-readme-trishoolai-trishool-subnet-website-3",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/TrishoolAI/astro-petri",
-      "verified_at": "2026-06-06T08:57:57.103Z"
+      "verified_at": "2026-06-06T09:20:20.765Z"
     },
     {
       "auth_required": false,
@@ -77,9 +77,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:57:56.708Z",
-      "last_ok": "2026-06-06T08:57:56.708Z",
-      "latency_ms": 165,
+      "last_checked": "2026-06-06T09:20:20.532Z",
+      "last_ok": "2026-06-06T09:20:20.532Z",
+      "latency_ms": 221,
       "method_tested": "HEAD",
       "netuid": 23,
       "private_redirect_blocked": false,
@@ -93,7 +93,7 @@
       "surface_id": "sn-23-taomarketcap-dashboard",
       "uptime_sample_ratio": 1,
       "url": "https://taomarketcap.com/subnets/23",
-      "verified_at": "2026-06-06T08:57:56.708Z"
+      "verified_at": "2026-06-06T09:20:20.532Z"
     },
     {
       "auth_required": false,
@@ -102,9 +102,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:57:56.991Z",
-      "last_ok": "2026-06-06T08:57:56.991Z",
-      "latency_ms": 448,
+      "last_checked": "2026-06-06T09:20:20.877Z",
+      "last_ok": "2026-06-06T09:20:20.877Z",
+      "latency_ms": 558,
       "method_tested": "HEAD",
       "netuid": 23,
       "private_redirect_blocked": false,
@@ -118,7 +118,7 @@
       "surface_id": "sn-23-taomarketcap-source-repo",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/TrishoolAI/trishool-phase2",
-      "verified_at": "2026-06-06T08:57:56.991Z"
+      "verified_at": "2026-06-06T09:20:20.877Z"
     },
     {
       "auth_required": false,
@@ -127,9 +127,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:57:56.779Z",
-      "last_ok": "2026-06-06T08:57:56.779Z",
-      "latency_ms": 229,
+      "last_checked": "2026-06-06T09:20:20.710Z",
+      "last_ok": "2026-06-06T09:20:20.710Z",
+      "latency_ms": 368,
       "method_tested": "HEAD",
       "netuid": 23,
       "private_redirect_blocked": false,
@@ -143,7 +143,7 @@
       "surface_id": "sn-23-taomarketcap-website",
       "uptime_sample_ratio": 1,
       "url": "https://trishool.ai/",
-      "verified_at": "2026-06-06T08:57:56.779Z"
+      "verified_at": "2026-06-06T09:20:20.710Z"
     },
     {
       "auth_required": false,
@@ -152,9 +152,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:57:56.874Z",
-      "last_ok": "2026-06-06T08:57:56.874Z",
-      "latency_ms": 314,
+      "last_checked": "2026-06-06T09:20:20.777Z",
+      "last_ok": "2026-06-06T09:20:20.777Z",
+      "latency_ms": 404,
       "method_tested": "HEAD",
       "netuid": 23,
       "private_redirect_blocked": false,
@@ -168,7 +168,7 @@
       "surface_id": "sn-23-tensorplex-docs",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/tensorplex-labs/subnet-docs/tree/main/data/23",
-      "verified_at": "2026-06-06T08:57:56.874Z"
+      "verified_at": "2026-06-06T09:20:20.777Z"
     },
     {
       "auth_required": false,
@@ -177,9 +177,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:57:57.108Z",
-      "last_ok": "2026-06-06T08:57:57.108Z",
-      "latency_ms": 539,
+      "last_checked": "2026-06-06T09:20:20.856Z",
+      "last_ok": "2026-06-06T09:20:20.856Z",
+      "latency_ms": 483,
       "method_tested": "HEAD",
       "netuid": 23,
       "private_redirect_blocked": false,
@@ -193,7 +193,7 @@
       "surface_id": "sn-23-tensorplex-source-repo-1",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/TrishoolAI/trishool-subnet",
-      "verified_at": "2026-06-06T08:57:57.108Z"
+      "verified_at": "2026-06-06T09:20:20.856Z"
     }
   ]
 }

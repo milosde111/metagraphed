@@ -6,11 +6,11 @@
   "schema_version": 1,
   "slug": "sn-89",
   "summary": {
-    "avg_latency_ms": 533,
+    "avg_latency_ms": 603,
     "degraded_count": 0,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:58:03.887Z",
-    "last_ok": "2026-06-06T08:58:03.887Z",
+    "last_checked": "2026-06-06T09:20:28.801Z",
+    "last_ok": "2026-06-06T09:20:28.801Z",
     "name": "InfiniteHash",
     "netuid": 89,
     "ok_count": 3,
@@ -27,9 +27,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:58:03.887Z",
-      "last_ok": "2026-06-06T08:58:03.887Z",
-      "latency_ms": 653,
+      "last_checked": "2026-06-06T09:20:27.995Z",
+      "last_ok": "2026-06-06T09:20:27.995Z",
+      "latency_ms": 139,
       "method_tested": "HEAD",
       "netuid": 89,
       "private_redirect_blocked": false,
@@ -43,7 +43,7 @@
       "surface_id": "sn-89-taomarketcap-dashboard",
       "uptime_sample_ratio": 1,
       "url": "https://taomarketcap.com/subnets/89",
-      "verified_at": "2026-06-06T08:58:03.887Z"
+      "verified_at": "2026-06-06T09:20:27.995Z"
     },
     {
       "auth_required": false,
@@ -52,9 +52,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:58:03.819Z",
-      "last_ok": "2026-06-06T08:58:03.819Z",
-      "latency_ms": 575,
+      "last_checked": "2026-06-06T09:20:28.801Z",
+      "last_ok": "2026-06-06T09:20:28.801Z",
+      "latency_ms": 935,
       "method_tested": "HEAD",
       "netuid": 89,
       "private_redirect_blocked": false,
@@ -66,9 +66,9 @@
       "subnet_name": "InfiniteHash",
       "subnet_slug": "sn-89",
       "surface_id": "sn-89-taomarketcap-source-repo",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/backend-developers-ltd/InfiniteHash",
-      "verified_at": "2026-06-06T08:58:03.819Z"
+      "verified_at": "2026-06-06T09:20:28.801Z"
     },
     {
       "auth_required": false,
@@ -77,9 +77,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:58:03.645Z",
-      "last_ok": "2026-06-06T08:58:03.645Z",
-      "latency_ms": 370,
+      "last_checked": "2026-06-06T09:20:28.664Z",
+      "last_ok": "2026-06-06T09:20:28.664Z",
+      "latency_ms": 736,
       "method_tested": "HEAD",
       "netuid": 89,
       "private_redirect_blocked": false,
@@ -91,9 +91,9 @@
       "subnet_name": "InfiniteHash",
       "subnet_slug": "sn-89",
       "surface_id": "sn-89-tensorplex-docs",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/tensorplex-labs/subnet-docs/tree/main/data/89",
-      "verified_at": "2026-06-06T08:58:03.645Z"
+      "verified_at": "2026-06-06T09:20:28.664Z"
     }
   ]
 }

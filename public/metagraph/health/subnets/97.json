@@ -6,11 +6,11 @@
   "schema_version": 1,
   "slug": "sn-97",
   "summary": {
-    "avg_latency_ms": 325,
+    "avg_latency_ms": 478,
     "degraded_count": 0,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:58:04.587Z",
-    "last_ok": "2026-06-06T08:58:04.587Z",
+    "last_checked": "2026-06-06T09:20:29.715Z",
+    "last_ok": "2026-06-06T09:20:29.715Z",
     "name": "Albedo",
     "netuid": 97,
     "ok_count": 8,
@@ -27,9 +27,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:58:04.222Z",
-      "last_ok": "2026-06-06T08:58:04.222Z",
-      "latency_ms": 260,
+      "last_checked": "2026-06-06T09:20:29.083Z",
+      "last_ok": "2026-06-06T09:20:29.083Z",
+      "latency_ms": 314,
       "method_tested": "HEAD",
       "netuid": 97,
       "private_redirect_blocked": false,
@@ -43,7 +43,7 @@
       "surface_id": "sn-97-github-readme-unitone-labs-flamewire-docs-1",
       "uptime_sample_ratio": 1,
       "url": "https://docs.flamewire.io/docs/miners/registration",
-      "verified_at": "2026-06-06T08:58:04.222Z"
+      "verified_at": "2026-06-06T09:20:29.083Z"
     },
     {
       "auth_required": false,
@@ -52,9 +52,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:58:04.178Z",
-      "last_ok": "2026-06-06T08:58:04.178Z",
-      "latency_ms": 203,
+      "last_checked": "2026-06-06T09:20:29.082Z",
+      "last_ok": "2026-06-06T09:20:29.082Z",
+      "latency_ms": 292,
       "method_tested": "HEAD",
       "netuid": 97,
       "private_redirect_blocked": false,
@@ -68,7 +68,7 @@
       "surface_id": "sn-97-github-readme-unitone-labs-flamewire-docs-3",
       "uptime_sample_ratio": 1,
       "url": "https://docs.flamewire.io/docs/validators/guide",
-      "verified_at": "2026-06-06T08:58:04.178Z"
+      "verified_at": "2026-06-06T09:20:29.082Z"
     },
     {
       "auth_required": false,
@@ -77,9 +77,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:58:04.339Z",
-      "last_ok": "2026-06-06T08:58:04.339Z",
-      "latency_ms": 328,
+      "last_checked": "2026-06-06T09:20:29.361Z",
+      "last_ok": "2026-06-06T09:20:29.361Z",
+      "latency_ms": 560,
       "method_tested": "HEAD",
       "netuid": 97,
       "private_redirect_blocked": false,
@@ -91,9 +91,9 @@
       "subnet_name": "Albedo",
       "subnet_slug": "sn-97",
       "surface_id": "sn-97-github-readme-unitone-labs-flamewire-website-2",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/paritytech/polkadot-sdk",
-      "verified_at": "2026-06-06T08:58:04.339Z"
+      "verified_at": "2026-06-06T09:20:29.361Z"
     },
     {
       "auth_required": false,
@@ -102,9 +102,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:58:04.528Z",
-      "last_ok": "2026-06-06T08:58:04.528Z",
-      "latency_ms": 460,
+      "last_checked": "2026-06-06T09:20:29.714Z",
+      "last_ok": "2026-06-06T09:20:29.714Z",
+      "latency_ms": 913,
       "method_tested": "HEAD",
       "netuid": 97,
       "private_redirect_blocked": false,
@@ -116,9 +116,9 @@
       "subnet_name": "Albedo",
       "subnet_slug": "sn-97",
       "surface_id": "sn-97-github-readme-unitone-labs-flamewire-website-4",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/unitone-labs/FlameWire.git",
-      "verified_at": "2026-06-06T08:58:04.528Z"
+      "verified_at": "2026-06-06T09:20:29.714Z"
     },
     {
       "auth_required": false,
@@ -127,9 +127,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:58:04.222Z",
-      "last_ok": "2026-06-06T08:58:04.222Z",
-      "latency_ms": 148,
+      "last_checked": "2026-06-06T09:20:29.087Z",
+      "last_ok": "2026-06-06T09:20:29.087Z",
+      "latency_ms": 216,
       "method_tested": "HEAD",
       "netuid": 97,
       "private_redirect_blocked": false,
@@ -143,7 +143,7 @@
       "surface_id": "sn-97-taomarketcap-dashboard",
       "uptime_sample_ratio": 1,
       "url": "https://taomarketcap.com/subnets/97",
-      "verified_at": "2026-06-06T08:58:04.222Z"
+      "verified_at": "2026-06-06T09:20:29.087Z"
     },
     {
       "auth_required": false,
@@ -152,9 +152,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:58:04.587Z",
-      "last_ok": "2026-06-06T08:58:04.587Z",
-      "latency_ms": 493,
+      "last_checked": "2026-06-06T09:20:29.404Z",
+      "last_ok": "2026-06-06T09:20:29.404Z",
+      "latency_ms": 490,
       "method_tested": "HEAD",
       "netuid": 97,
       "private_redirect_blocked": false,
@@ -166,9 +166,9 @@
       "subnet_name": "Albedo",
       "subnet_slug": "sn-97",
       "surface_id": "sn-97-taomarketcap-source-repo",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/unarbos/albedo",
-      "verified_at": "2026-06-06T08:58:04.587Z"
+      "verified_at": "2026-06-06T09:20:29.404Z"
     },
     {
       "auth_required": false,
@@ -177,9 +177,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:58:04.491Z",
-      "last_ok": "2026-06-06T08:58:04.491Z",
-      "latency_ms": 353,
+      "last_checked": "2026-06-06T09:20:29.281Z",
+      "last_ok": "2026-06-06T09:20:29.281Z",
+      "latency_ms": 367,
       "method_tested": "HEAD",
       "netuid": 97,
       "private_redirect_blocked": false,
@@ -191,9 +191,9 @@
       "subnet_name": "Albedo",
       "subnet_slug": "sn-97",
       "surface_id": "sn-97-tensorplex-docs",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/tensorplex-labs/subnet-docs/tree/main/data/97",
-      "verified_at": "2026-06-06T08:58:04.491Z"
+      "verified_at": "2026-06-06T09:20:29.281Z"
     },
     {
       "auth_required": false,
@@ -202,9 +202,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:58:04.531Z",
-      "last_ok": "2026-06-06T08:58:04.531Z",
-      "latency_ms": 352,
+      "last_checked": "2026-06-06T09:20:29.715Z",
+      "last_ok": "2026-06-06T09:20:29.715Z",
+      "latency_ms": 675,
       "method_tested": "HEAD",
       "netuid": 97,
       "private_redirect_blocked": false,
@@ -216,9 +216,9 @@
       "subnet_name": "Albedo",
       "subnet_slug": "sn-97",
       "surface_id": "sn-97-tensorplex-source-repo-1",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/unitone-labs/FlameWire",
-      "verified_at": "2026-06-06T08:58:04.531Z"
+      "verified_at": "2026-06-06T09:20:29.715Z"
     }
   ]
 }

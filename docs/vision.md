@@ -79,7 +79,7 @@ Gittensor emissions should fund software stewardship, review, registry maintenan
 
 Recurring infra costs should be separate milestones: hosted mirrors, cache layers, load-balanced public subnet access, Bittensor lite/archive nodes, and other OPEX-heavy work.
 
-Cloudflare is now part of the backend path while available: Workers serve API routes, R2 stores artifact history, and KV can store the latest artifact pointer. GitHub-reviewed artifacts remain canonical.
+Cloudflare is now part of the backend path while available: Workers serve API routes, R2 stores artifact history, and KV can store latest pointers, feature flags, endpoint-pool status, and source-freshness summaries. GitHub-reviewed artifacts remain canonical.
 
 ## Public-Safety Boundary
 

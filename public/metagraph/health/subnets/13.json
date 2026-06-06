@@ -6,11 +6,11 @@
   "schema_version": 1,
   "slug": "sn-13",
   "summary": {
-    "avg_latency_ms": 408,
+    "avg_latency_ms": 363,
     "degraded_count": 0,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:57:55.998Z",
-    "last_ok": "2026-06-06T08:57:55.998Z",
+    "last_checked": "2026-06-06T09:20:19.768Z",
+    "last_ok": "2026-06-06T09:20:19.768Z",
     "name": "Data Universe",
     "netuid": 13,
     "ok_count": 4,
@@ -27,9 +27,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:57:55.504Z",
-      "last_ok": "2026-06-06T08:57:55.504Z",
-      "latency_ms": 156,
+      "last_checked": "2026-06-06T09:20:19.389Z",
+      "last_ok": "2026-06-06T09:20:19.389Z",
+      "latency_ms": 167,
       "method_tested": "HEAD",
       "netuid": 13,
       "private_redirect_blocked": false,
@@ -43,7 +43,7 @@
       "surface_id": "sn-13-taomarketcap-dashboard",
       "uptime_sample_ratio": 1,
       "url": "https://taomarketcap.com/subnets/13",
-      "verified_at": "2026-06-06T08:57:55.504Z"
+      "verified_at": "2026-06-06T09:20:19.389Z"
     },
     {
       "auth_required": false,
@@ -52,9 +52,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:57:55.824Z",
-      "last_ok": "2026-06-06T08:57:55.824Z",
-      "latency_ms": 474,
+      "last_checked": "2026-06-06T09:20:19.768Z",
+      "last_ok": "2026-06-06T09:20:19.768Z",
+      "latency_ms": 537,
       "method_tested": "HEAD",
       "netuid": 13,
       "private_redirect_blocked": false,
@@ -68,7 +68,7 @@
       "surface_id": "sn-13-taomarketcap-source-repo",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/macrocosm-os/data-universe",
-      "verified_at": "2026-06-06T08:57:55.824Z"
+      "verified_at": "2026-06-06T09:20:19.768Z"
     },
     {
       "auth_required": false,
@@ -77,9 +77,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:57:55.998Z",
-      "last_ok": "2026-06-06T08:57:55.998Z",
-      "latency_ms": 614,
+      "last_checked": "2026-06-06T09:20:19.608Z",
+      "last_ok": "2026-06-06T09:20:19.608Z",
+      "latency_ms": 358,
       "method_tested": "HEAD",
       "netuid": 13,
       "private_redirect_blocked": false,
@@ -93,7 +93,7 @@
       "surface_id": "sn-13-taomarketcap-website",
       "uptime_sample_ratio": 1,
       "url": "https://www.macrocosmos.ai/gravity",
-      "verified_at": "2026-06-06T08:57:55.998Z"
+      "verified_at": "2026-06-06T09:20:19.608Z"
     },
     {
       "auth_required": false,
@@ -102,9 +102,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:57:55.791Z",
-      "last_ok": "2026-06-06T08:57:55.791Z",
-      "latency_ms": 389,
+      "last_checked": "2026-06-06T09:20:19.657Z",
+      "last_ok": "2026-06-06T09:20:19.657Z",
+      "latency_ms": 388,
       "method_tested": "HEAD",
       "netuid": 13,
       "private_redirect_blocked": false,
@@ -118,7 +118,7 @@
       "surface_id": "sn-13-tensorplex-docs",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/tensorplex-labs/subnet-docs/tree/main/data/13",
-      "verified_at": "2026-06-06T08:57:55.791Z"
+      "verified_at": "2026-06-06T09:20:19.657Z"
     }
   ]
 }

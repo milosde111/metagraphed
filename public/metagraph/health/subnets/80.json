@@ -6,11 +6,11 @@
   "schema_version": 1,
   "slug": "sn-80",
   "summary": {
-    "avg_latency_ms": 653,
+    "avg_latency_ms": 570,
     "degraded_count": 0,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:58:03.190Z",
-    "last_ok": "2026-06-06T08:58:03.190Z",
+    "last_checked": "2026-06-06T09:20:27.832Z",
+    "last_ok": "2026-06-06T09:20:27.832Z",
     "name": "dogelayer",
     "netuid": 80,
     "ok_count": 4,
@@ -27,9 +27,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:58:02.863Z",
-      "last_ok": "2026-06-06T08:58:02.863Z",
-      "latency_ms": 688,
+      "last_checked": "2026-06-06T09:20:26.965Z",
+      "last_ok": "2026-06-06T09:20:26.965Z",
+      "latency_ms": 255,
       "method_tested": "HEAD",
       "netuid": 80,
       "private_redirect_blocked": false,
@@ -43,7 +43,7 @@
       "surface_id": "sn-80-taomarketcap-dashboard",
       "uptime_sample_ratio": 1,
       "url": "https://taomarketcap.com/subnets/80",
-      "verified_at": "2026-06-06T08:58:02.863Z"
+      "verified_at": "2026-06-06T09:20:26.965Z"
     },
     {
       "auth_required": false,
@@ -52,9 +52,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:58:02.716Z",
-      "last_ok": "2026-06-06T08:58:02.716Z",
-      "latency_ms": 521,
+      "last_checked": "2026-06-06T09:20:27.271Z",
+      "last_ok": "2026-06-06T09:20:27.271Z",
+      "latency_ms": 560,
       "method_tested": "HEAD",
       "netuid": 80,
       "private_redirect_blocked": false,
@@ -66,9 +66,9 @@
       "subnet_name": "dogelayer",
       "subnet_slug": "sn-80",
       "surface_id": "sn-80-taomarketcap-source-repo",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/dogelayer-ai/dogelayer",
-      "verified_at": "2026-06-06T08:58:02.716Z"
+      "verified_at": "2026-06-06T09:20:27.271Z"
     },
     {
       "auth_required": false,
@@ -77,9 +77,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:58:03.190Z",
-      "last_ok": "2026-06-06T08:58:03.190Z",
-      "latency_ms": 932,
+      "last_checked": "2026-06-06T09:20:27.832Z",
+      "last_ok": "2026-06-06T09:20:27.832Z",
+      "latency_ms": 1072,
       "method_tested": "HEAD",
       "netuid": 80,
       "private_redirect_blocked": false,
@@ -93,7 +93,7 @@
       "surface_id": "sn-80-taomarketcap-website",
       "uptime_sample_ratio": 1,
       "url": "https://dogelayer.ai/",
-      "verified_at": "2026-06-06T08:58:03.190Z"
+      "verified_at": "2026-06-06T09:20:27.832Z"
     },
     {
       "auth_required": false,
@@ -102,9 +102,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:58:02.756Z",
-      "last_ok": "2026-06-06T08:58:02.756Z",
-      "latency_ms": 469,
+      "last_checked": "2026-06-06T09:20:27.168Z",
+      "last_ok": "2026-06-06T09:20:27.168Z",
+      "latency_ms": 392,
       "method_tested": "HEAD",
       "netuid": 80,
       "private_redirect_blocked": false,
@@ -116,9 +116,9 @@
       "subnet_name": "dogelayer",
       "subnet_slug": "sn-80",
       "surface_id": "sn-80-tensorplex-docs",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/tensorplex-labs/subnet-docs/tree/main/data/80",
-      "verified_at": "2026-06-06T08:58:02.756Z"
+      "verified_at": "2026-06-06T09:20:27.168Z"
     }
   ]
 }

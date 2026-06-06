@@ -6,11 +6,11 @@
   "schema_version": 1,
   "slug": "sn-116",
   "summary": {
-    "avg_latency_ms": 287,
+    "avg_latency_ms": 344,
     "degraded_count": 0,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:58:06.359Z",
-    "last_ok": "2026-06-06T08:58:06.359Z",
+    "last_checked": "2026-06-06T09:20:31.562Z",
+    "last_ok": "2026-06-06T09:20:31.562Z",
     "name": "hard_sign",
     "netuid": 116,
     "ok_count": 2,
@@ -27,9 +27,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:58:06.045Z",
-      "last_ok": "2026-06-06T08:58:06.045Z",
-      "latency_ms": 152,
+      "last_checked": "2026-06-06T09:20:31.148Z",
+      "last_ok": "2026-06-06T09:20:31.148Z",
+      "latency_ms": 165,
       "method_tested": "HEAD",
       "netuid": 116,
       "private_redirect_blocked": false,
@@ -43,7 +43,7 @@
       "surface_id": "sn-116-taomarketcap-dashboard",
       "uptime_sample_ratio": 1,
       "url": "https://taomarketcap.com/subnets/116",
-      "verified_at": "2026-06-06T08:58:06.045Z"
+      "verified_at": "2026-06-06T09:20:31.148Z"
     },
     {
       "auth_required": false,
@@ -52,9 +52,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:58:06.359Z",
-      "last_ok": "2026-06-06T08:58:06.359Z",
-      "latency_ms": 421,
+      "last_checked": "2026-06-06T09:20:31.562Z",
+      "last_ok": "2026-06-06T09:20:31.562Z",
+      "latency_ms": 522,
       "method_tested": "HEAD",
       "netuid": 116,
       "private_redirect_blocked": false,
@@ -66,9 +66,9 @@
       "subnet_name": "hard_sign",
       "subnet_slug": "sn-116",
       "surface_id": "sn-116-tensorplex-docs",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/tensorplex-labs/subnet-docs/tree/main/data/116",
-      "verified_at": "2026-06-06T08:58:06.359Z"
+      "verified_at": "2026-06-06T09:20:31.562Z"
     }
   ]
 }

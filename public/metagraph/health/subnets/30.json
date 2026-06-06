@@ -6,11 +6,11 @@
   "schema_version": 1,
   "slug": "sn-30",
   "summary": {
-    "avg_latency_ms": 468,
+    "avg_latency_ms": 244,
     "degraded_count": 0,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:57:58.065Z",
-    "last_ok": "2026-06-06T08:57:58.065Z",
+    "last_checked": "2026-06-06T09:20:21.270Z",
+    "last_ok": "2026-06-06T09:20:21.270Z",
     "name": "Endure Network",
     "netuid": 30,
     "ok_count": 3,
@@ -27,9 +27,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:57:57.329Z",
-      "last_ok": "2026-06-06T08:57:57.329Z",
-      "latency_ms": 202,
+      "last_checked": "2026-06-06T09:20:21.092Z",
+      "last_ok": "2026-06-06T09:20:21.092Z",
+      "latency_ms": 143,
       "method_tested": "HEAD",
       "netuid": 30,
       "private_redirect_blocked": false,
@@ -43,7 +43,7 @@
       "surface_id": "sn-30-taomarketcap-dashboard",
       "uptime_sample_ratio": 1,
       "url": "https://taomarketcap.com/subnets/30",
-      "verified_at": "2026-06-06T08:57:57.329Z"
+      "verified_at": "2026-06-06T09:20:21.092Z"
     },
     {
       "auth_required": false,
@@ -52,9 +52,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:57:58.065Z",
-      "last_ok": "2026-06-06T08:57:58.065Z",
-      "latency_ms": 914,
+      "last_checked": "2026-06-06T09:20:21.247Z",
+      "last_ok": "2026-06-06T09:20:21.247Z",
+      "latency_ms": 285,
       "method_tested": "HEAD",
       "netuid": 30,
       "private_redirect_blocked": false,
@@ -68,7 +68,7 @@
       "surface_id": "sn-30-taomarketcap-website",
       "uptime_sample_ratio": 1,
       "url": "https://endure.network/",
-      "verified_at": "2026-06-06T08:57:58.065Z"
+      "verified_at": "2026-06-06T09:20:21.247Z"
     },
     {
       "auth_required": false,
@@ -77,9 +77,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:57:57.455Z",
-      "last_ok": "2026-06-06T08:57:57.455Z",
-      "latency_ms": 289,
+      "last_checked": "2026-06-06T09:20:21.270Z",
+      "last_ok": "2026-06-06T09:20:21.270Z",
+      "latency_ms": 303,
       "method_tested": "HEAD",
       "netuid": 30,
       "private_redirect_blocked": false,
@@ -93,7 +93,7 @@
       "surface_id": "sn-30-tensorplex-docs",
       "uptime_sample_ratio": 1,
       "url": "https://github.com/tensorplex-labs/subnet-docs/tree/main/data/30",
-      "verified_at": "2026-06-06T08:57:57.455Z"
+      "verified_at": "2026-06-06T09:20:21.270Z"
     }
   ]
 }

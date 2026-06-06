@@ -6,11 +6,11 @@
   "schema_version": 1,
   "slug": "sn-126",
   "summary": {
-    "avg_latency_ms": 420,
+    "avg_latency_ms": 448,
     "degraded_count": 0,
     "failed_count": 0,
-    "last_checked": "2026-06-06T08:58:07.383Z",
-    "last_ok": "2026-06-06T08:58:07.383Z",
+    "last_checked": "2026-06-06T09:20:32.552Z",
+    "last_ok": "2026-06-06T09:20:32.552Z",
     "name": "Poker44",
     "netuid": 126,
     "ok_count": 4,
@@ -27,9 +27,9 @@
       "error": null,
       "error_class": null,
       "kind": "dashboard",
-      "last_checked": "2026-06-06T08:58:06.869Z",
-      "last_ok": "2026-06-06T08:58:06.869Z",
-      "latency_ms": 135,
+      "last_checked": "2026-06-06T09:20:32.028Z",
+      "last_ok": "2026-06-06T09:20:32.028Z",
+      "latency_ms": 176,
       "method_tested": "HEAD",
       "netuid": 126,
       "private_redirect_blocked": false,
@@ -43,7 +43,7 @@
       "surface_id": "sn-126-taomarketcap-dashboard",
       "uptime_sample_ratio": 1,
       "url": "https://taomarketcap.com/subnets/126",
-      "verified_at": "2026-06-06T08:58:06.869Z"
+      "verified_at": "2026-06-06T09:20:32.028Z"
     },
     {
       "auth_required": false,
@@ -52,9 +52,9 @@
       "error": null,
       "error_class": null,
       "kind": "source-repo",
-      "last_checked": "2026-06-06T08:58:07.296Z",
-      "last_ok": "2026-06-06T08:58:07.296Z",
-      "latency_ms": 561,
+      "last_checked": "2026-06-06T09:20:32.495Z",
+      "last_ok": "2026-06-06T09:20:32.495Z",
+      "latency_ms": 634,
       "method_tested": "HEAD",
       "netuid": 126,
       "private_redirect_blocked": false,
@@ -66,9 +66,9 @@
       "subnet_name": "Poker44",
       "subnet_slug": "sn-126",
       "surface_id": "sn-126-taomarketcap-source-repo",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/Poker44/Poker44-subnet",
-      "verified_at": "2026-06-06T08:58:07.296Z"
+      "verified_at": "2026-06-06T09:20:32.495Z"
     },
     {
       "auth_required": false,
@@ -77,9 +77,9 @@
       "error": null,
       "error_class": null,
       "kind": "website",
-      "last_checked": "2026-06-06T08:58:07.383Z",
-      "last_ok": "2026-06-06T08:58:07.383Z",
-      "latency_ms": 590,
+      "last_checked": "2026-06-06T09:20:32.552Z",
+      "last_ok": "2026-06-06T09:20:32.552Z",
+      "latency_ms": 626,
       "method_tested": "HEAD",
       "netuid": 126,
       "private_redirect_blocked": false,
@@ -93,7 +93,7 @@
       "surface_id": "sn-126-taomarketcap-website",
       "uptime_sample_ratio": 1,
       "url": "https://poker44.net/",
-      "verified_at": "2026-06-06T08:58:07.383Z"
+      "verified_at": "2026-06-06T09:20:32.552Z"
     },
     {
       "auth_required": false,
@@ -102,9 +102,9 @@
       "error": null,
       "error_class": null,
       "kind": "docs",
-      "last_checked": "2026-06-06T08:58:07.235Z",
-      "last_ok": "2026-06-06T08:58:07.235Z",
-      "latency_ms": 394,
+      "last_checked": "2026-06-06T09:20:32.336Z",
+      "last_ok": "2026-06-06T09:20:32.336Z",
+      "latency_ms": 357,
       "method_tested": "HEAD",
       "netuid": 126,
       "private_redirect_blocked": false,
@@ -116,9 +116,9 @@
       "subnet_name": "Poker44",
       "subnet_slug": "sn-126",
       "surface_id": "sn-126-tensorplex-docs",
-      "uptime_sample_ratio": 1,
+      "uptime_sample_ratio": 0.5,
       "url": "https://github.com/tensorplex-labs/subnet-docs/tree/main/data/126",
-      "verified_at": "2026-06-06T08:58:07.235Z"
+      "verified_at": "2026-06-06T09:20:32.336Z"
     }
   ]
 }
