@@ -103,5 +103,8 @@
       },
       "notes": "Official GroundLayer roadmap page."
     }
-  ]
+  ],
+  "social": {
+    "x": "https://x.com/groundlayerhq"
+  }
 }
