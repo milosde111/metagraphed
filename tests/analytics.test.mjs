@@ -329,6 +329,46 @@ describe("writeSubnetSnapshot", () => {
     );
     assert.equal(r.reason, "write_failed");
   });
+  test("backfills NULL economics via COALESCE DO UPDATE, not DO NOTHING", async () => {
+    let captured = "";
+    const db = {
+      prepare(sql) {
+        captured = sql;
+        return { bind: () => ({}) };
+      },
+      batch: (s) => Promise.resolve(s.map(() => ({}))),
+    };
+    await writeSubnetSnapshot(
+      {},
+      { db, readArtifact: reader(profiles), now: () => Date.UTC(2026, 5, 10) },
+    );
+    // A later same-day fire backfills economics rather than freezing the row.
+    assert.match(
+      captured,
+      /ON CONFLICT \(netuid, snapshot_date\) DO UPDATE SET/,
+    );
+    assert.doesNotMatch(captured, /DO NOTHING/);
+    // Each economics column is COALESCE(existing, excluded): fills a NULL, but a
+    // later NULL can never wipe an earlier fire's good value.
+    for (const col of [
+      "validator_count",
+      "miner_count",
+      "total_stake_tao",
+      "alpha_price_tao",
+      "emission_share",
+    ]) {
+      assert.match(
+        captured,
+        new RegExp(
+          `${col} = COALESCE\\(subnet_snapshots\\.${col}, excluded\\.${col}\\)`,
+        ),
+      );
+    }
+    // Structural columns + captured_at stay owned by the first fire (not in SET).
+    for (const col of ["completeness_score", "surface_count", "captured_at"]) {
+      assert.doesNotMatch(captured, new RegExp(`${col}\\s*=`));
+    }
+  });
 });
 
 // --- Worker dispatch (cold D1 -> empty-valid; fake D1 -> with data) ----------
