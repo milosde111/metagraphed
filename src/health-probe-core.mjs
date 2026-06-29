@@ -60,6 +60,9 @@ const UNSAFE_HOST_PATTERNS = [
   /^192\.168\./,
   /^169\.254\./,
   /^0\./,
+  // 100.64.0.0/10 CGNAT — blocked by the webhook + build SSRF guards; the probe
+  // literal guard must stay in parity (issue #2312).
+  /^100\.(6[4-9]|[7-9]\d|1[01]\d|12[0-7])\./,
   /^::1$/,
   /^::$/,
   // fe80::/10 link-local + fec0::/10 deprecated site-local (RFC 3879) — the whole

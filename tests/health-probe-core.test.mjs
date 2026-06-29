@@ -100,6 +100,8 @@ describe("isUnsafePublicUrl", () => {
       "http://10.1.2.3/x",
       "http://192.168.0.1/x",
       "http://169.254.169.254/latest",
+      "http://100.64.0.1/x",
+      "http://100.127.255.255/x",
       "http://172.16.0.1/x",
       "http://172.31.255.255/x",
       "https://service.local/x",
