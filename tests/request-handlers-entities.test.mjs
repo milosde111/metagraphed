@@ -10,6 +10,8 @@ import Ajv2020 from "ajv/dist/2020.js";
 import addFormats from "ajv-formats";
 import { buildOpenApiArtifact } from "../src/contracts.mjs";
 import { encodeCursor } from "../src/cursor.mjs";
+import { MOVERS_WINDOWS } from "../src/movers.mjs";
+import { unsupportedWindowMessage } from "../src/neuron-history.mjs";
 import { loadOpenApiComponentSchemas } from "../scripts/openapi-components.mjs";
 import {
   handleSubnetMetagraph,
@@ -1532,12 +1534,17 @@ describe("handleSubnetMovers", () => {
   });
 
   test("rejects an unsupported window with 400", async () => {
-    await errorJson(
+    const body = await errorJson(
       await handleSubnetMovers(
         req("/api/v1/subnets/movers"),
         emptyEnv(),
         url("/api/v1/subnets/movers?window=1y"),
       ),
+    );
+    assert.equal(body.meta.parameter, "window");
+    assert.equal(
+      body.error.message,
+      unsupportedWindowMessage("1y", MOVERS_WINDOWS),
     );
   });
 
