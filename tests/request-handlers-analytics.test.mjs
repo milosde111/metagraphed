@@ -357,6 +357,19 @@ describe("canonicalAnalyticsCacheRoute", () => {
     );
   });
 
+  test("normalizes a missing window to the default window", () => {
+    const bare = url("/api/v1/chain/transfers?limit=25");
+    const explicit = url(`/api/v1/chain/transfers?window=7d&limit=25`);
+    assert.equal(
+      canonicalAnalyticsCacheRoute(bare, ["limit"]),
+      `/api/v1/chain/transfers?window=${DEFAULT_ANALYTICS_WINDOW}&limit=25`,
+    );
+    assert.equal(
+      canonicalAnalyticsCacheRoute(explicit, ["limit"]),
+      canonicalAnalyticsCacheRoute(bare, ["limit"]),
+    );
+  });
+
   test("includes the chain calls grouping and module filter in canonical order", () => {
     const requestUrl = url(
       "/api/v1/chain/calls?call_module=SubtensorModule&limit=10&group_by=module_function&window=30d",

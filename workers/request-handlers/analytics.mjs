@@ -99,7 +99,15 @@ function canonicalAnalyticsCacheRoute(url, params = []) {
   const search = new URL("https://cache-key.invalid/").searchParams;
   for (const param of [ANALYTICS_WINDOW_PARAM, ...params]) {
     const value = url.searchParams.get(param);
-    if (value !== null) search.set(param, value);
+    if (value !== null) {
+      search.set(param, value);
+      continue;
+    }
+    // Normalize the default window into the cache key so a bare request and an
+    // explicit ?window=<default> request share one edge-cache entry.
+    if (param === ANALYTICS_WINDOW_PARAM) {
+      search.set(param, DEFAULT_ANALYTICS_WINDOW);
+    }
   }
   const query = search.toString();
   return `${url.pathname}${query ? `?${query}` : ""}`;
