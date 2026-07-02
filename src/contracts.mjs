@@ -772,7 +772,7 @@ export const PUBLIC_ARTIFACTS = [
   artifact(
     "economics",
     "/metagraph/economics.json",
-    "Per-subnet validator and economic metrics from the chain: validator/miner counts, total + max stake, registration cost, alpha price, and derived price-weighted emission share.",
+    "Per-subnet validator and economic metrics from the chain: validator/miner counts, total + max stake, registration cost, alpha price, derived price-weighted emission share, and on-chain registration block height.",
     "EconomicsArtifact",
   ),
   artifact(
@@ -1513,7 +1513,7 @@ export const API_ROUTES = [
     "GET",
     "/api/v1/economics",
     "/metagraph/economics.json",
-    "List per-subnet validator and economic metrics (counts, stake, registration cost, alpha price, emission share). Default order is emission share descending. Filter by netuid/registration_allowed, search by name/slug, and sort with `sort=<field>&order=asc|desc` — the two are separate parameters (e.g. `?sort=total_stake_tao&order=desc`), NOT a combined `field:desc` token.",
+    "List per-subnet validator and economic metrics (counts, stake, registration cost, alpha price, emission share, registration block height). Default order is emission share descending. Filter by netuid/registration_allowed, search by name/slug, and sort with `sort=<field>&order=asc|desc` — the two are separate parameters (e.g. `?sort=block&order=asc` or `?sort=total_stake_tao&order=desc`), NOT a combined `field:desc` token.",
     "standard",
     ["subnets"],
     listQuery("economics"),

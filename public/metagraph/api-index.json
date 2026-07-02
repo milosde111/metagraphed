@@ -2399,7 +2399,7 @@
     {
       "artifact_path": "/metagraph/economics.json",
       "cache": "standard",
-      "description": "List per-subnet validator and economic metrics (counts, stake, registration cost, alpha price, emission share). Default order is emission share descending. Filter by netuid/registration_allowed, search by name/slug, and sort with `sort=<field>&order=asc|desc` — the two are separate parameters (e.g. `?sort=total_stake_tao&order=desc`), NOT a combined `field:desc` token.",
+      "description": "List per-subnet validator and economic metrics (counts, stake, registration cost, alpha price, emission share, registration block height). Default order is emission share descending. Filter by netuid/registration_allowed, search by name/slug, and sort with `sort=<field>&order=asc|desc` — the two are separate parameters (e.g. `?sort=block&order=asc` or `?sort=total_stake_tao&order=desc`), NOT a combined `field:desc` token.",
       "id": "economics",
       "method": "GET",
       "path": "/api/v1/economics",

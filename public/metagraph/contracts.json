@@ -237,7 +237,7 @@
     {
       "content_type": "application/json",
       "contract_version": "2026-06-30.14",
-      "description": "Per-subnet validator and economic metrics from the chain: validator/miner counts, total + max stake, registration cost, alpha price, and derived price-weighted emission share.",
+      "description": "Per-subnet validator and economic metrics from the chain: validator/miner counts, total + max stake, registration cost, alpha price, derived price-weighted emission share, and on-chain registration block height.",
       "id": "economics",
       "path": "/metagraph/economics.json",
       "schema_ref": "#/components/schemas/EconomicsArtifact",

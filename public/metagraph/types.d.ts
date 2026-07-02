@@ -606,7 +606,7 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** List per-subnet validator and economic metrics (counts, stake, registration cost, alpha price, emission share). Default order is emission share descending. Filter by netuid/registration_allowed, search by name/slug, and sort with `sort=<field>&order=asc|desc` — the two are separate parameters (e.g. `?sort=total_stake_tao&order=desc`), NOT a combined `field:desc` token. */
+        /** List per-subnet validator and economic metrics (counts, stake, registration cost, alpha price, emission share, registration block height). Default order is emission share descending. Filter by netuid/registration_allowed, search by name/slug, and sort with `sort=<field>&order=asc|desc` — the two are separate parameters (e.g. `?sort=block&order=asc` or `?sort=total_stake_tao&order=desc`), NOT a combined `field:desc` token. */
         get: operations["economics"];
         put?: never;
         post?: never;
