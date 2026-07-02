@@ -2871,6 +2871,36 @@ describe("handleAccountStakeFlow", () => {
     await errorJson(res);
   });
 
+  test("rejects an unsupported direction enum value with 400 (#2694 parity)", async () => {
+    const res = await handleAccountStakeFlow(
+      req(`/api/v1/accounts/${SS58}/stake-flow`),
+      emptyEnv(),
+      SS58,
+      url(`/api/v1/accounts/${SS58}/stake-flow?direction=invalid`),
+    );
+    const body = await errorJson(res);
+    assert.equal(body.error.code, "invalid_query");
+    assert.equal(body.meta.parameter, "direction");
+  });
+
+  test("threads ?direction=in to the loader as StakeAdded only", async () => {
+    const { env, captures } = dbWith({ stakeFlow: [] });
+    await handleAccountStakeFlow(
+      req(`/api/v1/accounts/${SS58}/stake-flow`),
+      env,
+      SS58,
+      url(`/api/v1/accounts/${SS58}/stake-flow?direction=in`),
+    );
+    const bound = captures.params.find(
+      (p) => Array.isArray(p) && p.includes("StakeAdded"),
+    );
+    assert.ok(bound, "expected a bound StakeAdded param");
+    assert.ok(
+      !bound.includes("StakeRemoved"),
+      "direction=in must not bind StakeRemoved",
+    );
+  });
+
   test("returns schema-stable zeros on cold D1", async () => {
     const body = await assertColdSchema(
       handleAccountStakeFlow,

@@ -2112,13 +2112,17 @@ export const API_ROUTES = [
     "GET",
     "/api/v1/accounts/{ss58}/stake-flow",
     "/metagraph/accounts/{ss58}/stake-flow.json",
-    "Fetch one account's StakeAdded vs StakeRemoved flow per subnet over a recent window (7d/30d/90d): per-subnet net and gross flow with a direction label (accumulating/exiting/churning/idle), plus account totals, an HHI concentration of where the flow is focused, and the dominant subnet — summed live from the account_events D1 tier.",
+    "Fetch one account's StakeAdded vs StakeRemoved flow per subnet over a recent window (7d/30d/90d): per-subnet net and gross flow with a direction label (accumulating/exiting/churning/idle), plus account totals, an HHI concentration of where the flow is focused, and the dominant subnet — summed live from the account_events D1 tier. ?direction=all|in|out filters to inflow (StakeAdded) or outflow (StakeRemoved) only; omitted defaults to all.",
     "short",
     ["accounts", "analytics"],
     [
       {
         name: "window",
         schema: { type: "string", enum: ["7d", "30d", "90d"] },
+      },
+      {
+        name: "direction",
+        schema: { type: "string", enum: ["all", "in", "out"] },
       },
     ],
     [{ name: "ss58", schema: { type: "string" } }],

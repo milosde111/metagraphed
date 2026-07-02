@@ -786,7 +786,7 @@ async function accountEnvelopeResponse(
 // its flow is focused, and a direction label. account_events-derived (source
 // "chain-events"). Cold/absent store → schema-stable zeros (never 404).
 export async function handleAccountStakeFlow(request, env, ss58, url) {
-  const validationError = validateQueryParams(url, ["window"]);
+  const validationError = validateQueryParams(url, ["window", "direction"]);
   if (validationError) return analyticsQueryError(validationError);
   const windowParam =
     url.searchParams.get("window") || DEFAULT_STAKE_FLOW_WINDOW;
@@ -796,11 +796,23 @@ export async function handleAccountStakeFlow(request, env, ss58, url) {
       message: unsupportedWindowMessage(windowParam, STAKE_FLOW_WINDOWS),
     });
   }
+  // ?direction=all|in|out narrows to inflow/outflow only; omitted sums both.
+  // Mirrors the subnet stake-flow route (#2694).
+  const direction = url.searchParams.get("direction");
+  if (direction !== null && !STAKE_FLOW_DIRECTIONS.includes(direction)) {
+    return analyticsQueryError({
+      parameter: "direction",
+      message: `"${direction}" is not a valid direction. Supported: ${STAKE_FLOW_DIRECTIONS.join(", ")}.`,
+    });
+  }
+  const normalizedDirection =
+    direction === "in" || direction === "out" ? direction : undefined;
   const { data, generatedAt } = await loadAccountStakeFlow(
     d1Runner(env),
     ss58,
     {
       windowLabel: windowParam,
+      direction: normalizedDirection,
     },
   );
   return accountEnvelopeResponse(
