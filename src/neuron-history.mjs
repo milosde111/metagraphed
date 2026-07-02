@@ -55,6 +55,17 @@ function toIso(ms) {
   return Number.isFinite(ms) ? new Date(ms).toISOString() : null;
 }
 
+// Coerce a block-height cell to a non-negative integer, or null when missing,
+// non-finite, or negative. D1 can return an INTEGER column as a numeric string,
+// so a bare `r.block_number ?? null` would silently leak the string into the
+// history payload (and break downstream arithmetic/comparisons). Mirrors the
+// `toBlockNumber` already applied in blocks.mjs / account-events.mjs.
+function toBlockNumber(value) {
+  if (value == null) return null;
+  const n = Number(value);
+  return Number.isInteger(n) && n >= 0 ? n : null;
+}
+
 /**
  * Daily rollup: snapshot the current `neurons` table into `neuron_daily` for the
  * captured UTC day. A single atomic INSERT...SELECT in the health DB:
@@ -303,7 +314,7 @@ export function buildNeuronHistory(rows, netuid, uid, { window } = {}) {
       return {
         snapshot_date: r.snapshot_date,
         captured_at: toIso(r.captured_at),
-        block_number: r.block_number ?? null,
+        block_number: toBlockNumber(r.block_number),
         ...neuron,
       };
     })
