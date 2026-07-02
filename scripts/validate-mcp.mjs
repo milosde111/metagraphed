@@ -147,6 +147,11 @@ assert.equal(
   `tools/list must expose all ${MCP_TOOLS.length} registered tools`,
 );
 const listedNames = new Set(tools.map((tool) => tool.name));
+assert.equal(
+  listedNames.size,
+  tools.length,
+  "tools/list must not return duplicate tool names",
+);
 for (const tool of MCP_TOOLS) {
   assert.ok(listedNames.has(tool.name), `tools/list missing ${tool.name}`);
 }
@@ -170,6 +175,11 @@ for (const tool of tools) {
 // every tool and match the canonical projection byte-for-byte (no drift).
 
 const toolNames = new Set(MCP_TOOLS.map((tool) => tool.name));
+assert.equal(
+  toolNames.size,
+  MCP_TOOLS.length,
+  "MCP_TOOLS must not contain duplicate tool names",
+);
 
 const openaiSpec = await getJson("/.well-known/agent-tools/openai.json");
 assert.equal(openaiSpec.status, 200, "openai.json must return HTTP 200");
@@ -182,6 +192,11 @@ assert.equal(
   openaiSpec.body.length,
   MCP_TOOLS.length,
   "openai.json must expose every MCP tool",
+);
+assert.equal(
+  new Set(openaiSpec.body.map((entry) => entry.function?.name)).size,
+  openaiSpec.body.length,
+  "openai.json must not return duplicate tool names",
 );
 for (const entry of openaiSpec.body) {
   assert.equal(entry.type, "function", "openai entry must be a function tool");
@@ -207,6 +222,11 @@ assert.deepEqual(
   anthropicSpec.body,
   buildAnthropicToolSpecs(listToolDefinitions()),
   "served anthropic.json must equal the canonical Anthropic projection",
+);
+assert.equal(
+  new Set(anthropicSpec.body.map((entry) => entry.name)).size,
+  anthropicSpec.body.length,
+  "anthropic.json must not return duplicate tool names",
 );
 for (const entry of anthropicSpec.body) {
   assert.ok(
