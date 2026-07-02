@@ -1266,6 +1266,11 @@
           "netuid": { "type": "integer", "minimum": 0 },
           "slug": { "type": "string" },
           "name": { "type": "string" },
+          "block": {
+            "type": ["integer", "null"],
+            "minimum": 0,
+            "description": "Block height at which this subnet was registered on-chain — the same field the subnets collection exposes for sorting and range filters."
+          },
           "max_uids": { "type": "integer", "minimum": 0 },
           "validator_count": { "type": "integer", "minimum": 0 },
           "max_validators": { "type": "integer", "minimum": 0 },

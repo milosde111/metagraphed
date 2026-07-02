@@ -194,6 +194,7 @@ export const API_QUERY_COLLECTIONS = {
     search: ["name", "slug"],
     sort: [
       "alpha_price_tao",
+      "block",
       "emission_share",
       "max_stake_tao",
       "max_uids",

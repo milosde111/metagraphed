@@ -12114,6 +12114,14 @@
               "null"
             ]
           },
+          "block": {
+            "description": "Block height at which this subnet was registered on-chain — the same field the subnets collection exposes for sorting and range filters.",
+            "minimum": 0,
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
           "emission_share": {
             "description": "Alpha price / sum of all subnets' alpha prices — this subnet's share of price-weighted network TAO emission. Null when the subnet reports no alpha price.",
             "maximum": 1,

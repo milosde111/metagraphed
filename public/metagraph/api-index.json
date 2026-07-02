@@ -2461,6 +2461,7 @@
           "schema": {
             "enum": [
               "alpha_price_tao",
+              "block",
               "emission_share",
               "max_stake_tao",
               "max_uids",

@@ -4695,6 +4695,8 @@ export interface components {
             alpha_in_pool: number | null;
             alpha_out_pool: number | null;
             alpha_price_tao: number | null;
+            /** @description Block height at which this subnet was registered on-chain — the same field the subnets collection exposes for sorting and range filters. */
+            block?: number | null;
             /** @description Alpha price / sum of all subnets' alpha prices — this subnet's share of price-weighted network TAO emission. Null when the subnet reports no alpha price. */
             emission_share: number | null;
             max_stake_tao: number | null;
@@ -9939,7 +9941,7 @@ export interface operations {
                 limit?: number;
                 cursor?: number;
                 /** @description Field to sort by — the bare field name only (e.g. `sort=total_stake_tao`). Pair with the separate `order` parameter to choose direction; a combined `field:desc` token is NOT supported. */
-                sort?: "alpha_price_tao" | "emission_share" | "max_stake_tao" | "max_uids" | "max_validators" | "miner_count" | "miner_readiness" | "name" | "netuid" | "open_slots" | "registration_cost_tao" | "subnet_volume_tao" | "total_stake_tao" | "validator_count";
+                sort?: "alpha_price_tao" | "block" | "emission_share" | "max_stake_tao" | "max_uids" | "max_validators" | "miner_count" | "miner_readiness" | "name" | "netuid" | "open_slots" | "registration_cost_tao" | "subnet_volume_tao" | "total_stake_tao" | "validator_count";
                 /** @description Sort direction for `sort`: `asc` or `desc` (default `desc`). This is a separate parameter from `sort` — e.g. `?sort=emission_share&order=desc`. */
                 order?: "asc" | "desc";
             };
@@ -15399,6 +15401,7 @@ export interface operations {
                      *           "alpha_in_pool": 0.5,
                      *           "alpha_out_pool": 0.5,
                      *           "alpha_price_tao": 0.5,
+                     *           "block": 5000000,
                      *           "emission_share": 0.5,
                      *           "max_stake_tao": 0.5,
                      *           "max_uids": 1,

@@ -12136,6 +12136,14 @@
               "null"
             ]
           },
+          "block": {
+            "description": "Block height at which this subnet was registered on-chain — the same field the subnets collection exposes for sorting and range filters.",
+            "minimum": 0,
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
           "emission_share": {
             "description": "Alpha price / sum of all subnets' alpha prices — this subnet's share of price-weighted network TAO emission. Null when the subnet reports no alpha price.",
             "maximum": 1,
@@ -21422,6 +21430,7 @@
             "schema": {
               "enum": [
                 "alpha_price_tao",
+                "block",
                 "emission_share",
                 "max_stake_tao",
                 "max_uids",
@@ -30397,6 +30406,7 @@
                       "alpha_in_pool": 0.5,
                       "alpha_out_pool": 0.5,
                       "alpha_price_tao": 0.5,
+                      "block": 5000000,
                       "emission_share": 0.5,
                       "max_stake_tao": 0.5,
                       "max_uids": 1,
