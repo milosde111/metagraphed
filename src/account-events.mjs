@@ -80,9 +80,15 @@ export const INGESTED_EVENT_KINDS = [
 ];
 
 function toIso(ms) {
+  // D1 can return the INTEGER observed_at as a numeric string; coerce first, and
+  // require n > 0 so a null/blank/zero/invalid cell stays null instead of epoch
+  // 1970. Mirrors the toIso guards in blocks.mjs (#2708) and extrinsics.mjs
+  // (#2714).
   if (ms == null) return null;
   const n = Number(ms);
-  return Number.isFinite(n) ? new Date(n).toISOString() : null;
+  if (!Number.isFinite(n) || n <= 0) return null;
+  const d = new Date(n);
+  return Number.isFinite(d.getTime()) ? d.toISOString() : null;
 }
 
 // Coerce a block height or index cell to a non-negative integer, or null when
