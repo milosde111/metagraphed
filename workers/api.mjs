@@ -1851,7 +1851,7 @@ export async function handleRequest(request, env = {}, ctx = {}) {
         env,
         "chain-turnover",
         () => handleChainTurnover(request, env, resolved.url),
-        canonicalChainTurnoverCachePath(resolved.url),
+        canonicalChainTurnoverCachePath(resolved.url, request),
         // neuron_daily-derived: stamp on the neuron_daily rollup (not the live neurons tier), so a
         // new daily snapshot invalidates the cached scorecard on the same cadence as its source.
         (edgeEnv) => readNeuronDailyCacheStamp(edgeEnv),

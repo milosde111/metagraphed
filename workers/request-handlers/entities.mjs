@@ -198,6 +198,18 @@ const GLOBAL_VALIDATOR_CSV_COLUMNS = [
   "latest_block_number",
   "subnets",
 ];
+// CSV column order for the /api/v1/chain/turnover per-subnet churn leaderboard
+// rows (the `subnets` array). The network rollup + stability distribution stay
+// JSON-only, mirroring the chain-analytics leaderboard CSV exports.
+const CHAIN_TURNOVER_CSV_COLUMNS = [
+  "netuid",
+  "validators_start",
+  "validators_end",
+  "validators_entered",
+  "validators_exited",
+  "validator_retention",
+  "stability_score",
+];
 const SUBNET_YIELD_CSV_COLUMNS = [
   "uid",
   "hotkey",
@@ -900,8 +912,12 @@ export function canonicalSubnetMoversCachePath(url, request = null) {
 // Canonical edge-cache key for the network turnover route: window + limit collapsed to
 // their resolved defaults so ?window=30d and the bare path share one cached entry. Falls
 // back to the raw path+search when validation fails (the handler will 400 it anyway).
-export function canonicalChainTurnoverCachePath(url) {
-  const validationError = validateQueryParams(url, ["window", "limit"]);
+export function canonicalChainTurnoverCachePath(url, request = null) {
+  const validationError = validateEntityQuery(url, [
+    "window",
+    "limit",
+    "format",
+  ]);
   if (validationError) return `${url.pathname}${url.search}`;
   const windowParam =
     url.searchParams.get("window") || DEFAULT_CHAIN_TURNOVER_WINDOW;
@@ -914,14 +930,23 @@ export function canonicalChainTurnoverCachePath(url) {
     max: CHAIN_TURNOVER_LIMIT_MAX,
   });
   if (limit.error) return `${url.pathname}${url.search}`;
-  return `${url.pathname}?window=${windowParam}&limit=${limit.value}`;
+  // CSV and JSON responses must not share one edge-cache entry.
+  return csvCacheVariant(
+    url,
+    request,
+    `${url.pathname}?window=${windowParam}&limit=${limit.value}`,
+  );
 }
 
 // GET /api/v1/chain/turnover?window=7d|30d|90d&limit=20: network-wide validator-set churn
 // across all subnets between the window's boundary neuron_daily snapshots — a per-subnet
 // turnover leaderboard plus a network rollup over the union validator set.
 export async function handleChainTurnover(request, env, url) {
-  const validationError = validateQueryParams(url, ["window", "limit"]);
+  const validationError = validateEntityQuery(url, [
+    "window",
+    "limit",
+    "format",
+  ]);
   if (validationError) return analyticsQueryError(validationError);
   const windowParam =
     url.searchParams.get("window") || DEFAULT_CHAIN_TURNOVER_WINDOW;
@@ -941,6 +966,17 @@ export async function handleChainTurnover(request, env, url) {
     windowLabel: windowParam,
     limit: limit.value,
   });
+  // CSV exports the row-shaped per-subnet churn leaderboard; the network rollup +
+  // stability distribution stay JSON-only (mirrors the chain-analytics exports).
+  if (csvRequested(url, request)) {
+    return csvResponse(
+      data.subnets,
+      "chain-turnover",
+      "short",
+      request,
+      CHAIN_TURNOVER_CSV_COLUMNS,
+    );
+  }
   // neuron_daily-derived, so the meta reports the metagraph-snapshot source; generated_at
   // is the end snapshot date (string), matching the movers/turnover routes.
   return envelopeResponse(

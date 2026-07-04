@@ -441,6 +441,75 @@ describe("GET /api/v1/chain/turnover", () => {
     );
     assert.equal(res.status, 400);
   });
+
+  const TURNOVER_CSV_HEADER =
+    "netuid,validators_start,validators_end,validators_entered,validators_exited,validator_retention,stability_score";
+  const warm = { bounds: [{ start_date: START, end_date: END }], rows: ROWS };
+  const cold = { bounds: [{ start_date: null, end_date: null }], rows: [] };
+
+  test("exports the per-subnet churn leaderboard as CSV with ?format=csv", async () => {
+    const res = await handleRequest(
+      request("?window=30d&format=csv"),
+      neuronDailyEnv(warm),
+      {},
+    );
+    assert.equal(res.status, 200);
+    assert.match(res.headers.get("content-type"), /text\/csv/);
+    assert.match(
+      res.headers.get("content-disposition"),
+      /attachment; filename="chain-turnover\.csv"/,
+    );
+    const lines = (await res.text()).trim().split("\r\n");
+    assert.equal(lines[0], TURNOVER_CSV_HEADER);
+    // Most-volatile first: netuid 1 (churn 2) leads, then the stable netuid 2.
+    assert.equal(lines.length, 3); // header + 2 subnet rows
+    assert.equal(lines[1], "1,2,2,1,1,0.3333,33");
+  });
+
+  test("honors Accept: text/csv the same as ?format=csv", async () => {
+    const res = await handleRequest(
+      new Request("https://api.metagraph.sh/api/v1/chain/turnover", {
+        headers: { accept: "text/csv" },
+      }),
+      neuronDailyEnv(warm),
+      {},
+    );
+    assert.equal(res.status, 200);
+    assert.match(res.headers.get("content-type"), /text\/csv/);
+  });
+
+  test("emits a header-only CSV on a cold store", async () => {
+    const res = await handleRequest(
+      request("?format=csv"),
+      neuronDailyEnv(cold),
+      {},
+    );
+    assert.equal(res.status, 200);
+    assert.match(res.headers.get("content-type"), /text\/csv/);
+    assert.equal((await res.text()).trim(), TURNOVER_CSV_HEADER);
+  });
+
+  test("serves a CSV HEAD probe with the CSV headers and no body", async () => {
+    const res = await handleRequest(
+      new Request("https://api.metagraph.sh/api/v1/chain/turnover?format=csv", {
+        method: "HEAD",
+      }),
+      neuronDailyEnv(warm),
+      {},
+    );
+    assert.equal(res.status, 200);
+    assert.match(res.headers.get("content-type"), /text\/csv/);
+    assert.equal(await res.text(), ""); // HEAD carries no body
+  });
+
+  test("rejects an unsupported format value with 400", async () => {
+    const res = await handleRequest(
+      request("?format=xml"),
+      neuronDailyEnv(cold),
+      {},
+    );
+    assert.equal(res.status, 400);
+  });
 });
 
 describe("readNeuronDailyCacheStamp", () => {

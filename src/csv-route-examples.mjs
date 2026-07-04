@@ -36,4 +36,9 @@ export const ROUTE_CSV_EXAMPLES = {
     "from,to,volume_tao,transfer_count,last_block,last_observed_at",
     "5Sender_sample,5Receiver_sample,1250.5,42,8454388,2026-07-03T00:00:00.000Z",
   ].join("\r\n"),
+  // The /chain/turnover per-subnet validator-churn leaderboard rows.
+  "chain-turnover": [
+    "netuid,validators_start,validators_end,validators_entered,validators_exited,validator_retention,stability_score",
+    "1,64,60,8,12,0.8125,81",
+  ].join("\r\n"),
 };
