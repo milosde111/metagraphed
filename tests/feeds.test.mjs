@@ -40,6 +40,7 @@ function installMockCache() {
 
 const {
   toIso,
+  toRfc822,
   registryItems,
   incidentItems,
   gapsItems,
@@ -809,6 +810,42 @@ describe("feeds — serializers", () => {
     assert.match(xml, /<channel>[\s\S]*<\/channel>/);
     assert.ok((xml.match(/<item>/g) || []).length === items.length);
     assert.match(xml, /<pubDate>.*GMT<\/pubDate>/);
+  });
+
+  test("toRfc822 returns null for corrupt timestamps", () => {
+    assert.equal(toRfc822("not-a-date"), null);
+    assert.equal(toRfc822(null), null);
+    assert.equal(
+      toRfc822("2026-06-15T00:00:00.000Z"),
+      "Mon, 15 Jun 2026 00:00:00 GMT",
+    );
+  });
+
+  test("rssFeed omits pubDate for corrupt item timestamps instead of Invalid Date", () => {
+    const xml = rssFeed(meta, [
+      {
+        id: "bad-ts",
+        url: "https://example.com/x",
+        title: "bad",
+        summary: "bad",
+        timestamp: "not-a-date",
+        tags: [],
+      },
+    ]);
+    assert.doesNotMatch(xml, /Invalid Date/);
+    assert.match(xml, /<item>/);
+    assert.doesNotMatch(xml, /<pubDate>/);
+  });
+
+  test("rssFeed omits lastBuildDate when meta.updated is corrupt", () => {
+    const xml = rssFeed({ ...meta, updated: "not-a-date" }, items.slice(0, 1));
+    assert.doesNotMatch(xml, /Invalid Date/);
+    assert.doesNotMatch(xml, /<lastBuildDate>/);
+  });
+
+  test("rssFeed includes lastBuildDate when meta.updated is valid", () => {
+    const xml = rssFeed(meta, items.slice(0, 1));
+    assert.match(xml, /<lastBuildDate>.*GMT<\/lastBuildDate>/);
   });
 
   test("atomFeed has the required feed + entry structure", () => {

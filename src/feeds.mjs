@@ -119,7 +119,10 @@ function toIso(value) {
 }
 
 function toRfc822(iso) {
-  return new Date(iso).toUTCString();
+  if (iso == null) return null;
+  const ms = Date.parse(String(iso));
+  if (!Number.isFinite(ms)) return null;
+  return new Date(ms).toUTCString();
 }
 
 // ── item builders (from existing served artifacts) ──────────────────────────
@@ -394,21 +397,26 @@ function jsonFeed(meta, items) {
 
 function rssFeed(meta, items) {
   const body = items
-    .map((it) =>
-      [
+    .map((it) => {
+      const pubDate = toRfc822(it.timestamp);
+      return [
         "    <item>",
         `      <guid isPermaLink="false">${escapeXml(it.id)}</guid>`,
         `      <link>${escapeXml(it.url)}</link>`,
         `      <title>${escapeXml(it.title)}</title>`,
         `      <description>${escapeXml(it.summary)}</description>`,
-        `      <pubDate>${toRfc822(it.timestamp)}</pubDate>`,
+        ...(pubDate ? [`      <pubDate>${escapeXml(pubDate)}</pubDate>`] : []),
         ...(it.tags || []).map(
           (t) => `      <category>${escapeXml(t)}</category>`,
         ),
         "    </item>",
-      ].join("\n"),
-    )
+      ].join("\n");
+    })
     .join("\n");
+  const lastBuildDate = toRfc822(meta.updated);
+  const lastBuildDateLine = lastBuildDate
+    ? `    <lastBuildDate>${escapeXml(lastBuildDate)}</lastBuildDate>`
+    : null;
   return [
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">',
@@ -417,7 +425,7 @@ function rssFeed(meta, items) {
     `    <link>${escapeXml(meta.homeUrl)}</link>`,
     `    <atom:link href="${escapeXml(meta.feedUrl)}" rel="self" type="application/rss+xml"/>`,
     `    <description>${escapeXml(meta.description)}</description>`,
-    `    <lastBuildDate>${toRfc822(meta.updated)}</lastBuildDate>`,
+    ...(lastBuildDateLine ? [lastBuildDateLine] : []),
     body,
     "  </channel>",
     "</rss>",
@@ -753,6 +761,7 @@ export function feedLinkHeader(originUrl, netuid) {
 // Exported for unit tests.
 export const __test = {
   toIso,
+  toRfc822,
   registryItems,
   incidentItems,
   gapsItems,
