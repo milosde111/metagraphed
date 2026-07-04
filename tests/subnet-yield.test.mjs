@@ -1,6 +1,13 @@
 import assert from "node:assert/strict";
 import { describe, test } from "vitest";
-import { buildSubnetYield, loadSubnetYield } from "../src/subnet-yield.mjs";
+import {
+  buildSubnetYield,
+  loadSubnetYield,
+  parseSubnetYieldHistoryWindow,
+  buildSubnetYieldHistory,
+  loadSubnetYieldHistory,
+  YIELD_HISTORY_ROW_CAP,
+} from "../src/subnet-yield.mjs";
 
 const CAPTURED = 1717000000000;
 
@@ -314,5 +321,186 @@ describe("loadSubnetYield", () => {
   test("a non-array result degrades to an empty card", async () => {
     const d = await loadSubnetYield(async () => null, 7);
     assert.deepEqual(d.neurons, []);
+  });
+});
+
+describe("parseSubnetYieldHistoryWindow", () => {
+  test("accepts 7d / 30d / 90d", () => {
+    assert.deepEqual(parseSubnetYieldHistoryWindow("7d"), {
+      label: "7d",
+      days: 7,
+    });
+    assert.deepEqual(parseSubnetYieldHistoryWindow("30d"), {
+      label: "30d",
+      days: 30,
+    });
+    assert.deepEqual(parseSubnetYieldHistoryWindow("90d"), {
+      label: "90d",
+      days: 90,
+    });
+  });
+
+  test("defaults a missing/blank window to 30d", () => {
+    assert.equal(parseSubnetYieldHistoryWindow(undefined).days, 30);
+    assert.equal(parseSubnetYieldHistoryWindow("").days, 30);
+    assert.equal(parseSubnetYieldHistoryWindow(null).days, 30);
+  });
+
+  test("rejects unsupported windows (incl. the longer history windows)", () => {
+    for (const bad of ["1y", "all", "bogus", "0d"]) {
+      const { error } = parseSubnetYieldHistoryWindow(bad);
+      assert.equal(error.parameter, "window");
+      assert.match(error.message, /7d, 30d, 90d/);
+    }
+  });
+});
+
+describe("buildSubnetYieldHistory", () => {
+  test("computes a per-day yield-distribution trend, newest first", () => {
+    // Rows arrive snapshot_date DESC. The newest day has a wider yield spread
+    // (0.1 vs 0.05) than the even older day (both 0.1).
+    const rows = [
+      {
+        snapshot_date: "2026-06-27",
+        stake_tao: 100,
+        emission_tao: 10,
+        validator_permit: 1,
+      },
+      {
+        snapshot_date: "2026-06-27",
+        stake_tao: 100,
+        emission_tao: 5,
+        validator_permit: 0,
+      },
+      {
+        snapshot_date: "2026-06-26",
+        stake_tao: 100,
+        emission_tao: 10,
+        validator_permit: 1,
+      },
+      {
+        snapshot_date: "2026-06-26",
+        stake_tao: 100,
+        emission_tao: 10,
+        validator_permit: 0,
+      },
+    ];
+    const data = buildSubnetYieldHistory(rows, 7, { window: "30d" });
+    assert.equal(data.schema_version, 1);
+    assert.equal(data.netuid, 7);
+    assert.equal(data.window, "30d");
+    assert.equal(data.point_count, 2);
+    assert.equal(data.points[0].snapshot_date, "2026-06-27"); // newest first
+    assert.equal(data.points[0].neuron_count, 2);
+    assert.equal(data.points[0].validator_count, 1);
+    assert.equal(data.points[0].yield_count, 2);
+    // newest day yields 0.1 and 0.05 → median 0.075; older day both 0.1 → 0.1.
+    assert.equal(data.points[0].median_yield, 0.075);
+    assert.equal(data.points[1].median_yield, 0.1);
+    // subnet_yield = total emission / total stake = 15/200 on the newest day.
+    assert.equal(data.points[0].subnet_yield, 0.075);
+    assert.equal(typeof data.points[0].p25_yield, "number");
+    assert.equal(typeof data.points[0].p90_yield, "number");
+  });
+
+  test("excludes zero-stake UIDs from the distribution but counts the neuron", () => {
+    const data = buildSubnetYieldHistory(
+      [
+        { snapshot_date: "2026-06-27", stake_tao: 100, emission_tao: 10 },
+        { snapshot_date: "2026-06-27", stake_tao: 0, emission_tao: 5 }, // no stake → no yield
+      ],
+      1,
+      { window: "7d" },
+    );
+    assert.equal(data.points[0].neuron_count, 2);
+    assert.equal(data.points[0].yield_count, 1); // only the staked UID
+    assert.equal(data.points[0].median_yield, 0.1);
+  });
+
+  test("drops the oldest (possibly partial) day when the read was capped", () => {
+    const rows = [
+      { snapshot_date: "2026-06-27", stake_tao: 100, emission_tao: 10 },
+      { snapshot_date: "2026-06-26", stake_tao: 100, emission_tao: 10 },
+    ];
+    const data = buildSubnetYieldHistory(rows, 1, {
+      window: "7d",
+      capped: true,
+    });
+    assert.equal(data.point_count, 1);
+    assert.equal(data.points[0].snapshot_date, "2026-06-27");
+  });
+
+  test("skips rows with no snapshot_date and is cold-store safe", () => {
+    const data = buildSubnetYieldHistory(
+      [
+        { snapshot_date: null, stake_tao: 5, emission_tao: 1 },
+        { snapshot_date: "2026-06-27", stake_tao: 100, emission_tao: 10 },
+      ],
+      3,
+      { window: "30d" },
+    );
+    assert.equal(data.point_count, 1);
+    for (const rows of [[], "nope", null]) {
+      const empty = buildSubnetYieldHistory(rows, 3, { window: "30d" });
+      assert.equal(empty.point_count, 0);
+      assert.deepEqual(empty.points, []);
+      assert.equal(empty.window, "30d");
+    }
+  });
+
+  test("a day with no staked UIDs yields null distribution metrics", () => {
+    const data = buildSubnetYieldHistory(
+      [{ snapshot_date: "2026-06-27", stake_tao: 0, emission_tao: 5 }],
+      1,
+      { window: "7d" },
+    );
+    assert.equal(data.points[0].yield_count, 0);
+    assert.equal(data.points[0].median_yield, null);
+    assert.equal(data.points[0].mean_yield, null);
+    assert.equal(data.points[0].subnet_yield, null); // no stake
+  });
+
+  test("an omitted window is emitted as null", () => {
+    assert.equal(buildSubnetYieldHistory([], 5).window, null);
+  });
+});
+
+describe("loadSubnetYieldHistory", () => {
+  test("issues a netuid + date-bounded neuron_daily read and shapes it", async () => {
+    let seen;
+    const d1 = async (sql, params) => {
+      seen = { sql, params };
+      return [
+        {
+          snapshot_date: "2026-06-27",
+          stake_tao: 100,
+          emission_tao: 10,
+          validator_permit: 1,
+        },
+      ];
+    };
+    const data = await loadSubnetYieldHistory(d1, 7, {
+      windowLabel: "7d",
+      windowDays: 7,
+    });
+    assert.match(seen.sql, /FROM neuron_daily WHERE netuid = \?/);
+    assert.match(seen.sql, /snapshot_date >= \? ORDER BY snapshot_date DESC/);
+    assert.equal(seen.params[0], 7);
+    assert.equal(typeof seen.params[1], "string"); // YYYY-MM-DD cutoff
+    assert.equal(seen.params[2], YIELD_HISTORY_ROW_CAP);
+    assert.equal(data.netuid, 7);
+    assert.equal(data.window, "7d");
+    assert.equal(data.point_count, 1);
+    assert.equal(data.points[0].median_yield, 0.1);
+  });
+
+  test("a cold store (no rows) yields empty points", async () => {
+    const data = await loadSubnetYieldHistory(async () => [], 9, {
+      windowLabel: "30d",
+      windowDays: 30,
+    });
+    assert.equal(data.netuid, 9);
+    assert.equal(data.point_count, 0);
+    assert.deepEqual(data.points, []);
   });
 });

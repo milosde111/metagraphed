@@ -26,6 +26,7 @@ import {
   handleSubnetPerformance,
   handleSubnetConcentrationHistory,
   handleSubnetPerformanceHistory,
+  handleSubnetYieldHistory,
   handleSubnetTurnover,
   handleSubnetStakeFlow,
   handleSubnetWeights,
@@ -1509,6 +1510,124 @@ describe("handleSubnetPerformanceHistory", () => {
     assert.equal(boundNetuid, NETUID);
     assert.match(cutoff, /^\d{4}-\d{2}-\d{2}$/); // ISO day cutoff
     assert.equal(cap, 50_000); // PERFORMANCE_HISTORY_ROW_CAP
+  });
+});
+
+describe("handleSubnetYieldHistory", () => {
+  test("rejects an unsupported query param with 400", async () => {
+    const res = await handleSubnetYieldHistory(
+      req(`/api/v1/subnets/${NETUID}/yield/history`),
+      emptyEnv(),
+      NETUID,
+      url(`/api/v1/subnets/${NETUID}/yield/history?bogus=1`),
+    );
+    await errorJson(res);
+  });
+
+  test("rejects an out-of-range window with 400", async () => {
+    const res = await handleSubnetYieldHistory(
+      req(`/api/v1/subnets/${NETUID}/yield/history`),
+      emptyEnv(),
+      NETUID,
+      url(`/api/v1/subnets/${NETUID}/yield/history?window=1y`),
+    );
+    const body = await errorJson(res);
+    assert.equal(body.meta.parameter, "window");
+  });
+
+  test("returns schema-stable empty series on cold D1", async () => {
+    const body = await assertColdSchema(
+      handleSubnetYieldHistory,
+      req(`/api/v1/subnets/${NETUID}/yield/history`),
+      emptyEnv(),
+      NETUID,
+      url(`/api/v1/subnets/${NETUID}/yield/history`),
+    );
+    assert.equal(body.data.netuid, NETUID);
+    assert.equal(body.data.point_count, 0);
+    assert.deepEqual(body.data.points, []);
+  });
+
+  test("happy path computes a per-day yield-distribution trend", async () => {
+    const { env, captures } = dbWith({
+      neuronDailyHistory: [
+        {
+          snapshot_date: "2026-06-27",
+          stake_tao: 100,
+          emission_tao: 10,
+          validator_permit: 1,
+        },
+        {
+          snapshot_date: "2026-06-27",
+          stake_tao: 100,
+          emission_tao: 5,
+          validator_permit: 0,
+        },
+        {
+          snapshot_date: "2026-06-26",
+          stake_tao: 100,
+          emission_tao: 10,
+          validator_permit: 1,
+        },
+      ],
+    });
+    const body = await json(
+      await handleSubnetYieldHistory(
+        req(`/api/v1/subnets/${NETUID}/yield/history`),
+        env,
+        NETUID,
+        url(`/api/v1/subnets/${NETUID}/yield/history?window=30d`),
+      ),
+    );
+    assert.equal(body.data.netuid, NETUID);
+    assert.equal(body.data.window, "30d");
+    assert.equal(body.data.point_count, 2);
+    assert.equal(body.data.points[0].snapshot_date, "2026-06-27"); // newest first
+    assert.equal(body.data.points[0].median_yield, 0.075); // 0.1 & 0.05
+    assert.equal(typeof body.data.points[0].subnet_yield, "number");
+    // Windowed neuron_daily read bound to the netuid.
+    const idx = captures.sql.findIndex((s) =>
+      /FROM neuron_daily WHERE netuid = \? AND snapshot_date >= \?/.test(s),
+    );
+    assert.ok(idx !== -1);
+    assert.equal(captures.params[idx][0], NETUID);
+  });
+
+  test("degrades to an empty series when the D1 read throws", async () => {
+    // d1All swallows the rejecting read to []; the trend stays 200 + points:[].
+    const res = await handleSubnetYieldHistory(
+      req(`/api/v1/subnets/${NETUID}/yield/history`),
+      dbThrows("d1 timeout"),
+      NETUID,
+      url(`/api/v1/subnets/${NETUID}/yield/history?window=7d`),
+    );
+    assert.equal(res.status, 200);
+    const body = await res.json();
+    assert.equal(body.ok, true);
+    assert.equal(body.data.netuid, NETUID);
+    assert.equal(body.data.window, "7d");
+    assert.equal(body.data.point_count, 0);
+    assert.deepEqual(body.data.points, []);
+  });
+
+  test("binds the windowed read with a row cap and an ISO date cutoff", async () => {
+    const { env, captures } = dbWith({ neuronDailyHistory: [] });
+    await handleSubnetYieldHistory(
+      req(`/api/v1/subnets/${NETUID}/yield/history`),
+      env,
+      NETUID,
+      url(`/api/v1/subnets/${NETUID}/yield/history?window=30d`),
+    );
+    const idx = captures.sql.findIndex((s) =>
+      /FROM neuron_daily WHERE netuid = \? AND snapshot_date >= \? ORDER BY snapshot_date DESC LIMIT \?/.test(
+        s,
+      ),
+    );
+    assert.ok(idx !== -1);
+    const [boundNetuid, cutoff, cap] = captures.params[idx];
+    assert.equal(boundNetuid, NETUID);
+    assert.match(cutoff, /^\d{4}-\d{2}-\d{2}$/); // ISO day cutoff
+    assert.equal(cap, 50_000); // YIELD_HISTORY_ROW_CAP
   });
 });
 

@@ -427,6 +427,14 @@ const checks = [
     },
   ],
   [
+    "/api/v1/subnets/7/yield/history?window=7d",
+    (body) => {
+      assert.equal(body.data.netuid, 7);
+      assert.equal(Array.isArray(body.data.points), true);
+      assert.equal(typeof body.data.point_count, "number");
+    },
+  ],
+  [
     "/api/v1/validators?sort=uid_count&limit=3",
     (body) => {
       assert.equal(body.data.sort, "uid_count");

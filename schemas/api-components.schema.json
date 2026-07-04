@@ -17579,6 +17579,99 @@
         ],
         "type": "object"
       },
+      "SubnetYieldHistoryArtifact": {
+        "additionalProperties": true,
+        "description": "Per-day emission-yield distribution trend for one subnet (newest first) over a 7d/30d/90d window: the subnet-wide return plus the mean/median/p25/p75/p90 of the per-UID emission-per-stake yields. The return-rate twin of /concentration/history and the time-series companion to the /yield snapshot — the per-UID yield distribution (median/percentiles) is not reconstructable from the stake+emission totals in /history. Computed live from the neuron_daily D1 rollup.",
+        "properties": {
+          "netuid": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "point_count": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "points": {
+            "items": {
+              "additionalProperties": true,
+              "properties": {
+                "mean_yield": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "median_yield": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "neuron_count": {
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "p25_yield": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "p75_yield": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "p90_yield": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "snapshot_date": {
+                  "type": "string"
+                },
+                "subnet_yield": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "validator_count": {
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "yield_count": {
+                  "minimum": 0,
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "snapshot_date"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "schema_version": {
+            "type": "integer"
+          },
+          "window": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "schema_version",
+          "netuid",
+          "point_count",
+          "points"
+        ],
+        "type": "object"
+      },
       "SuccessEnvelope": {
         "additionalProperties": false,
         "properties": {

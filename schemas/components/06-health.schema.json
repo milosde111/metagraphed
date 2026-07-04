@@ -1224,6 +1224,38 @@
         },
         "additionalProperties": true
       },
+      "SubnetYieldHistoryArtifact": {
+        "type": "object",
+        "description": "Per-day emission-yield distribution trend for one subnet (newest first) over a 7d/30d/90d window: the subnet-wide return plus the mean/median/p25/p75/p90 of the per-UID emission-per-stake yields. The return-rate twin of /concentration/history and the time-series companion to the /yield snapshot — the per-UID yield distribution (median/percentiles) is not reconstructable from the stake+emission totals in /history. Computed live from the neuron_daily D1 rollup.",
+        "required": ["schema_version", "netuid", "point_count", "points"],
+        "properties": {
+          "schema_version": { "type": "integer" },
+          "netuid": { "type": "integer", "minimum": 0 },
+          "window": { "type": ["string", "null"] },
+          "point_count": { "type": "integer", "minimum": 0 },
+          "points": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["snapshot_date"],
+              "properties": {
+                "snapshot_date": { "type": "string" },
+                "neuron_count": { "type": "integer", "minimum": 0 },
+                "validator_count": { "type": "integer", "minimum": 0 },
+                "yield_count": { "type": "integer", "minimum": 0 },
+                "subnet_yield": { "type": ["number", "null"] },
+                "mean_yield": { "type": ["number", "null"] },
+                "median_yield": { "type": ["number", "null"] },
+                "p25_yield": { "type": ["number", "null"] },
+                "p75_yield": { "type": ["number", "null"] },
+                "p90_yield": { "type": ["number", "null"] }
+              },
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": true
+      },
       "SubnetTurnoverArtifact": {
         "type": "object",
         "description": "Validator-set & registration turnover (churn) for one subnet between a window's start and end snapshots, computed live from the neuron_daily D1 rollup.",

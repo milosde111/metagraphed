@@ -87,6 +87,7 @@ import {
   handleSubnetConcentration,
   handleSubnetConcentrationHistory,
   handleSubnetPerformanceHistory,
+  handleSubnetYieldHistory,
   handleChainConcentration,
   handleChainPerformance,
   handleChainIdentityHistory,
@@ -95,6 +96,7 @@ import {
   canonicalSubnetHistoryCachePath,
   canonicalSubnetConcentrationHistoryCachePath,
   canonicalSubnetPerformanceHistoryCachePath,
+  canonicalSubnetYieldHistoryCachePath,
   handleSubnetTurnover,
   canonicalSubnetTurnoverCachePath,
   handleSubnetStakeFlow,
@@ -310,6 +312,7 @@ import {
   SUBNET_CONCENTRATION_PATH_PATTERN,
   SUBNET_CONCENTRATION_HISTORY_PATH_PATTERN,
   SUBNET_PERFORMANCE_HISTORY_PATH_PATTERN,
+  SUBNET_YIELD_HISTORY_PATH_PATTERN,
   SUBNET_TURNOVER_PATH_PATTERN,
   SUBNET_STAKE_FLOW_PATH_PATTERN,
   SUBNET_WEIGHTS_PATH_PATTERN,
@@ -1436,6 +1439,27 @@ export async function handleRequest(request, env = {}, ctx = {}) {
         canonicalSubnetPerformanceHistoryCachePath(resolved.url),
       );
     }
+    const yieldHistoryMatch = SUBNET_YIELD_HISTORY_PATH_PATTERN.exec(
+      resolved.url.pathname,
+    );
+    if (yieldHistoryMatch) {
+      // Per-day yield-distribution trend over the neuron_daily rollup, deterministic
+      // per cron snapshot — edge-cache like the sibling concentration/history route.
+      return withEdgeCache(
+        request,
+        ctx,
+        env,
+        "subnet-yield-history",
+        () =>
+          handleSubnetYieldHistory(
+            request,
+            env,
+            Number(yieldHistoryMatch[1]),
+            resolved.url,
+          ),
+        canonicalSubnetYieldHistoryCachePath(resolved.url),
+      );
+    }
     const concentrationMatch = SUBNET_CONCENTRATION_PATH_PATTERN.exec(
       resolved.url.pathname,
     );
@@ -2175,6 +2199,7 @@ function isMainnetOnlyApiPath(pathname) {
     SUBNET_CONCENTRATION_PATH_PATTERN.test(pathname) ||
     SUBNET_CONCENTRATION_HISTORY_PATH_PATTERN.test(pathname) ||
     SUBNET_PERFORMANCE_HISTORY_PATH_PATTERN.test(pathname) ||
+    SUBNET_YIELD_HISTORY_PATH_PATTERN.test(pathname) ||
     SUBNET_TURNOVER_PATH_PATTERN.test(pathname) ||
     SUBNET_STAKE_FLOW_PATH_PATTERN.test(pathname) ||
     SUBNET_YIELD_PATH_PATTERN.test(pathname) ||

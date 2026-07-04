@@ -84,6 +84,10 @@ export const SUBNET_DEREGISTRATIONS_PATH_PATTERN =
   /^\/api\/v1\/subnets\/(\d+)\/deregistrations$/;
 // Per-UID emission yield distribution over the current neurons snapshot, no static file.
 export const SUBNET_YIELD_PATH_PATTERN = /^\/api\/v1\/subnets\/(\d+)\/yield$/;
+// Per-day yield-distribution history (return-rate trend) from the neuron_daily
+// rollup, no static file.
+export const SUBNET_YIELD_HISTORY_PATH_PATTERN =
+  /^\/api\/v1\/subnets\/(\d+)\/yield\/history$/;
 // Reward-distribution + score-spread metrics over the current neurons snapshot
 // (reward concentration + trust/consensus percentiles), no static file.
 export const SUBNET_PERFORMANCE_PATH_PATTERN =

@@ -43,6 +43,7 @@ const COMPUTED_ARTIFACTS = new Set([
   "subnet-deregistrations",
   "subnet-movers",
   "subnet-yield",
+  "subnet-yield-history",
   "global-validators",
   "subnet-uptime",
   "subnet-metagraph",

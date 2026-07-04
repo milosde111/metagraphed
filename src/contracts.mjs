@@ -1050,6 +1050,12 @@ export const PUBLIC_ARTIFACTS = [
     "SubnetYieldArtifact",
   ),
   artifact(
+    "subnet-yield-history",
+    "/metagraph/subnets/{netuid}/yield/history.json",
+    "Per-day emission-yield distribution trend (subnet-wide return plus the mean/median/p25/p75/p90 of the per-UID emission-per-stake yields) over a 7d/30d/90d window for one subnet, served live from the neuron_daily D1 rollup at /api/v1/subnets/{netuid}/yield/history (no static file). The time-series companion to /yield and the return-rate twin of /concentration/history.",
+    "SubnetYieldHistoryArtifact",
+  ),
+  artifact(
     "subnet-events",
     "/metagraph/subnets/{netuid}/events.json",
     "First-party chain-event stream for one subnet (registrations, stake, weights, axon, delegation, lifecycle, transfers), newest first, served live from the account_events D1 tier filtered by netuid at /api/v1/subnets/{netuid}/events; pass ?format=csv to download the page as CSV (no static file).",
@@ -2208,6 +2214,22 @@ export const API_ROUTES = [
     "short",
     ["subnets", "analytics"],
     csvRouteQuery(),
+    [{ name: "netuid", schema: { type: "integer", minimum: 0 } }],
+  ),
+  route(
+    "subnet-yield-history",
+    "GET",
+    "/api/v1/subnets/{netuid}/yield/history",
+    "/metagraph/subnets/{netuid}/yield/history.json",
+    "Fetch the per-day emission-yield distribution trend for one subnet over a 7d/30d/90d window: the subnet-wide return plus the mean, median, and p25/p75/p90 of the per-UID emission-per-stake yields, one point per day (computed live from the neuron_daily D1 rollup). The time-series companion to /yield and the return-rate twin of /concentration/history — the per-UID yield distribution is not reconstructable from the stake+emission totals in /history.",
+    "short",
+    ["subnets", "analytics"],
+    [
+      {
+        name: "window",
+        schema: { type: "string", enum: ["7d", "30d", "90d"] },
+      },
+    ],
     [{ name: "netuid", schema: { type: "integer", minimum: 0 } }],
   ),
   route(

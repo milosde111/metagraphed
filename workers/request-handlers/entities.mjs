@@ -51,7 +51,13 @@ import {
   GLOBAL_VALIDATOR_LIMIT_DEFAULT,
   GLOBAL_VALIDATOR_LIMIT_MAX,
 } from "../../src/metagraph-neurons.mjs";
-import { loadSubnetYield } from "../../src/subnet-yield.mjs";
+import {
+  loadSubnetYield,
+  YIELD_HISTORY_READ_COLUMNS,
+  YIELD_HISTORY_ROW_CAP,
+  buildSubnetYieldHistory,
+  parseSubnetYieldHistoryWindow,
+} from "../../src/subnet-yield.mjs";
 import {
   buildNeuronHistory,
   buildSubnetHistory,
@@ -888,6 +894,10 @@ export function canonicalSubnetPerformanceHistoryCachePath(url) {
   return canonicalWindowedCachePath(url, parseSubnetPerformanceHistoryWindow);
 }
 
+export function canonicalSubnetYieldHistoryCachePath(url) {
+  return canonicalWindowedCachePath(url, parseSubnetYieldHistoryWindow);
+}
+
 // Canonical edge-cache key for the subnet-turnover route (?window= via
 // parseHistoryWindow). Distinct from canonicalSubnetConcentrationHistoryCachePath
 // which uses a different parse function (parseConcentrationHistoryWindow).
@@ -1153,6 +1163,46 @@ export async function handleSubnetPerformanceHistory(
       meta: await metagraphMeta(
         env,
         `/metagraph/subnets/${netuid}/performance/history.json`,
+        data.points[0]?.snapshot_date ?? null,
+      ),
+    },
+    "short",
+  );
+}
+
+// GET /api/v1/subnets/{netuid}/yield/history?window=7d|30d|90d: the per-day
+// emission-yield distribution trend (subnet-wide return + the mean/median/p25/p75/p90
+// of the per-UID emission-per-stake yields) from the dated neuron_daily rollup — "is
+// this subnet's return spread widening or its median falling?". The return-rate twin
+// of concentration/history: each day needs its full per-UID distribution, so the read
+// is the raw rows (not a GROUP BY) bounded by a row cap; a cold/absent store → 200
+// with points:[] (schema-stable, never 404).
+export async function handleSubnetYieldHistory(request, env, netuid, url) {
+  const validationError = validateQueryParams(url, ["window"]);
+  if (validationError) return analyticsQueryError(validationError);
+  const { label, days, error } = parseSubnetYieldHistoryWindow(
+    url.searchParams.get("window"),
+  );
+  if (error) return analyticsQueryError(error);
+  const cutoff = new Date(Date.now() - days * DAY_MS)
+    .toISOString()
+    .slice(0, 10);
+  const rows = await d1All(
+    env,
+    `SELECT ${YIELD_HISTORY_READ_COLUMNS} FROM neuron_daily WHERE netuid = ? AND snapshot_date >= ? ORDER BY snapshot_date DESC LIMIT ?`,
+    [netuid, cutoff, YIELD_HISTORY_ROW_CAP],
+  );
+  const data = buildSubnetYieldHistory(rows, netuid, {
+    window: label,
+    capped: rows.length >= YIELD_HISTORY_ROW_CAP,
+  });
+  return envelopeResponse(
+    request,
+    {
+      data,
+      meta: await metagraphMeta(
+        env,
+        `/metagraph/subnets/${netuid}/yield/history.json`,
         data.points[0]?.snapshot_date ?? null,
       ),
     },

@@ -205,3 +205,133 @@ export async function loadSubnetYield(d1, netuid) {
   );
   return buildSubnetYield(rows, netuid);
 }
+
+// ---- Yield HISTORY (return-rate distribution over time) --------------------
+// Per-day emission-yield distribution from the dated neuron_daily rollup, so a
+// subnet's return trend (is the yield spread widening? is the median falling?)
+// is chartable. The time-series companion to the /yield snapshot and the
+// reward-return twin of concentration/history. Each day needs its full per-UID
+// distribution (the median / percentile spread can't be a cheap SQL GROUP BY,
+// and is NOT reconstructable from the stake+emission totals in /history), so the
+// read is the raw per-UID rows bounded by a row cap that then drops a truncated
+// oldest day.
+const DAY_MS = 24 * 60 * 60 * 1000;
+
+const YIELD_HISTORY_WINDOWS = { "7d": 7, "30d": 30, "90d": 90 };
+const DEFAULT_YIELD_HISTORY_WINDOW = "30d";
+// Safety valve on the raw per-UID read (≈256 UIDs × 90d ≈ 23k; leaves head room
+// and the builder drops a truncated oldest day so every point is complete).
+export const YIELD_HISTORY_ROW_CAP = 50_000;
+
+// The neuron_daily columns the history read selects — stake/emission (for the
+// per-UID yield) plus the validator_permit flag the counts slice on.
+export const YIELD_HISTORY_READ_COLUMNS =
+  "snapshot_date, validator_permit, stake_tao, emission_tao";
+
+// Parse ?window for the history route — a deliberately smaller set than the
+// structural history (no 1y/all) so the raw read stays bounded. Returns
+// {label, days} or {error:{parameter,message}} (the analyticsQueryError shape).
+export function parseSubnetYieldHistoryWindow(value) {
+  const v =
+    typeof value === "string" && value ? value : DEFAULT_YIELD_HISTORY_WINDOW;
+  if (!Object.prototype.hasOwnProperty.call(YIELD_HISTORY_WINDOWS, v)) {
+    return {
+      error: {
+        parameter: "window",
+        message: `window must be one of: ${Object.keys(YIELD_HISTORY_WINDOWS).join(", ")}`,
+      },
+    };
+  }
+  return { label: v, days: YIELD_HISTORY_WINDOWS[v] };
+}
+
+// Project one day's per-UID rows to a flat, chartable yield point. Flat (not
+// nested) fields keep a time series trivial to plot: the subnet-wide return plus
+// the mean / median / p25 / p75 / p90 of the per-UID emission-per-stake yields
+// (over the UIDs with stake > 0). Null-safe — a cold/empty day yields null
+// metrics, never throws. Uses the exact rao-space accumulation buildSubnetYield
+// uses so a day's subnet_yield matches the snapshot route.
+function yieldHistoryPoint(date, dayRows) {
+  let totalStakeRao = 0n;
+  let totalEmissionRao = 0n;
+  let validatorCount = 0;
+  const definedYields = [];
+  for (const row of dayRows) {
+    const stake = toNumber(row?.stake_tao);
+    const emission = toNumber(row?.emission_tao);
+    totalStakeRao += toRaoBig(stake);
+    totalEmissionRao += toRaoBig(emission);
+    if (Number(row?.validator_permit) === 1) validatorCount += 1;
+    const y = computeYieldValue(emission, stake);
+    if (y != null) definedYields.push(y);
+  }
+  definedYields.sort((a, b) => a - b);
+  const totalStake = raoBigToTao(totalStakeRao);
+  const totalEmission = raoBigToTao(totalEmissionRao);
+  const meanYield =
+    definedYields.length > 0
+      ? round9(
+          definedYields.reduce((sum, y) => sum + y, 0) / definedYields.length,
+        )
+      : null;
+  return {
+    snapshot_date: date,
+    neuron_count: dayRows.length,
+    validator_count: validatorCount,
+    yield_count: definedYields.length,
+    subnet_yield: totalStake > 0 ? round9(totalEmission / totalStake) : null,
+    mean_yield: meanYield,
+    median_yield: median(definedYields),
+    p25_yield: percentile(definedYields, 25),
+    p75_yield: percentile(definedYields, 75),
+    p90_yield: percentile(definedYields, 90),
+  };
+}
+
+// Build the per-day yield time series (newest first) from neuron_daily rows
+// already ordered snapshot_date DESC. `capped` (the read hit the row cap) drops
+// the oldest day, which may be a partial distribution. Null-safe: a cold store
+// yields point_count:0.
+export function buildSubnetYieldHistory(rows, netuid, { window, capped } = {}) {
+  const list = Array.isArray(rows) ? rows : [];
+  // Group by snapshot_date. Rows arrive newest-first + same-date contiguous, so
+  // Map insertion order is the newest-first date order we want.
+  const byDate = new Map();
+  for (const row of list) {
+    const date = row?.snapshot_date;
+    if (typeof date !== "string" || !date) continue;
+    if (!byDate.has(date)) byDate.set(date, []);
+    byDate.get(date).push(row);
+  }
+  let dates = [...byDate.keys()];
+  if (capped && dates.length > 1) dates = dates.slice(0, -1);
+  const points = dates.map((date) => yieldHistoryPoint(date, byDate.get(date)));
+  return {
+    schema_version: 1,
+    netuid,
+    window: window ?? null,
+    point_count: points.length,
+    points,
+  };
+}
+
+// Shared D1 loader (mirrors handleSubnetYieldHistory) — read one subnet's dated
+// neuron_daily rows over the window and shape them into the per-day series.
+// Exported for parity with loadSubnetYield. Cold store -> point_count:0.
+export async function loadSubnetYieldHistory(
+  d1,
+  netuid,
+  { windowLabel, windowDays },
+) {
+  const cutoff = new Date(Date.now() - windowDays * DAY_MS)
+    .toISOString()
+    .slice(0, 10);
+  const rows = await d1(
+    `SELECT ${YIELD_HISTORY_READ_COLUMNS} FROM neuron_daily WHERE netuid = ? AND snapshot_date >= ? ORDER BY snapshot_date DESC LIMIT ?`,
+    [netuid, cutoff, YIELD_HISTORY_ROW_CAP],
+  );
+  return buildSubnetYieldHistory(rows, netuid, {
+    window: windowLabel,
+    capped: rows.length >= YIELD_HISTORY_ROW_CAP,
+  });
+}
