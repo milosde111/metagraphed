@@ -271,12 +271,13 @@ function finiteTimestamp(value: unknown): string | undefined {
   return Number.isFinite(Date.parse(value)) ? value : undefined;
 }
 
-function isPlainRecord(value: unknown): value is Record<string, unknown> {
-  return !!value && typeof value === "object" && !Array.isArray(value);
+/** Canonical non-array object guard for untrusted API/JSON payloads. */
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null && !Array.isArray(value);
 }
 
 function normalizeReliabilityGrade(raw: unknown): ReliabilityGrade | undefined {
-  if (!isPlainRecord(raw)) return undefined;
+  if (!isRecord(raw)) return undefined;
   return {
     score: coerceFiniteNumber(raw.score),
     grade: coerceString(raw.grade),
@@ -288,7 +289,7 @@ function normalizeReliabilityGrade(raw: unknown): ReliabilityGrade | undefined {
 }
 
 function normalizeTrajectoryDelta(raw: unknown): TrajectoryDelta | null {
-  if (!isPlainRecord(raw)) return null;
+  if (!isRecord(raw)) return null;
   return {
     from_date: coerceString(raw.from_date),
     to_date: coerceString(raw.to_date),
@@ -299,7 +300,7 @@ function normalizeTrajectoryDelta(raw: unknown): TrajectoryDelta | null {
 }
 
 function normalizeTrajectoryPoint(raw: unknown): TrajectoryPoint | undefined {
-  if (!isPlainRecord(raw)) return undefined;
+  if (!isRecord(raw)) return undefined;
   return {
     date: coerceString(raw.date) ?? "",
     completeness_score: coerceFiniteNumber(raw.completeness_score),
@@ -310,14 +311,14 @@ function normalizeTrajectoryPoint(raw: unknown): TrajectoryPoint | undefined {
 }
 
 function normalizeTrajectory(raw: Partial<Trajectory> | undefined): Trajectory {
-  const d = isPlainRecord(raw) ? raw : {};
+  const d = isRecord(raw) ? raw : {};
   const points = Array.isArray(d.points)
     ? d.points.slice(-MAX_TRAJECTORY_POINTS).flatMap((point) => {
         const normalized = normalizeTrajectoryPoint(point);
         return normalized ? [normalized] : [];
       })
     : [];
-  const deltas = isPlainRecord(d.deltas)
+  const deltas = isRecord(d.deltas)
     ? Object.fromEntries(
         Object.entries(d.deltas).map(([window, delta]) => [
           window,
@@ -334,7 +335,7 @@ function normalizeTrajectory(raw: Partial<Trajectory> | undefined): Trajectory {
 }
 
 function normalizeSubnetHistoryPoint(raw: unknown): SubnetHistoryPoint | undefined {
-  if (!isPlainRecord(raw)) return undefined;
+  if (!isRecord(raw)) return undefined;
   const snapshotDate = coerceString(raw.snapshot_date);
   if (!snapshotDate) return undefined;
   return {
@@ -348,7 +349,7 @@ function normalizeSubnetHistoryPoint(raw: unknown): SubnetHistoryPoint | undefin
 }
 
 function normalizeSubnetHistory(netuid: number, raw: unknown): SubnetHistory {
-  const d = isPlainRecord(raw) ? raw : {};
+  const d = isRecord(raw) ? raw : {};
   const points = Array.isArray(d.points)
     ? d.points.slice(-MAX_HISTORY_POINTS).flatMap((point) => {
         const normalized = normalizeSubnetHistoryPoint(point);
@@ -364,7 +365,7 @@ function normalizeSubnetHistory(netuid: number, raw: unknown): SubnetHistory {
 }
 
 function normalizeSubnetNeuronHistoryPoint(raw: unknown): SubnetNeuronHistoryPoint | undefined {
-  if (!isPlainRecord(raw)) return undefined;
+  if (!isRecord(raw)) return undefined;
   const snapshotDate = coerceString(raw.snapshot_date);
   if (!snapshotDate) return undefined;
   return {
@@ -385,7 +386,7 @@ function normalizeSubnetNeuronHistory(
   uid: number,
   raw: unknown,
 ): SubnetNeuronHistory {
-  const d = isPlainRecord(raw) ? raw : {};
+  const d = isRecord(raw) ? raw : {};
   const points = Array.isArray(d.points)
     ? d.points.slice(-MAX_HISTORY_POINTS).flatMap((point) => {
         const normalized = normalizeSubnetNeuronHistoryPoint(point);
@@ -402,7 +403,7 @@ function normalizeSubnetNeuronHistory(
 }
 
 function normalizeUptimeDay(raw: unknown): SurfaceUptimeDay | undefined {
-  if (!isPlainRecord(raw)) return undefined;
+  if (!isRecord(raw)) return undefined;
   return {
     day: coerceString(raw.day) ?? "",
     samples: coerceFiniteNumber(raw.samples),
@@ -413,7 +414,7 @@ function normalizeUptimeDay(raw: unknown): SurfaceUptimeDay | undefined {
 }
 
 function normalizeSurfaceUptime(raw: unknown): SurfaceUptime | undefined {
-  if (!isPlainRecord(raw)) return undefined;
+  if (!isRecord(raw)) return undefined;
   const surfaceId = coerceString(raw.surface_id);
   if (!surfaceId) return undefined;
   const days = Array.isArray(raw.days)
@@ -434,7 +435,7 @@ function normalizeSurfaceUptime(raw: unknown): SurfaceUptime | undefined {
 }
 
 function normalizeUptime(raw: Partial<Uptime> | undefined): Uptime {
-  const d = isPlainRecord(raw) ? raw : {};
+  const d = isRecord(raw) ? raw : {};
   const surfaces = Array.isArray(d.surfaces)
     ? d.surfaces.slice(0, MAX_UPTIME_SURFACES).flatMap((surface) => {
         const normalized = normalizeSurfaceUptime(surface);
@@ -536,10 +537,6 @@ export const coverageQuery = () =>
     },
     staleTime: STALE_MED,
   });
-
-function isRecord(value: unknown): value is Record<string, unknown> {
-  return typeof value === "object" && value !== null && !Array.isArray(value);
-}
 
 function optionalString(value: unknown): string | undefined {
   return typeof value === "string" ? value : undefined;
@@ -748,11 +745,11 @@ export const subnetHealthMapQuery = () =>
       const empty = { data: {} as Record<number, SubnetHealthEntry> };
       try {
         const res = await apiFetch<Record<string, unknown>>("/api/v1/health", { signal });
-        const d = isPlainRecord(res.data) ? res.data : {};
+        const d = isRecord(res.data) ? res.data : {};
         const subnets = Array.isArray(d.subnets) ? d.subnets : [];
         const map: Record<number, SubnetHealthEntry> = {};
         for (const sn of subnets) {
-          if (!isPlainRecord(sn)) continue;
+          if (!isRecord(sn)) continue;
           const netuid = sn.netuid;
           if (typeof netuid !== "number") continue;
           map[netuid] = {
@@ -799,7 +796,7 @@ export const sourceHealthQuery = () =>
 // This is the REAL daily series; the per-subnet subnetHealthTrendsQuery is a different
 // (surface-aggregate, no points[]) shape and must NOT be reused here.
 function normalizeBulkTrendPoint(raw: unknown): BulkHealthTrendPoint | null {
-  if (!isPlainRecord(raw)) return null;
+  if (!isRecord(raw)) return null;
   const date = coerceString(raw.date);
   if (!date) return null;
   const uptime = raw.uptime_ratio;
@@ -814,7 +811,7 @@ function normalizeBulkTrendPoint(raw: unknown): BulkHealthTrendPoint | null {
 }
 
 function normalizeBulkTrendSubnet(raw: unknown): BulkHealthTrendSubnet | null {
-  if (!isPlainRecord(raw)) return null;
+  if (!isRecord(raw)) return null;
   const netuid = optionalNumber(raw.netuid);
   if (netuid == null) return null;
   const points = Array.isArray(raw.points)
@@ -834,11 +831,11 @@ function normalizeBulkTrendSubnet(raw: unknown): BulkHealthTrendSubnet | null {
 }
 
 function normalizeBulkHealthTrends(raw: unknown): BulkHealthTrends {
-  const d = isPlainRecord(raw) ? raw : {};
-  const windowsRaw = isPlainRecord(d.windows) ? d.windows : {};
+  const d = isRecord(raw) ? raw : {};
+  const windowsRaw = isRecord(d.windows) ? d.windows : {};
   const windows: BulkHealthTrends["windows"] = {};
   for (const [range, value] of Object.entries(windowsRaw)) {
-    if (!isPlainRecord(value)) continue;
+    if (!isRecord(value)) continue;
     const subnets = Array.isArray(value.subnets)
       ? value.subnets
           .map(normalizeBulkTrendSubnet)
@@ -908,7 +905,7 @@ type BulkHealthTrendWindowLike = { subnets?: BulkHealthTrendSubnet[] };
 
 // /api/v1/registry/summary
 function numberRecord(raw: unknown): Record<string, number> {
-  if (!isPlainRecord(raw)) return {};
+  if (!isRecord(raw)) return {};
   const out: Record<string, number> = {};
   for (const [key, value] of Object.entries(raw)) {
     const n = optionalNumber(value);
@@ -918,7 +915,7 @@ function numberRecord(raw: unknown): Record<string, number> {
 }
 
 function normalizeRegistryTopSubnet(raw: unknown): RegistrySummaryTopSubnet | null {
-  if (!isPlainRecord(raw)) return null;
+  if (!isRecord(raw)) return null;
   const netuid = optionalNumber(raw.netuid);
   if (netuid == null) return null;
   return {
@@ -932,12 +929,12 @@ function normalizeRegistryTopSubnet(raw: unknown): RegistrySummaryTopSubnet | nu
 }
 
 function normalizeRegistrySummary(raw: unknown): RegistrySummary {
-  const d = isPlainRecord(raw) ? raw : {};
-  const coverage = isPlainRecord(d.coverage) ? d.coverage : {};
-  const dimRaw = isPlainRecord(coverage.dimension_coverage) ? coverage.dimension_coverage : {};
+  const d = isRecord(raw) ? raw : {};
+  const coverage = isRecord(d.coverage) ? d.coverage : {};
+  const dimRaw = isRecord(coverage.dimension_coverage) ? coverage.dimension_coverage : {};
   const dimension_coverage: RegistrySummary["coverage"]["dimension_coverage"] = {};
   for (const [key, value] of Object.entries(dimRaw)) {
-    if (!isPlainRecord(value)) continue;
+    if (!isRecord(value)) continue;
     dimension_coverage[key] = {
       pct: optionalNumber(value.pct),
       present: optionalNumber(value.present),
@@ -984,10 +981,10 @@ export const registrySummaryQuery = () =>
 
 // /api/v1/coverage-depth
 function normalizeCoverageDepthRow(raw: unknown): CoverageDepthRow | null {
-  if (!isPlainRecord(raw)) return null;
+  if (!isRecord(raw)) return null;
   const netuid = optionalNumber(raw.netuid);
   if (netuid == null) return null;
-  const dimRaw = isPlainRecord(raw.dimensions) ? raw.dimensions : {};
+  const dimRaw = isRecord(raw.dimensions) ? raw.dimensions : {};
   return {
     netuid,
     name: coerceString(raw.name),
@@ -1023,7 +1020,7 @@ function normalizeCoverageDepthRow(raw: unknown): CoverageDepthRow | null {
 }
 
 function normalizeCoverageDepthQueueRow(raw: unknown): CoverageDepthQueueRow | null {
-  if (!isPlainRecord(raw)) return null;
+  if (!isRecord(raw)) return null;
   const netuid = optionalNumber(raw.netuid);
   const rank = optionalNumber(raw.rank);
   if (netuid == null || rank == null) return null;
@@ -1042,7 +1039,7 @@ function normalizeCoverageDepthQueueRow(raw: unknown): CoverageDepthQueueRow | n
 }
 
 function normalizeCoverageDepth(raw: unknown): CoverageDepth {
-  const d = isPlainRecord(raw) ? raw : {};
+  const d = isRecord(raw) ? raw : {};
   const rows = Array.isArray(d.rows)
     ? d.rows.map(normalizeCoverageDepthRow).filter((r): r is CoverageDepthRow => r !== null)
     : [];
@@ -1076,7 +1073,7 @@ export const coverageDepthQuery = (params?: QueryParams) =>
 
 // /api/v1/health/history/{date}
 function normalizeHealthHistorySurface(raw: unknown): HealthHistorySurface | null {
-  if (!isPlainRecord(raw)) return null;
+  if (!isRecord(raw)) return null;
   return {
     surface_id: coerceString(raw.surface_id),
     netuid: optionalNumber(raw.netuid),
@@ -1094,8 +1091,8 @@ function normalizeHealthHistorySurface(raw: unknown): HealthHistorySurface | nul
 }
 
 function normalizeHealthHistory(raw: unknown): HealthHistory {
-  const d = isPlainRecord(raw) ? raw : {};
-  const summary = isPlainRecord(d.summary) ? d.summary : {};
+  const d = isRecord(raw) ? raw : {};
+  const summary = isRecord(d.summary) ? d.summary : {};
   const surfaces = Array.isArray(d.surfaces)
     ? d.surfaces
         .map(normalizeHealthHistorySurface)
@@ -1134,7 +1131,7 @@ export const healthHistoryQuery = (date: string, params?: QueryParams) =>
 // /api/v1/source-health — REAL provider rollup. NOTE: the legacy sourceHealthQuery
 // (above) intentionally maps onto /api/v1/freshness; this one hits the actual endpoint.
 function normalizeSourceHealthProvider(raw: unknown): SourceHealthProvider | null {
-  if (!isPlainRecord(raw)) return null;
+  if (!isRecord(raw)) return null;
   const id = coerceString(raw.id);
   if (!id) return null;
   return {
@@ -1152,8 +1149,8 @@ function normalizeSourceHealthProvider(raw: unknown): SourceHealthProvider | nul
 }
 
 function normalizeSourceHealth(raw: unknown): SourceHealth {
-  const d = isPlainRecord(raw) ? raw : {};
-  const summary = isPlainRecord(d.summary) ? d.summary : {};
+  const d = isRecord(raw) ? raw : {};
+  const summary = isRecord(d.summary) ? d.summary : {};
   const providers = Array.isArray(d.providers)
     ? d.providers
         .map(normalizeSourceHealthProvider)
@@ -1196,7 +1193,7 @@ function stringArray(raw: unknown): string[] | undefined {
 }
 
 function normalizeAgentBlocker(raw: unknown): AgentCatalogBlocker | null {
-  if (!isPlainRecord(raw)) return null;
+  if (!isRecord(raw)) return null;
   return {
     code: coerceString(raw.code),
     field: coerceString(raw.field),
@@ -1207,7 +1204,7 @@ function normalizeAgentBlocker(raw: unknown): AgentCatalogBlocker | null {
 }
 
 function normalizeAgentReadiness(raw: unknown): AgentReadiness | undefined {
-  if (!isPlainRecord(raw)) return undefined;
+  if (!isRecord(raw)) return undefined;
   const blockers = Array.isArray(raw.blockers)
     ? raw.blockers.map(normalizeAgentBlocker).filter((b): b is AgentCatalogBlocker => b !== null)
     : undefined;
@@ -1222,15 +1219,13 @@ function normalizeAgentReadiness(raw: unknown): AgentReadiness | undefined {
 // readiness_tier lives in two places by bucket: ready rows nest it under
 // readiness.readiness_tier, blocked rows carry a flat readiness_tier.
 function resolveReadinessTier(raw: Record<string, unknown>): string | undefined {
-  const nested = isPlainRecord(raw.readiness)
-    ? coerceString(raw.readiness.readiness_tier)
-    : undefined;
+  const nested = isRecord(raw.readiness) ? coerceString(raw.readiness.readiness_tier) : undefined;
   return nested ?? coerceString(raw.readiness_tier);
 }
 
 function normalizeAgentCatalogReadiness(raw: unknown) {
-  if (!isPlainRecord(raw)) return undefined;
-  const components = isPlainRecord(raw.components)
+  if (!isRecord(raw)) return undefined;
+  const components = isRecord(raw.components)
     ? Object.fromEntries(
         Object.entries(raw.components).flatMap(([key, value]) =>
           typeof value === "boolean" ? [[key, value] as const] : [],
@@ -1246,7 +1241,7 @@ function normalizeAgentCatalogReadiness(raw: unknown) {
 }
 
 function normalizeAgentCatalogSummary(raw: unknown): AgentCatalogSummary | null {
-  if (!isPlainRecord(raw)) return null;
+  if (!isRecord(raw)) return null;
   const netuid = optionalNumber(raw.netuid);
   if (netuid == null) return null;
   return {
@@ -1269,9 +1264,9 @@ function normalizeAgentCatalogSummary(raw: unknown): AgentCatalogSummary | null 
 }
 
 function normalizeAgentCatalogService(raw: unknown): AgentCatalogService | null {
-  if (!isPlainRecord(raw)) return null;
-  const healthRaw = isPlainRecord(raw.health) ? raw.health : undefined;
-  const eligRaw = isPlainRecord(raw.eligibility) ? raw.eligibility : undefined;
+  if (!isRecord(raw)) return null;
+  const healthRaw = isRecord(raw.health) ? raw.health : undefined;
+  const eligRaw = isRecord(raw.eligibility) ? raw.eligibility : undefined;
   return {
     kind: coerceString(raw.kind),
     capability: coerceString(raw.capability),
@@ -1306,7 +1301,7 @@ function normalizeAgentCatalogService(raw: unknown): AgentCatalogService | null 
 
 export function normalizeAgentCatalogDetail(raw: unknown, netuid: number): AgentCatalogDetail {
   const base = normalizeAgentCatalogSummary(raw) ?? { netuid };
-  const d = isPlainRecord(raw) ? raw : {};
+  const d = isRecord(raw) ? raw : {};
   const services = Array.isArray(d.services)
     ? d.services
         .map(normalizeAgentCatalogService)
@@ -1334,7 +1329,7 @@ export const agentCatalogMapQuery = () =>
       const empty = { data: {} as Record<number, AgentCatalogSummary> };
       try {
         const res = await apiFetch<Record<string, unknown>>("/api/v1/agent-catalog", { signal });
-        const d = isPlainRecord(res.data) ? res.data : {};
+        const d = isRecord(res.data) ? res.data : {};
         const map: Record<number, AgentCatalogSummary> = {};
         for (const key of ["subnets", "blocked_subnets"] as const) {
           const arr = Array.isArray(d[key]) ? (d[key] as unknown[]) : [];
@@ -2393,19 +2388,13 @@ const READINESS_COMPONENT_KEYS = [
   "active_lifecycle",
 ] as const;
 
-function isPlainObject(value: unknown): value is Record<string, unknown> {
-  if (!value || typeof value !== "object") return false;
-  const proto = Object.getPrototypeOf(value);
-  return proto === Object.prototype || proto === null;
-}
-
 function normalizeReadiness(raw: unknown): ReadinessSummary | undefined {
-  if (!isPlainObject(raw)) return undefined;
+  if (!isRecord(raw)) return undefined;
 
   const componentsRaw = raw.components;
   let components: Record<string, boolean> | undefined;
 
-  if (isPlainObject(componentsRaw)) {
+  if (isRecord(componentsRaw)) {
     const normalizedComponents: Record<string, boolean> = {};
     for (const key of READINESS_COMPONENT_KEYS) {
       if (typeof componentsRaw[key] === "boolean") {
@@ -2637,9 +2626,9 @@ export const subnetEventsQuery = (netuid: number) =>
   });
 
 function normalizeSurfaceLatencyPercentile(raw: unknown): SurfaceLatencyPercentiles | undefined {
-  if (!isPlainRecord(raw) || typeof raw.surface_id !== "string") return undefined;
+  if (!isRecord(raw) || typeof raw.surface_id !== "string") return undefined;
 
-  const latency = isPlainRecord(raw.latency_ms) ? raw.latency_ms : {};
+  const latency = isRecord(raw.latency_ms) ? raw.latency_ms : {};
   return {
     surface_id: raw.surface_id,
     samples: optionalNumber(raw.samples),
@@ -2663,7 +2652,7 @@ function normalizeSurfaceLatencyPercentiles(raw: unknown): SurfaceLatencyPercent
 }
 
 export function normalizeSurfaceSla(raw: unknown): SurfaceSla | undefined {
-  if (!isPlainRecord(raw) || typeof raw.surface_id !== "string") return undefined;
+  if (!isRecord(raw) || typeof raw.surface_id !== "string") return undefined;
 
   return {
     surface_id: raw.surface_id,
@@ -2675,7 +2664,7 @@ export function normalizeSurfaceSla(raw: unknown): SurfaceSla | undefined {
     // flattenSurfaceIncidents can safely read inc.started_at etc. without
     // throwing on a single bad element and crashing the whole operational view.
     incidents: Array.isArray(raw.incidents)
-      ? (raw.incidents.filter(isPlainRecord) as SurfaceSlaIncident[])
+      ? (raw.incidents.filter(isRecord) as SurfaceSlaIncident[])
       : undefined,
   };
 }
@@ -2826,7 +2815,7 @@ export const subnetNeuronHistoryQuery = (netuid: number, uid: number, window = "
 
 /** Normalize one neuron row; null/missing optional fields collapse to undefined. */
 function normalizeMetagraphNeuron(raw: unknown): MetagraphNeuron | undefined {
-  if (!isPlainRecord(raw)) return undefined;
+  if (!isRecord(raw)) return undefined;
   const uid = coerceFiniteNumber(raw.uid);
   if (uid == null) return undefined;
   return {
@@ -2860,7 +2849,7 @@ function normalizeNeuronRows(raw: unknown): MetagraphNeuron[] {
 }
 
 function normalizeSubnetMetagraph(netuid: number, raw: unknown): SubnetMetagraph {
-  const d = isPlainRecord(raw) ? raw : {};
+  const d = isRecord(raw) ? raw : {};
   const neurons = normalizeNeuronRows(d.neurons);
   return {
     netuid: coerceFiniteNumber(d.netuid) ?? netuid,
@@ -2872,7 +2861,7 @@ function normalizeSubnetMetagraph(netuid: number, raw: unknown): SubnetMetagraph
 }
 
 function normalizeSubnetValidators(netuid: number, raw: unknown): SubnetValidators {
-  const d = isPlainRecord(raw) ? raw : {};
+  const d = isRecord(raw) ? raw : {};
   const validators = normalizeNeuronRows(d.validators);
   return {
     netuid: coerceFiniteNumber(d.netuid) ?? netuid,
@@ -2894,7 +2883,7 @@ const GLOBAL_VALIDATOR_SORTS: GlobalValidatorSort[] = [
 ];
 
 function normalizeGlobalValidatorSubnet(raw: unknown): GlobalValidatorSubnet | null {
-  if (!isPlainRecord(raw)) return null;
+  if (!isRecord(raw)) return null;
   const netuid = coerceFiniteNumber(raw.netuid);
   const uid = coerceFiniteNumber(raw.uid);
   if (netuid == null || uid == null) return null;
@@ -2909,7 +2898,7 @@ function normalizeGlobalValidatorSubnet(raw: unknown): GlobalValidatorSubnet | n
 }
 
 function normalizeGlobalValidator(raw: unknown): GlobalValidator | null {
-  if (!isPlainRecord(raw)) return null;
+  if (!isRecord(raw)) return null;
   const hotkey = coerceString(raw.hotkey);
   if (!hotkey) return null;
   const subnets = Array.isArray(raw.subnets)
@@ -2938,7 +2927,7 @@ function normalizeGlobalValidator(raw: unknown): GlobalValidator | null {
 }
 
 export function normalizeGlobalValidators(raw: unknown): GlobalValidators {
-  const d = isPlainRecord(raw) ? raw : {};
+  const d = isRecord(raw) ? raw : {};
   const sortRaw = coerceString(d.sort);
   const sort = GLOBAL_VALIDATOR_SORTS.includes(sortRaw as GlobalValidatorSort)
     ? (sortRaw as GlobalValidatorSort)
@@ -2961,7 +2950,7 @@ export function normalizeGlobalValidators(raw: unknown): GlobalValidators {
 }
 
 function normalizeNeuronSnapshot(netuid: number, uid: number, raw: unknown): SubnetNeuronSnapshot {
-  const d = isPlainRecord(raw) ? raw : {};
+  const d = isRecord(raw) ? raw : {};
   return {
     netuid: coerceFiniteNumber(d.netuid) ?? netuid,
     uid: coerceFiniteNumber(d.uid) ?? uid,
@@ -2972,7 +2961,7 @@ function normalizeNeuronSnapshot(netuid: number, uid: number, raw: unknown): Sub
 }
 
 function normalizeConcentrationMetrics(raw: unknown): ConcentrationMetrics | undefined {
-  if (!isPlainRecord(raw)) return undefined;
+  if (!isRecord(raw)) return undefined;
   return {
     holders: coerceFiniteNumber(raw.holders),
     total: coerceFiniteNumber(raw.total),
@@ -2993,7 +2982,7 @@ function normalizeConcentrationMetrics(raw: unknown): ConcentrationMetrics | und
 // all-null objects must not become a non-null card (ConcentrationMetrics contract).
 export function normalizeConcentrationMetricsOrNull(raw: unknown): ConcentrationMetrics | null {
   if (raw == null) return null;
-  if (!isPlainRecord(raw)) return null;
+  if (!isRecord(raw)) return null;
   const holders = coerceFiniteNumber(raw.holders);
   const gini = coerceFiniteNumber(raw.gini);
   const hhi = coerceFiniteNumber(raw.hhi);
@@ -3014,7 +3003,7 @@ export function normalizeConcentrationMetricsOrNull(raw: unknown): Concentration
 
 export function normalizeScoreDistributionOrNull(raw: unknown): ScoreDistribution | null {
   if (raw == null) return null;
-  if (!isPlainRecord(raw)) return null;
+  if (!isRecord(raw)) return null;
   const count = coerceFiniteNumber(raw.count);
   if (count == null || count === 0) return null;
   return {
@@ -3031,7 +3020,7 @@ export function normalizeScoreDistributionOrNull(raw: unknown): ScoreDistributio
 }
 
 export function normalizeChainConcentration(raw: unknown): ChainConcentration {
-  const d = isPlainRecord(raw) ? raw : {};
+  const d = isRecord(raw) ? raw : {};
   return {
     schema_version: coerceFiniteNumber(d.schema_version) ?? 1,
     subnet_count: coerceFiniteNumber(d.subnet_count) ?? 0,
@@ -3048,7 +3037,7 @@ export function normalizeChainConcentration(raw: unknown): ChainConcentration {
 }
 
 export function normalizeChainPerformance(raw: unknown): ChainPerformance {
-  const d = isPlainRecord(raw) ? raw : {};
+  const d = isRecord(raw) ? raw : {};
   return {
     schema_version: coerceFiniteNumber(d.schema_version) ?? 1,
     subnet_count: coerceFiniteNumber(d.subnet_count) ?? 0,
@@ -3065,7 +3054,7 @@ export function normalizeChainPerformance(raw: unknown): ChainPerformance {
 }
 
 function normalizeSubnetConcentration(netuid: number, raw: unknown): SubnetConcentration {
-  const d = isPlainRecord(raw) ? raw : {};
+  const d = isRecord(raw) ? raw : {};
   return {
     netuid: coerceFiniteNumber(d.netuid) ?? netuid,
     neuron_count: coerceFiniteNumber(d.neuron_count),
@@ -3081,7 +3070,7 @@ function normalizeSubnetConcentration(netuid: number, raw: unknown): SubnetConce
 }
 
 function normalizeConcentrationHistoryPoint(raw: unknown): ConcentrationHistoryPoint | undefined {
-  if (!isPlainRecord(raw)) return undefined;
+  if (!isRecord(raw)) return undefined;
   const snapshotDate = coerceString(raw.snapshot_date);
   if (!snapshotDate) return undefined;
   // Nullable-by-design: the early window has no stake metrics yet — keep null
@@ -3104,7 +3093,7 @@ function normalizeSubnetConcentrationHistory(
   netuid: number,
   raw: unknown,
 ): SubnetConcentrationHistory {
-  const d = isPlainRecord(raw) ? raw : {};
+  const d = isRecord(raw) ? raw : {};
   const points = Array.isArray(d.points)
     ? d.points.slice(-MAX_HISTORY_POINTS).flatMap((point) => {
         const normalized = normalizeConcentrationHistoryPoint(point);
@@ -3267,11 +3256,11 @@ export const chainPerformanceQuery = () =>
   });
 
 function normalizeCompareSubnet(raw: unknown): CompareSubnet | undefined {
-  if (!isPlainRecord(raw)) return undefined;
+  if (!isRecord(raw)) return undefined;
   const netuid = optionalNumber(raw.netuid);
   if (netuid == null) return undefined;
 
-  const structure = isPlainRecord(raw.structure)
+  const structure = isRecord(raw.structure)
     ? {
         completeness_score: optionalNumber(raw.structure.completeness_score),
         surface_count: optionalNumber(raw.structure.surface_count),
@@ -3279,7 +3268,7 @@ function normalizeCompareSubnet(raw: unknown): CompareSubnet | undefined {
       }
     : undefined;
 
-  const economics = isPlainRecord(raw.economics)
+  const economics = isRecord(raw.economics)
     ? {
         ...raw.economics,
         registration_cost_tao: optionalNumber(raw.economics.registration_cost_tao),
@@ -3294,7 +3283,7 @@ function normalizeCompareSubnet(raw: unknown): CompareSubnet | undefined {
       }
     : undefined;
 
-  const health = isPlainRecord(raw.health)
+  const health = isRecord(raw.health)
     ? {
         surface_count: optionalNumber(raw.health.surface_count),
         ok_count: optionalNumber(raw.health.ok_count),
@@ -3314,7 +3303,7 @@ function normalizeCompareSubnet(raw: unknown): CompareSubnet | undefined {
 }
 
 export function normalizeCompare(raw: unknown): Compare {
-  const d = isPlainRecord(raw) ? raw : {};
+  const d = isRecord(raw) ? raw : {};
   const subnets = Array.isArray(d.subnets)
     ? d.subnets.flatMap((subnet) => {
         const normalized = normalizeCompareSubnet(subnet);
@@ -3373,7 +3362,7 @@ export const subnetHealthTrendsQuery = (netuid: number) =>
   });
 
 function normalizeHealthTrendLatency(raw: unknown): HealthTrendSurface["latency_ms"] {
-  if (!isPlainRecord(raw)) return undefined;
+  if (!isRecord(raw)) return undefined;
   return {
     p50: optionalNumber(raw.p50),
     p95: optionalNumber(raw.p95),
@@ -3382,7 +3371,7 @@ function normalizeHealthTrendLatency(raw: unknown): HealthTrendSurface["latency_
 }
 
 function normalizeHealthTrendSurface(raw: unknown): HealthTrendSurface | undefined {
-  if (!isPlainRecord(raw)) return undefined;
+  if (!isRecord(raw)) return undefined;
   const surfaceId = coerceString(raw.surface_id);
   if (!surfaceId) return undefined;
 
@@ -3398,7 +3387,7 @@ function normalizeHealthTrendSurface(raw: unknown): HealthTrendSurface | undefin
 }
 
 function normalizeHealthTrendWindow(raw: unknown): HealthTrendWindow | undefined {
-  if (!isPlainRecord(raw)) return undefined;
+  if (!isRecord(raw)) return undefined;
   const surfaces = Array.isArray(raw.surfaces)
     ? raw.surfaces.slice(0, MAX_HEALTH_TREND_SURFACES).flatMap((surface) => {
         const normalized = normalizeHealthTrendSurface(surface);
@@ -3416,8 +3405,8 @@ function normalizeHealthTrendWindow(raw: unknown): HealthTrendWindow | undefined
 }
 
 function normalizeHealthTrends(raw: unknown): HealthTrends {
-  const d = isPlainRecord(raw) ? raw : {};
-  const windows = isPlainRecord(d.windows)
+  const d = isRecord(raw) ? raw : {};
+  const windows = isRecord(d.windows)
     ? Object.fromEntries(
         Object.entries(d.windows).flatMap(([range, window]) => {
           const normalized = normalizeHealthTrendWindow(window);
@@ -3725,7 +3714,7 @@ export const endpointsQuery = (params?: QueryParams) =>
 function normalizePool(raw: unknown): RpcPool {
   if (!raw || typeof raw !== "object") return raw as RpcPool;
   const p = raw as Record<string, unknown>;
-  const endpoints = Array.isArray(p.endpoints) ? p.endpoints.filter(isPlainRecord) : [];
+  const endpoints = Array.isArray(p.endpoints) ? p.endpoints.filter(isRecord) : [];
   return {
     ...(p as object),
     id: asString(p.id) ?? "",
