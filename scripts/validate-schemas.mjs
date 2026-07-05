@@ -38,6 +38,7 @@ const COMPUTED_ARTIFACTS = new Set([
   "subnet-serving",
   "subnet-prometheus",
   "subnet-stake-moves",
+  "subnet-stake-transfers",
   "subnet-registrations",
   "subnet-axon-removals",
   "subnet-deregistrations",

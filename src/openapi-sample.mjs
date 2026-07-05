@@ -799,6 +799,31 @@ function normalizeChainStakeTransfersSample(out) {
   return out;
 }
 
+// The per-subnet /chain/stake-transfers drill-in card (SubnetStakeTransfersArtifact) is a flat
+// object (netuid + distinct_senders + transfers + transfers_per_sender), NOT a leaderboard — guard
+// on the top-level netuid so this never matches the chain leaderboard's nested `network` block, and
+// on the absence of `subnets`/`network`. The generic per-field generator emits transfers_per_sender
+// independently of transfers/distinct_senders (e.g. 1/1 but 0.5), so pin a consistent worked example.
+function normalizeSubnetStakeTransfersSample(out) {
+  if (
+    !out ||
+    typeof out !== "object" ||
+    !("transfers_per_sender" in out) ||
+    !("distinct_senders" in out) ||
+    !("transfers" in out) ||
+    !("netuid" in out) ||
+    "network" in out ||
+    Array.isArray(out.subnets)
+  ) {
+    return out;
+  }
+  // 2 senders emitting 3 StakeTransferred events -> 3 / 2 = 1.5 transfers per sender.
+  out.distinct_senders = 2;
+  out.transfers = 3;
+  out.transfers_per_sender = 1.5;
+  return out;
+}
+
 function normalizeObjectSample(out) {
   normalizeCounterpartyRelationshipSample(out);
   normalizeAccountCounterpartiesSample(out);
@@ -816,6 +841,7 @@ function normalizeObjectSample(out) {
   normalizeChainDeregistrationsSample(out);
   normalizeChainStakeMovesSample(out);
   normalizeChainStakeTransfersSample(out);
+  normalizeSubnetStakeTransfersSample(out);
   return out;
 }
 

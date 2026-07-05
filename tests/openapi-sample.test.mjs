@@ -1247,6 +1247,46 @@ describe("sampleFromSchema", () => {
     assert.notEqual(untouched.network.transfers, 70);
   });
 
+  test("subnet stake-transfers samples keep transfers-per-sender consistent", () => {
+    const subnetStakeTransfersSchema = {
+      type: "object",
+      required: [
+        "schema_version",
+        "netuid",
+        "window",
+        "observed_at",
+        "distinct_senders",
+        "transfers",
+        "transfers_per_sender",
+      ],
+      properties: {
+        schema_version: { type: "integer" },
+        netuid: { type: "integer" },
+        window: { type: "string" },
+        observed_at: { type: "string", format: "date-time" },
+        distinct_senders: { type: "integer" },
+        transfers: { type: "integer" },
+        transfers_per_sender: { type: ["number", "null"] },
+      },
+    };
+    const sample = s(subnetStakeTransfersSchema, "data");
+
+    // The flat per-subnet card's worked example is internally consistent: transfers_per_sender
+    // equals transfers / distinct_senders (the generic generator emits them independently).
+    assert.equal(
+      sample.transfers_per_sender,
+      sample.transfers / sample.distinct_senders,
+    );
+
+    // A flat object without a top-level netuid is not the subnet card and is left untouched — this
+    // guards the chain leaderboard's nested `network` block (same field names, no netuid).
+    const notSubnet = JSON.parse(JSON.stringify(subnetStakeTransfersSchema));
+    delete notSubnet.properties.netuid;
+    notSubnet.required = notSubnet.required.filter((k) => k !== "netuid");
+    const untouched = s(notSubnet, "data");
+    assert.notEqual(untouched.transfers, 3);
+  });
+
   test("chain transfer-pair samples keep the top-pair share consistent", () => {
     const ss58Pattern = "^[1-9A-HJ-NP-Za-km-z]{47,48}$";
     const pairSchema = {

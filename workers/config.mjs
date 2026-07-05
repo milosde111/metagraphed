@@ -73,6 +73,9 @@ export const SUBNET_PROMETHEUS_PATH_PATTERN =
 // Stake-movement (re-delegation) activity over the window, live from account_events, no static file.
 export const SUBNET_STAKE_MOVES_PATH_PATTERN =
   /^\/api\/v1\/subnets\/(\d+)\/stake-moves$/;
+// Stake-transfer (between-coldkeys) activity over the window, live from account_events, no static file.
+export const SUBNET_STAKE_TRANSFERS_PATH_PATTERN =
+  /^\/api\/v1\/subnets\/(\d+)\/stake-transfers$/;
 // Neuron-registration activity over the window, live from account_events, no static file.
 export const SUBNET_REGISTRATIONS_PATH_PATTERN =
   /^\/api\/v1\/subnets\/(\d+)\/registrations$/;

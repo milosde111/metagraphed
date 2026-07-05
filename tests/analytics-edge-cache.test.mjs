@@ -503,6 +503,35 @@ describe("analytics edge cache", () => {
     assert.equal(cache.store.size, 1);
   });
 
+  test("subnet stake-transfers routes through the worker and caches at the default window", async () => {
+    originalCaches = globalThis.caches;
+    const cache = mockCaches();
+    cache.install();
+    const env = analyticsEnv([]);
+
+    // No ?window — the worker dispatches to handleSubnetStakeTransfers, which resolves the
+    // 7d default and caches under the canonical ?window=7d key.
+    const res = await handleRequest(
+      new Request("https://api.metagraph.sh/api/v1/subnets/7/stake-transfers"),
+      env,
+      ctx,
+    );
+    await Promise.resolve();
+    assert.equal(res.status, 200);
+    const body = await res.json();
+    assert.equal(body.data.netuid, 7);
+    assert.equal(body.data.window, "7d");
+    assert.equal(typeof body.data.distinct_senders, "number");
+    assert.deepEqual(cache.putKeys, [
+      expectedKey(
+        "subnet-stake-transfers",
+        "/api/v1/subnets/7/stake-transfers",
+        "?window=7d",
+      ),
+    ]);
+    assert.equal(cache.store.size, 1);
+  });
+
   test("subnet registrations routes through the worker and caches at the default window", async () => {
     originalCaches = globalThis.caches;
     const cache = mockCaches();

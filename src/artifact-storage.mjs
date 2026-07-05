@@ -58,6 +58,7 @@ export const R2_ONLY_PATTERNS = [
   /^subnets\/(?:\d+|\{netuid\})\/prometheus\.json$/,
   // Stake-movement (re-delegation) activity: computed live from the account_events StakeMoved stream.
   /^subnets\/(?:\d+|\{netuid\})\/stake-moves\.json$/,
+  /^subnets\/(?:\d+|\{netuid\})\/stake-transfers\.json$/,
   // Neuron-registration activity: computed live from the account_events NeuronRegistered stream.
   /^subnets\/(?:\d+|\{netuid\})\/registrations\.json$/,
   // Axon-removal activity: computed live from the account_events AxonInfoRemoved stream.

@@ -157,6 +157,11 @@ import {
   DEFAULT_SUBNET_STAKE_MOVES_WINDOW,
 } from "../../src/subnet-stake-moves.mjs";
 import {
+  loadSubnetStakeTransfers,
+  SUBNET_STAKE_TRANSFERS_WINDOWS,
+  DEFAULT_SUBNET_STAKE_TRANSFERS_WINDOW,
+} from "../../src/subnet-stake-transfers.mjs";
+import {
   loadSubnetRegistrations,
   SUBNET_REGISTRATIONS_WINDOWS,
   DEFAULT_SUBNET_REGISTRATIONS_WINDOW,
@@ -1524,6 +1529,58 @@ export async function handleSubnetStakeMoves(request, env, netuid, url) {
       meta: await accountMeta(
         env,
         `/metagraph/subnets/${netuid}/stake-moves.json`,
+        data.observed_at,
+      ),
+    },
+    "short",
+  );
+}
+
+// Canonical edge-cache key for the subnet-stake-transfers route: only ?window= (7d/30d) changes the
+// response, canonicalized to its default when omitted so equivalent requests share a slot.
+export function canonicalSubnetStakeTransfersCachePath(url) {
+  const validationError = validateQueryParams(url, ["window"]);
+  if (validationError) return `${url.pathname}${url.search}`;
+  const windowParam =
+    url.searchParams.get("window") || DEFAULT_SUBNET_STAKE_TRANSFERS_WINDOW;
+  if (!Object.hasOwn(SUBNET_STAKE_TRANSFERS_WINDOWS, windowParam)) {
+    return `${url.pathname}${url.search}`;
+  }
+  return `${url.pathname}?window=${encodeURIComponent(windowParam)}`;
+}
+
+// GET /api/v1/subnets/{netuid}/stake-transfers?window=7d|30d: stake-transfer activity for one subnet
+// over the window — distinct senders (accounts), StakeTransferred event count, and transfers per
+// sender — read live from the account_events StakeTransferred stream. The per-subnet drill-in of
+// /api/v1/chain/stake-transfers and the between-coldkeys sibling of
+// /api/v1/subnets/{netuid}/stake-moves. Cold/absent store → 200 with a zeroed card (never 404).
+export async function handleSubnetStakeTransfers(request, env, netuid, url) {
+  const validationError = validateQueryParams(url, ["window"]);
+  if (validationError) return analyticsQueryError(validationError);
+  const windowParam =
+    url.searchParams.get("window") || DEFAULT_SUBNET_STAKE_TRANSFERS_WINDOW;
+  if (!Object.hasOwn(SUBNET_STAKE_TRANSFERS_WINDOWS, windowParam)) {
+    return analyticsQueryError({
+      parameter: "window",
+      message: unsupportedWindowMessage(
+        windowParam,
+        SUBNET_STAKE_TRANSFERS_WINDOWS,
+      ),
+    });
+  }
+  const data = await loadSubnetStakeTransfers(d1Runner(env), netuid, {
+    windowLabel: windowParam,
+    windowDays: SUBNET_STAKE_TRANSFERS_WINDOWS[windowParam],
+  });
+  // account_events-derived, so the meta reports the event-stream source (accountMeta) with
+  // generated_at the newest observed StakeTransferred event, mirroring the sibling stake-moves route.
+  return envelopeResponse(
+    request,
+    {
+      data,
+      meta: await accountMeta(
+        env,
+        `/metagraph/subnets/${netuid}/stake-transfers.json`,
         data.observed_at,
       ),
     },
