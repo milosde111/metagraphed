@@ -78,7 +78,10 @@ describe("profile-completeness-mcp", () => {
     });
     assert.equal(url.searchParams.get("netuid"), "73");
     assert.equal(url.searchParams.get("identity_level"), "partial");
-    assert.equal(url.searchParams.get("identity_promotion_kinds"), "source-repo");
+    assert.equal(
+      url.searchParams.get("identity_promotion_kinds"),
+      "source-repo",
+    );
     assert.equal(url.searchParams.get("sort"), "priority_score");
     assert.equal(url.searchParams.get("limit"), "10");
     assert.equal(url.searchParams.get("cursor"), "5");
@@ -268,7 +271,12 @@ describe("profile-completeness-mcp", () => {
   test("loadProfileCompletenessList projects row fields when requested", async () => {
     const out = await loadProfileCompletenessList(
       { env: {}, readArtifact },
-      { fields: "netuid,priority_score", limit: 1, sort: "priority_score", order: "desc" },
+      {
+        fields: "netuid,priority_score",
+        limit: 1,
+        sort: "priority_score",
+        order: "desc",
+      },
     );
     assert.deepEqual(out.profiles[0], { netuid: 73, priority_score: 119 });
   });
