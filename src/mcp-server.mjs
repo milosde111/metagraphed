@@ -86,6 +86,12 @@ import {
   loadEndpointIncidentsList,
 } from "./endpoint-incidents-mcp.mjs";
 import {
+  LIST_PROVIDER_ENDPOINTS_INSTRUCTIONS,
+  LIST_PROVIDER_ENDPOINTS_MCP_TOOL,
+  LIST_PROVIDER_ENDPOINTS_OUTPUT_SCHEMA,
+  loadProviderEndpointsList,
+} from "./provider-endpoints-mcp.mjs";
+import {
   GET_NETWORK_HEALTH_INSTRUCTIONS,
   GET_NETWORK_HEALTH_MCP_TOOL,
   GET_NETWORK_HEALTH_OUTPUT_SCHEMA,
@@ -757,6 +763,7 @@ export const MCP_INSTRUCTIONS =
   "scores, " +
   LIST_ENDPOINT_POOLS_INSTRUCTIONS +
   LIST_ENDPOINT_INCIDENTS_INSTRUCTIONS +
+  LIST_PROVIDER_ENDPOINTS_INSTRUCTIONS +
   "get_subnet_endpoints one subnet\u0027s endpoint resources, " +
   "get_subnet_candidates its pending candidate surfaces, get_subnet_evidence " +
   "its provenance evidence claims, and list_fixtures " +
@@ -6666,6 +6673,12 @@ export const MCP_TOOLS = [
     },
   },
   {
+    ...LIST_PROVIDER_ENDPOINTS_MCP_TOOL,
+    async handler(args, ctx) {
+      return loadProviderEndpointsList(ctx, args);
+    },
+  },
+  {
     name: "get_lineage",
     title: "Get cross-network subnet lineage",
     description:
@@ -10352,6 +10365,7 @@ const TOOL_OUTPUT_SCHEMAS = {
   list_review_enrichment_targets: LIST_REVIEW_ENRICHMENT_TARGETS_OUTPUT_SCHEMA,
   list_endpoint_pools: LIST_ENDPOINT_POOLS_OUTPUT_SCHEMA,
   list_endpoint_incidents: LIST_ENDPOINT_INCIDENTS_OUTPUT_SCHEMA,
+  list_provider_endpoints: LIST_PROVIDER_ENDPOINTS_OUTPUT_SCHEMA,
   get_lineage: {
     type: "object",
     additionalProperties: true,
