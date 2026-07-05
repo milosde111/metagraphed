@@ -322,6 +322,14 @@ assert.ok(
   Array.isArray(reviewEnrichmentTargetsPage.targets),
   "list_review_enrichment_targets must return targets[]",
 );
+const profileCompletenessPage = await callOk("list_profile_completeness", {
+  limit: 3,
+  identity_level: "partial",
+});
+assert.ok(
+  Array.isArray(profileCompletenessPage.profiles),
+  "list_profile_completeness must return profiles[]",
+);
 const searchIndexPage = await callOk("list_search_index", { limit: 3 });
 assert.ok(
   Array.isArray(searchIndexPage.documents),
