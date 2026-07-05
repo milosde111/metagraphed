@@ -132,8 +132,10 @@ function ValidAccountDetail({ ss58 }: { ss58: string }) {
   const balance = balanceResult.data?.data;
   // Signed extrinsics + native-TAO transfers are separate sub-resources (#264),
   // fetched non-blocking so a cold/slow tier never stalls the summary above.
-  const signedExtrinsics = useQuery(accountExtrinsicsQuery(ss58, { limit: 25 })).data?.data ?? [];
-  const transfers = useQuery(accountTransfersQuery(ss58, { limit: 25 })).data?.data ?? [];
+  const extrinsicsResult = useQuery(accountExtrinsicsQuery(ss58, { limit: 25 }));
+  const transfersResult = useQuery(accountTransfersQuery(ss58, { limit: 25 }));
+  const signedExtrinsics = extrinsicsResult.data?.data ?? [];
+  const transfers = transfersResult.data?.data ?? [];
 
   const balanceValue = balanceResult.isPending ? (
     <span className="text-ink-muted">…</span>
@@ -275,8 +277,8 @@ function ValidAccountDetail({ ss58 }: { ss58: string }) {
 
       <AccountEventsSection ss58={ss58} kindOptions={account.event_kinds} />
 
-      <AccountExtrinsicsSection rows={signedExtrinsics} />
-      <AccountTransfersSection ss58={ss58} rows={transfers} />
+      <AccountExtrinsicsSection rows={signedExtrinsics} isPending={extrinsicsResult.isPending} />
+      <AccountTransfersSection ss58={ss58} rows={transfers} isPending={transfersResult.isPending} />
 
       <div className="mt-6">
         <Link
@@ -353,7 +355,32 @@ function SectionBadge({
 
 const TH = "px-5 py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-ink-muted";
 
-function AccountExtrinsicsSection({ rows }: { rows: Extrinsic[] }) {
+function AccountFeedSectionSkeleton({
+  id,
+  title,
+  subtitle,
+}: {
+  id: string;
+  title: string;
+  subtitle: string;
+}) {
+  return (
+    <SectionAnchor id={id} title={title} subtitle={subtitle} tone="accent">
+      <Skeleton className="h-64 w-full" />
+    </SectionAnchor>
+  );
+}
+
+function AccountExtrinsicsSection({ rows, isPending }: { rows: Extrinsic[]; isPending?: boolean }) {
+  if (isPending && rows.length === 0) {
+    return (
+      <AccountFeedSectionSkeleton
+        id="extrinsics"
+        title="Signed extrinsics"
+        subtitle="The newest transactions this account signed, from the chain-direct extrinsics tier."
+      />
+    );
+  }
   if (rows.length === 0) return null;
   return (
     <SectionAnchor
@@ -429,7 +456,24 @@ function AccountExtrinsicsSection({ rows }: { rows: Extrinsic[] }) {
   );
 }
 
-function AccountTransfersSection({ ss58, rows }: { ss58: string; rows: Transfer[] }) {
+function AccountTransfersSection({
+  ss58,
+  rows,
+  isPending,
+}: {
+  ss58: string;
+  rows: Transfer[];
+  isPending?: boolean;
+}) {
+  if (isPending && rows.length === 0) {
+    return (
+      <AccountFeedSectionSkeleton
+        id="transfers"
+        title="Transfers"
+        subtitle="Native-TAO Balances.Transfer activity for this account, directional (sent / received)."
+      />
+    );
+  }
   if (rows.length === 0) return null;
   return (
     <SectionAnchor
@@ -649,17 +693,14 @@ function AccountEventsSection({
     navigate({ search: (prev: Record<string, unknown>) => ({ ...prev, ...patch }) as never });
 
   // Cold accounts return a schema-stable zero — never error. While loading the
-  // first page, defer to the summary-driven sections above rather than flashing.
+  // first page, show a skeleton instead of silently hiding the section.
   if (result.isPending && events.length === 0) {
     return (
-      <SectionAnchor
+      <AccountFeedSectionSkeleton
         id="events"
         title="Chain events"
         subtitle="Full first-party event feed for this account, newest first."
-        tone="accent"
-      >
-        <Skeleton className="h-64 w-full" />
-      </SectionAnchor>
+      />
     );
   }
 
