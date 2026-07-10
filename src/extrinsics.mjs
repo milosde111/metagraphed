@@ -13,6 +13,11 @@ import {
 import { decodeCursor, encodeCursor } from "./cursor.mjs";
 import { normalizePostgresValue } from "./scale-normalize.mjs";
 import { decodePostgresCallArgs } from "./postgres-call-args.mjs";
+import {
+  decodeEthereumEvmCallArgs,
+  hasEthereumEvmDecoder,
+} from "./indexer-rs-ethereum-decode.mjs";
+import { parseJsonPreservingBigInts } from "./big-int-safe-json.mjs";
 
 // D1 safety-valve: 365-day retention prevents unbounded growth before the
 // Postgres cold tier (#1519) ships. pruneExtrinsics runs in the HEALTH_PRUNE_CRON.
@@ -161,12 +166,37 @@ export function formatExtrinsic(row) {
       // decodePostgresCallArgs (#4691) MUST run before normalizePostgresValue
       // (#4690) -- it needs the pristine raw nested-call shape to reconstruct
       // correctly (see its own file header for why running it second would
-      // silently lose a genuinely zero-argument nested call). Both are
-      // no-ops on D1's own call_args shape (an array of {name,type,value}
-      // descriptors) -- safe to apply unconditionally regardless of which
-      // serving tier produced this row.
-      call_args = normalizePostgresValue(
-        decodePostgresCallArgs(JSON.parse(row.call_args)),
+      // silently lose a genuinely zero-argument nested call). Ethereum/EVM
+      // decode (#4692) can safely run last -- U256/H160/tuple-variant-enum
+      // shapes are untouched by either earlier pass (verified: neither the
+      // newtype-scalar rule nor the nested-call detector matches an
+      // array-wrapping-an-array or a payload lacking its own string `.name`).
+      // All three are no-ops on D1's own call_args shape (an array of
+      // {name,type,value} descriptors) -- safe to apply unconditionally
+      // regardless of which serving tier produced this row.
+      //
+      // parseJsonPreservingBigInts (#4692 review fix) is gated to ONLY the
+      // call types indexer-rs-ethereum-decode.mjs actually decodes: plain
+      // JSON.parse would ALREADY silently round a U256 limb past
+      // Number.MAX_SAFE_INTEGER before decodeU256Limbs ever saw it (caught by
+      // Gittensory review on the original #4692 PR -- see that module's
+      // header). Scoping to hasEthereumEvmDecoder's 4 call types, rather than
+      // applying it to every extrinsic, avoids ALSO silently changing other
+      // call types' already-known-imprecise large-integer fields (e.g.
+      // SubtensorModule.register's PoW nonce) from a number to a string --
+      // that's #4693's scope, not a side effect to smuggle in here.
+      const parseCallArgs = hasEthereumEvmDecoder(
+        row.call_module,
+        row.call_function,
+      )
+        ? parseJsonPreservingBigInts
+        : JSON.parse;
+      call_args = decodeEthereumEvmCallArgs(
+        row.call_module,
+        row.call_function,
+        normalizePostgresValue(
+          decodePostgresCallArgs(parseCallArgs(row.call_args)),
+        ),
       );
     } catch {
       call_args = null;
