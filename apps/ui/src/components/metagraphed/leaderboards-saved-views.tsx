@@ -102,8 +102,7 @@ export function LeaderboardsSavedViews() {
               title={p.hint}
               onClick={() => {
                 navigate({
-                  search: (prev: Record<string, unknown>) =>
-                    ({ ...prev, ...p.patch }) as never,
+                  search: (prev: Record<string, unknown>) => ({ ...prev, ...p.patch }) as never,
                   replace: true,
                 });
                 // Nudge into the focused board after the URL lands.

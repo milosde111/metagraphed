@@ -193,11 +193,7 @@ function useSubnetById(): Map<number, Subnet> {
   }, [snRes]);
 }
 
-function matchesSubnetFilter(
-  netuid: number,
-  subnet: Subnet | undefined,
-  q: string,
-): boolean {
+function matchesSubnetFilter(netuid: number, subnet: Subnet | undefined, q: string): boolean {
   const needle = q.trim().toLowerCase();
   if (!needle) return true;
   if (String(netuid).includes(needle)) return true;
@@ -242,8 +238,7 @@ function WeightSettingLeaderboard({
         ({
           ...prev,
           weightsSort: field,
-          weightsOrder:
-            prev.weightsSort === field && prev.weightsOrder === "desc" ? "asc" : "desc",
+          weightsOrder: prev.weightsSort === field && prev.weightsOrder === "desc" ? "asc" : "desc",
         }) as never,
       replace: true,
     });
@@ -318,7 +313,10 @@ function WeightSettingLeaderboard({
           lastChecked={board.observed_at ?? undefined}
         />
       ) : rows.length === 0 ? (
-        <EmptyState title="No subnets match this filter" description={`No weight-setting rows for “${q.trim()}”.`} />
+        <EmptyState
+          title="No subnets match this filter"
+          description={`No weight-setting rows for “${q.trim()}”.`}
+        />
       ) : (
         <section className="rounded-lg border border-border bg-card">
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border px-4 py-3">

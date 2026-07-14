@@ -89,8 +89,7 @@ export function ValidatorsSavedViews() {
               title={p.hint}
               onClick={() =>
                 navigate({
-                  search: (prev: Record<string, unknown>) =>
-                    ({ ...prev, ...p.patch }) as never,
+                  search: (prev: Record<string, unknown>) => ({ ...prev, ...p.patch }) as never,
                   replace: true,
                 })
               }

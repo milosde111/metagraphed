@@ -170,8 +170,7 @@ function ValidatorsTable({
 
       <div className="flex flex-wrap items-center justify-between gap-2">
         <span className="font-mono text-[11px] text-ink-muted">
-          {formatNumber(validators.length)} validators · ranked by {SORT_LABELS[sort]} (
-          {order})
+          {formatNumber(validators.length)} validators · ranked by {SORT_LABELS[sort]} ({order})
         </span>
       </div>
 
@@ -351,93 +350,43 @@ function ValidatorRow({
           "—"
         )}
       </td>
-      <td
-        className={classNames(
-          cellPad,
-          "text-right font-mono tabular-nums text-ink",
-          monoSize,
-        )}
-      >
+      <td className={classNames(cellPad, "text-right font-mono tabular-nums text-ink", monoSize)}>
         {formatTakePct(v.take)}
       </td>
-      <td
-        className={classNames(
-          cellPad,
-          "text-right font-mono tabular-nums text-ink",
-          monoSize,
-        )}
-      >
+      <td className={classNames(cellPad, "text-right font-mono tabular-nums text-ink", monoSize)}>
         {formatApyPct(apyPct)}
       </td>
-      <td
-        className={classNames(
-          cellPad,
-          "text-right font-mono tabular-nums text-ink",
-          monoSize,
-        )}
-      >
+      <td className={classNames(cellPad, "text-right font-mono tabular-nums text-ink", monoSize)}>
         {formatNumber(v.subnet_count)}
       </td>
       <td
-        className={classNames(
-          cellPad,
-          "text-right font-mono tabular-nums text-ink-muted",
-          monoSize,
-        )}
+        className={classNames(cellPad, "text-right font-mono tabular-nums text-ink-muted", monoSize)}
       >
         {formatNumber(v.uid_count)}
       </td>
       <td
-        className={classNames(
-          cellPad,
-          "text-right font-mono tabular-nums text-ink-muted",
-          monoSize,
-        )}
+        className={classNames(cellPad, "text-right font-mono tabular-nums text-ink-muted", monoSize)}
       >
         {v.nominator_count != null ? formatNumber(v.nominator_count) : "—"}
       </td>
-      <td
-        className={classNames(
-          cellPad,
-          "text-right font-mono tabular-nums text-ink",
-          monoSize,
-        )}
-      >
+      <td className={classNames(cellPad, "text-right font-mono tabular-nums text-ink", monoSize)}>
         {v.stake_dominance != null ? `${(v.stake_dominance * 100).toFixed(2)}%` : "—"}
       </td>
-      <td
-        className={classNames(
-          cellPad,
-          "text-right font-mono tabular-nums text-ink",
-          monoSize,
-        )}
-      >
+      <td className={classNames(cellPad, "text-right font-mono tabular-nums text-ink", monoSize)}>
         {taoCompact(v.total_stake_tao)}
       </td>
       <td
-        className={classNames(
-          cellPad,
-          "text-right font-mono tabular-nums text-ink-muted",
-          monoSize,
-        )}
+        className={classNames(cellPad, "text-right font-mono tabular-nums text-ink-muted", monoSize)}
       >
         {taoCompact(v.total_emission_tao)}
       </td>
       <td
-        className={classNames(
-          cellPad,
-          "text-right font-mono tabular-nums text-ink-muted",
-          monoSize,
-        )}
+        className={classNames(cellPad, "text-right font-mono tabular-nums text-ink-muted", monoSize)}
       >
         {v.avg_validator_trust != null ? v.avg_validator_trust.toFixed(3) : "—"}
       </td>
       <td
-        className={classNames(
-          cellPad,
-          "text-right font-mono tabular-nums text-ink-muted",
-          monoSize,
-        )}
+        className={classNames(cellPad, "text-right font-mono tabular-nums text-ink-muted", monoSize)}
       >
         {v.max_validator_trust != null ? v.max_validator_trust.toFixed(3) : "—"}
       </td>
