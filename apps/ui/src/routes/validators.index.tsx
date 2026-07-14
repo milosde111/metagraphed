@@ -15,6 +15,7 @@ import { classNames, formatNumber, isStaleFreshness } from "@/lib/metagraphed/fo
 import { shortHash } from "@/lib/metagraphed/blocks";
 import { ValidatorSubnetHeatmap } from "@/components/metagraphed/charts/validator-subnet-heatmap";
 import { taoCompact, FeaturedBadge } from "@/components/metagraphed/neuron-table";
+import { ValidatorCardList } from "@/components/metagraphed/validator-card-list";
 import { ValidatorGuide } from "@/components/metagraphed/validator-guide";
 import { ValidatorIdentityChip } from "@/components/metagraphed/validator-identity-chip";
 import { formatApyPct, formatTakePct } from "@/lib/metagraphed/validator-apy";
@@ -175,7 +176,7 @@ function ValidatorsTable({
       </div>
 
       {validators.length > 0 ? (
-        <div className="overflow-x-auto rounded-lg border border-border">
+        <div className="hidden md:block overflow-x-auto rounded-lg border border-border">
           <table className="w-full text-left text-sm">
             <thead className="sticky top-0 z-10 bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80 shadow-[0_1px_0_0_var(--border)]">
               <tr>
@@ -291,6 +292,13 @@ function ValidatorsTable({
           description="The global validator directory is empty for this window."
         />
       )}
+
+      {validators.length > 0 ? (
+        <ValidatorCardList
+          validators={validators}
+          className="grid gap-3 sm:grid-cols-2 md:hidden"
+        />
+      ) : null}
     </div>
   );
 }
