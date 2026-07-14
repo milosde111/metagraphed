@@ -2,8 +2,11 @@ import { useNavigate, useSearch } from "@tanstack/react-router";
 import { Scale, UserMinus, type LucideIcon } from "lucide-react";
 import { classNames } from "@/lib/metagraphed/format";
 
+type Focus = "weights" | "deregistrations";
+
 type Patch = {
-  window?: "7d" | "30d";
+  focus: Focus;
+  window: "7d" | "30d";
   weightsSort?: string;
   weightsOrder?: "asc" | "desc";
   deregSort?: string;
@@ -18,12 +21,15 @@ type Preset = {
   hint?: string;
 };
 
+// `focus` makes chips mutually exclusive — without it, the default
+// weightsSort + deregSort both match their ·7d presets at once (#5344 mobile).
 const PRESETS: Preset[] = [
   {
     id: "weights-7d",
-    label: "Weight-sets · 7d",
+    label: "Weights · 7d",
     icon: Scale,
     patch: {
+      focus: "weights",
       window: "7d",
       weightsSort: "weight_sets",
       weightsOrder: "desc",
@@ -32,9 +38,10 @@ const PRESETS: Preset[] = [
   },
   {
     id: "weights-30d",
-    label: "Weight-sets · 30d",
+    label: "Weights · 30d",
     icon: Scale,
     patch: {
+      focus: "weights",
       window: "30d",
       weightsSort: "weight_sets",
       weightsOrder: "desc",
@@ -43,9 +50,10 @@ const PRESETS: Preset[] = [
   },
   {
     id: "dereg-7d",
-    label: "Deregistrations · 7d",
+    label: "Dereg · 7d",
     icon: UserMinus,
     patch: {
+      focus: "deregistrations",
       window: "7d",
       deregSort: "deregistrations",
       deregOrder: "desc",
@@ -54,9 +62,10 @@ const PRESETS: Preset[] = [
   },
   {
     id: "dereg-30d",
-    label: "Deregistrations · 30d",
+    label: "Dereg · 30d",
     icon: UserMinus,
     patch: {
+      focus: "deregistrations",
       window: "30d",
       deregSort: "deregistrations",
       deregOrder: "desc",
@@ -75,14 +84,14 @@ export function LeaderboardsSavedViews() {
   const navigate = useNavigate({ from: "/leaderboards" });
 
   return (
-    <div className="-mt-2 mb-6">
+    <div className="mb-4 md:mb-6">
       <div className="flex items-center gap-2 mb-2">
-        <span className="font-mono text-[10px] uppercase tracking-widest text-ink-muted">
+        <span className="font-mono text-[10px] uppercase tracking-widest text-ink-muted shrink-0">
           Saved views
         </span>
-        <span aria-hidden className="h-px flex-1 bg-border/60" />
+        <span aria-hidden className="h-px flex-1 min-w-0 bg-border/60" />
       </div>
-      <div className="flex flex-wrap gap-1.5">
+      <div className="flex flex-wrap justify-start gap-1.5">
         {PRESETS.map((p) => {
           const active = matches(search, p.patch);
           const Icon = p.icon;
@@ -91,15 +100,23 @@ export function LeaderboardsSavedViews() {
               key={p.id}
               type="button"
               title={p.hint}
-              onClick={() =>
+              onClick={() => {
                 navigate({
                   search: (prev: Record<string, unknown>) =>
                     ({ ...prev, ...p.patch }) as never,
                   replace: true,
-                })
-              }
+                });
+                // Nudge into the focused board after the URL lands.
+                window.setTimeout(() => {
+                  document
+                    .getElementById(
+                      p.patch.focus === "weights" ? "weights-board" : "deregistrations-board",
+                    )
+                    ?.scrollIntoView({ behavior: "smooth", block: "start" });
+                }, 40);
+              }}
               className={classNames(
-                "inline-flex h-7 items-center gap-1.5 rounded-full border px-2.5 font-mono text-[10px] uppercase tracking-widest transition-colors",
+                "inline-flex h-7 shrink-0 items-center gap-1.5 rounded-full border px-2.5 font-mono text-[10px] uppercase tracking-widest transition-colors",
                 active
                   ? "border-accent bg-primary-soft text-ink-strong"
                   : "border-border bg-card text-ink-muted hover:border-accent/50 hover:text-ink-strong",

@@ -40,6 +40,9 @@ const leaderboardsSearchSchema = z.object({
   window: fallback(z.enum(["7d", "30d"]), "7d").default("7d"),
   q: fallback(z.string(), "").default(""),
   density: fallback(z.enum(["comfortable", "compact"]), "comfortable").default("comfortable"),
+  // Exclusive saved-view focus so Weights·7d and Dereg·7d don't both light up
+  // when both boards sit on their default sorts (#5344).
+  focus: fallback(z.enum(["", "weights", "deregistrations"]), "").default(""),
   weightsSort: fallback(z.enum(WEIGHTS_SORT), "weight_sets").default("weight_sets"),
   weightsOrder: fallback(z.enum(["asc", "desc"]), "desc").default("desc"),
   deregSort: fallback(z.enum(DEREG_SORT), "deregistrations").default("deregistrations"),
@@ -104,19 +107,20 @@ function LeaderboardsPage() {
   return (
     <AppShell>
       <PageHero
+        className="mb-6 md:mb-10"
         eyebrow="Explorer"
         live
         title="Leaderboards"
         description="Network-wide chain activity boards — ranked by subnet from live chain-direct analytics."
         actions={
-          <>
+          <div className="flex flex-wrap items-center gap-2">
             <DensityToggle value={effectiveDensity} onChange={setDensity} />
             <ShareButton />
-          </>
+          </div>
         }
       />
       <LeaderboardsSavedViews />
-      <div className="mb-6 flex flex-wrap items-center gap-2">
+      <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
         <SearchInput
           value={q}
           onChange={(v) =>
@@ -127,9 +131,9 @@ function LeaderboardsPage() {
             })
           }
           placeholder="Filter by subnet name or netuid…"
-          className="max-w-xs"
+          className="w-full min-w-0 sm:max-w-xs sm:flex-1"
         />
-        <div className="ml-auto flex flex-wrap items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2 sm:ml-auto">
           <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-muted">
             Window
           </span>
@@ -266,7 +270,7 @@ function WeightSettingLeaderboard({
   }, [board.subnets, subnetById, q, sort, order]);
 
   return (
-    <div className="space-y-8">
+    <div id="weights-board" className="space-y-8 scroll-mt-20">
       <div>
         <h2 className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-muted">
           Weight-setting activity
@@ -512,7 +516,7 @@ function DeregistrationsLeaderboard({
   }, [board.subnets, subnetById, q, sort, order]);
 
   return (
-    <div className="space-y-8">
+    <div id="deregistrations-board" className="space-y-8 scroll-mt-20">
       <div>
         <h2 className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-muted">
           Deregistrations
