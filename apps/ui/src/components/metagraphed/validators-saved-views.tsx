@@ -1,4 +1,5 @@
 import { useNavigate, useSearch } from "@tanstack/react-router";
+
 import { Layers, Coins, Flame, Scale, Shield, TrendingUp, type LucideIcon } from "lucide-react";
 import { classNames } from "@/lib/metagraphed/format";
 import type { GlobalValidatorSort } from "@/lib/metagraphed/types";
