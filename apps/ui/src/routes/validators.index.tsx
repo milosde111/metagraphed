@@ -360,12 +360,20 @@ function ValidatorRow({
         {formatNumber(v.subnet_count)}
       </td>
       <td
-        className={classNames(cellPad, "text-right font-mono tabular-nums text-ink-muted", monoSize)}
+        className={classNames(
+          cellPad,
+          "text-right font-mono tabular-nums text-ink-muted",
+          monoSize,
+        )}
       >
         {formatNumber(v.uid_count)}
       </td>
       <td
-        className={classNames(cellPad, "text-right font-mono tabular-nums text-ink-muted", monoSize)}
+        className={classNames(
+          cellPad,
+          "text-right font-mono tabular-nums text-ink-muted",
+          monoSize,
+        )}
       >
         {v.nominator_count != null ? formatNumber(v.nominator_count) : "—"}
       </td>
@@ -376,17 +384,29 @@ function ValidatorRow({
         {taoCompact(v.total_stake_tao)}
       </td>
       <td
-        className={classNames(cellPad, "text-right font-mono tabular-nums text-ink-muted", monoSize)}
+        className={classNames(
+          cellPad,
+          "text-right font-mono tabular-nums text-ink-muted",
+          monoSize,
+        )}
       >
         {taoCompact(v.total_emission_tao)}
       </td>
       <td
-        className={classNames(cellPad, "text-right font-mono tabular-nums text-ink-muted", monoSize)}
+        className={classNames(
+          cellPad,
+          "text-right font-mono tabular-nums text-ink-muted",
+          monoSize,
+        )}
       >
         {v.avg_validator_trust != null ? v.avg_validator_trust.toFixed(3) : "—"}
       </td>
       <td
-        className={classNames(cellPad, "text-right font-mono tabular-nums text-ink-muted", monoSize)}
+        className={classNames(
+          cellPad,
+          "text-right font-mono tabular-nums text-ink-muted",
+          monoSize,
+        )}
       >
         {v.max_validator_trust != null ? v.max_validator_trust.toFixed(3) : "—"}
       </td>
