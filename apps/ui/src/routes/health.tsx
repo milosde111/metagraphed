@@ -277,8 +277,8 @@ function HealthHero({
       description={
         <>
           Operational drill-down for maintainers — subnet matrix, endpoint mosaic, source freshness,
-          and live incidents. Probe-derived only; submissions cannot set uptime or incident state. For
-          plain-language uptime, see{" "}
+          and live incidents. Probe-derived only; submissions cannot set uptime or incident state.
+          For plain-language uptime, see{" "}
           <Link to="/status" className="text-accent-text underline-offset-2 hover:underline">
             System status
           </Link>
