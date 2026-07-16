@@ -90,9 +90,10 @@ describe("public URL safety checks", () => {
     }
 
     assert.equal(
-      normalizePublicHttpUrl("example.com/docs/#intro"),
-      "https://example.com/docs",
+      normalizePublicHttpUrl("docs.taofu.xyz/docs/#intro"),
+      "https://docs.taofu.xyz/docs",
     );
+    assert.equal(normalizePublicHttpUrl("example.com/docs/#intro"), null);
   });
 
   test("blocks hostnames that resolve to private addresses", async () => {

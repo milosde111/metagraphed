@@ -901,7 +901,7 @@ describe("script utility contracts", () => {
         },
         source_repo: "https://github.com/macrocosm-os/mainframe",
         baseline_excluded_surface_ids: ["sn-25-stale-docs"],
-        baseline_excluded_surface_urls: ["https://example.com/rejected"],
+        baseline_excluded_surface_urls: ["https://rejected.mainframe.test/rejected"],
         surfaces: [
           {
             id: "sn-25-mainframe-source",
@@ -938,12 +938,12 @@ describe("script utility contracts", () => {
         netuid: 25,
         name: "Mainframe rejected website",
         kind: "website",
-        url: "https://example.com/rejected",
+        url: "https://rejected.mainframe.test/rejected",
         provider: "macrocosmos",
         source_type: "native-chain-identity",
         source_tier: "native-chain",
-        source_url: "https://example.com/native",
-        source_urls: ["https://example.com/native"],
+        source_url: "https://rejected.mainframe.test/native",
+        source_urls: ["https://rejected.mainframe.test/native"],
         review_notes:
           "Native Subtensor identity URL for a previously rejected surface.",
       },
@@ -952,12 +952,12 @@ describe("script utility contracts", () => {
         netuid: 25,
         name: "Mainframe stale docs",
         kind: "docs",
-        url: "https://example.com/stale-docs",
+        url: "https://stale.mainframe.test/stale-docs",
         provider: "taomarketcap",
         source_type: "project-website-common-path",
         source_tier: "provider-claimed",
-        source_url: "https://example.com/stale-docs",
-        source_urls: ["https://example.com/stale-docs"],
+        source_url: "https://stale.mainframe.test/stale-docs",
+        source_urls: ["https://stale.mainframe.test/stale-docs"],
         review_notes: "Known stale generated candidate.",
       },
     ];
@@ -1017,7 +1017,7 @@ describe("script utility contracts", () => {
     const rejectedBaseline = overlaySet.manualBaselineOverlays[0].surfaces.find(
       (surface) => surface.id === "sn-25-native-chain-website",
     );
-    assert.equal(rejectedBaseline.url, "https://example.com/rejected");
+    assert.equal(rejectedBaseline.url, "https://rejected.mainframe.test/rejected");
     assert.equal(overlaySet.generatedOverlays.length, 0);
     assert.deepEqual(
       overlaySet.manualOverlays[0].surfaces.map((surface) => surface.id),
@@ -1049,12 +1049,12 @@ describe("script utility contracts", () => {
         netuid: 88,
         name: "Limiter API",
         kind: "subnet-api",
-        url: "https://limiter.example.com/api",
+        url: "https://limiter.subnet.test/api",
         provider: "limiter",
         source_type: "project-website-common-path",
         source_tier: "provider-claimed",
-        source_url: "https://limiter.example.com/docs",
-        source_urls: ["https://limiter.example.com/docs"],
+        source_url: "https://limiter.subnet.test/docs",
+        source_urls: ["https://limiter.subnet.test/docs"],
         rate_limit: rateLimit,
         rate_limit_notes: "See docs for tier details.",
       },
@@ -1382,10 +1382,10 @@ describe("script utility contracts", () => {
         provider: "reviewstate",
         source_tier: "provider-claimed",
         source_type: "project-website-link",
-        source_url: "https://reviewstate.example.com/",
-        source_urls: ["https://reviewstate.example.com/"],
+        source_url: "https://reviewstate.subnet.test/",
+        source_urls: ["https://reviewstate.subnet.test/"],
         state: "needs-review",
-        url: "https://reviewstate.example.com/docs",
+        url: "https://reviewstate.subnet.test/docs",
       },
     ];
     const verification = {
@@ -2245,7 +2245,7 @@ describe("script utility contracts", () => {
               {
                 id: surfaceId,
                 kind: "subnet-api",
-                url: "https://api.allways.example.com/v1",
+                url: "https://api.allways.subnet.test/v1",
                 provider: "allways",
                 authority: "official",
                 auth_required: false,
@@ -2277,7 +2277,7 @@ describe("script utility contracts", () => {
           subnet_slug: "allways",
           subnet_name: "Allways",
           kind: "subnet-api",
-          url: "https://api.allways.example.com/v1",
+          url: "https://api.allways.subnet.test/v1",
           provider: "allways",
           authority: "official",
           auth_required: false,

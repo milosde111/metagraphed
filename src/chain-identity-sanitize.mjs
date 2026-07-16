@@ -28,7 +28,8 @@ const CREDENTIALED_URL_PARAMS = new Set([
   "token",
 ]);
 
-const PLACEHOLDER_IDENTITY_URL = /deprecated|username\/repo|example\.com/i;
+const PLACEHOLDER_IDENTITY_URL =
+  /deprecated|username\/repo|yourusername\/yourrepo|example\.com|yourwebsite|your-org/i;
 const CONTACT_HANDLE_PATTERN = /^@?[a-z0-9][a-z0-9._-]{1,63}(?:#\d{1,6})?$/i;
 const CONTACT_HANDLE_JUNK = /^(?:deprecated|none|null|n\/a|tbd|todo)$/i;
 

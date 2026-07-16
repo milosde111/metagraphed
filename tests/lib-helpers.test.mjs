@@ -27,6 +27,7 @@ import {
   nativeContactHandle,
   nativeDisplayName,
   nativeContactUrl,
+  normalizePublicUrl,
   deriveDomainTags,
   DOMAIN_TAGS,
   deriveDescriptionFromNotes,
@@ -400,6 +401,65 @@ describe("isBrandImpersonationUrl", () => {
   });
 });
 
+describe("normalizePublicUrl (canonical intake)", () => {
+  test("keeps http(s) and ws(s); rejects other schemes", () => {
+    assert.equal(
+      normalizePublicUrl("https://docs.taofu.xyz/api"),
+      "https://docs.taofu.xyz/api",
+    );
+    assert.equal(
+      normalizePublicUrl("wss://entrypoint-finney.opentensor.ai"),
+      "wss://entrypoint-finney.opentensor.ai/",
+    );
+    assert.equal(
+      normalizePublicUrl("ws://stream.public-subnet.io/feed"),
+      "ws://stream.public-subnet.io/feed",
+    );
+    assert.equal(normalizePublicUrl("ftp://metagraph.sh/file"), null);
+  });
+
+  test("rejects brand-impersonating URLs on the contributor-facing path", () => {
+    // Regression for #5990/#5991: validate-surface / surface-add import this
+    // shared helper — impersonation must not be discovery-only.
+    for (const url of [
+      "https://metagraph.sh.evil.com/api",
+      "https://metagraphsh.com/openapi.json",
+      "https://metagraph-sh.io/call",
+      "https://api.metagraphsh.net",
+    ]) {
+      assert.equal(normalizePublicUrl(url), null, url);
+    }
+    assert.equal(
+      normalizePublicUrl("https://metagraph.sh/api/v1/subnets"),
+      "https://metagraph.sh/api/v1/subnets",
+    );
+  });
+
+  test("rejects placeholder and template junk shared with discovery", () => {
+    for (const url of [
+      "https://example.com/api",
+      "https://github.com/username/repo",
+      "https://github.com/yourusername/yourrepo",
+      "https://yourwebsite.com",
+      "https://your-org.github.io/docs",
+      "https://deprecated.png",
+    ]) {
+      assert.equal(normalizePublicUrl(url), null, url);
+    }
+  });
+
+  test("strips markdown wrappers and trailing punctuation from discovery-shaped input", () => {
+    assert.equal(
+      normalizePublicUrl("<https://docs.taofu.xyz/api/>"),
+      "https://docs.taofu.xyz/api",
+    );
+    assert.equal(
+      normalizePublicUrl("`https://docs.taofu.xyz/api`,"),
+      "https://docs.taofu.xyz/api",
+    );
+  });
+});
+
 describe("subnetLifecycle", () => {
   const withName = (name, description = "") => ({
     chain_identity: { subnet_name: name, description },
@@ -577,6 +637,14 @@ describe("isPlaceholderIdentityUrl", () => {
       true,
     );
     assert.equal(isPlaceholderIdentityUrl("https://example.com"), true);
+  });
+  test("flags README template hosts absorbed from discovery", () => {
+    assert.equal(
+      isPlaceholderIdentityUrl("https://github.com/yourusername/yourrepo"),
+      true,
+    );
+    assert.equal(isPlaceholderIdentityUrl("https://yourwebsite.com"), true);
+    assert.equal(isPlaceholderIdentityUrl("https://your-org.io/docs"), true);
   });
   test("passes real links and non-strings through as not-placeholder", () => {
     assert.equal(
@@ -1398,12 +1466,12 @@ describe("deriveAuthDetail (#746)", () => {
       o: {
         type: "oauth2",
         flows: {
-          clientCredentials: { tokenUrl: "https://auth.example.com/token" },
+          clientCredentials: { tokenUrl: "https://auth.issuer.test/token" },
         },
       },
     });
     assert.equal(out.scheme, "oauth2");
-    assert.equal(out.token_url, "https://auth.example.com/token");
+    assert.equal(out.token_url, "https://auth.issuer.test/token");
   });
 
   test("drops an unsafe/placeholder token_url rather than surfacing it", () => {
@@ -1415,6 +1483,21 @@ describe("deriveAuthDetail (#746)", () => {
     });
     assert.equal(out.scheme, "oauth2");
     assert.equal("token_url" in out, false);
+    // RFC 2606 example.com is placeholder junk for the shared intake guard.
+    assert.equal(
+      "token_url" in
+        deriveAuthDetail({
+          o: {
+            type: "oauth2",
+            flows: {
+              clientCredentials: {
+                tokenUrl: "https://auth.example.com/token",
+              },
+            },
+          },
+        }),
+      false,
+    );
   });
 
   test("prefers a concrete api-key/http scheme over oauth2", () => {
@@ -1438,10 +1521,10 @@ describe("deriveAuthDetail (#746)", () => {
         o: {
           type: "openIdConnect",
           openIdConnectUrl:
-            "https://idp.example.com/.well-known/openid-configuration",
+            "https://idp.issuer.test/.well-known/openid-configuration",
         },
       }).token_url,
-      "https://idp.example.com/.well-known/openid-configuration",
+      "https://idp.issuer.test/.well-known/openid-configuration",
     );
     assert.equal(
       deriveAuthDetail({
@@ -1449,18 +1532,18 @@ describe("deriveAuthDetail (#746)", () => {
           type: "oauth2",
           flows: {
             implicit: {
-              authorizationUrl: "https://auth.example.com/authorize",
+              authorizationUrl: "https://auth.issuer.test/authorize",
             },
           },
         },
       }).token_url,
-      "https://auth.example.com/authorize",
+      "https://auth.issuer.test/authorize",
     );
     assert.equal(
       deriveAuthDetail({
-        o: { type: "oauth2", tokenUrl: "https://auth.example.com/token" },
+        o: { type: "oauth2", tokenUrl: "https://auth.issuer.test/token" },
       }).token_url,
-      "https://auth.example.com/token",
+      "https://auth.issuer.test/token",
     );
     // Swagger-2 top-level authorizationUrl (no tokenUrl, no flows) is the last
     // fallback in oauthTokenUrl().
@@ -1468,10 +1551,10 @@ describe("deriveAuthDetail (#746)", () => {
       deriveAuthDetail({
         o: {
           type: "oauth2",
-          authorizationUrl: "https://auth.example.com/authorize",
+          authorizationUrl: "https://auth.issuer.test/authorize",
         },
       }).token_url,
-      "https://auth.example.com/authorize",
+      "https://auth.issuer.test/authorize",
     );
   });
 

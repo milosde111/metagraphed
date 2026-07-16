@@ -1354,6 +1354,11 @@ export function surfaceFixtureReference(surfaceId, fixture) {
   };
 }
 
+// Canonical public-URL intake for both the contributor path (validate-surface /
+// surface-add) and auto-discovery. Allowlist keeps ws/wss (real registry
+// surfaces use them) alongside http/https; guards reject credentials, SSRF
+// literals, brand impersonation of metagraph.sh, and placeholder/template junk.
+// Callers that need HTTP(S) only should wrap with normalizePublicHttpUrl.
 export function normalizePublicUrl(value) {
   if (typeof value !== "string") {
     return null;
@@ -1361,10 +1366,10 @@ export function normalizePublicUrl(value) {
 
   let candidate = value
     .trim()
-    .replace(/^<|>$/g, "")
+    .replace(/^[<`"']+|[>`"',.;:!]+$/g, "")
     .split("](")[0]
-    .replace(/\]+$/g, "");
-  if (!candidate) {
+    .replace(/[\]`"',.;:!]+$/g, "");
+  if (!candidate || isPlaceholderIdentityUrl(candidate)) {
     return null;
   }
 
@@ -1382,7 +1387,8 @@ export function normalizePublicUrl(value) {
       url.username ||
       url.password ||
       isCredentialedUrl(url.toString()) ||
-      isUnsafeUrl(url.toString())
+      isUnsafeUrl(url.toString()) ||
+      isBrandImpersonationUrl(url.toString())
     ) {
       return null;
     }
@@ -1408,8 +1414,11 @@ export function normalizePublicHttpUrl(value) {
 
 // Placeholder/junk identity URLs some subnets carry on-chain (e.g. the
 // deprecated subnets' "https://deprecated.png" + "github.com/username/repo",
-// or "example.com" stubs). These must never surface as real links.
-const PLACEHOLDER_IDENTITY_URL = /deprecated|username\/repo|example\.com/i;
+// or "example.com" stubs) plus README template hosts. These must never surface
+// as real links — also consulted by normalizePublicUrl so discovery and
+// contributor intake share one reject list.
+const PLACEHOLDER_IDENTITY_URL =
+  /deprecated|username\/repo|yourusername\/yourrepo|example\.com|yourwebsite|your-org/i;
 
 export function isPlaceholderIdentityUrl(value) {
   return typeof value === "string" && PLACEHOLDER_IDENTITY_URL.test(value);

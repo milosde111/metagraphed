@@ -2,16 +2,14 @@ import path from "node:path";
 import {
   apiDocsSubdomainOrigins,
   buildTimestamp,
-  isBrandImpersonationUrl,
-  isCredentialedUrl,
   isLikelyExampleLink,
   isUnsafeResolvedUrl,
-  isUnsafeUrl,
   listJsonFilesRecursive,
   loadNativeSnapshot,
   loadProviders,
   loadSubnets,
   nativeDisplayName,
+  normalizePublicUrl,
   OPENAPI_PROBE_PATHS,
   probeOpenApiSpec,
   readCommittedManifestGeneratedAt,
@@ -82,7 +80,7 @@ const existingGeneratedCandidates = await loadExistingGeneratedCandidates();
 // follow-up). CI builds from committed data only, so it never sees the live
 // collision; that's why the publish failed while every PR's CI stayed green.
 // Reserve every committed community candidate's locator (same key format as
-// addCandidate, with the LOCAL normalizePublicUrl) so the discovery never emits
+// addCandidate, via the shared normalizePublicUrl) so the discovery never emits
 // a duplicate of one — the committed candidate stands.
 const reservedCandidateLocators = new Set();
 for (const file of await listJsonFilesRecursive(
@@ -1163,79 +1161,6 @@ function extractUrls(value) {
   });
 
   return [...new Set(values.map(normalizePublicUrl).filter(Boolean))];
-}
-
-function normalizePublicUrl(value) {
-  if (typeof value !== "string") {
-    return null;
-  }
-
-  let candidate = value
-    .trim()
-    .replace(/^[<`"']+|[>`"',.;:!]+$/g, "")
-    .split("](")[0]
-    .replace(/[\]`"',.;:!]+$/g, "");
-  if (!candidate || isPlaceholder(candidate)) {
-    return null;
-  }
-
-  if (
-    !/^https?:\/\//i.test(candidate) &&
-    /^[a-z0-9.-]+\.[a-z]{2,}(?:\/.*)?$/i.test(candidate)
-  ) {
-    candidate = `https://${candidate}`;
-  }
-
-  try {
-    const url = new URL(candidate);
-    if (
-      !["http:", "https:"].includes(url.protocol) ||
-      url.username ||
-      url.password ||
-      isCredentialedUrl(url.toString())
-    ) {
-      return null;
-    }
-    if (url.username || url.password) {
-      return null;
-    }
-    // SSRF pre-filter: literal private/loopback/link-local/metadata IPs +
-    // localhost. The authoritative, DNS-resolving check (isUnsafeResolvedUrl)
-    // still runs at probe + overlay-promotion time; this just keeps obviously
-    // internal targets out of the bundle entirely.
-    if (isUnsafeUrl(url.toString())) {
-      return null;
-    }
-    // Reject base_urls that impersonate metagraphed's own domain — they pass the
-    // SSRF guard (public attacker domain) but could trick an agent into trusting
-    // them. See ADR 0004.
-    if (isBrandImpersonationUrl(url.toString())) {
-      return null;
-    }
-    url.hash = "";
-    if (url.pathname !== "/") {
-      url.pathname = url.pathname.replace(/\/+$/, "");
-    }
-    return url.toString();
-  } catch {
-    return null;
-  }
-}
-
-function isPlaceholder(value) {
-  const normalized = value.toLowerCase();
-  return [
-    "example.com",
-    "github.com/deprecated/deprecated",
-    "github.com/username/repo",
-    "github.com/yourusername/yourrepo",
-    "yourwebsite",
-    "your-org",
-    "deprecated.com",
-    "deprecated.png",
-    "localhost",
-    "127.0.0.1",
-  ].some((placeholder) => normalized.includes(placeholder));
 }
 
 function cleanName(value) {

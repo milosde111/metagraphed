@@ -545,10 +545,10 @@ describe("deriveAuthDetail (selection + default arms)", () => {
       o: {
         type: "oauth2",
         flows: { clientCredentials: {} },
-        tokenUrl: "https://auth.example.com/token",
+        tokenUrl: "https://auth.issuer.test/token",
       },
     });
-    assert.equal(out.token_url, "https://auth.example.com/token");
+    assert.equal(out.token_url, "https://auth.issuer.test/token");
   });
 });
 
