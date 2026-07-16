@@ -9,7 +9,14 @@ try:
 except ImportError:  # pragma: no cover - exercised only without the extra
     _HAS_HTTPX = False
 
-from metagraphed import AsyncMetagraphedClient, MetagraphedError, Subnet
+from metagraphed import (
+    AgentCatalogSubnet,
+    AsyncMetagraphedClient,
+    Endpoint,
+    MetagraphedError,
+    Subnet,
+    Surface,
+)
 
 
 class _FakeAsyncHttp:
@@ -97,6 +104,203 @@ class AsyncClientTest(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(subnets[0].netuid, 7)
         self.assertEqual(subnets[0].name, "Allways")
         self.assertEqual(subnets[0].raw["name"], "Allways")
+
+    async def test_paginate_follows_next_cursor_with_nested_collection(self):
+        # Mirrors README async usage of paginate via fetch_all / typed helpers:
+        # nested collection rows + cursor continuation.
+        page1 = httpx.Response(
+            200,
+            json={
+                "ok": True,
+                "data": {
+                    "subnets": [
+                        {
+                            "netuid": 1,
+                            "name": "Apex",
+                            "integration_readiness": 40,
+                        }
+                    ]
+                },
+                "meta": {
+                    "pagination": {
+                        "collection": "subnets",
+                        "next_cursor": "c2",
+                    }
+                },
+            },
+        )
+        page2 = httpx.Response(
+            200,
+            json={
+                "ok": True,
+                "data": {
+                    "subnets": [
+                        {
+                            "netuid": 7,
+                            "name": "Allways",
+                            "integration_readiness": 90,
+                        }
+                    ]
+                },
+                "meta": {
+                    "pagination": {
+                        "collection": "subnets",
+                        "next_cursor": None,
+                    }
+                },
+            },
+        )
+        client = self._client(page1, page2)
+        seen = []
+        async for page in client.paginate("/api/v1/subnets", query={"limit": 1}):
+            seen.extend(page["data"]["subnets"])
+
+        self.assertEqual(
+            [(row["netuid"], row["name"], row["integration_readiness"]) for row in seen],
+            [(1, "Apex", 40), (7, "Allways", 90)],
+        )
+        self.assertEqual(client._client.calls[0][2], {"limit": 1})
+        self.assertEqual(client._client.calls[1][2]["cursor"], "c2")
+
+    async def test_surfaces_returns_typed_models(self):
+        client = self._client(
+            httpx.Response(
+                200,
+                json={
+                    "data": {
+                        "surfaces": [
+                            {
+                                "id": "sn-7-openapi",
+                                "netuid": 7,
+                                "kind": "openapi",
+                                "name": "Allways OpenAPI",
+                                "url": "https://api.example.com/openapi.json",
+                                "provider": "allways",
+                                "auth_required": False,
+                                "authority": "official",
+                                "public_safe": True,
+                                "schema_url": "https://api.example.com/openapi.json",
+                            }
+                        ]
+                    },
+                    "meta": {
+                        "pagination": {
+                            "collection": "surfaces",
+                            "next_cursor": None,
+                        }
+                    },
+                },
+            )
+        )
+        surfaces = await client.surfaces(kind="openapi")
+        self.assertEqual(len(surfaces), 1)
+        surface = surfaces[0]
+        self.assertIsInstance(surface, Surface)
+        self.assertEqual(surface.id, "sn-7-openapi")
+        self.assertEqual(surface.netuid, 7)
+        self.assertEqual(surface.kind, "openapi")
+        self.assertEqual(surface.name, "Allways OpenAPI")
+        self.assertEqual(surface.url, "https://api.example.com/openapi.json")
+        self.assertEqual(surface.provider, "allways")
+        self.assertIs(surface.auth_required, False)
+        self.assertIs(surface.public_safe, True)
+        self.assertEqual(surface.schema_url, "https://api.example.com/openapi.json")
+        self.assertEqual(surface.raw["authority"], "official")
+
+    async def test_endpoints_returns_typed_models(self):
+        client = self._client(
+            httpx.Response(
+                200,
+                json={
+                    "data": {
+                        "endpoints": [
+                            {
+                                "id": "ep-sn-7-subnet-api",
+                                "surface_id": "sn-7-subnet-api",
+                                "surface_key": "hk7subnetapi",
+                                "netuid": 7,
+                                "layer": "subnet",
+                                "kind": "subnet-api",
+                                "url": "https://api.example.com/v1",
+                                "provider": "allways",
+                                "operator": "allways",
+                                "auth_required": False,
+                                "public_safe": True,
+                                "classification": "primary",
+                                "monitoring_policy": "probe",
+                                "monitoring_status": "monitored",
+                                "health_source": "probe-derived",
+                                "health_stale": False,
+                                "last_checked": "2026-07-15T00:00:00.000Z",
+                                "last_ok": "2026-07-15T00:00:00.000Z",
+                                "status": "ok",
+                                "score": 100,
+                            }
+                        ]
+                    },
+                    "meta": {
+                        "pagination": {
+                            "collection": "endpoints",
+                            "next_cursor": None,
+                        }
+                    },
+                },
+            )
+        )
+        endpoints = await client.endpoints()
+        self.assertEqual(len(endpoints), 1)
+        endpoint = endpoints[0]
+        self.assertIsInstance(endpoint, Endpoint)
+        self.assertEqual(endpoint.surface_id, "sn-7-subnet-api")
+        self.assertEqual(endpoint.netuid, 7)
+        self.assertEqual(endpoint.kind, "subnet-api")
+        self.assertEqual(endpoint.url, "https://api.example.com/v1")
+        self.assertEqual(endpoint.provider, "allways")
+        self.assertEqual(endpoint.classification, "primary")
+        self.assertEqual(endpoint.monitoring_status, "monitored")
+        self.assertEqual(endpoint.raw["id"], "ep-sn-7-subnet-api")
+
+    async def test_agent_catalog_returns_typed_model(self):
+        client = self._client(
+            httpx.Response(
+                200,
+                json={
+                    "ok": True,
+                    "schema_version": 1,
+                    "data": {
+                        "netuid": 7,
+                        "slug": "allways",
+                        "name": "AllwaysAI",
+                        "subnet_type": "inference",
+                        "completeness_score": 82.5,
+                        "integration_readiness": 90,
+                        "service_count": 1,
+                        "services": [
+                            {
+                                "surface_id": "sn-7-subnet-api",
+                                "kind": "subnet-api",
+                                "base_url": "https://api.example.com/v1",
+                                "auth_required": False,
+                            }
+                        ],
+                    },
+                },
+            )
+        )
+        catalog = await client.agent_catalog(7)
+        self.assertIsInstance(catalog, AgentCatalogSubnet)
+        self.assertEqual(catalog.netuid, 7)
+        self.assertEqual(catalog.slug, "allways")
+        self.assertEqual(catalog.name, "AllwaysAI")
+        self.assertEqual(catalog.subnet_type, "inference")
+        self.assertEqual(catalog.completeness_score, 82.5)
+        self.assertEqual(catalog.integration_readiness, 90)
+        self.assertEqual(catalog.service_count, 1)
+        self.assertEqual(catalog.services[0]["base_url"], "https://api.example.com/v1")
+        self.assertEqual(
+            client._client.calls[0][1],
+            "https://api.metagraph.sh/api/v1/agent-catalog/7",
+        )
 
     async def test_http_error_raises_with_status_and_message(self):
         client = self._client(
