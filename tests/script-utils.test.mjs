@@ -901,7 +901,9 @@ describe("script utility contracts", () => {
         },
         source_repo: "https://github.com/macrocosm-os/mainframe",
         baseline_excluded_surface_ids: ["sn-25-stale-docs"],
-        baseline_excluded_surface_urls: ["https://rejected.mainframe.test/rejected"],
+        baseline_excluded_surface_urls: [
+          "https://rejected.mainframe.test/rejected",
+        ],
         surfaces: [
           {
             id: "sn-25-mainframe-source",
@@ -1017,7 +1019,10 @@ describe("script utility contracts", () => {
     const rejectedBaseline = overlaySet.manualBaselineOverlays[0].surfaces.find(
       (surface) => surface.id === "sn-25-native-chain-website",
     );
-    assert.equal(rejectedBaseline.url, "https://rejected.mainframe.test/rejected");
+    assert.equal(
+      rejectedBaseline.url,
+      "https://rejected.mainframe.test/rejected",
+    );
     assert.equal(overlaySet.generatedOverlays.length, 0);
     assert.deepEqual(
       overlaySet.manualOverlays[0].surfaces.map((surface) => surface.id),
