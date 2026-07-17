@@ -3052,11 +3052,42 @@
             "pattern": "^/metagraph/",
             "type": "string"
           },
+          "retirement": {
+            "additionalProperties": false,
+            "description": "Null for a live artifact. For a retired one, the response the route actually returns instead of the payload.",
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "http_status": {
+                "type": "integer"
+              },
+              "message": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "code",
+              "http_status",
+              "message"
+            ],
+            "type": [
+              "object",
+              "null"
+            ]
+          },
           "schema_ref": {
             "pattern": "^#/components/schemas/[A-Za-z0-9]+$",
             "type": [
               "string",
               "null"
+            ]
+          },
+          "status": {
+            "description": "Lifecycle of the artifact. `retired` means the route always refuses the read (see `retirement`), so a consumer must not treat the entry as fetchable.",
+            "enum": [
+              "live",
+              "retired"
             ]
           },
           "storage_tier": {
@@ -3072,6 +3103,7 @@
           "id",
           "path",
           "schema_ref",
+          "status",
           "storage_tier"
         ],
         "type": "object"

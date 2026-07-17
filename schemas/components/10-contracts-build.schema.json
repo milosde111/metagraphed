@@ -12,11 +12,33 @@
           "id",
           "path",
           "schema_ref",
+          "status",
           "storage_tier"
         ],
         "properties": {
           "content_type": {
             "type": "string"
+          },
+          "retirement": {
+            "description": "Null for a live artifact. For a retired one, the response the route actually returns instead of the payload.",
+            "type": ["object", "null"],
+            "required": ["code", "http_status", "message"],
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "http_status": {
+                "type": "integer"
+              },
+              "message": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          },
+          "status": {
+            "description": "Lifecycle of the artifact. `retired` means the route always refuses the read (see `retirement`), so a consumer must not treat the entry as fetchable.",
+            "enum": ["live", "retired"]
           },
           "contract_version": {
             "type": "string"

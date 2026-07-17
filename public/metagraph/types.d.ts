@@ -3482,7 +3482,18 @@ export interface components {
             description?: string;
             id: string;
             path: string;
+            /** @description Null for a live artifact. For a retired one, the response the route actually returns instead of the payload. */
+            retirement?: {
+                code: string;
+                http_status: number;
+                message: string;
+            } | null;
             schema_ref: string | null;
+            /**
+             * @description Lifecycle of the artifact. `retired` means the route always refuses the read (see `retirement`), so a consumer must not treat the entry as fetchable.
+             * @enum {unknown}
+             */
+            status: "live" | "retired";
             /** @enum {unknown} */
             storage_tier: "dual" | "git" | "r2";
         };
@@ -8089,6 +8100,7 @@ export interface operations {
                      *             "id": "example",
                      *             "path": "/metagraph/example.json",
                      *             "schema_ref": "#/components/schemas/Example",
+                     *             "status": "live",
                      *             "storage_tier": "dual"
                      *           }
                      *         ],
@@ -16072,6 +16084,7 @@ export interface operations {
                      *             "id": "example",
                      *             "path": "/metagraph/example.json",
                      *             "schema_ref": "#/components/schemas/Example",
+                     *             "status": "live",
                      *             "storage_tier": "dual"
                      *           }
                      *         ],

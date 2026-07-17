@@ -645,6 +645,33 @@ export const API_QUERY_COLLECTIONS = {
   }),
 };
 
+// Every catalog entry carries a lifecycle status. `live` is the default and the
+// overwhelming majority; `retired` means the route still exists but always
+// refuses the read, so a consumer must not treat the entry as fetchable (#6358).
+// Applied through the artifact() helper so the field cannot be forgotten on a
+// new entry, and so the catalog can describe a retirement instead of silently
+// dropping the artifact -- which would leave a consumer with a 410 and no
+// explanation of where the data went.
+export const ARTIFACT_STATUS_LIVE = "live";
+export const ARTIFACT_STATUS_RETIRED = "retired";
+
+// The current-state health artifacts (latest/summary/subnets/{netuid}) are
+// retired on every network prefix by the live-only policy (#490/#498):
+// workers/api.mjs answers them with this exact code/status/message before any
+// read is attempted, via RETIRED_CURRENT_HEALTH_ARTIFACT_PATTERN. Mirrored here
+// verbatim so the catalog cannot drift from the runtime. Note this covers only
+// those three -- health-history (/metagraph/health/history/{date}.json) is NOT
+// matched by that pattern and is still served, so it stays live.
+const RETIRED_CURRENT_HEALTH = {
+  status: ARTIFACT_STATUS_RETIRED,
+  retirement: {
+    code: "retired_artifact",
+    http_status: 410,
+    message:
+      "Current-state health artifacts are retired; use the live API health endpoints instead.",
+  },
+};
+
 export const PUBLIC_ARTIFACTS = [
   artifact(
     "contracts",
@@ -901,14 +928,16 @@ export const PUBLIC_ARTIFACTS = [
   artifact(
     "health-latest",
     "/metagraph/health/latest.json",
-    "Latest surface health snapshot.",
+    "Latest surface health snapshot. Retired: read the live API health endpoints instead.",
     "HealthLatestArtifact",
+    RETIRED_CURRENT_HEALTH,
   ),
   artifact(
     "health-summary",
     "/metagraph/health/summary.json",
-    "Global and per-subnet health rollup.",
+    "Global and per-subnet health rollup. Retired: read the live API health endpoints instead.",
     "HealthSummaryArtifact",
+    RETIRED_CURRENT_HEALTH,
   ),
   artifact(
     "health-history",
@@ -919,8 +948,9 @@ export const PUBLIC_ARTIFACTS = [
   artifact(
     "health-subnet",
     "/metagraph/health/subnets/{netuid}.json",
-    "Per-subnet health payload for metagraph.sh consumers.",
+    "Per-subnet health payload for metagraph.sh consumers. Retired: read the live API health endpoints instead.",
     "HealthSubnetArtifact",
+    RETIRED_CURRENT_HEALTH,
   ),
   artifact(
     "health-badge",
@@ -3962,6 +3992,11 @@ export function buildContractsArtifact(generatedAt) {
         : null,
       contract_version: CONTRACT_VERSION,
       storage_tier: entry.storage_tier,
+      // Lifecycle (#6358): a retired entry always refuses the read, so a
+      // consumer must not treat it as fetchable. `retirement` carries the
+      // response the route actually returns; it is null for a live artifact.
+      status: entry.status,
+      retirement: entry.retirement,
     })),
   };
 }
@@ -4001,6 +4036,10 @@ export function buildApiIndexArtifact(generatedAt, contractsArtifact) {
       contract_version: entry.contract_version,
       schema_ref: entry.schema_ref,
       storage_tier: entry.storage_tier,
+      // Carried here too (#6358): this index is the agent-facing catalog, so it
+      // must not advertise a retired artifact as fetchable either.
+      status: entry.status,
+      retirement: entry.retirement,
     })),
   };
 }
@@ -4260,13 +4299,18 @@ export function compileRoutePattern(pathTemplate) {
   return new RegExp(`^${pattern}\\/?$`);
 }
 
-function artifact(id, pathValue, description, schemaRef) {
+function artifact(id, pathValue, description, schemaRef, options = {}) {
+  const { status = ARTIFACT_STATUS_LIVE, retirement = null } = options;
   return {
     id,
     path: pathValue,
     description,
     schema_ref: schemaRef,
     storage_tier: artifactStorageTierForPath(pathValue),
+    status,
+    // Null for a live artifact; for a retired one it mirrors the response the
+    // route actually returns, so the catalog and the runtime cannot disagree.
+    retirement,
   };
 }
 

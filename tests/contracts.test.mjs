@@ -5,6 +5,8 @@ import { describe, test } from "vitest";
 import {
   API_ROUTES,
   API_QUERY_COLLECTIONS,
+  ARTIFACT_STATUS_LIVE,
+  ARTIFACT_STATUS_RETIRED,
   CACHE_SECONDS,
   CONTRACT_VERSION,
   PUBLIC_ARTIFACTS,
@@ -14,8 +16,102 @@ import {
   buildOpenApiArtifact,
   compileRoutePattern,
 } from "../src/contracts.mjs";
+import { RETIRED_CURRENT_HEALTH_ARTIFACT_PATTERN } from "../workers/config.mjs";
 import { evaluateArtifactBudgets } from "../scripts/artifact-budgets.mjs";
 import { loadOpenApiComponentSchemas } from "../scripts/openapi-components.mjs";
+
+describe("artifact lifecycle status (#6358)", () => {
+  // The catalog advertised health-latest/health-summary/health-subnet as
+  // ordinary entries, but workers/api.mjs answers those exact paths with 410
+  // retired_artifact before any read is attempted -- so /api/v1/contracts told
+  // consumers 3 artifacts were fetchable when they never are.
+
+  // The retirement pattern matches concrete paths (subnets/7.json), while the
+  // catalog stores templates (subnets/{netuid}.json). Substitute before
+  // matching or health-subnet silently escapes the check.
+  const concrete = (template) =>
+    artifactPathFromTemplate(template, {
+      netuid: 7,
+      uid: 1,
+      ss58: "5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY",
+      slug: "chutes",
+      date: "2026-07-16",
+      surface_id: "s1",
+      ref: "1",
+    });
+
+  test("no artifact whose path always 410s is advertised without a retirement indicator", () => {
+    const alwaysGone = PUBLIC_ARTIFACTS.filter((entry) =>
+      RETIRED_CURRENT_HEALTH_ARTIFACT_PATTERN.test(concrete(entry.path)),
+    );
+    // Guard the guard: if the pattern or the catalog ever stops covering these,
+    // the assertion below would pass vacuously.
+    assert.deepEqual(alwaysGone.map((entry) => entry.id).sort(), [
+      "health-latest",
+      "health-subnet",
+      "health-summary",
+    ]);
+    for (const entry of alwaysGone) {
+      assert.equal(entry.status, ARTIFACT_STATUS_RETIRED, entry.id);
+      assert.ok(entry.retirement, `${entry.id} must carry a retirement`);
+      assert.equal(entry.retirement.http_status, 410, entry.id);
+      assert.equal(entry.retirement.code, "retired_artifact", entry.id);
+    }
+  });
+
+  test("the public /api/v1/contracts response carries the retirement, not a bare live entry", () => {
+    const contracts = buildContractsArtifact("2026-07-17T00:00:00.000Z");
+    const retired = contracts.artifacts.filter(
+      (entry) => entry.status === ARTIFACT_STATUS_RETIRED,
+    );
+    assert.deepEqual(retired.map((entry) => entry.id).sort(), [
+      "health-latest",
+      "health-subnet",
+      "health-summary",
+    ]);
+    for (const entry of retired) {
+      assert.equal(entry.retirement.http_status, 410);
+      assert.match(entry.retirement.message, /retired/i);
+      // The description tells a human reader too, not just the machine field.
+      assert.match(entry.description, /retired/i);
+    }
+  });
+
+  test("every entry carries a status, and live entries carry no retirement", () => {
+    const contracts = buildContractsArtifact("2026-07-17T00:00:00.000Z");
+    for (const entry of contracts.artifacts) {
+      assert.ok(
+        entry.status === ARTIFACT_STATUS_LIVE ||
+          entry.status === ARTIFACT_STATUS_RETIRED,
+        `${entry.id} has an unknown status: ${entry.status}`,
+      );
+      if (entry.status === ARTIFACT_STATUS_LIVE) {
+        assert.equal(entry.retirement, null, entry.id);
+      }
+    }
+    // The mechanism is general, not a special case bolted onto three entries.
+    assert.ok(
+      contracts.artifacts.filter((e) => e.status === ARTIFACT_STATUS_LIVE)
+        .length > 100,
+    );
+  });
+
+  test("health-history is NOT retired: the 410 pattern does not cover it", () => {
+    // /metagraph/health/history/{date}.json is still served -- only the
+    // current-state trio is retired. A blanket "health/*" fix would wrongly
+    // bury it.
+    const history = PUBLIC_ARTIFACTS.find(
+      (entry) => entry.id === "health-history",
+    );
+    assert.ok(history);
+    assert.equal(
+      RETIRED_CURRENT_HEALTH_ARTIFACT_PATTERN.test(concrete(history.path)),
+      false,
+    );
+    assert.equal(history.status, ARTIFACT_STATUS_LIVE);
+    assert.equal(history.retirement, null);
+  });
+});
 
 describe("public contract registry", () => {
   test("keeps API routes and artifacts unique", () => {

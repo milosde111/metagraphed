@@ -6,7 +6,9 @@
       "description": "Public artifact contract metadata for metagraph.sh consumers.",
       "id": "contracts",
       "path": "/metagraph/contracts.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ContractsArtifact",
+      "status": "live",
       "storage_tier": "dual"
     },
     {
@@ -15,7 +17,9 @@
       "description": "Provider/source registry.",
       "id": "providers",
       "path": "/metagraph/providers.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ProvidersArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -24,7 +28,9 @@
       "description": "Per-provider detail payload.",
       "id": "provider-detail",
       "path": "/metagraph/providers/{slug}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ProviderArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -33,7 +39,9 @@
       "description": "Endpoint resources for one provider or operator.",
       "id": "provider-endpoints",
       "path": "/metagraph/providers/{slug}/endpoints.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ProviderEndpointsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -42,7 +50,9 @@
       "description": "Clean API route index for metagraph.sh consumers.",
       "id": "api-index",
       "path": "/metagraph/api-index.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ApiIndexArtifact",
+      "status": "live",
       "storage_tier": "dual"
     },
     {
@@ -51,7 +61,9 @@
       "description": "OpenAPI 3.1 contract for the metagraph.sh backend API.",
       "id": "openapi",
       "path": "/metagraph/openapi.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/OpenApiArtifact",
+      "status": "live",
       "storage_tier": "dual"
     },
     {
@@ -60,7 +72,9 @@
       "description": "Generated TypeScript definitions for metagraph.sh backend consumers.",
       "id": "type-definitions",
       "path": "/metagraph/types.d.ts",
+      "retirement": null,
       "schema_ref": null,
+      "status": "live",
       "storage_tier": "dual"
     },
     {
@@ -69,7 +83,9 @@
       "description": "Reviewable generated artifact and subnet-change summary.",
       "id": "changelog",
       "path": "/metagraph/changelog.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChangelogArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -78,7 +94,9 @@
       "description": "All active Finney subnets with compact registry metadata.",
       "id": "subnets",
       "path": "/metagraph/subnets.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -87,7 +105,9 @@
       "description": "Latest normalized all-subnet metagraph index with chain-native state and registry coverage metadata.",
       "id": "metagraph-latest",
       "path": "/metagraph/metagraph/latest.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -96,7 +116,9 @@
       "description": "Per-subnet detail payload.",
       "id": "subnet-detail",
       "path": "/metagraph/subnets/{netuid}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetDetailArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -105,7 +127,9 @@
       "description": "Composed per-subnet overview: profile + health + curation + gaps + counts.",
       "id": "subnet-overview",
       "path": "/metagraph/overview/{netuid}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetOverviewArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -114,7 +138,9 @@
       "description": "Public-safe subnet identity and completeness profiles.",
       "id": "profiles",
       "path": "/metagraph/profiles.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetProfilesArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -123,7 +149,9 @@
       "description": "Per-subnet public-safe profile detail.",
       "id": "profile-detail",
       "path": "/metagraph/profiles/{netuid}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetProfileArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -132,7 +160,9 @@
       "description": "Curated public interface surfaces only.",
       "id": "surfaces",
       "path": "/metagraph/surfaces.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SurfacesArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -141,7 +171,9 @@
       "description": "Deprecated surface display-id aliases mapped to stable surface keys for renamed surfaces.",
       "id": "surface-aliases",
       "path": "/metagraph/surface-aliases.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SurfaceAliasesArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -150,7 +182,9 @@
       "description": "Curated public interface surfaces for one subnet.",
       "id": "surfaces-subnet",
       "path": "/metagraph/surfaces/{netuid}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetSurfacesArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -159,7 +193,9 @@
       "description": "Generalized endpoint/resource registry derived from curated surfaces and probe observations.",
       "id": "endpoints",
       "path": "/metagraph/endpoints.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/EndpointsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -168,7 +204,9 @@
       "description": "Generalized endpoint/resource registry for one subnet.",
       "id": "endpoints-subnet",
       "path": "/metagraph/endpoints/{netuid}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetEndpointsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -177,7 +215,9 @@
       "description": "Unpromoted candidate surfaces from public discovery.",
       "id": "candidates",
       "path": "/metagraph/candidates.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/CandidatesArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -186,7 +226,9 @@
       "description": "Unpromoted candidate surfaces for one subnet.",
       "id": "candidates-subnet",
       "path": "/metagraph/candidates/{netuid}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetCandidatesArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -195,7 +237,9 @@
       "description": "Candidate surfaces queued for maintainer review.",
       "id": "review-queue",
       "path": "/metagraph/review-queue.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ReviewQueueArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -204,7 +248,9 @@
       "description": "Compact search index for subnets, surfaces, and providers.",
       "id": "search",
       "path": "/metagraph/search.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SearchArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -213,7 +259,9 @@
       "description": "Slim search index (the same documents as search.json without the per-document token blobs) for fast browser typeahead and listing.",
       "id": "search-index",
       "path": "/metagraph/search-index.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SearchIndexArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -222,7 +270,9 @@
       "description": "Registry coverage counts and source precedence.",
       "id": "coverage",
       "path": "/metagraph/coverage.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/CoverageArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -231,7 +281,9 @@
       "description": "Machine-usable coverage depth scorecard with per-subnet readiness dimensions and a ranked enrichment queue.",
       "id": "coverage-depth",
       "path": "/metagraph/coverage-depth.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/CoverageDepthArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -240,7 +292,9 @@
       "description": "Per-subnet validator and economic metrics from the chain: validator/miner counts, total + max stake, registration cost, alpha price, derived alpha market-cap and FDV proxies, price-weighted emission share, and on-chain registration block height.",
       "id": "economics",
       "path": "/metagraph/economics.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/EconomicsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -249,7 +303,9 @@
       "description": "Network-wide economics time series (#1307) aggregated per UTC day across all subnets from the daily subnet_snapshots D1 rollup (the same source the per-subnet trajectory reads), served live at /api/v1/economics/trends; pass ?format=csv to download the per-day series as CSV (no static file).",
       "id": "economics-trends",
       "path": "/metagraph/economics/trends.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/EconomicsTrendsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -258,7 +314,9 @@
       "description": "Registry-wide summary: completeness rollup, top subnets, level counts, latest changes.",
       "id": "registry-summary",
       "path": "/metagraph/registry-summary.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/RegistrySummaryArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -267,7 +325,9 @@
       "description": "Cross-network subnet lineage: maintainer-approved mainnet ↔ testnet pairs with reviewed match evidence.",
       "id": "lineage",
       "path": "/metagraph/lineage.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/LineageArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -276,7 +336,9 @@
       "description": "Index of captured live request/response fixtures (which surfaces carry a sanitized sample).",
       "id": "fixtures-index",
       "path": "/metagraph/fixtures.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/FixturesIndexArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -285,7 +347,9 @@
       "description": "Machine index of every AI resource: the copyable agent, the MCP server + tools, the skill, llms.txt, OpenAPI, and the agent-facing APIs.",
       "id": "agent-resources",
       "path": "/metagraph/agent-resources.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AgentResourcesArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -294,7 +358,9 @@
       "description": "A captured, sanitized live request/response sample for one surface.",
       "id": "fixture-detail",
       "path": "/metagraph/fixtures/{surface_id}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/FixtureArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -303,7 +369,9 @@
       "description": "Curation state and gaps for every active subnet.",
       "id": "curation",
       "path": "/metagraph/curation.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/CurationArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -312,7 +380,9 @@
       "description": "Missing public interface facets by subnet.",
       "id": "gaps",
       "path": "/metagraph/gaps.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/GapsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -321,7 +391,9 @@
       "description": "Latest candidate verification snapshot.",
       "id": "verification",
       "path": "/metagraph/verification/latest.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/VerificationArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -330,7 +402,9 @@
       "description": "Latest candidate verification snapshot for one subnet.",
       "id": "verification-subnet",
       "path": "/metagraph/verification/subnets/{netuid}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetVerificationArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -339,7 +413,9 @@
       "description": "Freshness and staleness summary for generated backend data.",
       "id": "freshness",
       "path": "/metagraph/freshness.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/FreshnessArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -348,7 +424,9 @@
       "description": "Upstream source and provider health summary.",
       "id": "source-health",
       "path": "/metagraph/source-health.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SourceHealthArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -357,7 +435,9 @@
       "description": "Compact hashes and counts for canonical source inputs.",
       "id": "source-snapshots",
       "path": "/metagraph/source-snapshots.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SourceSnapshotsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -366,7 +446,9 @@
       "description": "Public evidence ledger for subnet and surface claims.",
       "id": "evidence-ledger",
       "path": "/metagraph/evidence-ledger.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/EvidenceLedgerArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -375,25 +457,39 @@
       "description": "Public evidence ledger claims for one subnet.",
       "id": "evidence-subnet",
       "path": "/metagraph/evidence/{netuid}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetEvidenceArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "content_type": "application/json",
       "contract_version": "2026-07-03.2",
-      "description": "Latest surface health snapshot.",
+      "description": "Latest surface health snapshot. Retired: read the live API health endpoints instead.",
       "id": "health-latest",
       "path": "/metagraph/health/latest.json",
+      "retirement": {
+        "code": "retired_artifact",
+        "http_status": 410,
+        "message": "Current-state health artifacts are retired; use the live API health endpoints instead."
+      },
       "schema_ref": "#/components/schemas/HealthLatestArtifact",
+      "status": "retired",
       "storage_tier": "r2"
     },
     {
       "content_type": "application/json",
       "contract_version": "2026-07-03.2",
-      "description": "Global and per-subnet health rollup.",
+      "description": "Global and per-subnet health rollup. Retired: read the live API health endpoints instead.",
       "id": "health-summary",
       "path": "/metagraph/health/summary.json",
+      "retirement": {
+        "code": "retired_artifact",
+        "http_status": 410,
+        "message": "Current-state health artifacts are retired; use the live API health endpoints instead."
+      },
       "schema_ref": "#/components/schemas/HealthSummaryArtifact",
+      "status": "retired",
       "storage_tier": "r2"
     },
     {
@@ -402,16 +498,24 @@
       "description": "Compact daily health-history snapshot.",
       "id": "health-history",
       "path": "/metagraph/health/history/{date}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/HealthHistoryArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "content_type": "application/json",
       "contract_version": "2026-07-03.2",
-      "description": "Per-subnet health payload for metagraph.sh consumers.",
+      "description": "Per-subnet health payload for metagraph.sh consumers. Retired: read the live API health endpoints instead.",
       "id": "health-subnet",
       "path": "/metagraph/health/subnets/{netuid}.json",
+      "retirement": {
+        "code": "retired_artifact",
+        "http_status": 410,
+        "message": "Current-state health artifacts are retired; use the live API health endpoints instead."
+      },
       "schema_ref": "#/components/schemas/HealthSubnetArtifact",
+      "status": "retired",
       "storage_tier": "r2"
     },
     {
@@ -420,7 +524,9 @@
       "description": "Badge data contract for status rendering.",
       "id": "health-badge",
       "path": "/metagraph/health/badges/{netuid}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/HealthBadgeArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -429,7 +535,9 @@
       "description": "Computed 7d/30d uptime + success-only latency trends (mean, p50/p95/p99 tail, and healthy-sample count) for one subnet's operational surfaces. Served live from D1 at /api/v1/subnets/{netuid}/health/trends (no static file).",
       "id": "health-trends",
       "path": "/metagraph/health/trends/{netuid}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/HealthTrendsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -438,7 +546,9 @@
       "description": "Compact all-subnet 7d/30d daily uptime + success-only latency trend matrix (mean + healthy-sample count). Served live from D1 at /api/v1/health/trends (no static file).",
       "id": "health-trends-bulk",
       "path": "/metagraph/health/trends.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/BulkHealthTrendsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -447,7 +557,9 @@
       "description": "Latency percentiles (p50/p95/p99 + avg/min/max) per operational surface for one subnet, computed live from D1 at /api/v1/subnets/{netuid}/health/percentiles (no static file).",
       "id": "health-percentiles",
       "path": "/metagraph/health/percentiles/{netuid}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/HealthPercentilesArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -456,7 +568,9 @@
       "description": "SLA (uptime ratio) and reconstructed downtime incidents per operational surface for one subnet, computed live from D1 at /api/v1/subnets/{netuid}/health/incidents (no static file).",
       "id": "health-incidents",
       "path": "/metagraph/health/incidents/{netuid}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/HealthIncidentsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -465,7 +579,9 @@
       "description": "Week-over-week structural trajectory (completeness + surface/endpoint counts) for one subnet from daily snapshots, served live from D1 at /api/v1/subnets/{netuid}/trajectory; pass ?format=csv to download the per-day series as CSV (no static file).",
       "id": "subnet-trajectory",
       "path": "/metagraph/subnets/{netuid}/trajectory.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetTrajectoryArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -474,7 +590,9 @@
       "description": "Stake & emission concentration metrics (Gini, HHI, Nakamoto coefficient, top-percentile shares, entropy) for one subnet across three lenses — per-UID, per-entity (coldkeys collapsed to the true control distribution), and validator-only consensus power — served live from the neurons D1 tier at /api/v1/subnets/{netuid}/concentration (no static file).",
       "id": "subnet-concentration",
       "path": "/metagraph/subnets/{netuid}/concentration.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetConcentrationArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -483,7 +601,9 @@
       "description": "Reward-distribution & score-spread metrics for one subnet: concentration of the actual rewards (Gini, HHI, Nakamoto coefficient, top-percentile shares, entropy) for incentive across all neurons and dividends across validators, plus the p10–p90 spread of the 0–1 trust, consensus, and validator_trust scores — the reward-flow companion to concentration, served live from the neurons D1 tier at /api/v1/subnets/{netuid}/performance (no static file).",
       "id": "subnet-performance",
       "path": "/metagraph/subnets/{netuid}/performance.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetPerformanceArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -492,7 +612,9 @@
       "description": "Per-day reward-flow & trust trend (incentive/dividends Gini, Nakamoto coefficient, top-10% share, plus trust/consensus/validator_trust mean & median) over a 7d/30d/90d window for one subnet, served live from the neuron_daily D1 rollup at /api/v1/subnets/{netuid}/performance/history; pass ?format=csv to download the per-day series as CSV (no static file). The reward-flow twin of /concentration/history.",
       "id": "subnet-performance-history",
       "path": "/metagraph/subnets/{netuid}/performance/history.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetPerformanceHistoryArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -501,7 +623,9 @@
       "description": "Per-day stake & emission concentration trend (Gini, Nakamoto coefficient, top-10% share) over a 7d/30d/90d window for one subnet, served live from the neuron_daily D1 rollup at /api/v1/subnets/{netuid}/concentration/history; pass ?format=csv to download the per-day series as CSV (no static file).",
       "id": "subnet-concentration-history",
       "path": "/metagraph/subnets/{netuid}/concentration/history.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetConcentrationHistoryArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -510,7 +634,9 @@
       "description": "Validator-set & registration turnover (churn) for one subnet between a window's start and end snapshots — validators entered/exited + Jaccard retention, UID deregistrations, and a 0-100 stability score — served live from the neuron_daily D1 rollup at /api/v1/subnets/{netuid}/turnover (no static file).",
       "id": "subnet-turnover",
       "path": "/metagraph/subnets/{netuid}/turnover.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetTurnoverArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -519,7 +645,9 @@
       "description": "Validator weight-setting activity for one subnet over a 7d or 30d window — the distinct weight-setting validators, WeightsSet event count, and average updates per validator — served live from the account_events WeightsSet stream at /api/v1/subnets/{netuid}/weights (no static file). The per-subnet drill-in of /api/v1/chain/weights.",
       "id": "subnet-weights",
       "path": "/metagraph/subnets/{netuid}/weights.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetWeightsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -528,7 +656,9 @@
       "description": "Per-subnet weight-setter leaderboard over a 7d or 30d window — the individual validators behind /weights, each with its WeightsSet count, share of the subnet total, and first/last set time, ranked by activity — served live from the account_events WeightsSet stream at /api/v1/subnets/{netuid}/weights/setters (no static file). The setter-level drill-in of /api/v1/subnets/{netuid}/weights.",
       "id": "subnet-weight-setters",
       "path": "/metagraph/subnets/{netuid}/weights/setters.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetWeightSettersArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -537,7 +667,9 @@
       "description": "Axon-serving announcement activity for one subnet over a 7d or 30d window — the distinct servers (hotkeys), AxonServed event count, and average announcements per server — served live from the account_events AxonServed stream at /api/v1/subnets/{netuid}/serving (no static file). The per-subnet drill-in of /api/v1/chain/serving.",
       "id": "subnet-serving",
       "path": "/metagraph/subnets/{netuid}/serving.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetServingArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -546,7 +678,9 @@
       "description": "Prometheus-endpoint serving activity for one subnet over a 7d or 30d window — the distinct exporters (hotkeys), PrometheusServed event count, and average announcements per exporter — served live from the account_events PrometheusServed stream at /api/v1/subnets/{netuid}/prometheus (no static file). The per-subnet drill-in of /api/v1/chain/prometheus and the telemetry-endpoint sibling of /api/v1/subnets/{netuid}/serving.",
       "id": "subnet-prometheus",
       "path": "/metagraph/subnets/{netuid}/prometheus.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetPrometheusArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -555,7 +689,9 @@
       "description": "Stake-transfer activity for one subnet over a 7d or 30d window — the distinct senders (accounts), StakeTransferred event count, and average transfers per sender — served live from the account_events StakeTransferred stream at /api/v1/subnets/{netuid}/stake-transfers (no static file). The per-subnet drill-in of /api/v1/chain/stake-transfers and the between-coldkeys sibling of /api/v1/subnets/{netuid}/stake-moves (within-account re-delegation churn); transfer_stake relocates staked alpha from one account to another on the same hotkey (origin leg only), so it moves ownership, not net capital.",
       "id": "subnet-stake-transfers",
       "path": "/metagraph/subnets/{netuid}/stake-transfers.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetStakeTransfersArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -564,7 +700,9 @@
       "description": "Stake-movement (re-delegation) activity for one subnet over a 7d or 30d window — the distinct movers (accounts), StakeMoved event count, and average movements per mover — served live from the account_events StakeMoved stream at /api/v1/subnets/{netuid}/stake-moves (no static file). The per-subnet drill-in of /api/v1/chain/stake-moves and the re-delegation-churn sibling of /api/v1/subnets/{netuid}/stake-flow (net capital flow); move_stake relocates stake between hotkeys/subnets without unstaking, so it is churn, not flow.",
       "id": "subnet-stake-moves",
       "path": "/metagraph/subnets/{netuid}/stake-moves.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetStakeMovesArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -573,7 +711,9 @@
       "description": "Neuron-registration activity for one subnet over a 7d or 30d window — the distinct registrants (hotkeys), NeuronRegistered event count, and average registrations per registrant — served live from the account_events NeuronRegistered stream at /api/v1/subnets/{netuid}/registrations (no static file). Raw registration demand, the account_events companion to the neuron_daily validator-set churn in /api/v1/subnets/{netuid}/turnover.",
       "id": "subnet-registrations",
       "path": "/metagraph/subnets/{netuid}/registrations.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetRegistrationsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -582,7 +722,9 @@
       "description": "Axon-removal activity for one subnet over a 7d or 30d window — the distinct removers (hotkeys), AxonInfoRemoved event count, and average removals per remover — served live from the account_events AxonInfoRemoved stream at /api/v1/subnets/{netuid}/axon-removals (no static file). Raw axon-teardown activity, the removal-side companion to the AxonServed announcements in /api/v1/subnets/{netuid}/serving.",
       "id": "subnet-axon-removals",
       "path": "/metagraph/subnets/{netuid}/axon-removals.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetAxonRemovalsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -591,7 +733,9 @@
       "description": "Neuron-deregistration activity for one subnet over a 7d or 30d window — the distinct deregistered hotkeys, NeuronDeregistered event count, and average deregistrations per hotkey — served live from the account_events NeuronDeregistered stream at /api/v1/subnets/{netuid}/deregistrations (no static file). Raw deregistration/eviction activity, the exit-side companion to the NeuronRegistered demand in /api/v1/subnets/{netuid}/registrations.",
       "id": "subnet-deregistrations",
       "path": "/metagraph/subnets/{netuid}/deregistrations.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetDeregistrationsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -600,7 +744,9 @@
       "description": "Net stake flow for one subnet over a recent window (7d/30d/90d): total TAO staked (StakeAdded) vs unstaked (StakeRemoved), the net flow, and event counts, with optional ?direction=all|in|out to filter inflow or outflow only, summed live from the account_events stream at /api/v1/subnets/{netuid}/stake-flow (no static file).",
       "id": "subnet-stake-flow",
       "path": "/metagraph/subnets/{netuid}/stake-flow.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetStakeFlowArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -609,7 +755,9 @@
       "description": "Read-only constant-product stake/unstake slippage quote for one subnet (#5235): the expected alpha/TAO out, spot vs effective price (TAO per alpha), and price-impact percent for a swap of ?amount= in ?direction=stake|unstake, computed live from the subnet's economics-tier AMM pool reserves (tao_in_pool_tao, alpha_in_pool) at /api/v1/subnets/{netuid}/stake-quote (no static file). Pure math — no chain write, no custody — mirroring the chain's own constant-product swap and its InsufficientLiquidity guard (an amount over 1000× the relevant reserve is rejected with 422). The root subnet (netuid 0) has no AMM and returns a 1:1, zero-impact quote.",
       "id": "subnet-stake-quote",
       "path": "/metagraph/subnets/{netuid}/stake-quote.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetStakeQuoteArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -618,7 +766,9 @@
       "description": "Rolling 24h buy/sell alpha volume for one subnet (#4339/8.1): unsigned totals (never netted) in both alpha and TAO for StakeAdded (buy) vs StakeRemoved (sell), plus event counts, summed live from the same account_events stream as /api/v1/subnets/{netuid}/stake-flow (no static file). Also carries a buy/sell sentiment indicator (#4339/8.2) purely derived from the alpha totals: net_volume_alpha, a bounded sentiment_ratio, and a bullish/bearish/neutral label. Fixed 24h window, not OHLC/price data (#2589's trader-feature fence).",
       "id": "subnet-alpha-volume",
       "path": "/metagraph/subnets/{netuid}/volume.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetAlphaVolumeArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -627,7 +777,9 @@
       "description": "OHLC price/volume candlesticks for one subnet (#5655, Phase 1 of the OHLC epic #5304): open/high/low/close/volume candles bucketed by ?interval=1h|1d (default 1h), shaped in pure JS from the raw StakeAdded/StakeRemoved account_events stream the same /volume and /stake-flow read (per-trade price = amount_tao / alpha_amount), no static file. ?days= bounds the lookback window (default 90, max 365). Empty buckets are gaps, never synthesized flat candles. Root (netuid 0) has no AMM pool (1:1 TAO, no price impact) and returns an empty, root_excluded series rather than a meaningless flat line. Extends metagraphed's original developer-explorer scope fence (#2589's OHLC exclusion) per #4302's maintainer decision.",
       "id": "subnet-ohlc",
       "path": "/metagraph/subnets/{netuid}/ohlc.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetOhlcArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -636,7 +788,9 @@
       "description": "Cross-subnet momentum leaderboard: every subnet ranked by its change in stake, emission, validator, and neuron count between a window's start and end snapshots, with each subnet's share of network stake/emission and a network aggregate summary, computed live from the neuron_daily D1 rollup at /api/v1/subnets/movers (no static file).",
       "id": "subnet-movers",
       "path": "/metagraph/subnets/movers.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetMoversArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -645,7 +799,9 @@
       "description": "Network-wide validator/operator leaderboard: validator-permit identities grouped across all current subnet memberships and ranked by subnet footprint, UID footprint, validator trust, or cross-subnet stake/emission totals, computed live from the neurons D1 tier at /api/v1/validators (no static file).",
       "id": "global-validators",
       "path": "/metagraph/validators.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/GlobalValidatorsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -654,7 +810,9 @@
       "description": "Site-wide accounts leaderboard: every currently-registered hotkey (miners included, not just validator_permit=1 ones) grouped across all current subnet memberships and ranked by subnet/UID footprint, cross-subnet stake/emission totals, or last activity, computed live from the neurons D1 tier at /api/v1/accounts (no static file). The collection-level counterpart to /api/v1/validators.",
       "id": "accounts-list",
       "path": "/metagraph/accounts.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AccountsListArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -663,7 +821,9 @@
       "description": "Cross-subnet detail for one validator identity: its validator_permit=1 rows aggregated across every subnet it operates in, computed live from the neurons D1 tier at /api/v1/validators/{hotkey} (no static file). The single-entity drill-in of /api/v1/validators.",
       "id": "validator-detail",
       "path": "/metagraph/validators/{hotkey}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ValidatorDetailArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -672,7 +832,9 @@
       "description": "Nominator list for one validator: who has staked to it (across every subnet it operates in) over a 7d/30d/90d window, ranked by net/gross stake flow or recency, computed live from the account_events StakeAdded/StakeRemoved stream at /api/v1/validators/{hotkey}/nominators (no static file).",
       "id": "validator-nominators",
       "path": "/metagraph/validators/{hotkey}/nominators.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ValidatorNominatorsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -681,7 +843,9 @@
       "description": "Cross-subnet staked-over-time + rewards-per-1000-TAO history for one validator: one point per snapshot_date, summed across every subnet it operates in that day, rolled up from the neuron_daily D1 tier at /api/v1/validators/{hotkey}/history (no static file).",
       "id": "validator-history",
       "path": "/metagraph/validators/{hotkey}/history.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ValidatorHistoryArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -690,7 +854,9 @@
       "description": "Per-UID metagraph (stake, trust, consensus, incentive, dividends, emission, validator_permit, rank, axon) for one subnet, served live from the neurons D1 tier at /api/v1/subnets/{netuid}/metagraph (no static file).",
       "id": "subnet-metagraph",
       "path": "/metagraph/subnets/{netuid}/metagraph.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetMetagraphArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -699,7 +865,9 @@
       "description": "A single neuron's metagraph state by UID, served live from the neurons D1 tier at /api/v1/subnets/{netuid}/neurons/{uid} (no static file).",
       "id": "subnet-neuron",
       "path": "/metagraph/subnets/{netuid}/neurons/{uid}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/NeuronDetailArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -708,7 +876,9 @@
       "description": "One subnet's consensus, economic, and governance hyperparameters (kappa, weight/activity settings, burn cost, liquid alpha, commit-reveal, yuma version, and more), refreshed daily and served live from the subnet_hyperparams D1 tier at /api/v1/subnets/{netuid}/hyperparameters (no static file).",
       "id": "subnet-hyperparameters",
       "path": "/metagraph/subnets/{netuid}/hyperparameters.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetHyperparametersArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -717,7 +887,9 @@
       "description": "Append-only hyperparameter-change timeline for one subnet (subnet_hyperparams field snapshots on change), served live from the subnet_hyperparams_history D1 tier at /api/v1/subnets/{netuid}/hyperparameters/history; pass ?format=csv to download the page as CSV (no static file). Forward-only.",
       "id": "subnet-hyperparameters-history",
       "path": "/metagraph/subnets/{netuid}/hyperparameters/history.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetHyperparamsHistoryArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -726,7 +898,9 @@
       "description": "Validators (validator_permit) of one subnet ranked by stake, served live from the neurons D1 tier at /api/v1/subnets/{netuid}/validators (no static file).",
       "id": "subnet-validators",
       "path": "/metagraph/subnets/{netuid}/validators.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetValidatorsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -735,7 +909,9 @@
       "description": "Per-UID emission yield (emission/stake return rate) for one subnet over the current metagraph snapshot, ranked high to low with a distribution summary (subnet aggregate yield, mean, p25/median/p75/p90 percentiles), a validator/miner split, and a per-UID above/below-median label, served live from the neurons D1 tier at /api/v1/subnets/{netuid}/yield; pass ?format=csv to download the ranked neuron rows as CSV (no static file).",
       "id": "subnet-yield",
       "path": "/metagraph/subnets/{netuid}/yield.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetYieldArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -744,7 +920,9 @@
       "description": "Per-day emission-yield distribution trend (subnet-wide return plus the mean/median/p25/p75/p90 of the per-UID emission-per-stake yields) over a 7d/30d/90d window for one subnet, served live from the neuron_daily D1 rollup at /api/v1/subnets/{netuid}/yield/history; pass ?format=csv to download the per-day series as CSV (no static file). The time-series companion to /yield and the return-rate twin of /concentration/history.",
       "id": "subnet-yield-history",
       "path": "/metagraph/subnets/{netuid}/yield/history.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetYieldHistoryArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -753,7 +931,9 @@
       "description": "First-party chain-event stream for one subnet (registrations, stake, weights, axon, delegation, lifecycle, transfers), newest first, served live from the account_events D1 tier filtered by netuid at /api/v1/subnets/{netuid}/events; pass ?format=csv to download the page as CSV (no static file).",
       "id": "subnet-events",
       "path": "/metagraph/subnets/{netuid}/events.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetEventsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -762,7 +942,9 @@
       "description": "Windowed event summary for one subnet: account_events counts by kind and coarse category, distinct hotkey/coldkey counts, TAO/alpha sums where applicable, first/last evidence bounds, and a small newest-first evidence slice, served live from D1 at /api/v1/subnets/{netuid}/event-summary (no static file).",
       "id": "subnet-event-summary",
       "path": "/metagraph/subnets/{netuid}/event-summary.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetEventSummaryArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -771,7 +953,9 @@
       "description": "Per-UID daily metagraph history (stake/trust/emission/rank over time) for one UID, served live from the neuron_daily D1 rollup tier at /api/v1/subnets/{netuid}/neurons/{uid}/history (no static file).",
       "id": "subnet-neuron-history",
       "path": "/metagraph/subnets/{netuid}/neurons/{uid}/history.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/NeuronHistoryArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -780,7 +964,9 @@
       "description": "Per-subnet daily aggregate history (neuron/validator counts + stake/emission totals) for one subnet, served live from the neuron_daily D1 rollup tier at /api/v1/subnets/{netuid}/history (no static file).",
       "id": "subnet-history",
       "path": "/metagraph/subnets/{netuid}/history.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetHistoryArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -789,7 +975,9 @@
       "description": "Append-only on-chain identity timeline for one subnet (SubnetIdentitiesV3 field snapshots on change), served live from the subnet_identity_history D1 tier at /api/v1/subnets/{netuid}/identity-history (no static file).",
       "id": "subnet-identity-history",
       "path": "/metagraph/subnets/{netuid}/identity-history.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetIdentityHistoryArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -798,7 +986,9 @@
       "description": "Cross-subnet activity summary for one account (hotkey or coldkey): chain-event aggregates joined to current registrations, served live from D1 at /api/v1/accounts/{ss58} (no static file).",
       "id": "account-summary",
       "path": "/metagraph/accounts/{ss58}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AccountSummaryArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -807,7 +997,9 @@
       "description": "Paginated first-party chain-event history for one account (hotkey or coldkey), served live from the account_events D1 tier at /api/v1/accounts/{ss58}/events; pass ?format=csv to download the page as CSV (no static file).",
       "id": "account-events",
       "path": "/metagraph/accounts/{ss58}/events.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AccountEventsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -816,7 +1008,9 @@
       "description": "Durable per-day activity series for one account (hotkey-keyed, newest day first), served live from the account_events_daily rollup at /api/v1/accounts/{ss58}/history (no static file).",
       "id": "account-history",
       "path": "/metagraph/accounts/{ss58}/history.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AccountHistoryArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -825,7 +1019,9 @@
       "description": "Paginated extrinsics this account signed (by signer), newest first, served live from the extrinsics D1 tier at /api/v1/accounts/{ss58}/extrinsics; pass ?format=csv to download the page as CSV (no static file).",
       "id": "account-extrinsics",
       "path": "/metagraph/accounts/{ss58}/extrinsics.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AccountExtrinsicsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -834,7 +1030,9 @@
       "description": "The native-TAO Balances.Transfer feed for one account (directional sent/received), served live from the account_events D1 tier at /api/v1/accounts/{ss58}/transfers; pass ?format=csv to download the page as CSV (no static file).",
       "id": "account-transfers",
       "path": "/metagraph/accounts/{ss58}/transfers.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AccountTransfersArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -843,7 +1041,9 @@
       "description": "Per-counterparty fund-flow rollup for one account, with optional ?counterparty=<ss58> relationship evidence — native-TAO transfers from the account_events D1 tier at /api/v1/accounts/{ss58}/counterparties; pass ?format=csv to download the list-mode rollup as CSV (no static file).",
       "id": "account-counterparties",
       "path": "/metagraph/accounts/{ss58}/counterparties.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AccountCounterpartiesArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -852,7 +1052,9 @@
       "description": "One account's StakeAdded vs StakeRemoved flow per subnet over a recent window (7d/30d/90d): per-subnet net and gross flow with a direction label, plus account totals, an HHI concentration of where the flow is focused, and the dominant subnet — summed live from the account_events D1 tier at /api/v1/accounts/{ss58}/stake-flow (no static file).",
       "id": "account-stake-flow",
       "path": "/metagraph/accounts/{ss58}/stake-flow.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AccountStakeFlowArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -861,7 +1063,9 @@
       "description": "One account's stake-movement (re-delegation) footprint per subnet over a recent window (7d/30d/90d): each subnet's StakeMoved count with the first/last movement timestamps and the alpha price on the day of the most recent move (from the daily subnet_snapshots rollup), plus account totals, an HHI concentration of where its re-delegation churn is focused, and the dominant subnet — summed live from the account_events D1 tier at /api/v1/accounts/{ss58}/stake-moves (no static file). The account-level companion to /api/v1/chain/stake-moves and /api/v1/subnets/{netuid}/stake-moves, distinct from net capital flow in /api/v1/accounts/{ss58}/stake-flow.",
       "id": "account-stake-moves",
       "path": "/metagraph/accounts/{ss58}/stake-moves.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AccountStakeMovesArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -870,7 +1074,9 @@
       "description": "One account's neuron-deregistration footprint per subnet over a recent window (7d/30d/90d): each subnet's NeuronDeregistered eviction count with the first/last eviction timestamps, plus account totals, an HHI concentration of where its deregistration activity is focused, and the dominant subnet — summed live from the account_events D1 tier at /api/v1/accounts/{ss58}/deregistrations (no static file). The eviction-side complement to /api/v1/accounts/{ss58}/registrations and the account-level companion to /api/v1/chain/deregistrations, distinct from /api/v1/accounts/{ss58}/subnets (current registration state).",
       "id": "account-deregistrations",
       "path": "/metagraph/accounts/{ss58}/deregistrations.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AccountDeregistrationsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -879,7 +1085,9 @@
       "description": "One account's Prometheus-endpoint serving footprint per subnet over a recent window (7d/30d/90d): each subnet's PrometheusServed announcement count with the first/last announcement timestamps, plus account totals, an HHI concentration of where its telemetry activity is focused, and the dominant subnet — summed live from the account_events D1 tier at /api/v1/accounts/{ss58}/prometheus (no static file). Operational activity (announcing a Prometheus telemetry endpoint) — the telemetry sibling of /api/v1/accounts/{ss58}/serving and the account-level companion to /api/v1/chain/prometheus, orthogonal to /api/v1/accounts/{ss58}/subnets (registration state).",
       "id": "account-prometheus",
       "path": "/metagraph/accounts/{ss58}/prometheus.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AccountPrometheusArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -888,7 +1096,9 @@
       "description": "One account's axon-removal footprint per subnet over a recent window (7d/30d/90d): each subnet's AxonInfoRemoved count with the first/last removal timestamps, plus account totals, an HHI concentration of where its teardown activity is focused, and the dominant subnet — summed live from the account_events D1 tier at /api/v1/accounts/{ss58}/axon-removals (no static file). The teardown-side complement to /api/v1/accounts/{ss58}/serving (axon announcements) and the account-level companion to /api/v1/chain/axon-removals, orthogonal to /api/v1/accounts/{ss58}/subnets (registration state).",
       "id": "account-axon-removals",
       "path": "/metagraph/accounts/{ss58}/axon-removals.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AccountAxonRemovalsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -897,7 +1107,9 @@
       "description": "One account's axon-serving footprint per subnet over a recent window (7d/30d/90d): each subnet's AxonServed announcement count with the first/last announcement timestamps, plus account totals, an HHI concentration of where its serving activity is focused, and the dominant subnet — summed live from the account_events D1 tier at /api/v1/accounts/{ss58}/serving (no static file). Operational activity (announcing an axon endpoint) — the account-level companion to /api/v1/chain/serving, orthogonal to /api/v1/accounts/{ss58}/subnets (registration state) and /api/v1/accounts/{ss58}/registrations (registration events).",
       "id": "account-serving",
       "path": "/metagraph/accounts/{ss58}/serving.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AccountServingArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -906,7 +1118,9 @@
       "description": "One account's (validator's) weight-setting footprint per subnet over a recent window (7d/30d): each subnet's WeightsSet count with the first/last set timestamps, plus account totals, an HHI concentration of where its weight-setting activity is focused, and the dominant subnet — summed live from the account_events D1 tier at /api/v1/accounts/{ss58}/weight-setters (no static file). Keyed on the hotkey (the validator submitting weights); the account-level companion to /api/v1/chain/weights/setters and /api/v1/subnets/{netuid}/weights/setters.",
       "id": "account-weight-setters",
       "path": "/metagraph/accounts/{ss58}/weight-setters.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AccountWeightSettersArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -915,7 +1129,9 @@
       "description": "One account's neuron-registration footprint per subnet over a recent window (7d/30d/90d): each subnet's NeuronRegistered count with the first/last registration timestamps, plus account totals, an HHI concentration of where its registration activity is focused, and the dominant subnet — summed live from the account_events D1 tier at /api/v1/accounts/{ss58}/registrations (no static file). Windowed registration events (incl. re-registrations after a deregistration) — the account-level companion to /api/v1/chain/registrations, distinct from /api/v1/accounts/{ss58}/subnets (current registration state).",
       "id": "account-registrations",
       "path": "/metagraph/accounts/{ss58}/registrations.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AccountRegistrationsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -924,7 +1140,9 @@
       "description": "The subnets where an account's hotkey is currently registered, served live from the neurons D1 tier at /api/v1/accounts/{ss58}/subnets (no static file).",
       "id": "account-subnets",
       "path": "/metagraph/accounts/{ss58}/subnets.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AccountSubnetsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -933,7 +1151,9 @@
       "description": "A wallet's cross-subnet neuron portfolio: each position's economics (stake, emission, rank, trust, incentive, dividends, role) and yield, plus aggregates (totals, subnet/validator counts, overall return, stake concentration) — richer than the /subnets registration footprint, computed live from the neurons D1 tier at /api/v1/accounts/{ss58}/portfolio (no static file).",
       "id": "account-portfolio",
       "path": "/metagraph/accounts/{ss58}/portfolio.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AccountPortfolioArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -942,7 +1162,9 @@
       "description": "This account's reconstructed nominator-side positions (#5233): what it holds delegated across every hotkey/subnet, distinct from account-portfolio's hotkey-scoped view (a pure delegator shows near-zero there). Computed live from nominator_positions (a share-fraction ledger) joined against the neurons D1 tier's stake_tao, served at /api/v1/accounts/{ss58}/positions (no static file). Root (netuid 0) stake is not covered -- see the artifact schema's own description.",
       "id": "account-positions",
       "path": "/metagraph/accounts/{ss58}/positions.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AccountPositionsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -951,7 +1173,9 @@
       "description": "One wallet's position on one subnet over time (the 'Alpha Holdings chart'): one point per snapshot_date with the position's economics (stake, emission, rank, trust, incentive, dividends, coldkey, role) and yield, served live from the account_position_daily D1 rollup tier at /api/v1/accounts/{ss58}/subnets/{netuid}/history (no static file).",
       "id": "account-subnet-position-history",
       "path": "/metagraph/accounts/{ss58}/subnets/{netuid}/history.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AccountPositionHistoryArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -960,7 +1184,9 @@
       "description": "Personal chain identity for one account (epic #4301/5.4), the latest-only account_identity D1 row served live at /api/v1/accounts/{ss58}/identity (no static file). has_identity is false for the common case of an account that never called set_identity.",
       "id": "account-identity",
       "path": "/metagraph/accounts/{ss58}/identity.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AccountIdentityArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -969,7 +1195,9 @@
       "description": "Append-only diff-tracking timeline for one account's personal chain identity (epic #4301/5.2), served live from the account_identity_history D1 tier at /api/v1/accounts/{ss58}/identity-history (no static file).",
       "id": "account-identity-history",
       "path": "/metagraph/accounts/{ss58}/identity-history.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AccountIdentityHistoryArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -978,7 +1206,9 @@
       "description": "Live TAO balance (free+reserved, in TAO) for a finney account, queried from the RPC at request time with 60s KV cache. balance_tao is null on RPC failure. (#1818)",
       "id": "account-balance",
       "path": "/metagraph/accounts/{ss58}/balance.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AccountBalanceArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -987,7 +1217,9 @@
       "description": "The current Sudo::Key holder (#4310/2.4, re-scoped from the original Senate/Council membership framing — subtensor has no such pallet), queried from the finney RPC at request time with 1h KV cache (the key changes extremely rarely). hotkey is null on RPC failure or an unset sudo key.",
       "id": "sudo-key",
       "path": "/metagraph/sudo/key.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SudoKeyArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -996,7 +1228,9 @@
       "description": "Live cumulative TAO recycled for registration on one subnet (#4339/8.4), queried from the chain's own RAORecycledForRegistration storage map at request time with 600s KV cache — not an account_events/log-layer aggregation (empirically confirmed the burn amount isn't captured by any ingested event or extrinsic field). recycled_tao is null on RPC failure; a subnet with zero registrations reads back a real 0.",
       "id": "subnet-recycled",
       "path": "/metagraph/subnets/{netuid}/recycled.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetRecycledArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1005,7 +1239,9 @@
       "description": "The recent-block feed (newest first) for the block explorer (#1345), served live from the first-party blocks D1 tier at /api/v1/blocks; pass ?format=csv to download the filtered block rows as CSV (no static file).",
       "id": "blocks-feed",
       "path": "/metagraph/blocks.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/BlocksFeedArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1014,7 +1250,9 @@
       "description": "Block-production analytics over recent blocks: inter-block time distribution, extrinsic/event throughput, block-author decentralization (concentration over each author's block count), and the spec-version spread — computed live from the blocks D1 tier at /api/v1/blocks/summary (no static file).",
       "id": "blocks-summary",
       "path": "/metagraph/blocks/summary.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/BlocksSummaryArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1023,7 +1261,9 @@
       "description": "Per-block detail (by numeric block_number or 0x block_hash) for the block explorer (#1345), served live from the first-party blocks D1 tier at /api/v1/blocks/{ref} (no static file).",
       "id": "block-detail",
       "path": "/metagraph/blocks/{ref}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/BlockDetailArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1032,7 +1272,9 @@
       "description": "The extrinsics in one block (by numeric block_number or 0x block_hash), in natural order, served live from the first-party extrinsics D1 tier at /api/v1/blocks/{ref}/extrinsics (no static file).",
       "id": "block-extrinsics",
       "path": "/metagraph/blocks/{ref}/extrinsics.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/BlockExtrinsicsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1041,7 +1283,9 @@
       "description": "The decoded chain events in one block (by numeric block_number or 0x block_hash), in natural order, served live from the first-party account_events D1 tier filtered by block_number at /api/v1/blocks/{ref}/events (no static file).",
       "id": "block-events",
       "path": "/metagraph/blocks/{ref}/events.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/BlockEventsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1050,7 +1294,9 @@
       "description": "Recent all-events feed (newest first) from the Postgres-backed all-events tier (ADR 0013), served live at /api/v1/chain-events; pass ?format=csv to download the page as CSV (no static file). Distinct from the curated account-attributed event stream; empty before the all-events backfill runs.",
       "id": "chain-events-feed",
       "path": "/metagraph/chain-events.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainEventsFeedArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1059,7 +1305,9 @@
       "description": "Every raw pallet-level event in one block (event_index ascending) from the Postgres-backed all-events tier (ADR 0013), served live at /api/v1/blocks/{ref}/chain-events (no static file). Distinct from /blocks/{ref}/events (the curated account-attributed D1 stream).",
       "id": "block-chain-events",
       "path": "/metagraph/blocks/{ref}/chain-events.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/BlockChainEventsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1068,7 +1316,9 @@
       "description": "Chain-activity aggregate (pallet.method event distribution over the most recent N blocks) from the Postgres-backed all-events tier (ADR 0013), served live at /api/v1/chain-events/stats (no static file) and consumed by the get_chain_activity MCP tool.",
       "id": "chain-events-stats",
       "path": "/metagraph/chain-events/stats.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainEventsStatsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1077,7 +1327,9 @@
       "description": "The recent-extrinsic feed (newest first) for the block explorer (#1345), served live from the first-party extrinsics D1 tier at /api/v1/extrinsics; pass ?format=csv to download the filtered extrinsic rows as CSV (no static file).",
       "id": "extrinsics-feed",
       "path": "/metagraph/extrinsics.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ExtrinsicsFeedArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1086,7 +1338,9 @@
       "description": "Per-extrinsic detail (by 0x extrinsic_hash OR the composite <block_number>-<extrinsic_index> id) for the block explorer (#1345/#1848), served live from the first-party extrinsics D1 tier at /api/v1/extrinsics/{hash} (no static file).",
       "id": "extrinsic-detail",
       "path": "/metagraph/extrinsics/{hash}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ExtrinsicDetailArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1095,7 +1349,9 @@
       "description": "The root-origin (Sudo pallet) call table (#4310/2.2) — subtensor has no Council/Senate, only Sudo, so this is the extrinsics feed hardcoded to call_module='Sudo'. Served live from the first-party extrinsics D1 tier at /api/v1/sudo; pass ?format=csv to download the filtered rows as CSV (no static file).",
       "id": "sudo-calls",
       "path": "/metagraph/sudo.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ExtrinsicsFeedArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1104,7 +1360,9 @@
       "description": "Subtensor's own root-origin hyperparameter/network-config change feed (#4310/2.3, re-scoped from the original Council/Senate framing — subtensor has no such pallet) — the extrinsics feed hardcoded to call_module='AdminUtils'. Served live from the first-party extrinsics D1 tier at /api/v1/governance/config-changes; pass ?format=csv to download the filtered rows as CSV (no static file).",
       "id": "governance-config-changes",
       "path": "/metagraph/governance/config-changes.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ExtrinsicsFeedArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1113,7 +1371,9 @@
       "description": "The spec-version transition timeline (#4316/3.1) — the earliest known block at each distinct runtime spec_version, ascending by block_number — computed live from the first-party blocks D1 tier at /api/v1/runtime (no static file).",
       "id": "runtime-versions",
       "path": "/metagraph/runtime.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/RuntimeVersionsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1122,7 +1382,9 @@
       "description": "Daily network-activity aggregates (extrinsic/event/block counts, success rate, unique signers) over a 7d or 30d window for the block explorer (#1987), computed live from the first-party chain D1 tiers at /api/v1/chain/activity (no static file).",
       "id": "chain-activity",
       "path": "/metagraph/chain/activity.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainActivityArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1131,7 +1393,9 @@
       "description": "Extrinsic call-mix breakdown (count + share per call_module / call_function) over a 7d or 30d window for the block explorer (#1989), computed live from the first-party extrinsics D1 tier at /api/v1/chain/calls (no static file).",
       "id": "chain-calls",
       "path": "/metagraph/chain/calls.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainCallsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1140,7 +1404,9 @@
       "description": "Windowed most-active-account leaderboard (signers ranked by tx_count or total_fee_tao, with fees/tips + newest block) over a 7d or 30d window for the block explorer (#1990), computed live from the first-party extrinsics D1 tier at /api/v1/chain/signers (no static file).",
       "id": "chain-signers",
       "path": "/metagraph/chain/signers.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainSignersArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1149,7 +1415,9 @@
       "description": "Network-wide native-TAO transfer analytics over a 7d or 30d window: total Balances.Transfer volume + count, distinct senders/receivers, the top senders and receivers ranked by volume, and the top senders' share of total volume (a concentration signal), computed live from the account_events Transfer feed at /api/v1/chain/transfers (no static file).",
       "id": "chain-transfers",
       "path": "/metagraph/chain/transfers.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainTransfersArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1158,7 +1426,9 @@
       "description": "Network-wide directed native-TAO transfer-pair analytics over a 7d or 30d window: total pairable Balances.Transfer volume + count, unique sender/receiver pairs, returned pair count, top-pair share, and top sender -> receiver pairs ranked by volume or count, computed live from the account_events Transfer feed at /api/v1/chain/transfer-pairs; pass ?format=csv to download the ranked pairs as CSV (no static file).",
       "id": "chain-transfer-pairs",
       "path": "/metagraph/chain/transfer-pairs.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainTransferPairsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1167,7 +1437,9 @@
       "description": "Network-wide cross-subnet capital flow over a 7d or 30d window: every subnet that moved stake in the window ranked by net StakeAdded minus StakeRemoved TAO (subnets with no stake events in the window are excluded), with per-subnet staked/unstaked/net/gross totals + a direction label, a network rollup, and a distribution of the per-subnet net flow, computed live from the account_events stake stream at /api/v1/chain/stake-flow (no static file).",
       "id": "chain-stake-flow",
       "path": "/metagraph/chain/stake-flow.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainStakeFlowArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1176,7 +1448,9 @@
       "description": "Network-wide rolling 24h buy/sell alpha-volume leaderboard: every subnet that had StakeAdded (buy) or StakeRemoved (sell) volume in the last 24h ranked by total_volume_tao (subnets with no volume in the window are excluded), each subnet with the same buy/sell/total volume + sentiment scorecard as /api/v1/subnets/{netuid}/volume, plus a network rollup (with its own net/gross sentiment reading) and a distribution of the per-subnet total volume, computed live from the account_events stake stream at /api/v1/chain/alpha-volume (no static file). Fixed 24h window, not OHLC/price data (#2589's trader-feature fence).",
       "id": "chain-alpha-volume",
       "path": "/metagraph/chain/alpha-volume.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainAlphaVolumeArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1185,7 +1459,9 @@
       "description": "Network-wide validator weight-setting activity over a 7d or 30d window across the subnets with observed weight-setting activity (subnets with no WeightsSet events are absent): each subnet's distinct weight-setting validators, WeightsSet event count, and average updates per validator ranked into a leaderboard, a network rollup with the true distinct setter count (not a per-subnet sum) and total events, and a distribution summary of the per-subnet update intensity (count, mean, min, p25, median, p75, p90, max), computed live from the account_events WeightsSet stream at /api/v1/chain/weights; pass ?format=csv to download the per-subnet leaderboard as CSV (no static file).",
       "id": "chain-weights",
       "path": "/metagraph/chain/weights.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainWeightsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1194,7 +1470,9 @@
       "description": "Network-wide weight-setter leaderboard over a 7d or 30d window: the individual validators driving consensus across every subnet, each with its total WeightsSet count (summed across every subnet it operates on), its share of the network total, and its first/last set time, ranked into a leaderboard (limit caps the page, default 20, max 100; distinct_setters always reports the true network-wide total). Computed live from the account_events WeightsSet stream at /api/v1/chain/weights/setters. The network-wide companion to /api/v1/subnets/{netuid}/weights/setters; pass ?format=csv to download the leaderboard as CSV (no static file).",
       "id": "chain-weight-setters",
       "path": "/metagraph/chain/weights/setters.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainWeightSettersArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1203,7 +1481,9 @@
       "description": "Network-wide axon-serving announcement activity over a 7d or 30d window across the subnets with observed serving activity (subnets with no AxonServed events are absent): each subnet's AxonServed event count, distinct servers (hotkeys announcing an axon), and average announcements per server ranked into a leaderboard, a network rollup with the true distinct server count (not a per-subnet sum) and total announcements, and a distribution summary of the per-subnet re-announcement intensity (count, mean, min, p25, median, p75, p90, max), computed live from the account_events AxonServed stream at /api/v1/chain/serving; pass ?format=csv to download the per-subnet leaderboard as CSV (no static file).",
       "id": "chain-serving",
       "path": "/metagraph/chain/serving.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainServingArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1212,7 +1492,9 @@
       "description": "Network-wide axon-removal activity over a 7d or 30d window across the subnets with observed removal activity (subnets with no AxonInfoRemoved events are absent): each subnet's AxonInfoRemoved event count, distinct removers (hotkeys removing an announced axon), and average removals per remover ranked into a leaderboard, a network rollup with the true distinct remover count (not a per-subnet sum) and total removals, and a distribution summary of the per-subnet re-teardown intensity (count, mean, min, p25, median, p75, p90, max), computed live from the account_events AxonInfoRemoved stream at /api/v1/chain/axon-removals. The teardown-side companion to the axon-announcement /api/v1/chain/serving and the network-wide companion to /api/v1/subnets/{netuid}/axon-removals; pass ?format=csv to download the per-subnet leaderboard as CSV (no static file).",
       "id": "chain-axon-removals",
       "path": "/metagraph/chain/axon-removals.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainAxonRemovalsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1221,7 +1503,9 @@
       "description": "Network-wide Prometheus-endpoint serving activity over a 7d or 30d window across the subnets with observed telemetry activity (subnets with no PrometheusServed events are absent): each subnet's PrometheusServed event count, distinct exporters (hotkeys announcing a Prometheus endpoint), and average announcements per exporter ranked into a leaderboard, a network rollup with the true distinct exporter count (not a per-subnet sum) and total announcements, and a distribution summary of the per-subnet re-announcement intensity (count, mean, min, p25, median, p75, p90, max), computed live from the account_events PrometheusServed stream at /api/v1/chain/prometheus. The telemetry-endpoint companion to the axon-endpoint /api/v1/chain/serving — which subnets run observability infrastructure; pass ?format=csv to download the per-subnet leaderboard as CSV (no static file).",
       "id": "chain-prometheus",
       "path": "/metagraph/chain/prometheus.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainPrometheusArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1230,7 +1514,9 @@
       "description": "Network-wide neuron-registration activity over a 7d or 30d window across the subnets with observed registration activity (subnets with no NeuronRegistered events are absent): each subnet's NeuronRegistered event count, distinct registrants (hotkeys), and average registrations per registrant ranked into a leaderboard, a network rollup with the true distinct registrant count (not a per-subnet sum) and total registrations, and a distribution summary of the per-subnet re-registration intensity (count, mean, min, p25, median, p75, p90, max), computed live from the account_events NeuronRegistered stream at /api/v1/chain/registrations. Raw registration demand — the account_events companion to the neuron_daily validator-set churn in /api/v1/chain/turnover (no static file).",
       "id": "chain-registrations",
       "path": "/metagraph/chain/registrations.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainRegistrationsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1239,7 +1525,9 @@
       "description": "Network-wide neuron-deregistration activity over a 7d or 30d window across the subnets with observed deregistration activity (subnets with no NeuronDeregistered events are absent): each subnet's NeuronDeregistered event count, distinct deregistered hotkeys, and average deregistrations per hotkey ranked into a leaderboard, a network rollup with the true distinct hotkey count (not a per-subnet sum) and total deregistrations, and a distribution summary of the per-subnet re-deregistration intensity (count, mean, min, p25, median, p75, p90, max), computed live from the account_events NeuronDeregistered stream at /api/v1/chain/deregistrations. Raw deregistration/eviction activity — the exit-side companion to /api/v1/chain/registrations (no static file).",
       "id": "chain-deregistrations",
       "path": "/metagraph/chain/deregistrations.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainDeregistrationsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1248,7 +1536,9 @@
       "description": "Network-wide stake-transfer activity over a 7d or 30d window across the subnets with observed transfer activity (subnets with no StakeTransferred events are absent): each subnet's StakeTransferred event count, distinct senders (coldkeys transferring stake), and average transfers per sender ranked into a leaderboard, a network rollup with the true distinct sender count (not a per-subnet sum) and total transfers, and a distribution summary of the per-subnet transfer intensity (count, mean, min, p25, median, p75, p90, max), computed live from the account_events StakeTransferred stream at /api/v1/chain/stake-transfers. The between-coldkeys companion to the within-account re-delegation churn of /api/v1/chain/stake-moves — transfer_stake relocates staked alpha from one account to another on the same hotkey (origin leg only), so it moves ownership, not net capital; pass ?format=csv to download the per-subnet leaderboard as CSV (no static file).",
       "id": "chain-stake-transfers",
       "path": "/metagraph/chain/stake-transfers.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainStakeTransfersArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1257,7 +1547,9 @@
       "description": "Network-wide stake-movement (re-delegation) activity over a 7d or 30d window across the subnets with observed movement activity (subnets with no StakeMoved events are absent): each subnet's StakeMoved event count, distinct movers (accounts relocating stake), and average movements per mover ranked into a leaderboard, a network rollup with the true distinct mover count (not a per-subnet sum) and total movements, and a distribution summary of the per-subnet re-move intensity (count, mean, min, p25, median, p75, p90, max), computed live from the account_events StakeMoved stream at /api/v1/chain/stake-moves. The re-delegation-churn companion to the net-capital-flow /api/v1/chain/stake-flow — move_stake relocates stake between hotkeys/subnets without unstaking, so it is churn, not flow; pass ?format=csv to download the per-subnet leaderboard as CSV (no static file).",
       "id": "chain-stake-moves",
       "path": "/metagraph/chain/stake-moves.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainStakeMovesArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1266,7 +1558,9 @@
       "description": "Fee/tip market analytics (daily totals, averages, exact medians, and a top-fee-payer list) over a 7d or 30d window for the block explorer (#1988), computed live from the first-party extrinsics D1 tier at /api/v1/chain/fees (no static file).",
       "id": "chain-fees",
       "path": "/metagraph/chain/fees.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainFeesArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1275,7 +1569,9 @@
       "description": "Network-wide stake and emission concentration metrics (Gini, HHI, Nakamoto coefficient, top-percentile shares, entropy) aggregated across all subnets' neurons over three lenses (per-UID, per-entity with coldkeys collapsed across subnets into the network control distribution, and validator-only consensus power), computed live from the neurons D1 tier at /api/v1/chain/concentration (no static file).",
       "id": "chain-concentration",
       "path": "/metagraph/chain/concentration.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainConcentrationArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1284,7 +1580,9 @@
       "description": "Network-wide reward-distribution & score-spread metrics aggregated across all subnets' neurons: reward concentration (Gini, HHI, Nakamoto coefficient, top-percentile shares, entropy) for incentive across all neurons and dividends across validators, plus the p10–p90 spread of the 0–1 trust, consensus, and validator_trust scores, and the subnet_count the snapshot spans — the network-wide reward-flow companion to chain-concentration, computed live from the neurons D1 tier at /api/v1/chain/performance (no static file).",
       "id": "chain-performance",
       "path": "/metagraph/chain/performance.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainPerformanceArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1293,7 +1591,9 @@
       "description": "Network-wide recent subnet-identity-change feed (newest first) aggregated across all subnets: the most-recent SubnetIdentitiesV3 changes, each carrying the netuid it belongs to plus the same tracked identity fields as the per-subnet identity-history route, capped to a ?limit (default 50, max 200) and reporting the distinct subnet_count the feed spans, computed live from the subnet_identity_history D1 tier at /api/v1/chain/identity-history (no static file).",
       "id": "chain-identity-history",
       "path": "/metagraph/chain/identity-history.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainIdentityHistoryArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1302,7 +1602,9 @@
       "description": "Network-wide emission-yield (return rate) aggregated across all subnets' neurons: the aggregate network return (total emission / total stake), the same split by validator vs miner role, and the count/mean/median/min/max plus p10–p90 spread of the per-neuron emission/stake return, and the subnet_count the snapshot spans — the return-rate companion to chain-performance, computed live from the neurons D1 tier at /api/v1/chain/yield (no static file).",
       "id": "chain-yield",
       "path": "/metagraph/chain/yield.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainYieldArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1311,7 +1613,9 @@
       "description": "Network-wide validator-set turnover (churn) across all subnets between a window's start and end neuron_daily snapshots: each subnet's validators entered, exited, Jaccard retention, and a 0-100 stability score ranked into a leaderboard, a network rollup over the union of every subnet's validator hotkeys, and a distribution summary of the per-subnet stability scores (count, mean, min, p25, median, p75, p90, max), computed live from the neuron_daily D1 rollup at /api/v1/chain/turnover; pass ?format=csv to download the per-subnet leaderboard as CSV (no static file).",
       "id": "chain-turnover",
       "path": "/metagraph/chain/turnover.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainTurnoverArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1320,7 +1624,9 @@
       "description": "Long-term daily uptime history per operational surface for one subnet (90d/1y window), served live from the surface_uptime_daily D1 rollup (no static file).",
       "id": "subnet-uptime",
       "path": "/metagraph/subnets/{netuid}/uptime.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/UptimeArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1329,7 +1635,9 @@
       "description": "Recent cross-subnet downtime incidents reconstructed from probe history over a 7d or 30d window, served live from D1 at /api/v1/incidents (no static file).",
       "id": "global-incidents",
       "path": "/metagraph/incidents.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/GlobalIncidentsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1338,7 +1646,9 @@
       "description": "Registry leaderboards — operational (healthiest, fastest-rpc, most-complete, most-enriched, fastest-growing, most-reliable) and economic opportunity (open-slots, cheapest-registration, highest-emission, validator-headroom) — computed live from D1 + registry projections + the economics tier at /api/v1/registry/leaderboards (no static file).",
       "id": "registry-leaderboards",
       "path": "/metagraph/registry/leaderboards.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/RegistryLeaderboardsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1347,7 +1657,9 @@
       "description": "Cross-subnet comparison — registry structure (completeness + surface counts), the live economics tier, and the live per-subnet health rollup placed side by side for the requested netuids in requested order — computed live from registry projections + the economics tier + D1 at /api/v1/compare (no static file).",
       "id": "compare",
       "path": "/metagraph/compare.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/CompareArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1356,7 +1668,9 @@
       "description": "Several validators placed side by side for a stake/delegate decision (#6035/#6325): each hotkey's take rate, estimated APY, nominator count, on-chain identity, and cross-subnet stake/emission/trust aggregates, plus an optional single-subnet membership context — the validator equivalent of /api/v1/compare, computed live from the neurons tier at /api/v1/compare/validators (no static file). Mirrors the compare_validators MCP tool.",
       "id": "compare-validators",
       "path": "/metagraph/compare/validators.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/CompareValidatorsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1365,7 +1679,9 @@
       "description": "RPC reverse-proxy usage analytics (request volume, latency p50/p95, failover + error rate, cache-hit rate, per-endpoint distribution, and bounded time buckets) over a 7d/30d window, computed live from the rpc_proxy_events telemetry at /api/v1/rpc/usage (no static file).",
       "id": "rpc-usage",
       "path": "/metagraph/rpc/usage.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/RpcUsageArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1374,7 +1690,9 @@
       "description": "Bittensor base-layer RPC endpoint registry and probe status.",
       "id": "rpc-endpoints",
       "path": "/metagraph/rpc-endpoints.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/RpcEndpointsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1383,7 +1701,9 @@
       "description": "Endpoint pool scoring for future read-only RPC routing.",
       "id": "rpc-pools",
       "path": "/metagraph/rpc/pools.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/RpcPoolsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1392,7 +1712,9 @@
       "description": "Generalized endpoint pool scoring for future read-only routing.",
       "id": "endpoint-pools",
       "path": "/metagraph/endpoint-pools.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/EndpointPoolsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1401,7 +1723,9 @@
       "description": "Probe-derived endpoint incident summary and active endpoint failures.",
       "id": "endpoint-incidents",
       "path": "/metagraph/endpoint-incidents.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/EndpointIncidentsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1410,7 +1734,9 @@
       "description": "Operational surfaces (RPC/WSS/subnet-api/SSE/data-artifact) probed live by the cron health prober; input list for the 15-minute scheduled prober.",
       "id": "operational-surfaces",
       "path": "/metagraph/operational-surfaces.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/OperationalSurfacesArtifact",
+      "status": "live",
       "storage_tier": "dual"
     },
     {
@@ -1419,7 +1745,9 @@
       "description": "Compact index of subnets exposing callable services (subnet-api/openapi/sse/data-artifact) — the machine-readable 'which subnet does X + how to call it' index for AI agents.",
       "id": "agent-catalog",
       "path": "/metagraph/agent-catalog.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AgentCatalogArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1428,7 +1756,9 @@
       "description": "Per-subnet agent capability catalog: each callable service with its base URL, auth, machine-readable schema, and live-build health/eligibility.",
       "id": "agent-catalog-subnet",
       "path": "/metagraph/agent-catalog/{netuid}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AgentCatalogSubnetArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1437,7 +1767,9 @@
       "description": "OpenAPI schema snapshot/drift status.",
       "id": "schema-drift",
       "path": "/metagraph/schema-drift.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SchemaDriftArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1446,7 +1778,9 @@
       "description": "Index of captured machine-readable schemas.",
       "id": "schema-index",
       "path": "/metagraph/schemas/index.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SchemaIndexArtifact",
+      "status": "live",
       "storage_tier": "dual"
     },
     {
@@ -1455,7 +1789,9 @@
       "description": "Captured machine-readable OpenAPI/Swagger schema snapshot detail.",
       "id": "schema-snapshot",
       "path": "/metagraph/schemas/{surface_id}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/JsonObject",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1464,7 +1800,9 @@
       "description": "Adapter-backed public metrics by subnet slug.",
       "id": "adapter",
       "path": "/metagraph/adapters/{slug}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AdapterArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1473,7 +1811,9 @@
       "description": "R2 upload manifest for generated artifact history.",
       "id": "r2-manifest",
       "path": "/metagraph/r2-manifest.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/R2ManifestArtifact",
+      "status": "live",
       "storage_tier": "dual"
     },
     {
@@ -1482,7 +1822,9 @@
       "description": "Maintainer curation and adapter candidate report.",
       "id": "review-curation",
       "path": "/metagraph/review/curation.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ReviewCurationArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1491,7 +1833,9 @@
       "description": "Subnet interface gap priorities.",
       "id": "review-gap-priorities",
       "path": "/metagraph/review/gap-priorities.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ReviewGapPrioritiesArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1500,7 +1844,9 @@
       "description": "Interface gap priorities and enrichment queue for one subnet.",
       "id": "subnet-gaps",
       "path": "/metagraph/review/gaps/{netuid}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetGapsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1509,7 +1855,9 @@
       "description": "Profile completeness and contributor targeting report.",
       "id": "review-profile-completeness",
       "path": "/metagraph/review/profile-completeness.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ReviewProfileCompletenessArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1518,7 +1866,9 @@
       "description": "Subnets worth deeper adapter work.",
       "id": "review-adapter-candidates",
       "path": "/metagraph/review/adapter-candidates.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ReviewAdapterCandidatesArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1527,7 +1877,9 @@
       "description": "Prioritized all-subnet enrichment work queue for contributor-safe registry improvements.",
       "id": "review-enrichment-queue",
       "path": "/metagraph/review/enrichment-queue.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ReviewEnrichmentQueueArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1536,7 +1888,9 @@
       "description": "Detailed candidate evidence by missing or contributor-target surface kind for enrichment work.",
       "id": "review-enrichment-evidence",
       "path": "/metagraph/review/enrichment-evidence.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ReviewEnrichmentEvidenceArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1545,7 +1899,9 @@
       "description": "Contributor-oriented enrichment target pack grouped by submission kind, review route, and evidence action.",
       "id": "review-enrichment-targets",
       "path": "/metagraph/review/enrichment-targets.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ReviewEnrichmentTargetsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1554,7 +1910,9 @@
       "description": "Public-safe maintainer review decision ledger.",
       "id": "review-decisions",
       "path": "/metagraph/review/maintainer-decisions.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ReviewDecisionsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
@@ -1563,7 +1921,9 @@
       "description": "Generated build summary.",
       "id": "build-summary",
       "path": "/metagraph/build-summary.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/BuildSummaryArtifact",
+      "status": "live",
       "storage_tier": "r2"
     }
   ],

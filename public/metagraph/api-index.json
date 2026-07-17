@@ -4,1218 +4,1578 @@
       "contract_version": "2026-07-03.2",
       "id": "contracts",
       "path": "/metagraph/contracts.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ContractsArtifact",
+      "status": "live",
       "storage_tier": "dual"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "providers",
       "path": "/metagraph/providers.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ProvidersArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "provider-detail",
       "path": "/metagraph/providers/{slug}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ProviderArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "provider-endpoints",
       "path": "/metagraph/providers/{slug}/endpoints.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ProviderEndpointsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "api-index",
       "path": "/metagraph/api-index.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ApiIndexArtifact",
+      "status": "live",
       "storage_tier": "dual"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "openapi",
       "path": "/metagraph/openapi.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/OpenApiArtifact",
+      "status": "live",
       "storage_tier": "dual"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "type-definitions",
       "path": "/metagraph/types.d.ts",
+      "retirement": null,
       "schema_ref": null,
+      "status": "live",
       "storage_tier": "dual"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "changelog",
       "path": "/metagraph/changelog.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChangelogArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "subnets",
       "path": "/metagraph/subnets.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "metagraph-latest",
       "path": "/metagraph/metagraph/latest.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "subnet-detail",
       "path": "/metagraph/subnets/{netuid}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetDetailArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "subnet-overview",
       "path": "/metagraph/overview/{netuid}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetOverviewArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "profiles",
       "path": "/metagraph/profiles.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetProfilesArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "profile-detail",
       "path": "/metagraph/profiles/{netuid}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetProfileArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "surfaces",
       "path": "/metagraph/surfaces.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SurfacesArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "surface-aliases",
       "path": "/metagraph/surface-aliases.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SurfaceAliasesArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "surfaces-subnet",
       "path": "/metagraph/surfaces/{netuid}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetSurfacesArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "endpoints",
       "path": "/metagraph/endpoints.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/EndpointsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "endpoints-subnet",
       "path": "/metagraph/endpoints/{netuid}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetEndpointsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "candidates",
       "path": "/metagraph/candidates.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/CandidatesArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "candidates-subnet",
       "path": "/metagraph/candidates/{netuid}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetCandidatesArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "review-queue",
       "path": "/metagraph/review-queue.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ReviewQueueArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "search",
       "path": "/metagraph/search.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SearchArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "search-index",
       "path": "/metagraph/search-index.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SearchIndexArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "coverage",
       "path": "/metagraph/coverage.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/CoverageArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "coverage-depth",
       "path": "/metagraph/coverage-depth.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/CoverageDepthArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "economics",
       "path": "/metagraph/economics.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/EconomicsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "economics-trends",
       "path": "/metagraph/economics/trends.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/EconomicsTrendsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "registry-summary",
       "path": "/metagraph/registry-summary.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/RegistrySummaryArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "lineage",
       "path": "/metagraph/lineage.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/LineageArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "fixtures-index",
       "path": "/metagraph/fixtures.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/FixturesIndexArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "agent-resources",
       "path": "/metagraph/agent-resources.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AgentResourcesArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "fixture-detail",
       "path": "/metagraph/fixtures/{surface_id}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/FixtureArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "curation",
       "path": "/metagraph/curation.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/CurationArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "gaps",
       "path": "/metagraph/gaps.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/GapsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "verification",
       "path": "/metagraph/verification/latest.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/VerificationArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "verification-subnet",
       "path": "/metagraph/verification/subnets/{netuid}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetVerificationArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "freshness",
       "path": "/metagraph/freshness.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/FreshnessArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "source-health",
       "path": "/metagraph/source-health.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SourceHealthArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "source-snapshots",
       "path": "/metagraph/source-snapshots.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SourceSnapshotsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "evidence-ledger",
       "path": "/metagraph/evidence-ledger.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/EvidenceLedgerArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "evidence-subnet",
       "path": "/metagraph/evidence/{netuid}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetEvidenceArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "health-latest",
       "path": "/metagraph/health/latest.json",
+      "retirement": {
+        "code": "retired_artifact",
+        "http_status": 410,
+        "message": "Current-state health artifacts are retired; use the live API health endpoints instead."
+      },
       "schema_ref": "#/components/schemas/HealthLatestArtifact",
+      "status": "retired",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "health-summary",
       "path": "/metagraph/health/summary.json",
+      "retirement": {
+        "code": "retired_artifact",
+        "http_status": 410,
+        "message": "Current-state health artifacts are retired; use the live API health endpoints instead."
+      },
       "schema_ref": "#/components/schemas/HealthSummaryArtifact",
+      "status": "retired",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "health-history",
       "path": "/metagraph/health/history/{date}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/HealthHistoryArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "health-subnet",
       "path": "/metagraph/health/subnets/{netuid}.json",
+      "retirement": {
+        "code": "retired_artifact",
+        "http_status": 410,
+        "message": "Current-state health artifacts are retired; use the live API health endpoints instead."
+      },
       "schema_ref": "#/components/schemas/HealthSubnetArtifact",
+      "status": "retired",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "health-badge",
       "path": "/metagraph/health/badges/{netuid}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/HealthBadgeArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "health-trends",
       "path": "/metagraph/health/trends/{netuid}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/HealthTrendsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "health-trends-bulk",
       "path": "/metagraph/health/trends.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/BulkHealthTrendsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "health-percentiles",
       "path": "/metagraph/health/percentiles/{netuid}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/HealthPercentilesArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "health-incidents",
       "path": "/metagraph/health/incidents/{netuid}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/HealthIncidentsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "subnet-trajectory",
       "path": "/metagraph/subnets/{netuid}/trajectory.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetTrajectoryArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "subnet-concentration",
       "path": "/metagraph/subnets/{netuid}/concentration.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetConcentrationArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "subnet-performance",
       "path": "/metagraph/subnets/{netuid}/performance.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetPerformanceArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "subnet-performance-history",
       "path": "/metagraph/subnets/{netuid}/performance/history.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetPerformanceHistoryArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "subnet-concentration-history",
       "path": "/metagraph/subnets/{netuid}/concentration/history.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetConcentrationHistoryArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "subnet-turnover",
       "path": "/metagraph/subnets/{netuid}/turnover.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetTurnoverArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "subnet-weights",
       "path": "/metagraph/subnets/{netuid}/weights.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetWeightsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "subnet-weight-setters",
       "path": "/metagraph/subnets/{netuid}/weights/setters.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetWeightSettersArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "subnet-serving",
       "path": "/metagraph/subnets/{netuid}/serving.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetServingArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "subnet-prometheus",
       "path": "/metagraph/subnets/{netuid}/prometheus.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetPrometheusArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "subnet-stake-transfers",
       "path": "/metagraph/subnets/{netuid}/stake-transfers.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetStakeTransfersArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "subnet-stake-moves",
       "path": "/metagraph/subnets/{netuid}/stake-moves.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetStakeMovesArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "subnet-registrations",
       "path": "/metagraph/subnets/{netuid}/registrations.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetRegistrationsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "subnet-axon-removals",
       "path": "/metagraph/subnets/{netuid}/axon-removals.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetAxonRemovalsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "subnet-deregistrations",
       "path": "/metagraph/subnets/{netuid}/deregistrations.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetDeregistrationsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "subnet-stake-flow",
       "path": "/metagraph/subnets/{netuid}/stake-flow.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetStakeFlowArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "subnet-stake-quote",
       "path": "/metagraph/subnets/{netuid}/stake-quote.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetStakeQuoteArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "subnet-alpha-volume",
       "path": "/metagraph/subnets/{netuid}/volume.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetAlphaVolumeArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "subnet-ohlc",
       "path": "/metagraph/subnets/{netuid}/ohlc.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetOhlcArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "subnet-movers",
       "path": "/metagraph/subnets/movers.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetMoversArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "global-validators",
       "path": "/metagraph/validators.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/GlobalValidatorsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "accounts-list",
       "path": "/metagraph/accounts.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AccountsListArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "validator-detail",
       "path": "/metagraph/validators/{hotkey}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ValidatorDetailArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "validator-nominators",
       "path": "/metagraph/validators/{hotkey}/nominators.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ValidatorNominatorsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "validator-history",
       "path": "/metagraph/validators/{hotkey}/history.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ValidatorHistoryArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "subnet-metagraph",
       "path": "/metagraph/subnets/{netuid}/metagraph.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetMetagraphArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "subnet-neuron",
       "path": "/metagraph/subnets/{netuid}/neurons/{uid}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/NeuronDetailArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "subnet-hyperparameters",
       "path": "/metagraph/subnets/{netuid}/hyperparameters.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetHyperparametersArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "subnet-hyperparameters-history",
       "path": "/metagraph/subnets/{netuid}/hyperparameters/history.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetHyperparamsHistoryArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "subnet-validators",
       "path": "/metagraph/subnets/{netuid}/validators.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetValidatorsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "subnet-yield",
       "path": "/metagraph/subnets/{netuid}/yield.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetYieldArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "subnet-yield-history",
       "path": "/metagraph/subnets/{netuid}/yield/history.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetYieldHistoryArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "subnet-events",
       "path": "/metagraph/subnets/{netuid}/events.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetEventsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "subnet-event-summary",
       "path": "/metagraph/subnets/{netuid}/event-summary.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetEventSummaryArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "subnet-neuron-history",
       "path": "/metagraph/subnets/{netuid}/neurons/{uid}/history.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/NeuronHistoryArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "subnet-history",
       "path": "/metagraph/subnets/{netuid}/history.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetHistoryArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "subnet-identity-history",
       "path": "/metagraph/subnets/{netuid}/identity-history.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetIdentityHistoryArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "account-summary",
       "path": "/metagraph/accounts/{ss58}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AccountSummaryArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "account-events",
       "path": "/metagraph/accounts/{ss58}/events.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AccountEventsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "account-history",
       "path": "/metagraph/accounts/{ss58}/history.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AccountHistoryArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "account-extrinsics",
       "path": "/metagraph/accounts/{ss58}/extrinsics.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AccountExtrinsicsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "account-transfers",
       "path": "/metagraph/accounts/{ss58}/transfers.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AccountTransfersArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "account-counterparties",
       "path": "/metagraph/accounts/{ss58}/counterparties.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AccountCounterpartiesArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "account-stake-flow",
       "path": "/metagraph/accounts/{ss58}/stake-flow.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AccountStakeFlowArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "account-stake-moves",
       "path": "/metagraph/accounts/{ss58}/stake-moves.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AccountStakeMovesArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "account-deregistrations",
       "path": "/metagraph/accounts/{ss58}/deregistrations.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AccountDeregistrationsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "account-prometheus",
       "path": "/metagraph/accounts/{ss58}/prometheus.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AccountPrometheusArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "account-axon-removals",
       "path": "/metagraph/accounts/{ss58}/axon-removals.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AccountAxonRemovalsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "account-serving",
       "path": "/metagraph/accounts/{ss58}/serving.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AccountServingArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "account-weight-setters",
       "path": "/metagraph/accounts/{ss58}/weight-setters.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AccountWeightSettersArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "account-registrations",
       "path": "/metagraph/accounts/{ss58}/registrations.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AccountRegistrationsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "account-subnets",
       "path": "/metagraph/accounts/{ss58}/subnets.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AccountSubnetsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "account-portfolio",
       "path": "/metagraph/accounts/{ss58}/portfolio.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AccountPortfolioArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "account-positions",
       "path": "/metagraph/accounts/{ss58}/positions.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AccountPositionsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "account-subnet-position-history",
       "path": "/metagraph/accounts/{ss58}/subnets/{netuid}/history.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AccountPositionHistoryArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "account-identity",
       "path": "/metagraph/accounts/{ss58}/identity.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AccountIdentityArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "account-identity-history",
       "path": "/metagraph/accounts/{ss58}/identity-history.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AccountIdentityHistoryArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "account-balance",
       "path": "/metagraph/accounts/{ss58}/balance.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AccountBalanceArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "sudo-key",
       "path": "/metagraph/sudo/key.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SudoKeyArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "subnet-recycled",
       "path": "/metagraph/subnets/{netuid}/recycled.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetRecycledArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "blocks-feed",
       "path": "/metagraph/blocks.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/BlocksFeedArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "blocks-summary",
       "path": "/metagraph/blocks/summary.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/BlocksSummaryArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "block-detail",
       "path": "/metagraph/blocks/{ref}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/BlockDetailArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "block-extrinsics",
       "path": "/metagraph/blocks/{ref}/extrinsics.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/BlockExtrinsicsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "block-events",
       "path": "/metagraph/blocks/{ref}/events.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/BlockEventsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "chain-events-feed",
       "path": "/metagraph/chain-events.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainEventsFeedArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "block-chain-events",
       "path": "/metagraph/blocks/{ref}/chain-events.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/BlockChainEventsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "chain-events-stats",
       "path": "/metagraph/chain-events/stats.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainEventsStatsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "extrinsics-feed",
       "path": "/metagraph/extrinsics.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ExtrinsicsFeedArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "extrinsic-detail",
       "path": "/metagraph/extrinsics/{hash}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ExtrinsicDetailArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "sudo-calls",
       "path": "/metagraph/sudo.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ExtrinsicsFeedArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "governance-config-changes",
       "path": "/metagraph/governance/config-changes.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ExtrinsicsFeedArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "runtime-versions",
       "path": "/metagraph/runtime.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/RuntimeVersionsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "chain-activity",
       "path": "/metagraph/chain/activity.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainActivityArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "chain-calls",
       "path": "/metagraph/chain/calls.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainCallsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "chain-signers",
       "path": "/metagraph/chain/signers.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainSignersArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "chain-transfers",
       "path": "/metagraph/chain/transfers.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainTransfersArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "chain-transfer-pairs",
       "path": "/metagraph/chain/transfer-pairs.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainTransferPairsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "chain-stake-flow",
       "path": "/metagraph/chain/stake-flow.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainStakeFlowArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "chain-alpha-volume",
       "path": "/metagraph/chain/alpha-volume.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainAlphaVolumeArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "chain-weights",
       "path": "/metagraph/chain/weights.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainWeightsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "chain-weight-setters",
       "path": "/metagraph/chain/weights/setters.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainWeightSettersArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "chain-serving",
       "path": "/metagraph/chain/serving.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainServingArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "chain-axon-removals",
       "path": "/metagraph/chain/axon-removals.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainAxonRemovalsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "chain-prometheus",
       "path": "/metagraph/chain/prometheus.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainPrometheusArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "chain-registrations",
       "path": "/metagraph/chain/registrations.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainRegistrationsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "chain-deregistrations",
       "path": "/metagraph/chain/deregistrations.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainDeregistrationsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "chain-stake-transfers",
       "path": "/metagraph/chain/stake-transfers.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainStakeTransfersArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "chain-stake-moves",
       "path": "/metagraph/chain/stake-moves.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainStakeMovesArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "chain-fees",
       "path": "/metagraph/chain/fees.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainFeesArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "chain-concentration",
       "path": "/metagraph/chain/concentration.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainConcentrationArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "chain-performance",
       "path": "/metagraph/chain/performance.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainPerformanceArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "chain-identity-history",
       "path": "/metagraph/chain/identity-history.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainIdentityHistoryArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "chain-yield",
       "path": "/metagraph/chain/yield.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainYieldArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "chain-turnover",
       "path": "/metagraph/chain/turnover.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ChainTurnoverArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "subnet-uptime",
       "path": "/metagraph/subnets/{netuid}/uptime.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/UptimeArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "global-incidents",
       "path": "/metagraph/incidents.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/GlobalIncidentsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "registry-leaderboards",
       "path": "/metagraph/registry/leaderboards.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/RegistryLeaderboardsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "compare",
       "path": "/metagraph/compare.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/CompareArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "compare-validators",
       "path": "/metagraph/compare/validators.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/CompareValidatorsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "rpc-usage",
       "path": "/metagraph/rpc/usage.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/RpcUsageArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "rpc-endpoints",
       "path": "/metagraph/rpc-endpoints.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/RpcEndpointsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "rpc-pools",
       "path": "/metagraph/rpc/pools.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/RpcPoolsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "endpoint-pools",
       "path": "/metagraph/endpoint-pools.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/EndpointPoolsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "endpoint-incidents",
       "path": "/metagraph/endpoint-incidents.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/EndpointIncidentsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "operational-surfaces",
       "path": "/metagraph/operational-surfaces.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/OperationalSurfacesArtifact",
+      "status": "live",
       "storage_tier": "dual"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "agent-catalog",
       "path": "/metagraph/agent-catalog.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AgentCatalogArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "agent-catalog-subnet",
       "path": "/metagraph/agent-catalog/{netuid}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AgentCatalogSubnetArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "schema-drift",
       "path": "/metagraph/schema-drift.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SchemaDriftArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "schema-index",
       "path": "/metagraph/schemas/index.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SchemaIndexArtifact",
+      "status": "live",
       "storage_tier": "dual"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "schema-snapshot",
       "path": "/metagraph/schemas/{surface_id}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/JsonObject",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "adapter",
       "path": "/metagraph/adapters/{slug}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/AdapterArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "r2-manifest",
       "path": "/metagraph/r2-manifest.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/R2ManifestArtifact",
+      "status": "live",
       "storage_tier": "dual"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "review-curation",
       "path": "/metagraph/review/curation.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ReviewCurationArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "review-gap-priorities",
       "path": "/metagraph/review/gap-priorities.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ReviewGapPrioritiesArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "subnet-gaps",
       "path": "/metagraph/review/gaps/{netuid}.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/SubnetGapsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "review-profile-completeness",
       "path": "/metagraph/review/profile-completeness.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ReviewProfileCompletenessArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "review-adapter-candidates",
       "path": "/metagraph/review/adapter-candidates.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ReviewAdapterCandidatesArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "review-enrichment-queue",
       "path": "/metagraph/review/enrichment-queue.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ReviewEnrichmentQueueArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "review-enrichment-evidence",
       "path": "/metagraph/review/enrichment-evidence.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ReviewEnrichmentEvidenceArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "review-enrichment-targets",
       "path": "/metagraph/review/enrichment-targets.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ReviewEnrichmentTargetsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "review-decisions",
       "path": "/metagraph/review/maintainer-decisions.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/ReviewDecisionsArtifact",
+      "status": "live",
       "storage_tier": "r2"
     },
     {
       "contract_version": "2026-07-03.2",
       "id": "build-summary",
       "path": "/metagraph/build-summary.json",
+      "retirement": null,
       "schema_ref": "#/components/schemas/BuildSummaryArtifact",
+      "status": "live",
       "storage_tier": "r2"
     }
   ],
