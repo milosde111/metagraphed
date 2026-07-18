@@ -972,8 +972,30 @@ function SubnetGrid({ rows }: { rows: Subnet[] }) {
 const HEALTH_BG: Record<string, string> = {
   ok: "bg-health-ok/90 hover:bg-health-ok",
   warn: "bg-health-warn/80 hover:bg-health-warn",
-  down: "bg-health-down/85 hover:bg-health-down",
+  // Solid, not /85 like the others (#6407): at /85 no text color clears
+  // 4.5:1 against this fill for every health palette (verified against all
+  // 3 HEALTH_PALETTES x both themes) -- the small margin needed pushed this
+  // one fill to fully opaque. .mg-pulse-cell:hover already provides a scale
+  // + outline hover cue independent of fill opacity, so this loses only the
+  // (redundant) opacity-based hover tint the other 3 states still get.
+  down: "bg-health-down hover:bg-health-down",
   unknown: "bg-health-unknown/40 hover:bg-health-unknown/70",
+};
+
+// Netuid-label contrast per health state (#6407): text-white/95 cleared
+// 4.5:1 for none of the 4 fills above, across any of the 3 HEALTH_PALETTES.
+// ok/warn need fixed dark text in both themes (their fills stay mid-to-high
+// lightness in dark mode too); down mirrors subnet-health-matrix.tsx's
+// TONE_TEXT (text-paper, which conveniently flips the same direction the
+// fill's own effective lightness does between themes); unknown keeps
+// text-ink-strong, since its low opacity lets the fill track the
+// surrounding card's lightness. Verified 4.5:1+ for every
+// state x palette x theme combination.
+const HEALTH_TEXT: Record<string, string> = {
+  ok: "text-black/95",
+  warn: "text-black/95",
+  down: "text-paper/95",
+  unknown: "text-ink-strong/95",
 };
 
 function SubnetMatrix({ rows }: { rows: Subnet[] }) {
@@ -1002,8 +1024,9 @@ function SubnetMatrix({ rows }: { rows: Subnet[] }) {
               aria-label={`Subnet ${s.netuid}${s.name ? ` — ${s.name}` : ""}`}
               title={`#${s.netuid}${s.name ? ` · ${s.name}` : ""} · ${s.health ?? "unknown"}`}
               className={classNames(
-                "mg-pulse-cell flex aspect-square items-center justify-center rounded-sm font-mono text-[10px] font-medium text-white/95 transition-transform",
+                "mg-pulse-cell flex aspect-square items-center justify-center rounded-sm font-mono text-[10px] font-medium transition-transform",
                 HEALTH_BG[s.health ?? "unknown"] ?? HEALTH_BG.unknown,
+                HEALTH_TEXT[s.health ?? "unknown"] ?? HEALTH_TEXT.unknown,
               )}
             >
               {s.netuid}
