@@ -596,6 +596,7 @@ import {
 import {
   dataApiFetchJson,
   loadBlockChainEvents,
+  loadChainEventsFeed,
   loadExtrinsicChainEvents,
 } from "./data-api-mcp.mjs";
 import {
@@ -1305,75 +1306,7 @@ async function loadChainActivity(ctx, blocks) {
 // loadChainActivity uses for the stats aggregate. Optional pallet/method/block/
 // extrinsic filters + an opaque keyset cursor; the data Worker validates the
 // filter combo and returns 400, surfaced here as a clean invalid_params error.
-async function loadChainEventsFeed(
-  ctx,
-  { pallet, method, block, extrinsic, cursor, limit } = {},
-) {
-  if (ctx.env?.DATA_RATE_LIMITER?.limit) {
-    const { success } = await ctx.env.DATA_RATE_LIMITER.limit({
-      key: `data:${ctx.clientIp}`,
-    });
-    if (!success) {
-      throw toolError(
-        "data_rate_limited",
-        "Too many data API requests from this client; slow down.",
-      );
-    }
-  }
-  const dataApi = ctx.env?.DATA_API;
-  if (!dataApi?.fetch) {
-    throw toolError(
-      "tier_unavailable",
-      "The chain-events tier is unavailable (the all-events data Worker is " +
-        "not bound to this deployment). Try again against the production endpoint.",
-    );
-  }
-  const parts = [];
-  if (pallet != null) parts.push(`pallet=${encodeURIComponent(pallet)}`);
-  if (method != null) parts.push(`method=${encodeURIComponent(method)}`);
-  if (block != null) parts.push(`block=${encodeURIComponent(block)}`);
-  if (extrinsic != null)
-    parts.push(`extrinsic=${encodeURIComponent(extrinsic)}`);
-  if (cursor != null) parts.push(`cursor=${encodeURIComponent(cursor)}`);
-  if (limit != null) parts.push(`limit=${encodeURIComponent(limit)}`);
-  const qs = parts.length ? `?${parts.join("&")}` : "";
-  let response;
-  try {
-    response = await dataApi.fetch(
-      new Request(`https://d/api/v1/chain-events${qs}`),
-    );
-  } catch {
-    throw toolError(
-      "tier_unavailable",
-      "The chain-events tier could not be reached. Try again shortly.",
-    );
-  }
-  if (response.status === 400) {
-    // A bad filter combo (method without pallet/block, or a non-identifier
-    // pallet/method) is a caller error — surface the data Worker's message.
-    let message = "Invalid chain-events filter.";
-    try {
-      message = (await response.json())?.error || message;
-    } catch {
-      /* keep the default message */
-    }
-    throw toolError("invalid_params", message);
-  }
-  if (!response.ok) {
-    throw toolError(
-      "tier_unavailable",
-      `The chain-events tier returned an error (status ${response.status}). ` +
-        "Try again shortly.",
-    );
-  }
-  const data = await response.json();
-  return {
-    count: data?.count ?? 0,
-    next_before: data?.next_before ?? null,
-    next_cursor: data?.next_cursor ?? null,
-    events: Array.isArray(data?.events) ? data.events : [],
-  };
-}
+// Implemented in src/data-api-mcp.mjs (shared with GraphQL Query.chain_events).
 
 // Mirrors loadChainEventsFeed's own DATA_API-direct call (#6637): the
 // all-events tier has no per-table tryPostgresTier flag (unlike

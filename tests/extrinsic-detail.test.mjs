@@ -3,6 +3,7 @@ import { describe, test } from "vitest";
 import {
   dataApiFetchJson,
   loadBlockChainEvents,
+  loadChainEventsFeed,
   loadExtrinsicChainEvents,
 } from "../src/data-api-mcp.mjs";
 
@@ -392,5 +393,56 @@ describe("data-api-mcp", () => {
     });
     const out = await loadExtrinsicChainEvents(ctx, "4200000-3", { limit: 0 });
     assert.equal(out.limit, 50);
+  });
+
+  test("loadChainEventsFeed forwards filters and prefers cursor over before", async () => {
+    const ctx = dataApiCtx({
+      fetchImpl: async (request) => {
+        const url = new URL(request.url);
+        assert.equal(url.pathname, "/api/v1/chain-events");
+        assert.equal(url.searchParams.get("pallet"), "SubtensorModule");
+        assert.equal(url.searchParams.get("method"), "WeightsSet");
+        assert.equal(url.searchParams.get("block"), "9");
+        assert.equal(url.searchParams.get("extrinsic"), "1");
+        assert.equal(url.searchParams.get("cursor"), "1.2.3");
+        assert.equal(url.searchParams.get("before"), null);
+        assert.equal(url.searchParams.get("limit"), "25");
+        return Response.json({
+          count: 1,
+          next_before: 9,
+          next_cursor: "1.2.2",
+          events: [{ pallet: "SubtensorModule", method: "WeightsSet" }],
+        });
+      },
+    });
+    const out = await loadChainEventsFeed(ctx, {
+      pallet: "SubtensorModule",
+      method: "WeightsSet",
+      block: 9,
+      extrinsic: 1,
+      cursor: "1.2.3",
+      before: 99,
+      limit: 25,
+    });
+    assert.equal(out.count, 1);
+    assert.equal(out.next_before, 9);
+    assert.equal(out.next_cursor, "1.2.2");
+    assert.equal(out.events[0].method, "WeightsSet");
+  });
+
+  test("loadChainEventsFeed forwards legacy before when cursor is absent", async () => {
+    const ctx = dataApiCtx({
+      fetchImpl: async (request) => {
+        const url = new URL(request.url);
+        assert.equal(url.searchParams.get("before"), "50");
+        assert.equal(url.searchParams.get("cursor"), null);
+        return Response.json({ events: null });
+      },
+    });
+    const out = await loadChainEventsFeed(ctx, { before: 50 });
+    assert.equal(out.count, 0);
+    assert.deepEqual(out.events, []);
+    assert.equal(out.next_before, null);
+    assert.equal(out.next_cursor, null);
   });
 });

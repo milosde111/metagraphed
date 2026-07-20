@@ -17400,3 +17400,372 @@ describe("graphql — adapter (#6984, reuses loadAdapter / MCP get_adapter)", ()
     assert.equal(FIELD_COMPLEXITY.adapter, FIELD_COMPLEXITY.provider);
   });
 });
+
+// #7171: GraphQL parity for GET /api/v1/gaps, reusing list_gaps' loader.
+describe("graphql — gaps", () => {
+  const GAPS_BLOB = {
+    generated_at: "2026-07-01T00:00:00.000Z",
+    notes: ["fixture"],
+    gaps: [
+      {
+        netuid: 7,
+        slug: "allways",
+        name: "Allways",
+        coverage_level: "probed",
+        curation_level: "maintainer-reviewed",
+        gaps: {
+          missing_kinds: ["openapi"],
+          supported_kinds: [],
+          gap_notes: [],
+        },
+        gap_count: 2,
+      },
+      {
+        netuid: 31,
+        slug: "candles",
+        name: "Candles",
+        coverage_level: "manifested",
+        curation_level: "community-submitted",
+        gaps: { missing_kinds: [], supported_kinds: ["docs"], gap_notes: [] },
+        gap_count: 5,
+      },
+    ],
+  };
+
+  test("filters by netuid and paginates", async () => {
+    const env = fixtureEnv({ "/metagraph/gaps.json": GAPS_BLOB });
+    const filtered = await gql(
+      "{ gaps(netuid: 7) { gaps total generated_at } }",
+      env,
+    );
+    assert.equal(filtered.status, 200);
+    assert.equal(filtered.body.errors, undefined);
+    assert.equal(filtered.body.data.gaps.total, 1);
+    assert.equal(filtered.body.data.gaps.gaps[0].slug, "allways");
+    assert.equal(
+      filtered.body.data.gaps.generated_at,
+      "2026-07-01T00:00:00.000Z",
+    );
+
+    const paged = await gql(
+      "{ gaps(limit: 1) { gaps total returned next_cursor } }",
+      env,
+    );
+    assert.equal(paged.body.data.gaps.gaps.length, 1);
+    assert.equal(paged.body.data.gaps.total, 2);
+    assert.equal(paged.body.data.gaps.returned, 1);
+    assert.ok(paged.body.data.gaps.next_cursor != null);
+  });
+
+  test("sorts by gap_count and filters coverage_level", async () => {
+    const env = fixtureEnv({ "/metagraph/gaps.json": GAPS_BLOB });
+    const { status, body } = await gql(
+      '{ gaps(sort: "gap_count", order: "desc", coverage_level: "manifested") { gaps total } }',
+      env,
+    );
+    assert.equal(status, 200);
+    assert.equal(body.data.gaps.total, 1);
+    assert.equal(body.data.gaps.gaps[0].netuid, 31);
+  });
+
+  test("surfaces an invalid sort as a GraphQL error, not a silent default", async () => {
+    const env = fixtureEnv({ "/metagraph/gaps.json": GAPS_BLOB });
+    const { body } = await gql('{ gaps(sort: "bogus") { total } }', env);
+    assert.ok(body.errors?.length);
+  });
+
+  test("surfaces a cold/missing artifact as a GraphQL error, matching REST/MCP", async () => {
+    const { body } = await gql("{ gaps { total } }", emptyEnv);
+    assert.ok(body.errors?.length);
+    assert.equal(body.data, null);
+  });
+
+  test("FIELD_COMPLEXITY weights it like its sibling relationship fields", () => {
+    assert.equal(FIELD_COMPLEXITY.gaps, FIELD_COMPLEXITY.source_snapshots);
+  });
+});
+
+// #7171: GraphQL parity for GET /api/v1/evidence, reusing list_evidence' loader.
+describe("graphql — evidence", () => {
+  const EVIDENCE_BLOB = {
+    generated_at: "2026-07-01T00:00:00.000Z",
+    schema_version: 1,
+    summary: { claim_count: 2 },
+    claims: [
+      {
+        subject: "sn-7",
+        claim: "Allways publishes an OpenAPI",
+        source_url: "https://example.org/a",
+        support_summary: "README documents the API",
+        verified_at: "2026-06-01T00:00:00.000Z",
+      },
+      {
+        subject: "sn-31",
+        claim: "Candles has a dashboard",
+        source_url: "https://example.org/b",
+        support_summary: "operator site links it",
+        verified_at: null,
+      },
+    ],
+  };
+
+  test("searches with q and paginates", async () => {
+    const env = fixtureEnv({
+      "/metagraph/evidence-ledger.json": EVIDENCE_BLOB,
+    });
+    const searched = await gql(
+      '{ evidence(q: "OpenAPI") { claims total generated_at summary } }',
+      env,
+    );
+    assert.equal(searched.status, 200);
+    assert.equal(searched.body.errors, undefined);
+    assert.equal(searched.body.data.evidence.total, 1);
+    assert.equal(searched.body.data.evidence.claims[0].subject, "sn-7");
+    assert.equal(searched.body.data.evidence.summary.claim_count, 2);
+
+    const paged = await gql(
+      "{ evidence(limit: 1) { claims total returned next_cursor } }",
+      env,
+    );
+    assert.equal(paged.body.data.evidence.claims.length, 1);
+    assert.equal(paged.body.data.evidence.total, 2);
+    assert.ok(paged.body.data.evidence.next_cursor != null);
+  });
+
+  test("sorts by subject and exposes schema_version", async () => {
+    const env = fixtureEnv({
+      "/metagraph/evidence-ledger.json": EVIDENCE_BLOB,
+    });
+    const { status, body } = await gql(
+      '{ evidence(sort: "subject", order: "desc") { claims schema_version } }',
+      env,
+    );
+    assert.equal(status, 200);
+    // Lexicographic desc: "sn-7" > "sn-31".
+    assert.equal(body.data.evidence.claims[0].subject, "sn-7");
+    assert.equal(String(body.data.evidence.schema_version), "1");
+  });
+
+  test("surfaces an invalid sort as a GraphQL error", async () => {
+    const env = fixtureEnv({
+      "/metagraph/evidence-ledger.json": EVIDENCE_BLOB,
+    });
+    const { body } = await gql('{ evidence(sort: "bogus") { total } }', env);
+    assert.ok(body.errors?.length);
+  });
+
+  test("surfaces a cold/missing artifact as a GraphQL error", async () => {
+    const { body } = await gql("{ evidence { total } }", emptyEnv);
+    assert.ok(body.errors?.length);
+    assert.equal(body.data, null);
+  });
+
+  test("FIELD_COMPLEXITY weights it like its sibling relationship fields", () => {
+    assert.equal(FIELD_COMPLEXITY.evidence, FIELD_COMPLEXITY.source_snapshots);
+  });
+});
+
+// #7171: GraphQL parity for GET /api/v1/chain-events (Query feed).
+describe("graphql — chain_events (#7171, DATA_API all-events feed)", () => {
+  function dataApi(response) {
+    return { fetch: async () => response };
+  }
+
+  test("cold/unbound tier returns a schema-stable empty feed, never an error", async () => {
+    const { status, body } = await gql(
+      "{ chain_events { count next_cursor next_before events { pallet } } }",
+    );
+    assert.equal(status, 200);
+    assert.equal(body.errors, undefined);
+    assert.deepEqual(body.data.chain_events, {
+      count: 0,
+      next_cursor: null,
+      next_before: null,
+      events: [],
+    });
+  });
+
+  test("resolves DATA_API rows and maps event fields", async () => {
+    const env = {
+      DATA_API: dataApi(
+        Response.json({
+          count: 1,
+          next_before: 100,
+          next_cursor: "1.100.0",
+          events: [
+            {
+              block_number: 100,
+              event_index: 0,
+              pallet: "SubtensorModule",
+              method: "WeightsSet",
+              args: { netuid: 7 },
+              phase: "ApplyExtrinsic",
+              extrinsic_index: 2,
+              observed_at: 1_720_000_000_000,
+            },
+          ],
+        }),
+      ),
+    };
+    const { status, body } = await gql(
+      `{ chain_events {
+          count next_before next_cursor
+          events {
+            block_number event_index pallet method args phase extrinsic_index observed_at
+          }
+        } }`,
+      env,
+    );
+    assert.equal(status, 200);
+    assert.equal(body.errors, undefined);
+    assert.equal(body.data.chain_events.count, 1);
+    assert.equal(body.data.chain_events.next_cursor, "1.100.0");
+    assert.equal(body.data.chain_events.next_before, 100);
+    const event = body.data.chain_events.events[0];
+    assert.equal(event.pallet, "SubtensorModule");
+    assert.equal(event.method, "WeightsSet");
+    assert.deepEqual(event.args, { netuid: 7 });
+    assert.equal(event.observed_at, 1_720_000_000_000);
+  });
+
+  test("forwards filter args as query params, including legacy before", async () => {
+    let capturedUrl;
+    const env = {
+      DATA_API: {
+        fetch: async (req) => {
+          capturedUrl = new URL(req.url);
+          return Response.json({
+            count: 0,
+            next_before: null,
+            next_cursor: null,
+            events: [],
+          });
+        },
+      },
+    };
+    await gql(
+      '{ chain_events(pallet: "SubtensorModule", method: "WeightsSet", block: 9, extrinsic: 1, before: 8, limit: 25) { count } }',
+      env,
+    );
+    assert.equal(capturedUrl.pathname, "/api/v1/chain-events");
+    assert.equal(capturedUrl.searchParams.get("pallet"), "SubtensorModule");
+    assert.equal(capturedUrl.searchParams.get("method"), "WeightsSet");
+    assert.equal(capturedUrl.searchParams.get("block"), "9");
+    assert.equal(capturedUrl.searchParams.get("extrinsic"), "1");
+    assert.equal(capturedUrl.searchParams.get("before"), "8");
+    assert.equal(capturedUrl.searchParams.get("limit"), "25");
+  });
+
+  test("prefers cursor over before when both are set", async () => {
+    let capturedUrl;
+    const env = {
+      DATA_API: {
+        fetch: async (req) => {
+          capturedUrl = new URL(req.url);
+          return Response.json({
+            count: 0,
+            next_before: null,
+            next_cursor: null,
+            events: [],
+          });
+        },
+      },
+    };
+    await gql('{ chain_events(cursor: "1.2.3", before: 99) { count } }', env);
+    assert.equal(capturedUrl.searchParams.get("cursor"), "1.2.3");
+    assert.equal(capturedUrl.searchParams.get("before"), null);
+  });
+
+  test("a DATA_API 400 is BAD_USER_INPUT, not an empty feed", async () => {
+    const env = {
+      DATA_API: dataApi(
+        new Response(JSON.stringify({ error: "method requires pallet" }), {
+          status: 400,
+        }),
+      ),
+    };
+    const { status, body } = await gql(
+      '{ chain_events(method: "WeightsSet") { count } }',
+      env,
+    );
+    assert.equal(status, 200);
+    assert.ok(body.errors.find((e) => e.extensions?.code === "BAD_USER_INPUT"));
+    assert.match(body.errors[0].message, /method requires pallet/);
+    assert.equal(body.data?.chain_events ?? null, null);
+  });
+
+  test("a partial DATA_API body degrades to resolver defaults", async () => {
+    const env = {
+      DATA_API: dataApi(Response.json({})),
+    };
+    const { status, body } = await gql(
+      "{ chain_events { count next_before next_cursor events { pallet } } }",
+      env,
+    );
+    assert.equal(status, 200);
+    assert.equal(body.errors, undefined);
+    assert.deepEqual(body.data.chain_events, {
+      count: 0,
+      next_before: null,
+      next_cursor: null,
+      events: [],
+    });
+  });
+
+  test("sparse event rows fill null defaults", async () => {
+    const env = {
+      DATA_API: dataApi(
+        Response.json({
+          count: 1,
+          events: [{}],
+        }),
+      ),
+    };
+    const { status, body } = await gql(
+      `{ chain_events {
+          events {
+            block_number event_index pallet method args phase extrinsic_index observed_at
+          }
+        } }`,
+      env,
+    );
+    assert.equal(status, 200);
+    assert.deepEqual(body.data.chain_events.events[0], {
+      block_number: null,
+      event_index: null,
+      pallet: null,
+      method: null,
+      args: null,
+      phase: null,
+      extrinsic_index: null,
+      observed_at: null,
+    });
+  });
+
+  test("a data_rate_limited loader failure degrades to an empty feed", async () => {
+    const env = {
+      DATA_API: dataApi(
+        Response.json({ count: 99, events: [{ pallet: "X" }] }),
+      ),
+      DATA_RATE_LIMITER: {
+        async limit() {
+          return { success: false };
+        },
+      },
+    };
+    const { status, body } = await gql(
+      "{ chain_events { count events { pallet } } }",
+      env,
+    );
+    assert.equal(status, 200);
+    assert.equal(body.errors, undefined);
+    assert.deepEqual(body.data.chain_events, {
+      count: 0,
+      events: [],
+    });
+  });
+
+  test("is priced at the relationship-field complexity weight", () => {
+    assert.equal(FIELD_COMPLEXITY.chain_events, FIELD_COMPLEXITY.extrinsics);
+  });
+});

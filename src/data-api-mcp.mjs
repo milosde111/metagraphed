@@ -152,3 +152,31 @@ export async function loadExtrinsicChainEvents(
     events: Array.isArray(data?.events) ? data.events : [],
   };
 }
+
+// One page of the raw recent chain-events feed (newest first) — same DATA_API
+// path REST's /api/v1/chain-events proxy and MCP list_chain_events use.
+// Optional pallet/method/block/extrinsic filters + opaque keyset cursor (or
+// legacy before=block_number); the data Worker validates the filter combo and
+// returns 400, surfaced here as invalid_params.
+export async function loadChainEventsFeed(
+  ctx,
+  { pallet, method, block, extrinsic, cursor, before, limit } = {},
+) {
+  const parts = [];
+  if (pallet != null) parts.push(`pallet=${encodeURIComponent(pallet)}`);
+  if (method != null) parts.push(`method=${encodeURIComponent(method)}`);
+  if (block != null) parts.push(`block=${encodeURIComponent(block)}`);
+  if (extrinsic != null)
+    parts.push(`extrinsic=${encodeURIComponent(extrinsic)}`);
+  if (cursor != null) parts.push(`cursor=${encodeURIComponent(cursor)}`);
+  else if (before != null) parts.push(`before=${encodeURIComponent(before)}`);
+  if (limit != null) parts.push(`limit=${encodeURIComponent(limit)}`);
+  const qs = parts.length ? `?${parts.join("&")}` : "";
+  const data = await dataApiFetchJson(ctx, `/api/v1/chain-events${qs}`);
+  return {
+    count: data?.count ?? 0,
+    next_before: data?.next_before ?? null,
+    next_cursor: data?.next_cursor ?? null,
+    events: Array.isArray(data?.events) ? data.events : [],
+  };
+}

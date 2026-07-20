@@ -11,6 +11,15 @@ import { readArtifact, readHealthKv } from "../workers/storage.mjs";
 // own loader unchanged (same artifact read, filter, sort, and page logic REST
 // and MCP already use) -- not a reimplementation.
 import { loadSourceSnapshotsList } from "./source-snapshots-mcp.mjs";
+// #7171: GraphQL parity for GET /api/v1/gaps and /api/v1/evidence, reusing
+// list_gaps / list_evidence loaders unchanged (same artifact + list-query
+// transforms REST and MCP already use) -- not a reimplementation.
+import { loadGapsList } from "./gaps-mcp.mjs";
+import { loadEvidenceList } from "./evidence-mcp.mjs";
+// #7171: GraphQL parity for GET /api/v1/chain-events (paginated Query feed),
+// reusing loadChainEventsFeed that MCP list_chain_events already calls.
+// Distinct from Subscription.chainEvents (live WebSocket firehose).
+import { loadChainEventsFeed } from "./data-api-mcp.mjs";
 // #6992: GraphQL parity for profiles, reusing list_profiles' own loader
 // unchanged (same artifact read, filter, sort, and page logic REST and MCP
 // already use) -- not a reimplementation.
@@ -508,6 +517,10 @@ export const SDL = `
     endpoint_incidents(netuid: Int, kind: String, provider: String, status: String, severity: String, state: String, sort: String, order: String, fields: String, limit: Int, cursor: Int): IncidentList!
     "Per-source input-hash ledger -- each registry data source's captured input hash and record count at ingest time, for detecting hash drift or seeing per-source contribution volume. Filter with q (keyword search across id/kind/path), sort with sort/order, and page with limit (1-100)/cursor. An invalid sort/limit/cursor is a GraphQL error, not a silently substituted default. Mirrors GET /api/v1/source-snapshots."
     source_snapshots(q: String, sort: String, order: String, fields: String, limit: Int, cursor: Int): SourceSnapshotList!
+    "Registry-wide interface gap report -- every active subnet's missing/unsupported public interface facets, gap_count, coverage_level, and curation_level. Filter by netuid/coverage_level/curation_level, sort with sort/order, and page with limit (1-100)/cursor. An invalid filter/sort/limit/cursor is a GraphQL error, not a silently substituted default. Distinct from subnet_gaps(netuid) (one subnet's contributor enrichment queue). Mirrors GET /api/v1/gaps."
+    gaps(netuid: Int, coverage_level: String, curation_level: String, sort: String, order: String, fields: String, limit: Int, cursor: Int): GapsList!
+    "Network-wide public evidence ledger -- the append-only provenance record behind registry surfaces. Search with q across subject/claim/source_url/support_summary, sort with sort/order, project with fields, and page with limit (1-100)/cursor. An invalid sort/limit/cursor is a GraphQL error, not a silently substituted default. Distinct from subnet_evidence(netuid) (one subnet's claims). Mirrors GET /api/v1/evidence."
+    evidence(q: String, sort: String, order: String, fields: String, limit: Int, cursor: Int): EvidenceList!
     "Public-safe subnet profile index -- completeness scores, surface/interface counts, curation level, review state, and confidence for every registered subnet. Filter by netuid/subnet_type/curation_level/review_state/confidence/profile_level, search name/slug/project/team/categories with q, sort with sort/order, and page with limit (1-1000)/cursor. An invalid filter/sort/limit/cursor is a GraphQL error, not a silently substituted default. Mirrors GET /api/v1/profiles."
     profiles(netuid: Int, subnet_type: String, curation_level: String, review_state: String, confidence: String, profile_level: String, q: String, sort: String, order: String, fields: String, limit: Int, cursor: Int): ProfileList!
     "The registry-wide summary: overall subnet count, coverage/curation-level/profile-level counts, recent registry changes, and the most-complete top subnets. A fast orientation for the whole Bittensor application layer. Null when the summary has not been baked in this environment (rather than a GraphQL error). Opaque JSON passed through verbatim, matching the registry_summary MCP/REST shape. Mirrors GET /api/v1/registry/summary."
@@ -528,6 +541,8 @@ export const SDL = `
     incidents(window: String): GlobalIncidents!
     "Recent-extrinsic feed (newest first), optionally filtered. Mirrors GET /api/v1/extrinsics."
     extrinsics(limit: Int, offset: Int, cursor: String, block: Int, signer: String, call_module: String, call_function: String, success: Boolean): ExtrinsicList!
+    "Paginated all-events feed (newest first) from the Postgres-backed all-events tier: each event's block, event index, pallet, method, decoded args, phase, and emitting extrinsic index. Filter by pallet/method/block/extrinsic; page with limit (1-200, default 50) and the opaque keyset cursor (or legacy before=block_number). An invalid filter combo is a GraphQL BAD_USER_INPUT error; a cold/unbound tier resolves to a schema-stable empty feed, never a GraphQL error. Distinct from Subscription.chainEvents (live WebSocket firehose). Mirrors GET /api/v1/chain-events."
+    chain_events(pallet: String, method: String, block: Int, extrinsic: Int, cursor: String, before: Int, limit: Int): ChainEventsFeed!
     "One extrinsic by hash or composite block_number-extrinsic_index ref; extrinsic is null when the ref doesn't resolve (schema-stable, never a GraphQL error). Mirrors GET /api/v1/extrinsics/{ref}."
     extrinsic(ref: String!): ExtrinsicDetail
     "Subtensor's root-origin hyperparameter/network-config change feed (newest first) -- the extrinsics feed fixed to call_module=AdminUtils, so it takes no signer/call_module filter. Same ExtrinsicList shape as extrinsics. Mirrors GET /api/v1/governance/config-changes."
@@ -1796,6 +1811,55 @@ export const SDL = `
     next_cursor: Int
     sort: String
     order: String
+  }
+
+  "Registry-wide interface gap report page. Mirrors GET /api/v1/gaps (and MCP list_gaps)."
+  type GapsList {
+    generated_at: String
+    notes: JSON
+    gaps: [JSON!]!
+    total: Int!
+    returned: Int!
+    limit: Int!
+    cursor: Int!
+    next_cursor: Int
+    sort: String
+    order: String
+  }
+
+  "Network-wide public evidence ledger page. Mirrors GET /api/v1/evidence (and MCP list_evidence)."
+  type EvidenceList {
+    generated_at: String
+    schema_version: String
+    summary: JSON
+    claims: [JSON!]!
+    total: Int!
+    returned: Int!
+    limit: Int!
+    cursor: Int!
+    next_cursor: Int
+    sort: String
+    order: String
+  }
+
+  "Paginated all-events feed from the Postgres-backed all-events tier. Mirrors GET /api/v1/chain-events (and MCP list_chain_events). Distinct from Subscription.chainEvents."
+  type ChainEventsFeed {
+    count: Int!
+    next_before: Int
+    next_cursor: String
+    events: [ChainEventRow!]!
+  }
+
+  "One raw pallet-level chain event from the all-events tier (distinct from the curated AccountEvent and from Subscription's ChainEvent firehose payload)."
+  type ChainEventRow {
+    block_number: Int
+    event_index: Int
+    pallet: String
+    method: String
+    args: JSON
+    phase: String
+    extrinsic_index: Int
+    observed_at: Float
   }
 
   type ProfileList {
@@ -3753,6 +3817,8 @@ export const FIELD_COMPLEXITY = {
   rpc_pools: RELATIONSHIP_FIELD_COMPLEXITY,
   endpoint_incidents: RELATIONSHIP_FIELD_COMPLEXITY,
   source_snapshots: RELATIONSHIP_FIELD_COMPLEXITY,
+  gaps: RELATIONSHIP_FIELD_COMPLEXITY,
+  evidence: RELATIONSHIP_FIELD_COMPLEXITY,
   block_extrinsics: RELATIONSHIP_FIELD_COMPLEXITY,
   block_events: RELATIONSHIP_FIELD_COMPLEXITY,
   block_chain_events: RELATIONSHIP_FIELD_COMPLEXITY,
@@ -3765,6 +3831,7 @@ export const FIELD_COMPLEXITY = {
   opportunity_boards: RELATIONSHIP_FIELD_COMPLEXITY,
   compare: RELATIONSHIP_FIELD_COMPLEXITY,
   extrinsics: RELATIONSHIP_FIELD_COMPLEXITY,
+  chain_events: RELATIONSHIP_FIELD_COMPLEXITY,
   sudo: RELATIONSHIP_FIELD_COMPLEXITY,
   extrinsic: RELATIONSHIP_FIELD_COMPLEXITY,
   governance_config_changes: RELATIONSHIP_FIELD_COMPLEXITY,
@@ -5343,6 +5410,19 @@ const rootValue = {
     return loadSourceSnapshotsList(context, args, { readArtifact });
   },
 
+  // #7171: reuse list_gaps / list_evidence loaders unchanged. Each validates
+  // its own args and throws on an invalid one -- that throw becomes a GraphQL
+  // error, matching source_snapshots' "unsupported filter/sort is a GraphQL
+  // error, not a silently substituted default" convention. A cold/absent
+  // artifact is likewise a GraphQL error (matching REST/MCP not_found).
+  gaps(args, context) {
+    return loadGapsList(context, args, { readArtifact });
+  },
+
+  evidence(args, context) {
+    return loadEvidenceList(context, args, { readArtifact });
+  },
+
   // #6992: reuse list_profiles' own loader unchanged. Its readOptionalArtifact
   // dep is called as (ctx, path) and expects data-or-null on a cold artifact
   // (not a throw) -- this file's own loadArtifact(context, path) already has
@@ -5949,6 +6029,59 @@ const rootValue = {
       total: data.extrinsic_count ?? 0,
       next_cursor: data.next_cursor ?? null,
     };
+  },
+
+  // #7171: reuse loadChainEventsFeed (the same DATA_API path MCP
+  // list_chain_events already calls). invalid_params (bad filter combo) is
+  // BAD_USER_INPUT; a cold/unbound/rate-limited tier degrades to a
+  // schema-stable empty feed, never a GraphQL error — matching extrinsics'
+  // cold-empty convention. Distinct from Subscription.chainEvents.
+  async chain_events(
+    { pallet, method, block, extrinsic, cursor, before, limit },
+    context,
+  ) {
+    try {
+      const data = await loadChainEventsFeed(context, {
+        pallet,
+        method,
+        block,
+        extrinsic,
+        cursor,
+        before,
+        limit,
+      });
+      // loadChainEventsFeed always returns count/next_*/events (array); map
+      // sparse event rows so every GraphQL field is present.
+      return {
+        count: data.count,
+        next_before: data.next_before,
+        next_cursor: data.next_cursor,
+        events: data.events.map((event) => ({
+          block_number: event.block_number ?? null,
+          event_index: event.event_index ?? null,
+          pallet: event.pallet ?? null,
+          method: event.method ?? null,
+          args: event.args ?? null,
+          phase: event.phase ?? null,
+          extrinsic_index: event.extrinsic_index ?? null,
+          observed_at: event.observed_at ?? null,
+        })),
+      };
+    } catch (err) {
+      if (err?.toolError && err.code === "invalid_params") {
+        throw new GraphQLError(err.message, {
+          extensions: { code: "BAD_USER_INPUT" },
+        });
+      }
+      // tier_unavailable / data_rate_limited (and any other loader failure):
+      // schema-stable empty feed, never a GraphQL error.
+      return {
+        count: 0,
+        next_before: null,
+        next_cursor: null,
+        events: [],
+      };
+    }
   },
 
   async sudo(
