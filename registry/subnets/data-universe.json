@@ -354,6 +354,316 @@
         "https://github.com/macrocosm-os/data-universe"
       ],
       "url": "https://raw.githubusercontent.com/macrocosm-os/data-universe/main/dynamic_desirability/default.json"
+    },
+    {
+      "auth": {
+        "scheme": "api-key",
+        "location": "header",
+        "name": "X-API-Key",
+        "scopes_note": "Declared as APIKeyHeader (X-API-Key) on every operation in sn13.api.macrocosmos.ai/openapi.json; Macrocosmos Sn13Client/GravityClient credential pattern."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-13-data-universe-get-api-v1-ages",
+      "kind": "subnet-api",
+      "name": "Data Universe Get Age Sizes",
+      "notes": "Auth-gated GET /api/v1/ages on sn13.api.macrocosmos.ai from the Data Universe Validator API OpenAPI schema (sn-13-data-universe-openapi). All schema operations declare APIKeyHeader (X-API-Key). probe.enabled:false (auth-gated). Live-verified 2026-07-21: anonymous GET /api/v1/health -> HTTP 500 (auth/error anomaly noted in #7029).",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "macrocosmos",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://sn13.api.macrocosmos.ai/openapi.json",
+        "https://github.com/macrocosm-os/data-universe"
+      ],
+      "url": "https://sn13.api.macrocosmos.ai/api/v1/ages"
+    },
+    {
+      "auth": {
+        "scheme": "api-key",
+        "location": "header",
+        "name": "X-API-Key",
+        "scopes_note": "Declared as APIKeyHeader (X-API-Key) on every operation in sn13.api.macrocosmos.ai/openapi.json; Macrocosmos Sn13Client/GravityClient credential pattern."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-13-data-universe-get-api-v1-get-bytes-by-label",
+      "kind": "subnet-api",
+      "name": "Data Universe Get Bytes By Label",
+      "notes": "Auth-gated GET /api/v1/get_bytes_by_label on sn13.api.macrocosmos.ai from the Data Universe Validator API OpenAPI schema (sn-13-data-universe-openapi). All schema operations declare APIKeyHeader (X-API-Key). probe.enabled:false (auth-gated). Live-verified 2026-07-21: anonymous GET /api/v1/health -> HTTP 500 (auth/error anomaly noted in #7029).",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "macrocosmos",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://sn13.api.macrocosmos.ai/openapi.json",
+        "https://github.com/macrocosm-os/data-universe"
+      ],
+      "url": "https://sn13.api.macrocosmos.ai/api/v1/get_bytes_by_label"
+    },
+    {
+      "auth": {
+        "scheme": "api-key",
+        "location": "header",
+        "name": "X-API-Key",
+        "scopes_note": "Declared as APIKeyHeader (X-API-Key) on every operation in sn13.api.macrocosmos.ai/openapi.json; Macrocosmos Sn13Client/GravityClient credential pattern."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-13-data-universe-get-api-v1-get-desirabilities",
+      "kind": "subnet-api",
+      "name": "Data Universe Get Desirability List",
+      "notes": "Auth-gated GET /api/v1/get_desirabilities on sn13.api.macrocosmos.ai from the Data Universe Validator API OpenAPI schema (sn-13-data-universe-openapi). All schema operations declare APIKeyHeader (X-API-Key). probe.enabled:false (auth-gated). Live-verified 2026-07-21: anonymous GET /api/v1/health -> HTTP 500 (auth/error anomaly noted in #7029).",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "macrocosmos",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://sn13.api.macrocosmos.ai/openapi.json",
+        "https://github.com/macrocosm-os/data-universe"
+      ],
+      "url": "https://sn13.api.macrocosmos.ai/api/v1/get_desirabilities"
+    },
+    {
+      "auth": {
+        "scheme": "api-key",
+        "location": "header",
+        "name": "X-API-Key",
+        "scopes_note": "Declared as APIKeyHeader (X-API-Key) on every operation in sn13.api.macrocosmos.ai/openapi.json; Macrocosmos Sn13Client/GravityClient credential pattern."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-13-data-universe-get-api-v1-get-top-labels-by-source-source",
+      "kind": "subnet-api",
+      "name": "Data Universe Get Label Sizes",
+      "notes": "Auth-gated GET /api/v1/get_top_labels_by_source/{source} on sn13.api.macrocosmos.ai from the Data Universe Validator API OpenAPI schema (sn-13-data-universe-openapi). All schema operations declare APIKeyHeader (X-API-Key). probe.enabled:false (auth-gated; path-parameterized template). Live-verified 2026-07-21: anonymous GET /api/v1/health -> HTTP 500 (auth/error anomaly noted in #7029).",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "macrocosmos",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://sn13.api.macrocosmos.ai/openapi.json",
+        "https://github.com/macrocosm-os/data-universe"
+      ],
+      "url": "https://sn13.api.macrocosmos.ai/api/v1/get_top_labels_by_source/%7Bsource%7D"
+    },
+    {
+      "auth": {
+        "scheme": "api-key",
+        "location": "header",
+        "name": "X-API-Key",
+        "scopes_note": "Declared as APIKeyHeader (X-API-Key) on every operation in sn13.api.macrocosmos.ai/openapi.json; Macrocosmos Sn13Client/GravityClient credential pattern."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-13-data-universe-get-api-v1-health",
+      "kind": "subnet-api",
+      "name": "Data Universe Health Check",
+      "notes": "Auth-gated GET /api/v1/health on sn13.api.macrocosmos.ai from the Data Universe Validator API OpenAPI schema (sn-13-data-universe-openapi). All schema operations declare APIKeyHeader (X-API-Key). probe.enabled:false (auth-gated). Live-verified 2026-07-21: anonymous GET /api/v1/health -> HTTP 500 (auth/error anomaly noted in #7029).",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "macrocosmos",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://sn13.api.macrocosmos.ai/openapi.json",
+        "https://github.com/macrocosm-os/data-universe"
+      ],
+      "url": "https://sn13.api.macrocosmos.ai/api/v1/health"
+    },
+    {
+      "auth": {
+        "scheme": "api-key",
+        "location": "header",
+        "name": "X-API-Key",
+        "scopes_note": "Declared as APIKeyHeader (X-API-Key) on every operation in sn13.api.macrocosmos.ai/openapi.json; Macrocosmos Sn13Client/GravityClient credential pattern."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-13-data-universe-get-api-v1-keys",
+      "kind": "subnet-api",
+      "name": "Data Universe API keys",
+      "notes": "Auth-gated GET and POST /api/v1/keys on sn13.api.macrocosmos.ai (list + create) from the Data Universe Validator API OpenAPI schema (sn-13-data-universe-openapi). Same URL hosts both operations; registered once per registry URL uniqueness. All schema operations declare APIKeyHeader (X-API-Key). probe.enabled:false (auth-gated). Live-verified 2026-07-21: anonymous GET /api/v1/health -> HTTP 500 (auth/error anomaly noted in #7029).",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "macrocosmos",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://sn13.api.macrocosmos.ai/openapi.json",
+        "https://github.com/macrocosm-os/data-universe"
+      ],
+      "url": "https://sn13.api.macrocosmos.ai/api/v1/keys"
+    },
+    {
+      "auth": {
+        "scheme": "api-key",
+        "location": "header",
+        "name": "X-API-Key",
+        "scopes_note": "Declared as APIKeyHeader (X-API-Key) on every operation in sn13.api.macrocosmos.ai/openapi.json; Macrocosmos Sn13Client/GravityClient credential pattern."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-13-data-universe-post-api-v1-keys-key-deactivate",
+      "kind": "subnet-api",
+      "name": "Data Universe Deactivate Api Key",
+      "notes": "Auth-gated POST /api/v1/keys/{key}/deactivate on sn13.api.macrocosmos.ai from the Data Universe Validator API OpenAPI schema (sn-13-data-universe-openapi). All schema operations declare APIKeyHeader (X-API-Key). probe.enabled:false (auth-gated; path-parameterized template). Live-verified 2026-07-21: anonymous GET /api/v1/health -> HTTP 500 (auth/error anomaly noted in #7029).",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "macrocosmos",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://sn13.api.macrocosmos.ai/openapi.json",
+        "https://github.com/macrocosm-os/data-universe"
+      ],
+      "url": "https://sn13.api.macrocosmos.ai/api/v1/keys/%7Bkey%7D/deactivate"
+    },
+    {
+      "auth": {
+        "scheme": "api-key",
+        "location": "header",
+        "name": "X-API-Key",
+        "scopes_note": "Declared as APIKeyHeader (X-API-Key) on every operation in sn13.api.macrocosmos.ai/openapi.json; Macrocosmos Sn13Client/GravityClient credential pattern."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-13-data-universe-get-api-v1-monitoring-system-status",
+      "kind": "subnet-api",
+      "name": "Data Universe System Health Check",
+      "notes": "Auth-gated GET /api/v1/monitoring/system-status on sn13.api.macrocosmos.ai from the Data Universe Validator API OpenAPI schema (sn-13-data-universe-openapi). All schema operations declare APIKeyHeader (X-API-Key). probe.enabled:false (auth-gated). Live-verified 2026-07-21: anonymous GET /api/v1/health -> HTTP 500 (auth/error anomaly noted in #7029).",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "macrocosmos",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://sn13.api.macrocosmos.ai/openapi.json",
+        "https://github.com/macrocosm-os/data-universe"
+      ],
+      "url": "https://sn13.api.macrocosmos.ai/api/v1/monitoring/system-status"
+    },
+    {
+      "auth": {
+        "scheme": "api-key",
+        "location": "header",
+        "name": "X-API-Key",
+        "scopes_note": "Declared as APIKeyHeader (X-API-Key) on every operation in sn13.api.macrocosmos.ai/openapi.json; Macrocosmos Sn13Client/GravityClient credential pattern."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-13-data-universe-get-api-v1-query-bucket-source",
+      "kind": "subnet-api",
+      "name": "Data Universe Query Bucket",
+      "notes": "Auth-gated GET /api/v1/query_bucket/{source} on sn13.api.macrocosmos.ai from the Data Universe Validator API OpenAPI schema (sn-13-data-universe-openapi). All schema operations declare APIKeyHeader (X-API-Key). probe.enabled:false (auth-gated; path-parameterized template). Live-verified 2026-07-21: anonymous GET /api/v1/health -> HTTP 500 (auth/error anomaly noted in #7029).",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "macrocosmos",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://sn13.api.macrocosmos.ai/openapi.json",
+        "https://github.com/macrocosm-os/data-universe"
+      ],
+      "url": "https://sn13.api.macrocosmos.ai/api/v1/query_bucket/%7Bsource%7D"
+    },
+    {
+      "auth": {
+        "scheme": "api-key",
+        "location": "header",
+        "name": "X-API-Key",
+        "scopes_note": "Declared as APIKeyHeader (X-API-Key) on every operation in sn13.api.macrocosmos.ai/openapi.json; Macrocosmos Sn13Client/GravityClient credential pattern."
+      },
+      "auth_required": true,
+      "authority": "community",
+      "id": "sn-13-data-universe-post-api-v1-set-desirabilities",
+      "kind": "subnet-api",
+      "name": "Data Universe Set Desirabilities",
+      "notes": "Auth-gated POST /api/v1/set_desirabilities on sn13.api.macrocosmos.ai from the Data Universe Validator API OpenAPI schema (sn-13-data-universe-openapi). All schema operations declare APIKeyHeader (X-API-Key). probe.enabled:false (auth-gated). Live-verified 2026-07-21: anonymous GET /api/v1/health -> HTTP 500 (auth/error anomaly noted in #7029).",
+      "probe": {
+        "enabled": false,
+        "expect": "json",
+        "method": "GET",
+        "timeout_ms": 10000
+      },
+      "provider": "macrocosmos",
+      "public_safe": true,
+      "review": {
+        "state": "community-submitted",
+        "submitted_by": "kai392"
+      },
+      "source_urls": [
+        "https://sn13.api.macrocosmos.ai/openapi.json",
+        "https://github.com/macrocosm-os/data-universe"
+      ],
+      "url": "https://sn13.api.macrocosmos.ai/api/v1/set_desirabilities"
     }
   ],
   "website_url": "https://datauniverse.macrocosmos.ai/"
