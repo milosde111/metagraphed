@@ -16377,6 +16377,83 @@ describe("graphql — network_randomness (#6990, live chain RPC via randomness.m
   });
 });
 
+describe("graphql — randomness_status (#7649, get_randomness_status-aligned alias)", () => {
+  function kvEnv(payload) {
+    return { METAGRAPH_CONTROL: { get: async () => payload } };
+  }
+
+  test("a successful live read serves the same beacon snapshot as network_randomness", async () => {
+    const env = kvEnv({
+      schema_version: 1,
+      last_stored_round: 1200,
+      oldest_stored_round: 900,
+      stored_round_span: 301,
+      queried_at: "2026-07-20T00:00:00.000Z",
+    });
+    const { status, body } = await gql(
+      `{ randomness_status { schema_version last_stored_round oldest_stored_round stored_round_span queried_at }
+         network_randomness { schema_version last_stored_round oldest_stored_round stored_round_span queried_at } }`,
+      env,
+    );
+    assert.equal(status, 200);
+    assert.equal(body.errors, undefined);
+    const alias = body.data.randomness_status;
+    assert.equal(alias.schema_version, 1);
+    assert.equal(alias.last_stored_round, 1200);
+    assert.equal(alias.oldest_stored_round, 900);
+    assert.equal(alias.stored_round_span, 301);
+    assert.equal(alias.queried_at, "2026-07-20T00:00:00.000Z");
+    // Alias equivalence: the identical envelope from the same env.
+    assert.deepEqual(alias, body.data.network_randomness);
+  });
+
+  test("RPC failure: null rounds resolve as the same schema-stable card, never a GraphQL error", async () => {
+    const env = kvEnv({
+      schema_version: 1,
+      last_stored_round: null,
+      oldest_stored_round: null,
+      stored_round_span: null,
+      queried_at: "2026-07-20T00:00:00.000Z",
+    });
+    const { status, body } = await gql(
+      "{ randomness_status { last_stored_round oldest_stored_round stored_round_span queried_at } }",
+      env,
+    );
+    assert.equal(status, 200);
+    assert.equal(body.errors, undefined);
+    const r = body.data.randomness_status;
+    assert.equal(r.last_stored_round, null);
+    assert.equal(r.oldest_stored_round, null);
+    assert.equal(r.stored_round_span, null);
+    assert.ok(r.queried_at);
+  });
+
+  test("is priced identically to network_randomness", () => {
+    assert.equal(
+      FIELD_COMPLEXITY.randomness_status,
+      FIELD_COMPLEXITY.network_randomness,
+    );
+  });
+
+  test("has the identical GraphQL signature as network_randomness (args + return type)", async () => {
+    const { status, body } = await gql(
+      `{ __type(name: "Query") { fields {
+          name
+          args { name type { kind name ofType { kind name } } }
+          type { kind name ofType { kind name } }
+        } } }`,
+    );
+    assert.equal(status, 200);
+    assert.equal(body.errors, undefined);
+    const fields = body.data.__type.fields;
+    const canonical = fields.find((f) => f.name === "network_randomness");
+    const alias = fields.find((f) => f.name === "randomness_status");
+    assert.ok(canonical && alias, "both fields present in the schema");
+    assert.deepEqual(alias.args, canonical.args);
+    assert.deepEqual(alias.type, canonical.type);
+  });
+});
+
 describe("graphql — evm_address (#6990, live chain RPC via address-mapping.mjs)", () => {
   function kvEnv(payload) {
     return { METAGRAPH_CONTROL: { get: async () => payload } };
