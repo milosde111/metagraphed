@@ -12240,6 +12240,92 @@ describe("MCP economics + metagraph data tools", () => {
     assert.deepEqual(out.surfaces, []);
   });
 
+  test("get_global_incidents filters by netuid and paginates over the Postgres ledger (#7890)", async () => {
+    const surfaces = [
+      { netuid: 7, surface_id: "a", incident_count: 1, downtime_ms: 300 },
+      { netuid: 7, surface_id: "b", incident_count: 3, downtime_ms: 100 },
+      { netuid: 12, surface_id: "c", incident_count: 2, downtime_ms: 900 },
+    ];
+    let captured;
+    const env = {
+      METAGRAPH_HEALTH_SOURCE: "postgres",
+      DATA_API: {
+        fetch: async (req) => {
+          const reqUrl = new URL(req.url);
+          captured = reqUrl.pathname + reqUrl.search;
+          return Response.json({
+            schema_version: 1,
+            window: "7d",
+            observed_at: "2026-07-01T00:00:00.000Z",
+            source: "live-cron-prober",
+            summary: {
+              incident_count: surfaces.length,
+              affected_surface_count: surfaces.length,
+            },
+            surfaces,
+          });
+        },
+      },
+    };
+
+    const filtered = await callTool(
+      "get_global_incidents",
+      { window: "7d", netuid: 12 },
+      { env },
+    );
+    assert.equal(filtered.body.result.isError, false);
+    const filteredOut = filtered.body.result.structuredContent;
+    assert.deepEqual(
+      filteredOut.surfaces.map((s) => s.netuid),
+      [12],
+    );
+    assert.equal(filteredOut.total, 1);
+    assert.ok(
+      String(captured).includes("netuid=12"),
+      `expected netuid passed through to DATA_API, got ${captured}`,
+    );
+
+    const page = await callTool(
+      "get_global_incidents",
+      {
+        window: "7d",
+        limit: 1,
+        cursor: 0,
+        sort: "downtime_ms",
+        order: "desc",
+      },
+      { env },
+    );
+    assert.equal(page.body.result.isError, false);
+    const pageOut = page.body.result.structuredContent;
+    assert.equal(pageOut.surfaces.length, 1);
+    assert.equal(pageOut.surfaces[0].surface_id, "c");
+    assert.equal(pageOut.total, 3);
+    assert.equal(pageOut.limit, 1);
+    assert.equal(pageOut.cursor, 0);
+    assert.equal(pageOut.next_cursor, 1);
+    assert.equal(pageOut.sort, "downtime_ms");
+    assert.equal(pageOut.order, "desc");
+    assert.ok(
+      String(captured).includes("limit=1"),
+      `expected limit passed through to DATA_API, got ${captured}`,
+    );
+  });
+
+  test("get_global_incidents rejects invalid list-query params", async () => {
+    const badSort = await callTool("get_global_incidents", {
+      window: "7d",
+      sort: "not-a-field",
+    });
+    assert.equal(badSort.body.result.isError, true);
+
+    const badLimit = await callTool("get_global_incidents", {
+      window: "7d",
+      limit: 0,
+    });
+    assert.equal(badLimit.body.result.isError, true);
+  });
+
   test("live analytics tools reject invalid window/board params", async () => {
     const uptime = await callTool("get_subnet_uptime", {
       netuid: 7,

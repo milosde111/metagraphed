@@ -193,6 +193,11 @@ import {
   loadEndpointIncidentsList,
 } from "./endpoint-incidents-mcp.ts";
 import {
+  applyGlobalIncidentsListQuery,
+  GLOBAL_INCIDENTS_LIST_INPUT_PROPERTIES,
+  globalIncidentsListParams,
+} from "./global-incidents-mcp.ts";
+import {
   LIST_PROVIDER_ENDPOINTS_INSTRUCTIONS,
   LIST_PROVIDER_ENDPOINTS_MCP_TOOL,
   LIST_PROVIDER_ENDPOINTS_OUTPUT_SCHEMA,
@@ -912,7 +917,8 @@ export const MCP_INSTRUCTIONS =
   LIST_PROFILES_INSTRUCTIONS +
   "get_subnet_profile one subnet's public-safe profile detail, compare_subnets a side-by-side view " +
   "across structure/economics/health, get_global_incidents recent cross-subnet " +
-  "probe failures, get_chain_signers the windowed most-active-account " +
+  "probe failures (filter by netuid; sort/page with sort/order/limit/cursor), " +
+  "get_chain_signers the windowed most-active-account " +
   "leaderboard (extrinsic counts + fees), get_rpc_usage the RPC reverse-proxy " +
   "usage analytics (request volume, latency, failover, cache hits, per-endpoint " +
   "distribution) over a 7d/30d window, get_subnet_metagraph the " +
@@ -5219,7 +5225,9 @@ export const MCP_TOOLS = [
     description:
       "Fetch the cross-subnet incident ledger: surfaces that had consecutive " +
       "probe failures grouped into downtime incidents over the requested window " +
-      "(7d or 30d). Mirrors GET /api/v1/incidents.",
+      "(7d or 30d). Filter by netuid; sort with sort + order; page with limit " +
+      "(1-1000) / cursor — the same list-query pattern as list_endpoint_incidents. " +
+      "Mirrors GET /api/v1/incidents.",
     inputSchema: {
       type: "object",
       properties: {
@@ -5228,6 +5236,7 @@ export const MCP_TOOLS = [
           enum: ["7d", "30d"],
           description: "Incident lookback window (default 7d).",
         },
+        ...GLOBAL_INCIDENTS_LIST_INPUT_PROPERTIES,
       },
       additionalProperties: false,
     },
@@ -5237,18 +5246,26 @@ export const MCP_TOOLS = [
         throw toolError("invalid_params", "window must be one of: 7d, 30d.");
       }
       const { label, days } = parseAnalyticsWindow(args?.window ?? "7d");
-      return (
+      // Validate list args up front (same vocabulary as REST), then pass them
+      // through on the Postgres-tier request the way handleGlobalIncidents
+      // forwards the caller's URL — DATA_API returns the window ledger; the
+      // in-memory incidents list-query below is what actually filters/pages.
+      const listParams = globalIncidentsListParams(args);
+      const ledger =
         (await tryPostgresTier(
           ctx.env,
-          mcpNeuronsTierRequest("/api/v1/incidents", { window: label }),
+          mcpNeuronsTierRequest("/api/v1/incidents", {
+            window: label,
+            ...listParams,
+          }),
           "METAGRAPH_HEALTH_SOURCE",
         )) ??
         (await loadGlobalIncidents({
           windowLabel: label,
           windowDays: days,
           observedAt: await mcpObservedAt(ctx),
-        }))
-      );
+        }));
+      return applyGlobalIncidentsListQuery(ledger, args);
     },
   },
   {
@@ -13424,6 +13441,13 @@ const TOOL_OUTPUT_SCHEMAS = {
       observed_at: NULLABLE_STRING,
       summary: { type: "object" },
       surfaces: { type: "array", items: { type: "object" } },
+      total: { type: "integer" },
+      returned: { type: "integer" },
+      limit: { type: "integer" },
+      cursor: { type: "integer" },
+      next_cursor: NULLABLE_INT,
+      sort: NULLABLE_STRING,
+      order: NULLABLE_STRING,
     },
   },
   get_subnet_metagraph: {
